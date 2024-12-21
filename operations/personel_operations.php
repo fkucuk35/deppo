@@ -11,7 +11,6 @@ switch ($op) {
 	    case 0: // new insert
         $item = new Personel();
         $item->name = $_REQUEST['name'];
-        $item->surname = $_REQUEST['surname'];
         $item->image_url= "";//_REQUEST['image_url'];
         $item->active= $_REQUEST['active_status'];
         $result = $item->insert();
@@ -20,7 +19,6 @@ switch ($op) {
         $item = new Personel();
         $item->id = intval($_REQUEST['id']);
         $item->name = $_REQUEST['name'];
-        $item->surname = $_REQUEST['surname'];
         $item->image_url= $_REQUEST['image_url'];
 		$item->active = $_REQUEST['active_status'];
         $result = $item->update();

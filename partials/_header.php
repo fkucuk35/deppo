@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="libs/jeasyui/themes/color.css"/>
     <script type="text/javascript" src="libs/jeasyui/jquery.min.js"></script>
     <script type="text/javascript" src="libs/jeasyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="libs/jeasyui/extensions/datagrid-filter.js"></script>
     <script type="text/javascript" src="libs/notify.min.js"></script>
     <style>
         .avatar {

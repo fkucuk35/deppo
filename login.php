@@ -25,7 +25,7 @@ if (isset($_POST["login"])) {
     }
 
     if (empty($usernameErr) && empty($passwordErr)) {
-        $sql = "SELECT id, username, password, name, surname, image_url, user_type from deppo_users WHERE username=? AND active='ü'";
+        $sql = "SELECT id, username, password, name, image_url, user_type from deppo_users WHERE username=? AND active='ü'";
 
         if ($stmt = mysqli_prepare($baglanti, $sql)) {
             mysqli_stmt_bind_param($stmt, "s", $username);
@@ -35,14 +35,13 @@ if (isset($_POST["login"])) {
 
                 if (mysqli_stmt_num_rows($stmt) == 1) {
                     // parola kontrolü
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $name, $surname, $image_url, $user_type);
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $name, $image_url, $user_type);
                     if (mysqli_stmt_fetch($stmt)) {
                         if (password_verify($password, $hashed_password)) {
                             $_SESSION["logined"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
                             $_SESSION["name"] = $name;
-                            $_SESSION["surname"] = $surname;
                             $_SESSION["user_type"] = $user_type;
                             $_SESSION["image_url"] = $image_url;
                             $_SESSION["newLogined"] = true;

@@ -20,7 +20,7 @@
 
         <?php if (isLoggedIn()): ?>
             <li class="nav-item">
-                <a href="login.php" class="nav-link">Hoş geldiniz, <?php echo (empty($_SESSION['name'])) ? 'Misafir Kullanıcı' : $_SESSION['name'] . " " . $_SESSION['surname']; ?></a>
+                <a href="login.php" class="nav-link">Hoş geldiniz, <?php echo (empty($_SESSION['name'])) ? 'Misafir Kullanıcı' : $_SESSION['name']; ?></a>
             </li>
             <div class="dropdown dropstart">
                 <img class="avatar mx-2" src="assets/images/users/<?php echo (empty($_SESSION['image_url'])) ? 'no-image.jpg' : $_SESSION['image_url']; ?>" data-bs-toggle="dropdown" aria-expanded="false" />

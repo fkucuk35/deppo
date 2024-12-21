@@ -94,6 +94,33 @@ if (!isLoggedIn()) {
             return '<image src="assets/images/personels/' + val + '" width="32" height="42"/>';
         }
     }
+
+    function doSearch(inp) {
+        if (inp != '') {
+            var rows = [];
+            var table_data = $('#dg').datagrid('getRows');
+
+            inp = inp.toUpperCase();
+
+            $.map(table_data, function (row) {
+                for (var p in row)
+                {
+                    var v = row[p];
+                    var regExp = new RegExp(inp, 'i'); // i - makes the search case-insensitive.
+
+                    if (regExp.test(String(v)))
+                    {
+                        rows.push(row);
+                        break;
+                    }
+                }
+            });
+
+            $('#dg').datagrid('loadData', rows);
+        } else {
+            refreshList();
+        }
+    }
 </script>
 <div id="wrapper" style="margin:5px">
     <div id="page-wrapper" class="gray-bg dashbard-1">
@@ -106,8 +133,7 @@ if (!isLoggedIn()) {
                         <tr>
                             <th field="active" data-options="formatter:formatActive">Aktif</th>
                             <th field="image_url" data-options="formatter:formatImage">Resim</th>
-                            <th field="name" width="50px">Personel Adı</th>
-                            <th field="surname" width="50px">Personel Soyadı</th>
+                            <th field="name" width="50px">Ad Soyad</th>
                         </tr>
                     </thead>
                 </table>
@@ -120,6 +146,7 @@ if (!isLoggedIn()) {
     <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editItem()">Düzenle</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeItem()">Sil</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshList()">Yenile</a>
+    <input id="searchByName" class="easyui-searchbox" data-options="prompt:'Aranacak personel adı', searcher: doSearch"/>
 </div>
 <div id="dlg" class="easyui-dialog" closed="true" buttons="#dlg-buttons" modal="true"
      data-options="onResize:function(){$(this).dialog('center');}">
@@ -130,12 +157,8 @@ if (!isLoggedIn()) {
             <input name="active_status" id="active_status" type="hidden"/>
         </div>
         <div class="fitem">
-            <label>Personel Adı:</label>
+            <label>Ad Soyad:</label>
             <input name="name" class="easyui-validatebox" required="true"/>
-        </div>
-        <div class="fitem">
-            <label>Personel Soyadı:</label>
-            <input name="surname" class="easyui-validatebox" required="true"/>
         </div>
     </form>
 </div>
