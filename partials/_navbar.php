@@ -3,6 +3,7 @@
     <a href="index.php" class="navbar-brand" style="font-style: italic; font-weight: bold">Deppo</a>
     <ul class="navbar-nav me-auto">
         <?php if (isAdmin()): ?>
+            <li><a class="nav-link" href="order_list.php">Sipariş Listesi</a></li>
             <div class="dropdown">
                 <a href="#" class="nav-link" data-bs-toggle="dropdown" aria-expanded="false">
                     Tanımlar
@@ -49,7 +50,7 @@
         }
 
         function logOut() {
-            $.notify('Kullanıcı çıkışı yapıldı...', {position: 'left bottom'});
+            $.notify('Kullanıcı çıkışı yapıldı...', {position: 'left bottom', className: 'success'});
             sleep(1000).then(() => {
                 window.location = 'logout.php';
             });

@@ -13,7 +13,7 @@ if (!isLoggedIn()) {
 <?php
 if (!empty($_SESSION)&&$_SESSION["logined"]&&$_SESSION["newLogined"]) {
     echo "<script type='text/javascript'>\n";
-    echo "$.notify('Kullanıcı girişi yapıldı...', { position:'left bottom' });\n";
+    echo "$.notify('Kullanıcı girişi yapıldı...', { position:'left bottom', className: 'success' });\n";
     echo "</script>\n";
     $_SESSION["newLogined"] = NULL;
 }

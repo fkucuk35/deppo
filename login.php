@@ -78,7 +78,7 @@ if (isset($_POST["login"])) {
 <?php
 if (!empty($loginErr)) {
     echo "<script type='text/javascript'>\n";
-    echo "$.notify('" . $loginErr . "', { position:'left bottom' });\n";
+    echo "$.notify('" . $loginErr . "', { position:'left bottom', className: 'success' });\n";
     echo "$('#loginForm').form('clear');\n";
     echo "$('#username').focus();\n";
     echo "</script>\n";
