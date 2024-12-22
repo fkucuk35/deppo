@@ -19,8 +19,10 @@
     <ul class="navbar-nav me-2">
 
         <?php if (isLoggedIn()): ?>
-            <li class="nav-item">
-                <a href="login.php" class="nav-link">Hoş geldiniz, <?php echo (empty($_SESSION['name'])) ? 'Misafir Kullanıcı' : $_SESSION['name']; ?></a>
+            <li class="nav-item my-1">
+                <span class="navbar-text">
+                    Hoş geldiniz, <?php echo (empty($_SESSION['name'])) ? 'İsimsiz Kullanıcı' : $_SESSION['name']; ?>
+                </span>
             </li>
             <div class="dropdown dropstart">
                 <img class="avatar mx-2" src="assets/images/users/<?php echo (empty($_SESSION['image_url'])) ? 'no-image.jpg' : $_SESSION['image_url']; ?>" data-bs-toggle="dropdown" aria-expanded="false" />
