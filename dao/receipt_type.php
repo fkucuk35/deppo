@@ -4,9 +4,9 @@ require_once ( "../libs/orm/dao.php");
 require_once ( "../libs/orm/query_helper.php");
 require_once ( "../libs/orm/data_type.php");
 
-class Slip_Type extends DAO {
+class Receipt_Type extends DAO {
 
-    const table_name = "deppo_slip_types";
+    const table_name = "deppo_receipt_types";
     const col_id = "id";
     const col_name = "name";
     

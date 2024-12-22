@@ -9,6 +9,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="personel_list.php">Personel Listesi</a></li>
+                    <li><a class="dropdown-item" href="receipt_type_list.php">Fişi Tipleri</a></li>
                     <li><a class="dropdown-item" href="stock_card_list.php">Stok Kartları</a></li>
                 </ul>
             </div>

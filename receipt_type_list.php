@@ -11,31 +11,32 @@ if (!isLoggedIn()) {
     var url;
     function newItem() {
         $('#icon-ok').show();
-        document.getElementById('quantity').innerHTML = 'Miktar: 0';
+        $('#password').show();
         $('#dlg').dialog('open').dialog('setTitle', 'Yeni');
         $('#fm').form('clear');
-        $('#active').checkbox({
-            checked: true
-        });
-        document.getElementById("active_status").value = "ü";
-        url = 'operations/stock_card_operations.php?op=0';
+        url = 'operations/receipt_type_operations.php?op=0';
     }
     function editItem() {
         var row = $('#dg').datagrid('getSelected');
         if (row) {
-            document.getElementById('quantity').innerHTML = 'Miktar: ' + row.quantity;
             $('#dlg').dialog('open').dialog('setTitle', 'Düzenle');
             $('#fm').form('load', row);
-            $('#active').checkbox({
-                checked: (row.active == 'ü')
-            });
             $('#icon-ok').show();
-            url = 'operations/stock_card_operations.php?op=1&id=' + row.id;
+            $('#password').show();
+            url = 'operations/receipt_type_operations.php?op=1&id=' + row.id;
+        }
+    }
+    function viewItem() {
+        var row = $('#dg').datagrid('getSelected');
+        if (row) {
+            $('#dlg').dialog('open').dialog('setTitle', 'Göster');
+            $('#fm').form('load', row);
+            $('#icon-ok').hide();
+            $('#password').hide();
         }
     }
 
     function saveItem() {
-        $('#active_status').val(($('#fm').serialize().indexOf('active=') >= 0) ? "ü" : "");
         $('#fm').form('submit', {
             url: url,
             onSubmit: function () {
@@ -60,7 +61,7 @@ if (!isLoggedIn()) {
         if (row) {
             $.messager.confirm('Onayla', 'Silmek isteediğinize emin misiniz?', function (r) {
                 if (r) {
-                    $.post('operations/stock_card_operations.php', {id: row.id, op: 2}, function (result) {
+                    $.post('operations/receipt_type_operations.php', {id: row.id, op: 2}, function (result) {
                         if (result.success) {
                             $('#dg').datagrid('reload');	// reload the list
                         } else {
@@ -81,36 +82,21 @@ if (!isLoggedIn()) {
     $(window).resize(function () {
         $('#dg').datagrid('resize');
     });
-    function formatActive(val, row) {
-        if (val == 'ü') {
-            return '<span style="font-family: wingdings">' + val + '</span>';
-        } else {
-            return val;
-        }
-    }
-    function formatImage(val, row, index) {
-        if (val == "") {
-            return '<image src="assets/images/stock_cards/no-image.jpg" width="32" height="32"/>';
-        } else {
-            return '<image src="assets/images/stock_cards/' + val + '" width="32" height="32"/>'
-        }
-    }
 </script>
-<div id="wrapper" style="margin:5px">
+</head>
+<body>
+<div id="wrapper">
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <div class="content-main">
             <div class ="content-easyui" id="wrapper-grid">
-                <table id="dg" title="Stok Kartı Listesi" class="easyui-datagrid"                                
-                       url="operations/stock_card_operations.php?op=3"
+                <table id="dg" title="Fiş Tipi Listesi" class="easyui-datagrid"                                
+                       url="operations/receipt_type_operations.php?op=3"
                        toolbar="#toolbar" pagination="true" pageSize="20"
-                       rownumbers="true" fitColumns="true" singleSelect="true">
+                       rownumbers="true" fitColumns="true" singleSelect="true"
+                       data-options="onDblClickRow:function(){viewItem();}">
                     <thead>
                         <tr>
-                            <th field="active" data-options="formatter:formatActive">Aktif</th>
-                            <th field="image_url" data-options="formatter:formatImage">Resim</th>
-                            <th field="code" width="50px">Stok Kartı Kodu</th>
-                            <th field="name" width="100px">Stok Kartı Adı</th>
-                            <th field="quantity">Miktar</th>
+                            <th field="name" width="50px">Fiş Tipi</th>
                         </tr>
                     </thead>
                 </table>
@@ -120,6 +106,7 @@ if (!isLoggedIn()) {
 </div> 
 <div id="toolbar">
     <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newItem()">Yeni</a>
+    <!-- <a href="#" class="easyui-linkbutton" iconCls="icon-view" plain="true" onclick="viewItem()">Göster</a> -->
     <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editItem()">Düzenle</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeItem()">Sil</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshList()">Yenile</a>
@@ -129,21 +116,9 @@ if (!isLoggedIn()) {
      data-options="onResize:function(){$(this).dialog('center');}">
     <form id="fm" method="post" novalidate>
         <div class="fitem">
-            <label>Aktif</label>
-            <input name="active" id="active" class="easyui-checkbox" required="true"/>
-            <input name="active_status" id="active_status" type="hidden"/>
-        </div>  
-        <div class="fitem">
-            <label>Stok Kartı Kodu:</label>
-            <input name="code" class="easyui-validatebox" required="true"/>
-        </div>  
-        <div class="fitem">
-            <label>Stok Kartı Adı:</label>
-            <input name="name" class="easyui-validatebox" required="true"/>
-        </div>      
-        <div class="fitem">
-            <label name="quantity" id="quantity"></label>
-        </div>      
+            <label>Fiş Tipi:</label>
+            <input name="name" class="easyui-validatebox" required="true">
+        </div>        
     </form>
 </div>
 <div id="dlg-buttons">

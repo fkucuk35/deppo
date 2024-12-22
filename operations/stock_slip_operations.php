@@ -1,6 +1,5 @@
 <?php
 
-include '../dao/settings.php';
 include '../config_db.php';
 include '../libs/orm/dao.php';
 include '../dao/stock_slip.php';

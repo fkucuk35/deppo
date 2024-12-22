@@ -1,5 +1,5 @@
 <?php
-require "libs/variables.php";
+
 require "libs/functions.php";
 if (!isLoggedIn()) {
     header('Location: login.php');

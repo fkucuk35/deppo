@@ -1,8 +1,7 @@
 <?php
-require "libs/variables.php";
+
 require "libs/functions.php";
 
-include 'dao/settings.php';
 include 'config_db.php';
 include 'libs/orm/dao.php';
 include 'dao/user.php';
