@@ -30,7 +30,7 @@
             <div class="dropdown dropstart">
                 <img class="avatar mx-2" src="assets/images/users/<?php echo (empty($_SESSION['image_url'])) ? 'no-image.jpg' : $_SESSION['image_url']; ?>" data-bs-toggle="dropdown" aria-expanded="false" />
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Profil</a></li>
+                    <li><a class="dropdown-item" href="profile.php">Profil</a></li>
                     <li><a class="dropdown-item" href="#" onclick="logOut()">Çıkış Yap</a></li>
                 </ul>
             </div>

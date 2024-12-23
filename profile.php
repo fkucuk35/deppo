@@ -11,11 +11,11 @@ include 'dao/user.php';
 <?php include "partials/_navbar.php" ?>
 
 <?php
-$usernameErr = $emailErr = $nameErr = $passwordErr = $repasswordErr = "";
+
 $username = $email = $name = $password = $repassword = "";
+$usernameErr = $emailErr = $nameErr = $passwordErr = $repasswordErr = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
     if (empty($_POST["username"])) {
         $usernameErr = "Kullanıcı adı gerekli alan.";
     } elseif (strlen($_POST["username"]) < 5 or strlen($_POST["username"]) > 20) {
@@ -67,16 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($usernameErr) && empty($emailErr) && empty($passwordErr) && empty($repasswordErr)) {
 
-        $item = new User();
-        $item->username = $username;
-        $item->name = $name;
-        $item->email = $email;
-        $item->password = md5($password);
-        $item->image_url = "";
-        $item->active = "ü";
-        $result = $item->insert();
-        header("Location: login.php");
     }
+}
+else {
+    echo "Sayfa ilk kez ziyaret ediliyor...";
 }
 ?>
 
@@ -92,8 +86,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="mb-1">
                     <label for="username">Kullanıcı Adı</label>
-                    <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                        <div class="text-danger"><?php echo $usernameErr; ?></div>
+                    <input type="text" name="username" class="form-control"value="<?php echo $username; ?>">
+                        <!-- <div class="text-danger"><?php echo $usernameErr; ?></div> -->
                 </div>
                 <div class="mb-1">
                     <label for="email">Eposta</label>
@@ -111,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="text-danger"><?php echo $repasswordErr; ?></div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+                <button type="submit" class="btn btn-primary">Kaydet</button>
             </form>
         </div>
     </div>
