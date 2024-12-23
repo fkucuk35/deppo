@@ -82,7 +82,11 @@ if (!isLoggedIn()) {
                        rownumbers="true" fitColumns="true" singleSelect="true">
                     <thead>
                         <tr>
-                            <th field="name" width="100px">Tedarikçi Firma/Kurum Adı</th>
+                            <th field="name" width="50">Tedarikçi Firma/Kurum Adı</th>
+                            <th field="tax_office" width="50">Vergi Dairesi</th>
+                            <th field="tax_number" width="50">Vergi Numarası</th>
+                            <th field="address" width="100">Adres</th>
+                            <th field="bill_address" width="100">Fatura Adresi</th>
                         </tr>
                     </thead>
                 </table>
