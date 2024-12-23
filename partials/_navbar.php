@@ -12,6 +12,7 @@
                     <li><a class="dropdown-item" href="personel_list.php">Personel Listesi</a></li>
                     <li><a class="dropdown-item" href="receipt_type_list.php">Fişi Tipleri</a></li>
                     <li><a class="dropdown-item" href="stock_card_list.php">Stok Kartları</a></li>
+                    <li><a class="dropdown-item" href="supplier_list.php">Tedarikçi Firmalar/Kurumlar</a></li>
                 </ul>
             </div>
         <?php endif; ?> 

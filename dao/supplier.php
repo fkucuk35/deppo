@@ -24,7 +24,7 @@ class Supplier extends DAO
         $this->addColumn("id", self::col_id, DataType::Integer, TRUE, TRUE);
         $this->addColumn("name", self::col_name, DataType::String, FALSE, FALSE);
         $this->addColumn("address", self::col_address, DataType::String, FALSE, FALSE);
-        $this->addColumn("tax_office", self::col_tax_office, DataType::Date, FALSE, FALSE);
+        $this->addColumn("tax_office", self::col_tax_office, DataType::String, FALSE, FALSE);
         $this->addColumn("tax_number", self::col_tax_number, DataType::String, FALSE, FALSE);
         $this->addColumn("bill_address", self::col_bill_address, DataType::String, FALSE, FALSE);
     }
