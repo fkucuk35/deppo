@@ -142,8 +142,10 @@ CREATE TABLE `deppo_users` (
 -- Tablo döküm verisi `deppo_users`
 --
 
-INSERT INTO `deppo_users` (`id`, `username`, `email`, `password`, `name`, `image_url`, `active`, `user_type`) VALUES
-(1, 'fatih.kucuk', 'depo@yapisanpark.com', '2bd6bd2690f9e2b6d1db1d745c5ab093', 'Fatih KÜÇÜK', 'FATIH-KUCUK.jpg', 'ü', 'admin');
+INSERT INTO `deppo_users` (`id`, `username`, `email`, `password`, `name`, `image_url`, `active`, `date_added`, `user_type`) VALUES
+(1, 'depo', 'depo@yapisanpark.com', 'e10adc3949ba59abbe56e057f20f883e', 'Depo Sorumlusu', '', 'ü', '2024-12-23 14:09:43', 'admin'),
+(2, 'satinalma', 'satinalma@yapisanpark.com', 'e10adc3949ba59abbe56e057f20f883e', 'Seren AYDOĞDU', '', 'ü', '2024-12-23 14:24:25', 'admin'),
+(3, 'fatih.kucuk', 'fatihkucuk@live.com', '43f40c95a4aeefa44b054741de1efa65', 'Fatih KÜÇÜK', 'FATIH-KUCUK.jpg', 'ü', '2024-12-23 15:26:25', 'admin');
 
 -- --------------------------------------------------------
 --
