@@ -118,7 +118,7 @@ CREATE TABLE `deppo_supplier_list` (
 --
 
 INSERT INTO `deppo_supplier_list` (`id`, `name`, `address`, `tax_office`, `tax_number`, `bill_address`) VALUES
-(1, 'MER TEKNİK', 'İZMİR', '', '', '');
+(1, 'MER TEKNİK', '1082 SOKAK NO: 9/F YENİŞEHİR KONAK/İZMİR', 'EGE', '6180664606', '1082 SOKAK NO: 9/F YENİŞEHİR KONAK/İZMİR');
 
 -- --------------------------------------------------------
 --
@@ -145,7 +145,7 @@ CREATE TABLE `deppo_users` (
 INSERT INTO `deppo_users` (`id`, `username`, `email`, `password`, `name`, `image_url`, `active`, `date_added`, `user_type`) VALUES
 (1, 'depo', 'depo@yapisanpark.com', 'e10adc3949ba59abbe56e057f20f883e', 'Depo Sorumlusu', '', 'ü', '2024-12-23 14:09:43', 'admin'),
 (2, 'satinalma', 'satinalma@yapisanpark.com', 'e10adc3949ba59abbe56e057f20f883e', 'Seren AYDOĞDU', '', 'ü', '2024-12-23 14:24:25', 'admin'),
-(3, 'fatih.kucuk', 'fatihkucuk@live.com', '43f40c95a4aeefa44b054741de1efa65', 'Fatih KÜÇÜK', 'FATIH-KUCUK.jpg', 'ü', '2024-12-23 15:26:25', 'admin');
+(3, 'fatih.kucuk', 'fatihkucuk@live.com', '3c308e560d3fb3508b166bca45c3cb93', 'Fatih KÜÇÜK', 'FATIH-KUCUK.jpg', 'ü', '2024-12-23 15:26:25', 'admin');
 
 -- --------------------------------------------------------
 --

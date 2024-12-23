@@ -17,7 +17,7 @@ class User extends DAO {
     const col_date_added = "date_added";
     const col_user_type = "user_type";
 
-    var $id, $username, $email, $password, $name, $surname, $image_url, $active, $date_added, $user_type;
+    var $id, $username, $email, $password, $name, $image_url, $active, $date_added, $user_type;
 
     protected function init() {
         $this->setTableName(self::table_name);

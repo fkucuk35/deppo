@@ -9,16 +9,30 @@ if (!isLoggedIn()) {
 <?php include "partials/_navbar.php" ?>
 <script type="text/javascript">
     var url;
+    
     function newItem() {
         $('#icon-ok').show();
         $('#dlg').dialog('open').dialog('setTitle', 'Yeni');
         $('#fm').form('clear');
+        $("#fm :input").prop("disabled", false);
         url = 'operations/supplier_operations.php?op=0';
     }
+
+    function viewItem() {
+        var row = $('#dg').datagrid('getSelected');
+        if (row) {
+            $('#dlg').dialog('open').dialog('setTitle', 'Görüntüle');
+            $('#fm').form('load', row);
+            $("#fm :input").prop("disabled", true);
+            $('#icon-ok').hide();
+        }
+    }
+
     function editItem() {
         var row = $('#dg').datagrid('getSelected');
         if (row) {
             $('#dlg').dialog('open').dialog('setTitle', 'Düzenle');
+            $("#fm :input").prop("disabled", false);
             $('#fm').form('load', row);
             $('#icon-ok').show();
             url = 'operations/supplier_operations.php?op=1&id=' + row.id;
@@ -79,7 +93,7 @@ if (!isLoggedIn()) {
                 <table id="dg" title="Tedarikçi Firma/Kurum Listesi" class="easyui-datagrid"                                
                        url="operations/supplier_operations.php?op=3"
                        toolbar="#toolbar" pagination="true" pageSize="20"
-                       rownumbers="true" fitColumns="true" singleSelect="true">
+                       rownumbers="true" fitColumns="true" singleSelect="true" data-options="onDblClickRow:function(){viewItem();}">
                     <thead>
                         <tr>
                             <th field="name" width="50">Tedarikçi Firma/Kurum Adı</th>
@@ -96,6 +110,7 @@ if (!isLoggedIn()) {
 </div> 
 <div id="toolbar">
     <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newItem()">Yeni</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-view" plain="true" onclick="viewItem()">Görüntüle</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editItem()">Düzenle</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeItem()">Sil</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshList()">Yenile</a>

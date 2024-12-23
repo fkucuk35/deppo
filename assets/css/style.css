@@ -1,0 +1,16 @@
+.fitem {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.fitem textbox, .fitem textarea {
+        width: -webkit-fill-available;
+}
+.avatar {
+    vertical-align: middle;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+#fm {
+    margin: 5px;
+}

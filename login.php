@@ -40,6 +40,7 @@ if (isset($_POST["login"])) {
             $_SESSION["id"] = $r['id'];
             $_SESSION["username"] = $r['username'];
             $_SESSION["name"] = $r['name'];
+            $_SESSION["email"] = $r['email'];
             $_SESSION["user_type"] = $r['user_type'];
             $_SESSION["image_url"] = $r['image_url'];
             $_SESSION["newLogined"] = true;

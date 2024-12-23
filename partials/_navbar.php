@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #00839b">
     <img src="assets/images/app/yapisan_logo_deppo.svg" height="40" class="inline-block" style="margin: 5px"/>
-    <a href="index.php" class="navbar-brand" style="font-style: italic; font-weight: bold">Deppo</a>
+    <a href="index.php" class="navbar-brand" style="font-style: italic; font-weight: bold"><?php echo $lang['app_name']; ?></a>
     <ul class="navbar-nav me-auto">
         <?php if (isAdmin()): ?>
             <li><a class="nav-link" href="order_list.php">Sipariş Listesi</a></li>
