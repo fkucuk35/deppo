@@ -143,7 +143,7 @@ CREATE TABLE `deppo_users` (
 --
 
 INSERT INTO `deppo_users` (`id`, `username`, `email`, `password`, `name`, `image_url`, `active`, `user_type`) VALUES
-(1, 'fkucuk4235', 'fatihkucuk@live.com', '3c308e560d3fb3508b166bca45c3cb93', 'Fatih KÜÇÜK', 'FATIH-KUCUK.jpg', 'ü', 'admin');
+(1, 'fatih.kucuk', 'depo@yapisanpark.com', '2bd6bd2690f9e2b6d1db1d745c5ab093', 'Fatih KÜÇÜK', 'FATIH-KUCUK.jpg', 'ü', 'admin');
 
 -- --------------------------------------------------------
 --
