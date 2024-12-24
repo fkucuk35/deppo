@@ -157,7 +157,8 @@ CREATE TABLE `deppo_logs` (
     `id` int(11) NOT NULL,
     `user_id` int(11) NOT NULL,
     `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-    `operation` varchar(255) NOT NULL
+    `operation` varchar(50) NOT NULL,
+    `operation_detail` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -290,6 +291,14 @@ ALTER TABLE `deppo_users`
 --
 ALTER TABLE `deppo_logs`
   ADD PRIMARY KEY (`id`);
+
+-- --------------------------------------------------------
+--
+-- Tablo için AUTO_INCREMENT değeri `deppo_logs`
+--
+
+ALTER TABLE `deppo_logs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 -- --------------------------------------------------------
 --
