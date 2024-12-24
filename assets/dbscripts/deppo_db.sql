@@ -148,6 +148,19 @@ INSERT INTO `deppo_users` (`id`, `username`, `email`, `password`, `name`, `image
 (3, 'fatih.kucuk', 'fatihkucuk@live.com', '3c308e560d3fb3508b166bca45c3cb93', 'Fatih KÜÇÜK', 'FATIH-KUCUK.jpg', 'ü', '2024-12-23 15:26:25', 'admin');
 
 -- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `deppo_logs`
+--
+
+CREATE TABLE `deppo_logs` (
+    `id` int(11) NOT NULL,
+    `user_id` int(11) NOT NULL,
+    `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+    `operation` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
 --
 -- Dökümü yapılmış tablolar için indeksler
 --
@@ -271,6 +284,12 @@ ALTER TABLE `deppo_supplier_list`
 
 ALTER TABLE `deppo_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Tablo için indeksler `deppo_logs`
+--
+ALTER TABLE `deppo_logs`
+  ADD PRIMARY KEY (`id`);
 
 -- --------------------------------------------------------
 --
