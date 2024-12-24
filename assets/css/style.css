@@ -14,3 +14,7 @@
 #fm {
     margin: 5px;
 }
+
+#profile-form .row .col-2 .card .card-body button {
+    width: -webkit-fill-available;
+}

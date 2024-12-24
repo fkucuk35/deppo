@@ -1,8 +1,8 @@
 <?php
 
-require_once ( "libs/orm/dao.php");
-require_once ( "libs/orm/query_helper.php");
-require_once ( "libs/orm/data_type.php");
+require_once ( $GLOBALS['FULL_ROOT']."libs/orm/dao.php");
+require_once ( $GLOBALS['FULL_ROOT']."libs/orm/query_helper.php");
+require_once ( $GLOBALS['FULL_ROOT']."libs/orm/data_type.php");
 
 class User extends DAO {
 

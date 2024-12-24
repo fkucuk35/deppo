@@ -158,7 +158,7 @@ CREATE TABLE `deppo_logs` (
     `user_id` int(11) NOT NULL,
     `created_at` datetime NOT NULL DEFAULT current_timestamp(),
     `operation` varchar(50) NOT NULL,
-    `operation_detail` varchar(50) NOT NULL
+    `operation_detail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

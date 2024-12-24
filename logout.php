@@ -2,7 +2,9 @@
 include 'config_db.php';
 include 'libs/orm/dao.php';
 include 'dao/log.php';
+
 session_start();
+
 if (!empty($_SESSION) && $_SESSION['logined']) {
     $log = new Log();
     $log->user_id = $_SESSION['id'];

@@ -1,9 +1,12 @@
 <?php
 require "libs/functions.php";
-
+if (!isLoggedIn()) {
+    header('Location: login.php');
+}
 include 'config_db.php';
 include 'libs/orm/dao.php';
-include 'dao/user.php';
+require_once 'dao/user.php';
+require_once 'dao/log.php';
 ?>
 
 <?php include "partials/_header.php" ?>
@@ -66,6 +69,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["name"] = $name;
         $_SESSION["email"] = $email;
         $_SESSION["profileUpdated"] = true;
+        $log = new Log();
+        $log->user_id = $_SESSION['id'];
+        $log->operation = "profile_update";
+        $log->operation_detail = "Kullanıcı profili güncellendi";
+        $log->insert();
         header("Location: index.php");
     }
 } else {
@@ -79,11 +87,66 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $user->name;
 }
 ?>
+<script type="text/javascript">
+    function changePassword() {
+        var password = document.getElementById("password").value;
+        var repassword = document.getElementById("repassword").value;
+        document.getElementById("passwordErr").innerHTML = "";
+        document.getElementById("repasswordErr").innerHTML = "";
+        if ((password !== "") || (repassword !== "")) {
+            if (password === repassword) {
+                $.ajax({
+                    type: "POST",
+                    url: "operations/user_operations.php",
+                    data: {op: 5, id: <?php echo $_SESSION["id"]; ?>, password: password},
+                    dataType: "json",
+                    success: function (result) {
+                        if (result.success) {
+                            $.notify('Parola başarıyla değiştirildi. Bundan sonraki kullanıcı girişinizden itibaren yeni parolanız geçerli olacaktır.', {position: 'left bottom', className: 'success'});
+                        } else {
 
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert(jqXHR.responseText);
+                    }
+                });
+                document.getElementById("passwordErr").innerHTML = "";
+                document.getElementById("repasswordErr").innerHTML = "";
+            } else {
+                document.getElementById("repasswordErr").innerHTML = "Girilen parolalar birbiriyle eşleşmiyor";
+                document.getElementById("repassword").value = "";
+            }
+        } else
+        {
+            if ((password === "")) {
+                document.getElementById("passwordErr").innerHTML = "Parola gerekli alan.";
+            }
+            if ((repassword === "")) {
+                document.getElementById("repasswordErr").innerHTML = "Parola Tekrar gerekli alan.";
+            }
+        }
+
+    }
+</script>
 <div class="container-fluid my-3">
 
     <div class="row">
-        <div class="col-12">
+        <div class="col-2">
+            <div class="card" style="width: 18rem;display: inline">
+                <img src="assets/images/personels/no-image.jpg" class="img-thumbnail"/>
+                <div class="card-body">
+                    <label for="password">Parola</label>
+                    <input name="password" id="password" class="form-control"/>
+                    <div class="text-danger" id="passwordErr"></div>
+                    <label for="repassword">Parola Tekrar</label>
+                    <input name="repassword" id="repassword" class="form-control"/>
+                    <div class="text-danger" id="repasswordErr"></div>
+                    <button class="btn btn-primary mt-1" style="width: -webkit-fill-available" onclick="changePassword()">Parola Değiştir</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-10">
             <form method="post" novalidate>
                 <div class="mb-1">
                     <label for="name">Ad Soyad</label>
@@ -99,7 +162,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="email" name="email" class="form-control" value="<?php echo $email; ?>"/>
                     <div class="text-danger"><?php echo $emailErr; ?></div>
                 </div>
-                <button type="submit" class="btn btn-primary">Kaydet</button>
+                <button type="submit" class="btn btn-primary" style="width: -webkit-fill-available">Kaydet</button>
             </form>
         </div>
     </div>
