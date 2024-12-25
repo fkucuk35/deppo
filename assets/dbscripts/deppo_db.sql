@@ -134,6 +134,7 @@ CREATE TABLE `deppo_users` (
   `image_url` varchar(100) NOT NULL,
   `active` varchar(1) NOT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
+`email_activation_key` varchar(150) NULL,
   `user_type` varchar(20) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
 

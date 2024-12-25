@@ -1,8 +1,8 @@
 <?php
 
-require_once ( $GLOBALS['FULL_ROOT']."libs/orm/dao.php");
-require_once ( $GLOBALS['FULL_ROOT']."libs/orm/query_helper.php");
-require_once ( $GLOBALS['FULL_ROOT']."libs/orm/data_type.php");
+require_once ( $GLOBALS['FULL_ROOT'] . "libs/orm/dao.php");
+require_once ( $GLOBALS['FULL_ROOT'] . "libs/orm/query_helper.php");
+require_once ( $GLOBALS['FULL_ROOT'] . "libs/orm/data_type.php");
 
 class User extends DAO {
 
@@ -15,9 +15,10 @@ class User extends DAO {
     const col_image_url = "image_url";
     const col_active = "active";
     const col_date_added = "date_added";
+    const col_email_activation_key = "email_activation_key";
     const col_user_type = "user_type";
 
-    var $id, $username, $email, $password, $name, $image_url, $active, $date_added, $user_type;
+    var $id, $username, $email, $password, $name, $image_url, $active, $date_added, $email_activation_key, $user_type;
 
     protected function init() {
         $this->setTableName(self::table_name);
@@ -30,6 +31,7 @@ class User extends DAO {
         $this->addColumn("image_url", self::col_image_url, DataType::String, FALSE, FALSE);
         $this->addColumn("active", self::col_active, DataType::String, FALSE, FALSE);
         $this->addColumn("date_added", self::col_date_added, DataType::Date, FALSE, FALSE);
+        $this->addColumn("email_activation_key", self::col_email_activation_key, DataType::String, FALSE, FALSE);
         $this->addColumn("user_type", self::col_user_type, DataType::String, FALSE, FALSE);
     }
 

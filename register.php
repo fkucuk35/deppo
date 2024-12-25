@@ -74,6 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $item->password = md5($password);
         $item->image_url = "";
         $item->active = "ü";
+        $item->email_activation_key = generateActivationKey();
         $result = $item->insert();
         header("Location: login.php");
     }

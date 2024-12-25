@@ -24,6 +24,8 @@ switch($GLOBALS['HOST']){
 	break;
 }
 
+
+
 date_default_timezone_set('Europe/Istanbul');
 
 DBConnection::setConnection($host, $db_username, $db_password, $db);

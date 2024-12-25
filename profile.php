@@ -14,7 +14,7 @@ require_once 'dao/log.php';
 
 <?php
 $username = $email = $name = $password = $repassword = "";
-$usernameErr = $emailErr = $nameErr = $passwordErr = $repasswordErr = "";
+$usernameErr = $emailErr = $nameErr = $passwordErr = $repasswordErr = $emailActivationErr = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_SESSION["username"];
@@ -85,6 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $user->username;
     $email = $user->email;
     $name = $user->name;
+    $emailActivationErr = ($user->email_activation_key !== "")?"Email adresinizi onaylamanız gerekmektedir.":"Email adresiniz onaylıdır."; 
 }
 ?>
 <script type="text/javascript">
@@ -168,6 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="email">Eposta</label>
                     <input type="email" name="email" class="form-control" value="<?php echo $email; ?>"/>
                     <div class="text-danger"><?php echo $emailErr; ?></div>
+                    <div class="text-danger"><?php echo $emailActivationErr; ?></div>
                 </div>
                 <button type="submit" class="btn btn-primary" style="width: -webkit-fill-available">Kaydet</button>
             </form>
