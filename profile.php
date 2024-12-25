@@ -128,6 +128,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
     }
+    function setShowHide() {
+        obj = document.getElementById("password");
+        obj.setAttribute('type', obj.getAttribute('type') === 'password' ? 'text' : 'password');
+        obj = document.getElementById("repassword");
+        obj.setAttribute('type', obj.getAttribute('type') === 'password' ? 'text' : 'password');
+    }
 </script>
 <div class="container-fluid my-3">
 
@@ -137,11 +143,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img src="assets/images/personels/no-image.jpg" class="img-thumbnail"/>
                 <div class="card-body">
                     <label for="password">Parola</label>
-                    <input name="password" id="password" class="form-control"/>
+                    <input type="password" name="password" id="password" class="form-control"/>
                     <div class="text-danger" id="passwordErr"></div>
                     <label for="repassword">Parola Tekrar</label>
-                    <input name="repassword" id="repassword" class="form-control"/>
+                    <input type="password" name="repassword" id="repassword" class="form-control"/>
                     <div class="text-danger" id="repasswordErr"></div>
+                    <input class="form-check-input mx-1" type="checkbox" id="showhidePassword" onclick="setShowHide()">Şifreyi Göster</input>
                     <button class="btn btn-primary mt-1" style="width: -webkit-fill-available" onclick="changePassword()">Parola Değiştir</button>
                 </div>
             </div>

@@ -16,6 +16,17 @@ if (!isLoggedIn()) {
         $('#fm').form('clear');
         url = 'operations/receipt_type_operations.php?op=0';
     }
+
+    function viewItem() {
+        var row = $('#dg').datagrid('getSelected');
+        if (row) {
+            $('#dlg').dialog('open').dialog('setTitle', 'Görüntüle');
+            $('#fm').form('load', row);
+            $("#fm :input").prop("disabled", true);
+            $('#icon-ok').hide();
+        }
+    }
+
     function editItem() {
         var row = $('#dg').datagrid('getSelected');
         if (row) {
@@ -24,15 +35,6 @@ if (!isLoggedIn()) {
             $('#icon-ok').show();
             $('#password').show();
             url = 'operations/receipt_type_operations.php?op=1&id=' + row.id;
-        }
-    }
-    function viewItem() {
-        var row = $('#dg').datagrid('getSelected');
-        if (row) {
-            $('#dlg').dialog('open').dialog('setTitle', 'Göster');
-            $('#fm').form('load', row);
-            $('#icon-ok').hide();
-            $('#password').hide();
         }
     }
 
@@ -56,10 +58,11 @@ if (!isLoggedIn()) {
             }
         });
     }
+
     function removeItem() {
         var row = $('#dg').datagrid('getSelected');
         if (row) {
-            $.messager.confirm('Onayla', 'Silmek isteediğinize emin misiniz?', function (r) {
+            $.messager.confirm('Onayla', 'Silmek istediğinize emin misiniz?', function (r) {
                 if (r) {
                     $.post('operations/receipt_type_operations.php', {id: row.id, op: 2}, function (result) {
                         if (result.success) {
@@ -106,7 +109,7 @@ if (!isLoggedIn()) {
 </div> 
 <div id="toolbar">
     <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newItem()">Yeni</a>
-    <!-- <a href="#" class="easyui-linkbutton" iconCls="icon-view" plain="true" onclick="viewItem()">Göster</a> -->
+    <a href="#" class="easyui-linkbutton" iconCls="icon-view" plain="true" onclick="viewItem()">Görüntüle</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editItem()">Düzenle</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeItem()">Sil</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshList()">Yenile</a>

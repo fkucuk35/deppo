@@ -59,10 +59,11 @@ if (!isLoggedIn()) {
             }
         });
     }
+    
     function removeItem() {
         var row = $('#dg').datagrid('getSelected');
         if (row) {
-            $.messager.confirm('Onayla', 'Silmek isteediğinize emin misiniz?', function (r) {
+            $.messager.confirm('Onayla', 'Silmek istediğinize emin misiniz?', function (r) {
                 if (r) {
                     $.post('operations/supplier_operations.php', {id: row.id, op: 2}, function (result) {
                         if (result.success) {
