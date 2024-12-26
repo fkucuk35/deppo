@@ -1,5 +1,4 @@
 <?php
-
 require "libs/functions.php";
 
 include 'config_db.php';
@@ -74,8 +73,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $item->password = md5($password);
         $item->image_url = "";
         $item->active = "ü";
-        $item->email_activation_key = generateActivationKey();
+        $email_activation_key = generateActivationKey();
+        $item->email_activation_key = $email_activation_key;
         $result = $item->insert();
+        //$email_send_result = sendEmail($email, "Email Doğrulama", "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet'><title>Email Doğrulama</title></head><body><script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'></script><a class='btn btn-primary' href='confirm_email.php?activation_key=". $email_activation_key. "' role='button'>E-posta adresinizi doğrulamak için tıklayınız</a></body></html>", "Kullandığınız eposta istemcisi HTML içeriği desteklemiyor. İstemci ayarlarınızı kontrol ediniz...");
         header("Location: login.php");
     }
 }
