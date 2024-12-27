@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $user->username;
     $email = $user->email;
     $name = $user->name;
-    $emailActivationStatus = ($user->email_activation_key !== "") ? false : true;
+    $emailActivationStatus = (($user->email_activation_key === "")||($user->email_activation_key === NULL)) ? true : false;
 }
 ?>
 <script type="text/javascript">
@@ -142,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="row">
         <div class="col-2">
             <div class="card" style="width: 18rem;display: inline">
-                <img src="assets/images/personels/no-image.jpg" class="img-thumbnail"/>
+                <img src="assets/images/personels/<?php echo ($_SESSION["image_url"]==="")?'no-image.jpg':$_SESSION["image_url"]; ?>" class="img-thumbnail"/>
                 <div class="card-body">
                     <label for="password">Parola</label>
                     <input type="password" name="password" id="password" class="form-control"/>
