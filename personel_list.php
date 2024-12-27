@@ -19,22 +19,29 @@ if (!isLoggedIn()) {
         document.getElementById("active_status").value = "ü";
         url = 'operations/personel_operations.php?op=0';
     }
-    
-        function viewItem() {
+
+    function viewItem() {
         var row = $('#dg').datagrid('getSelected');
         if (row) {
             $('#dlg').dialog('open').dialog('setTitle', 'Görüntüle');
             $('#fm').form('load', row);
             $("#fm :input").prop("disabled", true);
+            $('#active').checkbox({
+                disabled: true
+            });
             $('#icon-ok').hide();
         }
     }
-    
+
     function editItem() {
         var row = $('#dg').datagrid('getSelected');
         if (row) {
             $('#dlg').dialog('open').dialog('setTitle', 'Düzenle');
             $('#fm').form('load', row);
+            $("#fm :input").prop("disabled", false);
+            $('#active').checkbox({
+                disabled: false
+            });
             $('#active').checkbox({
                 checked: (row.active == 'ü')
             });
@@ -64,7 +71,7 @@ if (!isLoggedIn()) {
             }
         });
     }
-    
+
     function removeItem() {
         var row = $('#dg').datagrid('getSelected');
         if (row) {

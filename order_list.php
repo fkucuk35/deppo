@@ -31,6 +31,7 @@ if (!isLoggedIn()) {
         if (row) {
             $('#dlg').dialog('open').dialog('setTitle', 'Düzenle');
             $('#fm').form('load', row);
+            $("#fm :input").prop("disabled", false);
             $('#icon-ok').show();
             url = 'operations/order_view_operations.php?op=1&id=' + row.id;
         }
