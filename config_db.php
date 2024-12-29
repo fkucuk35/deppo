@@ -11,10 +11,10 @@ switch($GLOBALS['HOST']){
 		$db = "deppo_db";
 	break;
 	case 'remote':
-		$host = "sql206.epizy.com";
-		$db_username = "epiz_32368278";
-		$db_password = "Fk102428";
-		$db = "epiz_32368278_deppo";
+		$host = "sql.freedb.tech";
+		$db_username = "freedb_deppo";
+		$db_password = "u@WB23UJQqA&4hw";
+		$db = "freedb_deppo_db";
 	break;
 	default: 
 		$host = "localhost";

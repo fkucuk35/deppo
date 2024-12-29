@@ -12,7 +12,9 @@ CREATE TABLE `deppo_order_detail_list` (
   `id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `stock_id` int(11) NOT NULL,
-  `order_quantity` smallint(5) UNSIGNED NOT NULL
+  `ordered_quantity` smallint(5) UNSIGNED NOT NULL,
+  `received_quantity` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
+  `description` varchar(255) NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
 
 -- --------------------------------------------------------
@@ -310,3 +312,12 @@ CREATE VIEW `deppo_order_list_view`
 AS SELECT `dol`.*, `dsl`.`name` `supplier_name`
 FROM `deppo_order_list` `dol`
 LEFT JOIN `deppo_supplier_list` `dsl` ON `dol`.`supplier_id`=`dsl`.`id`;
+
+-- --------------------------------------------------------
+--
+-- Görünüm için görünüm yapısı `deppo_order_detail_list_view`
+--
+
+CREATE VIEW deppo_order_detail_list_view AS
+SELECT odl.*, scl.code, scl.name FROM deppo_order_detail_list odl
+LEFT JOIN deppo_stock_card_list scl ON scl.id = odl.stock_id;

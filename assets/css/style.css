@@ -18,3 +18,7 @@
 #profile-form .row .col-2 .card .card-body button {
     width: -webkit-fill-available;
 }
+
+.panel .window .panel-htop {
+    width: 50%;
+}

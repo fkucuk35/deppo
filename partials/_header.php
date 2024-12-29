@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="libs/jeasyui/themes/icon.css"/>
     <link rel="stylesheet" type="text/css" href="libs/jeasyui/themes/color.css"/>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css"/>   
     <script type="text/javascript" src="libs/jeasyui/jquery.min.js"></script>
     <script type="text/javascript" src="libs/jeasyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="libs/jeasyui/extensions/datagrid-filter.js"></script>

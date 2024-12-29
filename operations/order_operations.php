@@ -4,14 +4,13 @@ include '../config_db.php';
 include '../libs/orm/dao.php';
 include '../dao/order.php';
 
-
 $op = intval($_REQUEST["op"]);
 switch ($op) {
-	    case 0: // new insert
+    case 0: // new insert
         $item = new Order();
         $item->supplier_id = $_REQUEST['supplier_id'];
         $item->number = $_REQUEST['number'];
-        $item->description= $_REQUEST['description'];
+        $item->description = $_REQUEST['description'];
         $result = $item->insert();
         break;
     case 1:  // update
@@ -19,7 +18,7 @@ switch ($op) {
         $item->id = intval($_REQUEST['id']);
         $item->supplier_id = $_REQUEST['supplier_id'];
         $item->number = $_REQUEST['number'];
-        $item->description= $_REQUEST['description'];
+        $item->description = $_REQUEST['description'];
         $result = $item->update();
         break;
     case 2: // delete
@@ -41,9 +40,18 @@ switch ($op) {
         $where = null;
         $inst = new Order();
         $result = $inst->readAll($columns, $where);
-        
+
         echo json_encode($result);
-        exit;		
+        exit;
+    case 5: // get detail        
+        $item = new Order();
+        $result = $item->getDetail($_REQUEST['id']);
+        json_encode($result);
+        exit;
+    case 8: //generate number automatically.                
+        $result = Order::generateNumber();
+        json_encode($result);
+        break;
 }
 
 if ($result) {
