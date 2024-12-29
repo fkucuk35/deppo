@@ -43,15 +43,15 @@ switch ($op) {
 
         echo json_encode($result);
         exit;
-    case 5: // get detail        
-        $item = new Order();
-        $result = $item->getDetail($_REQUEST['id']);
-        json_encode($result);
-        exit;
+    /* case 5: // get detail        
+      $item = new Order();
+      $result = $item->getDetail($_REQUEST['id']);
+      json_encode($result);
+      exit; */
     case 8: //generate number automatically.                
-        $result = Order::generateNumber();
-        json_encode($result);
-        break;
+        $new_order_number = Order::generateNumber($GLOBALS['ORDER_NUMBER_PREFIX']);
+        echo json_encode(array('success' => true, 'orderNum' => $new_order_number));
+        exit;
 }
 
 if ($result) {

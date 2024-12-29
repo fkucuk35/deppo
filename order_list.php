@@ -9,11 +9,13 @@ if (!isLoggedIn()) {
 <?php include "partials/_navbar.php" ?>
 <script type="text/javascript">
     var url;
+
     function newItem() {
         $('#icon-ok').show();
         $('#dlg').dialog('open').dialog('setTitle', 'Yeni');
         $('#fm').form('clear');
-        url = 'operations/order_view_operations.php?op=0';
+        url = 'operations/order_list_operations.php?op=0';
+        generateNumber();
     }
 
     function viewItem() {
@@ -33,7 +35,7 @@ if (!isLoggedIn()) {
             $('#fm').form('load', row);
             $("#fm :input").prop("disabled", false);
             $('#icon-ok').show();
-            url = 'operations/order_view_operations.php?op=1&id=' + row.id;
+            url = 'operations/order_list_operations.php?op=1&id=' + row.id;
         }
     }
 
@@ -46,8 +48,8 @@ if (!isLoggedIn()) {
             success: function (result) {
                 var result = eval('(' + result + ')');
                 if (result.success) {
-                    $('#dlg').dialog('close');		// close the dialog
-                    $('#dg').datagrid('reload');	// reload the list
+                    $('#dlg').dialog('close'); // close the dialog
+                    $('#dg').datagrid('reload'); // reload the list
                 } else {
                     $.messager.show({
                         title: 'Hata oluştu!',
@@ -63,9 +65,12 @@ if (!isLoggedIn()) {
         if (row) {
             $.messager.confirm('Onayla', 'Silmek istediğinize emin misiniz?', function (r) {
                 if (r) {
-                    $.post('operations/order_view_operations.php', {id: row.id, op: 2}, function (result) {
+                    $.post('operations/order_list_operations.php', {
+                        id: row.id,
+                        op: 2
+                    }, function (result) {
                         if (result.success) {
-                            $('#dg').datagrid('reload');	// reload the list
+                            $('#dg').datagrid('reload'); // reload the list
                         } else {
                             $.messager.show({// show error message
                                 title: 'Hata',
@@ -79,18 +84,37 @@ if (!isLoggedIn()) {
     }
 
     function refreshList() {
-        $('#dg').datagrid('reload');	// reload the list
+        $('#dg').datagrid('reload'); // reload the list
     }
     $(window).resize(function () {
         $('#dg').datagrid('resize');
     });
+
+    function generateNumber() {
+        $.ajax({
+            type: "POST",
+            url: "operations/order_list_operations.php",
+            data: {
+                op: 8
+            },
+            dataType: "json",
+            success: function (result) {
+                if (result.success) {
+                    $('#number').val(result.orderNum);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText);
+            }
+        });
+    }
 </script>
 <div id="wrapper" style="margin:5px">
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <div class="content-main">
-            <div class ="content-easyui" id="wrapper-grid">
-                <table id="dg" title="Sipariş Listesi" class="easyui-datagrid"                                
-                       url="operations/order_view_operations.php?op=3"
+            <div class="content-easyui" id="wrapper-grid">
+                <table id="dg" title="Sipariş Listesi" class="easyui-datagrid"
+                       url="operations/order_list_view_operations.php?op=3"
                        toolbar="#toolbar" pagination="true" pageSize="20"
                        rownumbers="true" fitColumns="true" singleSelect="true" data-options="onDblClickRow:function(){viewItem();}">
                     <thead>
@@ -105,7 +129,7 @@ if (!isLoggedIn()) {
             </div>
         </div>
     </div>
-</div> 
+</div>
 <div id="toolbar">
     <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newItem()">Yeni</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-view" plain="true" onclick="viewItem()">Görüntüle</a>
@@ -119,20 +143,21 @@ if (!isLoggedIn()) {
     <form id="fm" method="post" novalidate>
         <div class="fitem">
             <label>Sipariş Numarası:</label>
-            <input name="number" class="easyui-validatebox" required="true"/>
-        </div>  
+            <input name="number" id="number" class="easyui-validatebox" required="true" readonly/>
+        </div>
         <div class="fitem">
-            <label>Tedarikçi Firma/Kurum:</label>                    
+            <label>Tedarikçi Firma/Kurum:</label>
             <input name="supplier_id" class="easyui-combobox" required="true" data-options="  
                    valueField: 'id',  
                    textField: 'name',  
-                   url: 'operations/supplier_operations.php?op=4'                             
-                   " />                    
+                   url: 'operations/supplier_operations.php?op=4',
+                   editable: false
+                   " />
         </div>
-        <div  class="fitem" >
+        <div class="fitem">
             <label>Açıklama:</label>
             <textarea name="description"></textarea>
-        </div>   
+        </div>
     </form>
 </div>
 <div id="dlg-buttons">

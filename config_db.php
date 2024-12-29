@@ -1,7 +1,7 @@
 <?php
 
 require_once 'libs/orm/db_connection.php';
-include 'libs/variables.php';
+include 'settings.php';
 
 switch($GLOBALS['HOST']){
 	case 'local':
