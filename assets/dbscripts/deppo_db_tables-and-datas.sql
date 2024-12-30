@@ -1,9 +1,9 @@
 -- --------------------------------------------------------
 --
--- Tablo için tablo yapısı `deppo_order_detail_list`
+-- Tablo için tablo yapısı `deppo_order_detail`
 --
 
-CREATE TABLE `deppo_order_detail_list` (
+CREATE TABLE `deppo_order_detail` (
   `id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `stock_id` int(11) NOT NULL,
@@ -14,10 +14,10 @@ CREATE TABLE `deppo_order_detail_list` (
 
 -- --------------------------------------------------------
 --
--- Tablo için tablo yapısı `deppo_order_list`
+-- Tablo için tablo yapısı `deppo_order`
 --
 
-CREATE TABLE `deppo_order_list` (
+CREATE TABLE `deppo_order` (
   `id` int(11) NOT NULL,
   `supplier_id` int(11) NOT NULL,
   `number` varchar(20) NOT NULL,

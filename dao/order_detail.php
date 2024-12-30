@@ -1,13 +1,12 @@
 <?php
 
-require_once($GLOBALS['FULL_ROOT']."libs/orm/dao.php");
-require_once($GLOBALS['FULL_ROOT']."libs/orm/query_helper.php");
-require_once($GLOBALS['FULL_ROOT']."libs/orm/data_type.php");
+require_once($GLOBALS['FULL_ROOT'] . "libs/orm/dao.php");
+require_once($GLOBALS['FULL_ROOT'] . "libs/orm/query_helper.php");
+require_once($GLOBALS['FULL_ROOT'] . "libs/orm/data_type.php");
 
-class OrderDetailList extends DAO
-{
+class OrderDetail extends DAO {
 
-    const table_name = "deppo_order_detail_list";
+    const table_name = "deppo_order_detail";
     const col_id = "id";
     const col_order_id = "order_id";
     const col_stock_id = "stock_id";
@@ -17,8 +16,7 @@ class OrderDetailList extends DAO
 
     var $id, $order_id, $stock_id, $ordered_quantity, $received_quantity, $description;
 
-    protected function init()
-    {
+    protected function init() {
         $this->setTableName(self::table_name);
 
         $this->addColumn("id", self::col_id, DataType::Integer, TRUE, TRUE);

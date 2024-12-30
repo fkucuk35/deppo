@@ -3,10 +3,11 @@
 require_once($GLOBALS['FULL_ROOT'] . "libs/orm/dao.php");
 require_once($GLOBALS['FULL_ROOT'] . "libs/orm/query_helper.php");
 require_once($GLOBALS['FULL_ROOT'] . "libs/orm/data_type.php");
+require_once($GLOBALS['FULL_ROOT'] . "dao/order_detail.php");
 
 class Order extends DAO {
 
-    const table_name = "deppo_order_list";
+    const table_name = "deppo_order";
     const col_id = "id";
     const col_supplier_id = "supplier_id";
     const col_number = "number";
@@ -14,6 +15,7 @@ class Order extends DAO {
     const col_description = "description";
 
     var $id, $supplier_id, $number, $date, $description;
+    var $detail;
 
     protected function init() {
         $this->setTableName(self::table_name);
@@ -31,5 +33,11 @@ class Order extends DAO {
         $year = $date->format("Y");
         $result = "-" . $year . "-" . str_pad($count + 1, 6, '0', STR_PAD_LEFT);
         return $orderNumberPrefix . $result;
+    }
+
+    static function getDetail($id) {
+        $inst = new OrderDetail();
+        $where = OrderDetail::col_order_id . "=" . $id;
+        return $inst->readAllArray('deppo_order_detail_list_view', null, $where);
     }
 }

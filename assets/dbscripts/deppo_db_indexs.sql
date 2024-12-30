@@ -10,18 +10,18 @@
 
 -- --------------------------------------------------------
 --
--- Tablo için indeksler `deppo_order_detail_list`
+-- Tablo için indeksler `deppo_order_detail`
 --
 
-ALTER TABLE `deppo_order_detail_list`
+ALTER TABLE `deppo_order_detail`
   ADD PRIMARY KEY (`id`);
 
 -- --------------------------------------------------------
 --
--- Tablo için indeksler `deppo_order_list`
+-- Tablo için indeksler `deppo_order`
 --
 
-ALTER TABLE `deppo_order_list`
+ALTER TABLE `deppo_order`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `number` (`number`);
 
@@ -75,18 +75,18 @@ ALTER TABLE `deppo_users`
 
 -- --------------------------------------------------------
 --
--- Tablo için AUTO_INCREMENT değeri `deppo_order_detail_list`
+-- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 
-ALTER TABLE `deppo_order_detail_list`
+ALTER TABLE `deppo_order_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 -- --------------------------------------------------------
 --
--- Tablo için AUTO_INCREMENT değeri `deppo_order_list`
+-- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 
-ALTER TABLE `deppo_order_list`
+ALTER TABLE `deppo_order`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 -- --------------------------------------------------------
