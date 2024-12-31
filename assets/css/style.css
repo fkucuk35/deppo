@@ -80,3 +80,11 @@
     vertical-align: top;
     padding: 5px;
 }
+
+.panel-body{
+    border-top-width: 1px !important;
+}
+
+.panel-header{
+    border-bottom-width: 0 !important;
+}

@@ -304,7 +304,7 @@ if (!isLoggedIn()) {
 </div>
 <div id="dlg" class="easyui-dialog"
      closed="true" buttons="#dlg-buttons" modal="true"
-     data-options="onResize:function(){$(this).dialog('center');}">
+     data-options="onResize:function(){$(this).dialog('center');}" style="width:90%;height:500px">
     <form id="fm" method="post" novalidate>
         <div class="fitem inline">
             <label>Sipariş Numarası:</label>
@@ -326,7 +326,7 @@ if (!isLoggedIn()) {
 
         <!--datagrid details start-->
         <div class="fitem" id="div_tbl_details">
-            <table id="tbl_details" class="easyui-datagrid" style="width:100%;height:240px"
+            <table id="tbl_details" class="easyui-datagrid"
                    toolbar="#toolbarDetail" rownumbers="true" autoRowHeight="false" fitColumns="true" singleSelect="true" 
                    data-options="header:'#hh', scrollbarSize: 0, onClickRow: onClickRow">
             </table>  
