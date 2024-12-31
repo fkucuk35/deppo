@@ -9,7 +9,7 @@ CREATE TABLE `deppo_order_detail` (
   `stock_id` int(11) NOT NULL,
   `ordered_quantity` smallint(5) UNSIGNED NOT NULL,
   `received_quantity` smallint(5) UNSIGNED NOT NULL DEFAULT 0,
-  `description` varchar(255) NULL,
+  `description` varchar(255) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
 
 -- --------------------------------------------------------
@@ -30,7 +30,7 @@ CREATE TABLE `deppo_order` (
 -- Tablo döküm verisi `deppo_personel_list`
 --
 
-INSERT INTO `deppo_order_list` (`id`, `supplier_id`, `number`, `description`) VALUES
+INSERT INTO `deppo_order` (`id`, `supplier_id`, `number`, `description`) VALUES
 (1, 1, 'SIP-2024-0001', 'Deneme Açıklama');
 
 -- --------------------------------------------------------

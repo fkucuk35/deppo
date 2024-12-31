@@ -33,13 +33,15 @@ switch ($op) {
         $pageNo = ($page - 1) * $pageSize;
         $where = NULL;
         $result = Order::getPaging(Order::table_name, $pageNo, $pageSize, $where);
-        break;
+        echo json_encode($result);
+        exit;
     case 4:// get all list for combobox
         $columns = array("id", "name");
         $where = null;
         $inst = new Order();
         $result = $inst->readAll($columns, $where);
-        break;
+        echo json_encode($result);
+        exit;
     /* case 5: // get detail        
       $item = new Order();
       $result = $item->getDetail($_REQUEST['id']);
@@ -52,7 +54,13 @@ switch ($op) {
     case 9: // get detail        
         $item = new Order();
         $result = $item->getDetail($_REQUEST['id']);
-        break;
+        echo json_encode($result);
+        exit;
 }
-echo json_encode($result);
+
+if ($result) {
+    echo json_encode(array('success' => true));
+} else {
+    echo json_encode(array('msg' => $item->error));
+}
 ?>
