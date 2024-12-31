@@ -30,6 +30,9 @@ if (!isLoggedIn()) {
             $('#active').checkbox({
                 disabled: true
             });
+            $('#active').checkbox({
+                checked: (row.active == 'ü')
+            });
             $('#icon-ok').hide();
         }
     }
@@ -37,18 +40,18 @@ if (!isLoggedIn()) {
     function editItem() {
         var row = $('#dg').datagrid('getSelected');
         if (row) {
+            url = 'operations/stock_card_operations.php?op=1&id=' + row.id;
             document.getElementById('quantity').innerHTML = 'Miktar: ' + row.quantity;
             $('#dlg').dialog('open').dialog('setTitle', 'Düzenle');
             $('#fm').form('load', row);
             $("#fm :input").prop("disabled", false);
             $('#active').checkbox({
-                disabled: true
+                disabled: false
             });
             $('#active').checkbox({
                 checked: (row.active == 'ü')
             });
             $('#icon-ok').show();
-            url = 'operations/stock_card_operations.php?op=1&id=' + row.id;
         }
     }
 
@@ -62,14 +65,17 @@ if (!isLoggedIn()) {
             success: function (result) {
                 var result = eval('(' + result + ')');
                 if (result.success) {
-                    $('#dlg').dialog('close');		// close the dialog
-                    $('#dg').datagrid('reload');	// reload the list
+                    $('#dlg').dialog('close'); // close the dialog
+                    $('#dg').datagrid('reload'); // reload the list
                 } else {
                     $.messager.show({
                         title: 'Hata oluştu!',
                         msg: result.msg
                     });
                 }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText);
             }
         });
     }
@@ -111,9 +117,13 @@ if (!isLoggedIn()) {
         if (val == "") {
             return '<image src="assets/images/stock_cards/no-image.jpg" width="32" height="32"/>';
         } else {
-            return '<image src="assets/images/stock_cards/' + val + '" width="32" height="32"/>'
+            return '<image src="assets/images/stock_cards/' + val + '" width="32" height="32"/>';
         }
     }
+
+    $(function () {
+        $('#dg').datagrid('enableFilter');
+    });
 </script>
 <div id="wrapper" style="margin:5px">
     <div id="page-wrapper" class="gray-bg dashbard-1">
@@ -164,6 +174,9 @@ if (!isLoggedIn()) {
         <div class="fitem">
             <label name="quantity" id="quantity"></label>
         </div>      
+        <div class="fitem" style="display: none">
+            <input name="image_url" type="hidden"/>
+        </div> 
     </form>
 </div>
 <div id="dlg-buttons">
