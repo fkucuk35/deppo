@@ -40,4 +40,27 @@ class Order extends DAO {
         $where = OrderDetail::col_order_id . "=" . $id;
         return $inst->readAllArray('deppo_order_detail_list_view', null, $where);
     }
+
+    function saveDetail($detail) {
+        $rows = json_decode($detail);
+        for ($i = 0; $i < count($rows); $i++) {
+            $detail = new OrderDetail();
+            $detail->order_id = $this->id;
+            $detail->stock_id = intval($rows[$i]->stock_id);
+            $detail->ordered_quantity = $rows[$i]->ordered_quantity;
+            $detail->received_quantity = $rows[$i]->received_quantity;
+            $detail->description = $rows[$i]->description;
+            $detail->insert();
+        }
+    }
+
+    function deleteDetail() {
+        $where = OrderDetail::col_order_id . "=" . $this->id;
+        DAO::deleteMultiRow(OrderDetail::table_name, $where);
+    }
+
+    function editDetail($detail) {
+        $this->deleteDetail();
+        $this->saveDetail($detail);
+    }
 }

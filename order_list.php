@@ -8,12 +8,16 @@ if (!isLoggedIn()) {
 <?php include "partials/_navbar.php" ?>
 <script type="text/javascript">
     var url;
+    var selected_order_id;
     function newItem() {
         $('#icon-ok').show();
         $('#dlg').dialog('open').dialog('setTitle', 'Yeni');
+        $("#fm :input").prop("disabled", false);
         $('#fm').form('clear');
         url = 'operations/order_list_operations.php?op=0';
         generateNumber();
+        deleteDetailTable();
+        unCheck();
     }
 
     function viewItem() {
@@ -31,18 +35,22 @@ if (!isLoggedIn()) {
     function editItem() {
         var row = $('#dg').datagrid('getSelected');
         if (row) {
+            selected_order_id = row.id;
             $('#dlg').dialog('open').dialog('setTitle', 'Düzenle');
             $('#fm').form('load', row);
             $("#fm :input").prop("disabled", false);
             $('#icon-ok').show();
             url = 'operations/order_list_operations.php?op=1&id=' + row.id;
+            getDetail(row.id);
             $("#hh").show();
         }
     }
 
     function saveItem() {
+        $('#rows').val(JSON.stringify($('#tbl_details').datagrid('getRows')));
         $('#fm').form('submit', {
             url: url,
+            data: {rows: rows},
             onSubmit: function () {
                 return $(this).form('validate');
             },
@@ -110,55 +118,37 @@ if (!isLoggedIn()) {
     }
 
 // Detail Fucntions Start
-    function onClickRow(index) {
-        if (editIndex != index) {
-            if (endEditing()) {
-                $('#tbl_details').datagrid('selectRow', index).datagrid('beginEdit', index);
-                editIndex = index;
-            } else {
-                $('#tbl_details').datagrid('selectRow', editIndex);
-            }
-        }
-    }
 
-    function addOnCheck(detail, allList) {
-        var r = rows[i];
-        checkedIds[r.stock_id] = r;
-        /*        for (var i in checkedRows) {
-         var cr = checkedRows[i];
-         if (!checkedIds.hasOwnProperty(cr.id)) {
-         $.ajax({
-         type: "POST",
-         url: "customer_operations.php",
-         data: {op: 5, customer_id: customer_id, product_category_id: cr.product_category_id},
-         dataType: "json",
-         async: false,
-         success: function (result) {
-         //get discount and calculate new price.
-         var dicount_price = cr.list_price;
-         var discount = 0;
-         if (result.length > 0) {
-         discount = result[0].value;
-         dicount_price = cr.list_price - (cr.list_price * discount / 100);
-         }
-         $(detail).datagrid('appendRow', {
-         product_id: cr.id,
-         stock_code: cr.stock_code,
-         name: cr.name,
-         product_category_id: cr.product_category_id,
-         discount: discount,
-         quantity: 1,
-         list_price: cr.list_price,
-         discount_price: dicount_price,
-         due_date: ''
-         });
-         },
-         error: function (jqXHR, textStatus, errorThrown) {
-         alert(jqXHR.responseText);
-         }
-         });
-         }
-         }*/
+    function addOnCheck(detail, allList, order_id) {
+        getCheckedBeforeAdd(allList);
+        let addedRows = [];
+        var isExists;
+        var rows = $(detail).datagrid('getRows');
+        for (var i = 0; i < checkedRows.length; i++)
+        {
+            isExists = false;
+            for (var j = 0; j < rows.length; j++)
+            {
+                if (rows[j]["stock_id"] === checkedRows[i]["id"]) {
+                    isExists = true;
+                    break;
+                }
+            }
+            if (!isExists)
+                addedRows.push(checkedRows[i]);
+        }
+        for (var i = 0; i < addedRows.length; i++) {
+            $('#tbl_details').datagrid('appendRow', {
+                order_id: order_id,
+                stock_id: addedRows[i].id,
+                code: addedRows[i].code,
+                name: addedRows[i].name,
+                ordered_quantity: 0,
+                received_quantity: 0,
+                description: ""
+            });
+        }
+        unCheck();
     }
 
     function unCheck() {
@@ -176,42 +166,6 @@ if (!isLoggedIn()) {
             checkedRows[i] = rows[i];
         }
     }
-
-    var editIndex = undefined;
-    function endEditing() {
-        if (editIndex == undefined) {
-            return true
-        }
-        if ($('#tbl_details').datagrid('validateRow', editIndex)) {
-            $('#tbl_details').datagrid('endEdit', editIndex);
-            editIndex = undefined;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    function removeit() {
-        if (editIndex == undefined) {
-            return;
-        }
-        $('#tbl_details').datagrid('cancelEdit', editIndex)
-                .datagrid('deleteRow', editIndex);
-        editIndex = undefined;
-    }
-
-    function accept() {
-        if (endEditing()) {
-            $('#tbl_details').datagrid('acceptChanges');
-        }
-    }
-
-    function reject() {
-        $('#tbl_details').datagrid('rejectChanges');
-        editIndex = undefined;
-    }
-
-
 
     function deleteDetailTable() {
         $('#tbl_details').datagrid('loadData', {"total": 0, "rows": []}); // empty the table data
@@ -239,6 +193,10 @@ if (!isLoggedIn()) {
         });
     }
 
+    function closeDialog() {
+        $('#dlg').dialog('close');
+    }
+
     $(function () {
         $('#tbl_stock_card_list').datagrid('enableFilter');
         $('#tbl_details').datagrid({
@@ -254,23 +212,55 @@ if (!isLoggedIn()) {
                     {field: 'ordered_quantity', title: 'Sipariş Edilen Miktar', width: 50},
                     {field: 'received_quantity', title: 'Teslim Alınan Miktar', width: 50},
                     {field: 'description', title: 'Açıklama', width: 50}
-                ]],
-            onEndEdit: function (index, row) {
-            },
-            onBeforeEdit: function (index, row) {
-                row.editing = true;
-                $(this).datagrid('refreshRow', index);
-            },
-            onAfterEdit: function (index, row) {
-                row.editing = false;
-                $(this).datagrid('refreshRow', index);
-            },
-            onCancelEdit: function (index, row) {
-                row.editing = false;
-                $(this).datagrid('refreshRow', index);
-            }
+                ]]
         });
     }, 'json');
+
+    var editIndex = undefined;
+
+    function endEditing() {
+        if (editIndex == undefined) {
+            return true
+        }
+        if ($('#tbl_details').datagrid('validateRow', editIndex)) {
+            //$('#tbl_details').datagrid('endEdit', editIndex);
+            editIndex = undefined;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function removeit() {
+        if (editIndex == undefined) {
+            return;
+        }
+        $('#tbl_details').datagrid('cancelEdit', editIndex)
+                .datagrid('deleteRow', editIndex);
+        editIndex = undefined;
+    }
+
+    function accept() {
+        /*if (endEditing()) {
+         $('#tbl_details').datagrid('acceptChanges');
+         }*/
+    }
+
+    function reject() {
+        /* $('#tbl_details').datagrid('rejectChanges');
+         editIndex = undefined;*/
+    }
+
+    function onClickRow(index) {
+        if (editIndex != index) {
+            if (endEditing()) {
+                //$('#tbl_details').datagrid('selectRow', index).datagrid('beginEdit', index);
+                editIndex = index;
+            } else {
+                $('#tbl_details').datagrid('selectRow', editIndex);
+            }
+        }
+    }
 // Detail Functions End
 
 </script>
@@ -331,23 +321,26 @@ if (!isLoggedIn()) {
                    data-options="header:'#hh', scrollbarSize: 0, onClickRow: onClickRow">
             </table>  
         </div>
-        <div id="hh">
-            <div class="m-toolbar">
-                <div class="m-title">Stok Kartları Listesi</div>
-                <div class="m-right">
-                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="javascript:$('#dlg_detail').dialog('open');"></a>
-                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit()"></a>
-                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()"></a>
-                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()"></a>
-                </div>
-            </div>
+        <div class="fitem">
+            <textarea name="rows" id='rows' style='display: none'></textarea>
         </div>
         <!--datagrid details end-->
     </form>
 </div>
+<div id="hh">
+    <div class="m-toolbar">
+        <div class="m-title">Stok Kartları Listesi</div>
+        <div class="m-right">
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="javascript:$('#dlg_detail').dialog('open');"></a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit()"></a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()"></a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()"></a>
+        </div>
+    </div>
+</div>
 <div id="dlg-buttons">
     <a id="icon-ok" href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveItem()">Kaydet</a>
-    <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">İptal</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="closeDialog()">İptal</a>
 </div>
 <?php include "partials/_footer.php"; ?>
 
@@ -360,7 +353,7 @@ if (!isLoggedIn()) {
            rownumbers:true,
            autoRowHeight:false,
            idField:'id',   
-           singleSelect: true,
+           singleSelect: false,
            fitColumns:true">
         <thead>
             <tr>
@@ -374,7 +367,7 @@ if (!isLoggedIn()) {
 </div>
 
 <div id="dlg-buttons-detail">    
-    <a id="icon-addCheck" href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="addOnCheck('#tbl_details', '#tbl_stock_card_list');
+    <a id="icon-addCheck" href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="addOnCheck('#tbl_details', '#tbl_stock_card_list', selected_order_id);
             $('#dlg_detail').dialog('close');"><?php echo $lang['add'] ?> </a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg_detail').dialog('close');"><?php echo $lang['cancel'] ?> </a>
 </div>  

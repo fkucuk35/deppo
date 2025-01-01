@@ -4,22 +4,21 @@ include '../config_db.php';
 include '../libs/orm/dao.php';
 include '../dao/personel.php';
 
-
 $op = intval($_REQUEST["op"]);
 switch ($op) {
-	    case 0: // new insert
+    case 0: // new insert
         $item = new Personel();
         $item->name = $_REQUEST['name'];
-        $item->image_url= "";//_REQUEST['image_url'];
-        $item->active= $_REQUEST['active_status'];
+        $item->image_url = ""; //_REQUEST['image_url'];
+        $item->active = $_REQUEST['active_status'];
         $result = $item->insert();
         break;
     case 1:  // update
         $item = new Personel();
         $item->id = intval($_REQUEST['id']);
         $item->name = $_REQUEST['name'];
-        $item->image_url= $_REQUEST['image_url'];
-		$item->active = $_REQUEST['active_status'];
+        $item->image_url = $_REQUEST['image_url'];
+        $item->active = $_REQUEST['active_status'];
         $result = $item->update();
         break;
     case 2: // delete
@@ -41,9 +40,9 @@ switch ($op) {
         $where = null;
         $inst = new Personel();
         $result = $inst->readAll($columns, $where);
-        
+
         echo json_encode($result);
-        exit;		
+        exit;
 }
 
 if ($result) {

@@ -179,6 +179,9 @@ if (!isLoggedIn()) {
             <label>Ad Soyad:</label>
             <input name="name" class="easyui-validatebox" required="true"/>
         </div>
+        <div class="fitem" style="display: none">
+            <input name="image_url" type="hidden"/>
+        </div> 
     </form>
 </div>
 <div id="dlg-buttons">
