@@ -144,10 +144,10 @@ class DAO {
         return $row[0];
     }
 
-    static function getPaging($tableName, $pageNo, $pageSize, $where, $withLimit = TRUE, $orderBy) {
+    static function getPaging($tableName, $offset, $rows, $where, $withLimit = TRUE, $orderBy) {
         $result = array();
         $result["total"] = self::count($tableName, $where);
-        $query = QueryHelper::createPaging($tableName, $pageNo, $pageSize, $where, $withLimit, $orderBy);
+        $query = QueryHelper::createPaging($tableName, $offset, $rows, $where, $withLimit, $orderBy);
         $mysqli = DBConnection::createConnection();
         $rs = $mysqli->query($query);
         $items = array();

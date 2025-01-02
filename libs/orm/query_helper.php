@@ -131,7 +131,7 @@ class QueryHelper {
         return $query;
     }
 
-    public static function createPaging($tableName, $pageNo, $pageSize, $where, $withLimit, $orderBy) {
+    public static function createPaging($tableName, $offset, $rows, $where, $withLimit, $orderBy) {
         $query = "SELECT * FROM $tableName ";
         if (!empty($where)) {
             $query .= " WHERE " . $where;
@@ -140,7 +140,7 @@ class QueryHelper {
             $query .= $orderBy;
         }
         if ($withLimit) {
-            $query .= " LIMIT $pageNo,$pageSize";
+            $query .= " LIMIT $offset,$rows";
         }
         return $query;
     }
