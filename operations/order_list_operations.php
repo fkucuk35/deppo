@@ -49,7 +49,7 @@ switch ($op) {
         $pageSize = isset($_POST['rows']) ? intval($_POST['rows']) : 20;
         $pageNo = ($page - 1) * $pageSize;
         $where = NULL;
-        $result = Order::getPaging(Order::table_name, $pageNo, $pageSize, $where);
+        $result = Order::getPaging(Order::table_name, $pageNo, $pageSize, $where, TRUE, NULL);
         echo json_encode($result);
         exit;
     case 4:// get all list for combobox

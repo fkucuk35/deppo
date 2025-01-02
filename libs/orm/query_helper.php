@@ -23,10 +23,10 @@ class QueryHelper {
             $query .= " WHERE " . $whereClause;
         }
 
-        if($orderBy != null){
+        if ($orderBy != null) {
             $query .= $orderBy;
         }
-        
+
         if ($primaryKeys == NULL) {
             return $query;
         }
@@ -131,21 +131,23 @@ class QueryHelper {
         return $query;
     }
 
-    public static function createPaging($tableName, $pageNo, $pageSize , $where, $withLimit) {
-        $query =  "SELECT * FROM $tableName ";        
+    public static function createPaging($tableName, $pageNo, $pageSize, $where, $withLimit, $orderBy) {
+        $query = "SELECT * FROM $tableName ";
         if (!empty($where)) {
             $query .= " WHERE " . $where;
         }
-        if ($withLimit){
-            $query.= " LIMIT $pageNo,$pageSize";   
-        }            
-        return $query; 
+        if (!empty($orderBy)) {
+            $query .= $orderBy;
+        }
+        if ($withLimit) {
+            $query .= " LIMIT $pageNo,$pageSize";
+        }
+        return $query;
     }
 
     public static function createProcedure($procedureName) {
         return "call " . $procedureName;
     }
-
 }
 
 ?>
