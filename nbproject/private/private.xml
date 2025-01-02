@@ -2,12 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/deppo/libs/orm/dao.php</file>
-            <file>file:/C:/xampp/htdocs/deppo/stock_card_list.php</file>
-            <file>file:/C:/xampp/htdocs/deppo/partials/_footer.php</file>
-            <file>file:/C:/xampp/htdocs/deppo/operations/stock_card_operations.php</file>
-            <file>file:/C:/xampp/htdocs/deppo/libs/orm/query_helper.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

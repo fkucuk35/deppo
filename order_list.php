@@ -216,52 +216,7 @@ if (!isLoggedIn()) {
         });
     }, 'json');
 
-    var editIndex = undefined;
-
-    function endEditing() {
-        if (editIndex == undefined) {
-            return true
-        }
-        if ($('#tbl_details').datagrid('validateRow', editIndex)) {
-            //$('#tbl_details').datagrid('endEdit', editIndex);
-            editIndex = undefined;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    function removeit() {
-        if (editIndex == undefined) {
-            return;
-        }
-        $('#tbl_details').datagrid('cancelEdit', editIndex)
-                .datagrid('deleteRow', editIndex);
-        editIndex = undefined;
-    }
-
-    function accept() {
-        /*if (endEditing()) {
-         $('#tbl_details').datagrid('acceptChanges');
-         }*/
-    }
-
-    function reject() {
-        /* $('#tbl_details').datagrid('rejectChanges');
-         editIndex = undefined;*/
-    }
-
-    function onClickRow(index) {
-        if (editIndex != index) {
-            if (endEditing()) {
-                //$('#tbl_details').datagrid('selectRow', index).datagrid('beginEdit', index);
-                editIndex = index;
-            } else {
-                $('#tbl_details').datagrid('selectRow', editIndex);
-            }
-        }
-    }
-// Detail Functions End
+    // Detail Functions End
 
 </script>
 <div id="wrapper" style="margin:5px">
@@ -318,7 +273,7 @@ if (!isLoggedIn()) {
         <div class="fitem" id="div_tbl_details">
             <table id="tbl_details" class="easyui-datagrid"
                    toolbar="#toolbarDetail" rownumbers="true" autoRowHeight="false" fitColumns="true" singleSelect="true" 
-                   data-options="header:'#hh', scrollbarSize: 0, onClickRow: onClickRow">
+                   data-options="header:'#hh', scrollbarSize: 0">
             </table>  
         </div>
         <div class="fitem">
@@ -332,9 +287,9 @@ if (!isLoggedIn()) {
         <div class="m-title">Stok Kartları Listesi</div>
         <div class="m-right">
             <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="javascript:$('#dlg_detail').dialog('open');"></a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit()"></a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()"></a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()"></a>
+            <!--        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit()"></a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()"></a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()"></a> -->
         </div>
     </div>
 </div>

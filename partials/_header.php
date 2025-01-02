@@ -17,7 +17,8 @@
                                 <script type="text/javascript" src="<?php echo $GLOBALS["ROOT"]; ?>libs/jeasyui/jquery.min.js"></script>
                                 <script type="text/javascript" src="<?php echo $GLOBALS["ROOT"]; ?>libs/jeasyui/jquery.easyui.min.js"></script>
                                 <script type="text/javascript" src="<?php echo $GLOBALS["ROOT"]; ?>libs/jeasyui/locale/easyui-lang-tr.js"></script>
-                                <script type="text/javascript" src="<?php echo $GLOBALS["ROOT"]; ?>libs/jeasyui/extensions/datagrid-filter.js"></script> 
+                                <script type="text/javascript" src="<?php echo $GLOBALS["ROOT"]; ?>libs/jeasyui/extensions/datagrid-filter.js"></script>
+<!--                                <script type="text/javascript" src="<?php echo $GLOBALS["ROOT"]; ?>libs/jeasyui/extensions/datagrid-cellediting.js"></script> -->
                                 <script type="text/javascript" src="<?php echo $GLOBALS["ROOT"]; ?>libs/notify.min.js"></script>
                                 </head>
                                 <body>
