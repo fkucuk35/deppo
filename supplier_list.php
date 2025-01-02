@@ -93,7 +93,7 @@ if (!isLoggedIn()) {
             <div class ="content-easyui" id="wrapper-grid">
                 <table id="dg" title="Tedarikçi Firma/Kurum Listesi" class="easyui-datagrid"                                
                        url="operations/supplier_operations.php?op=3"
-                       toolbar="#toolbar" pagination="true" pageSize="20"
+                       toolbar="#toolbar" pagination="true" pageSize="10" pageList="[10]"
                        rownumbers="true" fitColumns="true" singleSelect="true" data-options="onDblClickRow:function(){viewItem();}">
                     <thead>
                         <tr>

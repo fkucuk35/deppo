@@ -33,10 +33,10 @@ switch ($op) {
         break;
     case 3: //get list
         $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
-        $pageSize = isset($_POST['rows']) ? intval($_POST['rows']) : 20;
-        $pageNo = ($page - 1) * $pageSize;
+        $rows = isset($_POST['rows']) ? intval($_POST['rows']) : 10;
+        $offset = ($page - 1) * $rows;
         $where = NULL;
-        $result = Supplier::getPaging(Supplier::table_name, $pageNo, $pageSize, $where, TRUE, NULL);
+        $result = Supplier::getPaging(Supplier::table_name, $offset, $rows, $where, TRUE, ' ORDER BY name ASC');
         echo json_encode($result);
         exit;
     case 4:// get all list for combobox
