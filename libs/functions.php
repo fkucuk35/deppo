@@ -12,9 +12,8 @@ function isAdmin() {
     return (isLoggedIn() && isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "admin");
 }
 
-function uploadImage(array $file) {
+function uploadImage(array $file, $dest_path) {
     if (isset($file)) {
-        $dest_path = "./img/";
         $filename = $file["name"];
         $fileSourcePath = $file["tmp_name"];
         $fileDestPath = $dest_path . $filename;
