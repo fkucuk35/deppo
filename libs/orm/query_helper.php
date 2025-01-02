@@ -2,7 +2,7 @@
 
 class QueryHelper {
 
-    public static function createRead($tableName, $primaryKeys, $columns, $whereClause) {
+    public static function createRead($tableName, $primaryKeys, $columns, $whereClause, $orderBy) {
         $select = "";
 
         if ($columns != NULL) {
@@ -23,6 +23,10 @@ class QueryHelper {
             $query .= " WHERE " . $whereClause;
         }
 
+        if($orderBy != null){
+            $query .= $orderBy;
+        }
+        
         if ($primaryKeys == NULL) {
             return $query;
         }

@@ -48,7 +48,8 @@ switch ($op) {
     case 5:// get all stock cards
         $columns = null;
         $where = NULL;
-        $result = DAO::readAllArray('deppo_stock_card_list', $columns, $where);
+        $orderBy = " ORDER BY code ASC";
+        $result = DAO::readAllArray('deppo_stock_card_list', $columns, $where, $orderBy);
 
         echo json_encode($result);
         exit;

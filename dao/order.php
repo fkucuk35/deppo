@@ -38,7 +38,8 @@ class Order extends DAO {
     static function getDetail($id) {
         $inst = new OrderDetail();
         $where = OrderDetail::col_order_id . "=" . $id;
-        return $inst->readAllArray('deppo_order_detail_list_view', null, $where);
+        $orderBy = " ORDER BY code ASC";
+        return $inst->readAllArray('deppo_order_detail_list_view', null, $where, $orderBy);
     }
 
     function saveDetail($detail) {

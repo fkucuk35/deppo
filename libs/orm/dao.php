@@ -57,7 +57,7 @@ class DAO {
     }
 
     function read() {
-        $query = QueryHelper::createRead($this->_tableName, $this->getPrimaryKeys(), NULL, NULL);
+        $query = QueryHelper::createRead($this->_tableName, $this->getPrimaryKeys(), NULL, NULL, NULL);
         $mysqli = DBConnection::createConnection();
         $result = $mysqli->query($query);
 
@@ -73,7 +73,7 @@ class DAO {
     }
 
     function readWithWhere($whereClause) {
-        $query = QueryHelper::createRead($this->_tableName, NULL, NULL, $whereClause);
+        $query = QueryHelper::createRead($this->_tableName, NULL, NULL, $whereClause, NULL);
         $mysqli = DBConnection::createConnection();
         $result = $mysqli->query($query);
 
@@ -144,7 +144,7 @@ class DAO {
         return $row[0];
     }
 
-    static function getPaging($tableName, $pageNo, $pageSize, $where, $withLimit=TRUE) {
+    static function getPaging($tableName, $pageNo, $pageSize, $where, $withLimit = TRUE) {
         $result = array();
         $result["total"] = self::count($tableName, $where);
         $query = QueryHelper::createPaging($tableName, $pageNo, $pageSize, $where, $withLimit);
@@ -161,7 +161,7 @@ class DAO {
     function isExist() {
         $columns = array();
         array_push($columns, "COUNT(*)");
-        $query = QueryHelper::createRead($this->_tableName, $this->getPrimaryKeys(), $columns, NULL);
+        $query = QueryHelper::createRead($this->_tableName, $this->getPrimaryKeys(), $columns, NULL, NULL);
         $mysqli = DBConnection::createConnection();
         $result = $mysqli->query($query);
         if ($result == false) {
@@ -184,7 +184,7 @@ class DAO {
     }
 
     function readAll($columns, $where) {
-        $query = QueryHelper::createRead($this->_tableName, NULL, $columns, $where);
+        $query = QueryHelper::createRead($this->_tableName, NULL, $columns, $where, NULL);
         $mysqli = DBConnection::createConnection();
         $result = $mysqli->query($query);
         $data = array();
@@ -208,9 +208,8 @@ class DAO {
         return $data;
     }
 
-    static function readAllArray($view_name, $columns, $where) {
-        $query = QueryHelper::createRead($view_name, NULL, $columns, $where);
-//        echo 'Query : ' . $query . '<br>';
+    static function readAllArray($view_name, $columns, $where, $orderBy) {
+        $query = QueryHelper::createRead($view_name, NULL, $columns, $where, $orderBy);
         $mysqli = DBConnection::createConnection();
         $result = $mysqli->query($query);
 
@@ -259,7 +258,6 @@ class DAO {
         $result = $mysqli->query($query);
         return $result;
     }
-
 }
 
 ?>
