@@ -85,6 +85,9 @@ if (!isLoggedIn()) {
     $(window).resize(function () {
         $('#dg').datagrid('resize');
     });
+    $(function () {
+        $('#dg').datagrid('enableFilter');
+    });
 </script>
 </head>
 <body>

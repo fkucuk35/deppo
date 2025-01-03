@@ -32,7 +32,7 @@ switch ($op) {
         $rows = isset($_POST['rows']) ? intval($_POST['rows']) : 10;
         $offset = ($page - 1) * $rows;
         $where = NULL;
-        $result = Personel::getPaging(Personel::table_name, $offset, $rows, $where, TRUE, ' ORDER BY name ASC');
+        $result = Personel::getPaging(Personel::table_name, $offset, $rows, $where, FALSE, ' ORDER BY name ASC');
         echo json_encode($result);
         exit;
     case 4:// get all list for combobox

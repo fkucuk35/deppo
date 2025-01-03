@@ -85,7 +85,7 @@ if (!isLoggedIn()) {
         if (row) {
             $.messager.confirm('Onayla', 'Silmek istediğinize emin misiniz?', function (r) {
                 if (r) {
-                    $.post('operations/stock_card_operations.php', { id: row.id, op: 2 }, function (result) {
+                    $.post('operations/stock_card_operations.php', {id: row.id, op: 2}, function (result) {
                         if (result.success) {
                             $('#dg').datagrid('reload');	// reload the list
                         } else {
@@ -120,15 +120,18 @@ if (!isLoggedIn()) {
             return '<image src="assets/images/stock_cards/' + val + '" width="32" height="32"/>';
         }
     }
+    $(function () {
+        $('#dg').datagrid('enableFilter');
+    });
 </script>
 <div id="wrapper" style="margin:5px">
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <div class="content-main">
             <div class="content-easyui" id="wrapper-grid">
                 <table id="dg" title="Stok Kartı Listesi" class="easyui-datagrid"
-                    url="operations/stock_card_operations.php?op=3" toolbar="#toolbar" pagination="true"
-                    paginationSize="10" pageList="[10]" rownumbers="true" fitColumns="true" singleSelect="true"
-                    data-options="onDblClickRow:function(){viewItem();}">
+                       url="operations/stock_card_operations.php?op=3" toolbar="#toolbar" pagination="true"
+                       paginationSize="10" pageList="[10]" rownumbers="true" fitColumns="true" singleSelect="true"
+                       data-options="onDblClickRow:function(){viewItem();}">
                     <thead>
                         <tr>
                             <th field="active" data-options="formatter:formatActive">Aktif</th>
@@ -151,7 +154,7 @@ if (!isLoggedIn()) {
     <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshList()">Yenile</a>
 </div>
 <div id="dlg" class="easyui-dialog" closed="true" buttons="#dlg-buttons" modal="true"
-    data-options="onResize:function(){$(this).dialog('center');}">
+     data-options="onResize:function(){$(this).dialog('center');}">
     <form id="fm" method="post" novalidate>
         <div class="fitem">
             <label>Aktif</label>

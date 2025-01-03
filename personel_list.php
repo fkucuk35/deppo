@@ -113,32 +113,9 @@ if (!isLoggedIn()) {
         }
     }
 
-    function doSearch(inp) {
-        if (inp != '') {
-            var rows = [];
-            var table_data = $('#dg').datagrid('getRows');
-
-            inp = inp.toUpperCase();
-
-            $.map(table_data, function (row) {
-                for (var p in row)
-                {
-                    var v = row[p];
-                    var regExp = new RegExp(inp, 'i'); // i - makes the search case-insensitive.
-
-                    if (regExp.test(String(v)))
-                    {
-                        rows.push(row);
-                        break;
-                    }
-                }
-            });
-
-            $('#dg').datagrid('loadData', rows);
-        } else {
-            refreshList();
-        }
-    }
+    $(function () {
+        $('#dg').datagrid('enableFilter');
+    });
 </script>
 <div id="wrapper" style="margin:5px">
     <div id="page-wrapper" class="gray-bg dashbard-1">
@@ -165,7 +142,6 @@ if (!isLoggedIn()) {
     <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editItem()">Düzenle</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeItem()">Sil</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshList()">Yenile</a>
-    <input id="searchByName" class="easyui-searchbox" data-options="prompt:'Aranacak personel adı', searcher: doSearch"/>
 </div>
 <div id="dlg" class="easyui-dialog" closed="true" buttons="#dlg-buttons" modal="true"
      data-options="onResize:function(){$(this).dialog('center');}">

@@ -28,7 +28,7 @@ switch ($op) {
         $rows = isset($_POST['rows']) ? intval($_POST['rows']) : 10;
         $offset = ($page - 1) * $rows;
         $where = NULL;
-        $result = Receipt_Type::getPaging(Receipt_Type::table_name, $offset, $rows, $where, TRUE, ' ORDER BY name ASC');
+        $result = Receipt_Type::getPaging(Receipt_Type::table_name, $offset, $rows, $where, FALSE, ' ORDER BY name ASC');
         echo json_encode($result);
         exit;
     case 4:// get all list for combobox

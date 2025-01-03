@@ -205,15 +205,97 @@ if (!isLoggedIn()) {
                     {field: 'stock_id', hidden: true},
                     {field: 'code', title: 'Stok Kartı Kodu', width: 3},
                     {field: 'name', title: 'Stok Kartı Adı', width: 3},
-                    {field: 'ordered_quantity', title: 'Sipariş Edilen', width: 1},
-                    {field: 'received_quantity', title: 'Teslim Alınan', width: 2},
-                    {field: 'description', title: 'Açıklama', width: 5}
-                ]]
+                    {field: 'ordered_quantity', title: 'Sipariş Edilen', width: 1, editor: 'numberbox'},
+                    {field: 'received_quantity', title: 'Teslim Alınan', width: 2, editor: 'numberbox'},
+                    {field: 'description', title: 'Açıklama', width: 5, editor: 'textbox'},
+                    {field: 'action', title: '', width: 5, align: 'center', formatter: function (value, row, index) {
+                            if (row.editing) {
+                                var s = '<a href="javascript:void(0)" onclick="saverow(this)">Kaydet</a> ';
+                                var c = '<a href="javascript:void(0)" onclick="cancelrow(this)">İptal</a>';
+                                return s + c;
+                            } else {
+                                var e = '<a href="javascript:void(0)" onclick="editrow(this)">Düzenle</a> ';
+                                var d = '<a href="javascript:void(0)" onclick="deleterow(this)">Sil</a>';
+                                return e + d;
+                            }
+                        }}
+                ]],
+            onEndEdit: function (index, row) {
+                var edoq = $(this).datagrid('getEditor', {
+                    index: index,
+                    field: 'ordered_quantity'
+                });
+                row.ordered_quantity = $(edoq.target).numberbox('getValue');
+                var edrq = $(this).datagrid('getEditor', {
+                    index: index,
+                    field: 'received_quantity'
+                });
+                row.received_quantity = $(edrq.target).numberbox('getValue');
+                var edd = $(this).datagrid('getEditor', {
+                    index: index,
+                    field: 'description'
+                });
+                row.description = $(edd.target).textbox('getText');
+                row.editing = false;
+                $(this).datagrid('refreshRow', index);
+            },
+            onBeforeEdit: function (index, row) {
+                row.editing = true;
+                $(this).datagrid('refreshRow', index);
+            },
+            onAfterEdit: function (index, row) {
+                row.editing = false;
+                $(this).datagrid('refreshRow', index);
+            },
+            onCancelEdit: function (index, row) {
+                row.editing = false;
+                $(this).datagrid('refreshRow', index);
+            }
         });
     }, 'json');
 
+    function getRowIndex(target) {
+        var tr = $(target).closest('tr.datagrid-row');
+        return parseInt(tr.attr('datagrid-row-index'));
+    }
+    function editrow(target) {
+        $('#tbl_details').datagrid('beginEdit', getRowIndex(target));
+    }
+    function deleterow(target) {
+        $.messager.confirm('Confirm', 'Are you sure?', function (r) {
+            if (r) {
+                $('#tbl_details').datagrid('deleteRow', getRowIndex(target));
+            }
+        });
+    }
+    function saverow(target) {
+        $('#tbl_details').datagrid('endEdit', getRowIndex(target));
+    }
+    function cancelrow(target) {
+        $('#tbl_details').datagrid('cancelEdit', getRowIndex(target));
+    }
+    /*function insert() {
+     var row = $('#tbl_details').datagrid('getSelected');
+     if (row) {
+     var index = $('#tbl_details').datagrid('getRowIndex', row);
+     } else {
+     index = 0;
+     }
+     $('#tbl_details').datagrid('insertRow', {
+     index: index,
+     row: {
+     status: 'P'
+     }
+     });
+     $('#tbl_details').datagrid('selectRow', index);
+     $('#tbl_details').datagrid('beginEdit', index);
+     }*/
     // Detail Functions End
 
+    $(function () {
+        $('#dg').datagrid('enableFilter');
+        $('#tbl_stock_card_list').datagrid('enableFilter');
+    });
 </script>
 <div id="wrapper" style="margin:5px">
     <div id="page-wrapper" class="gray-bg dashbard-1">

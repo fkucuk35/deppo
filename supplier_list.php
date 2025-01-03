@@ -9,7 +9,7 @@ if (!isLoggedIn()) {
 <?php include "partials/_navbar.php" ?>
 <script type="text/javascript">
     var url;
-    
+
     function newItem() {
         $('#icon-ok').show();
         $('#dlg').dialog('open').dialog('setTitle', 'Yeni');
@@ -59,7 +59,7 @@ if (!isLoggedIn()) {
             }
         });
     }
-    
+
     function removeItem() {
         var row = $('#dg').datagrid('getSelected');
         if (row) {
@@ -85,6 +85,9 @@ if (!isLoggedIn()) {
     }
     $(window).resize(function () {
         $('#dg').datagrid('resize');
+    });
+    $(function () {
+        $('#dg').datagrid('enableFilter');
     });
 </script>
 <div id="wrapper" style="margin:5px">

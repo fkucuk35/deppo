@@ -34,7 +34,7 @@ switch ($op) {
         $rows = isset($_POST['rows']) ? intval($_POST['rows']) : 10;
         $offset = ($page - 1) * $rows;
         $where = NULL;
-        $result = Stock_Card::getPaging(Stock_Card::table_name, $offset, $rows, $where, TRUE, ' ORDER BY code ASC');
+        $result = Stock_Card::getPaging(Stock_Card::table_name, $offset, $rows, $where, FALSE, ' ORDER BY code ASC');
         echo json_encode($result);
         exit;
     case 4:// get all list for combobox
