@@ -1,15 +1,14 @@
-<?php include 'settings.php'; ?>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="keywords" content="jquery,ui,easy,easyui,web">
         <meta name="description" content="easyui help you build your web page easily!">
     <title>Add search functionality in DataGrid - jQuery EasyUI Demo</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo $GLOBALS["LOCAL_EASYUI_ROOT"]; ?>/themes/default/easyui.css">
-        <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../libs/jeasyui/themes/default/easyui.css">
+        <link rel="stylesheet" type="text/css" href="../libs/jeasyui/themes/icon.css">
             <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/demo/demo.css">
-                <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
-                <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+                <script type="text/javascript" src="../libs/jeasyui/jquery.min.js"></script>
+                <script type="text/javascript" src="../libs/jeasyui/jquery.easyui.min.js"></script>
                 <script type="text/javascript">
                     function doSearch() {
                         $('#tt').datagrid('load', {
@@ -26,7 +25,7 @@
                     <div>Enter search values and press search button.</div>
                 </div>
 
-                <table id="tt" class="easyui-datagrid" style="width:700px;height:250px"
+                <table id="tt" class="easyui-datagrid" style="width:100%;height:500px"
                        url="datagrid24_getdata.php"
                        title="Searching" iconCls="icon-search" toolbar="#tb"
                        rownumbers="true" pagination="true">
@@ -46,7 +45,7 @@
                     <input id="code" style="line-height:26px;border:1px solid #ccc"/>
                     <span>Name:</span>
                     <input id="name" style="line-height:26px;border:1px solid #ccc"/>
-                <!--     <a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a> -->
+                    <a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
                 </div>
                 </body>
                 </html>

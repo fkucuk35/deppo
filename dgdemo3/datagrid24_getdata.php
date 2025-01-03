@@ -3,8 +3,8 @@
 	
 	$page = isset($_POST['page']) ? intval($_POST['page']) : 1;
 	$rows = isset($_POST['rows']) ? intval($_POST['rows']) : 10;
-	$code = isset($_POST['code']) ? mysqli_real_escape_string($_POST['code']) : '';
-	$name = isset($_POST['name']) ? mysqli_real_escape_string($_POST['name']) : '';
+	$code = isset($_POST['code']) ? $_POST['code'] : '';
+	$name = isset($_POST['name']) ? $_POST['name'] : '';
 	
 	$offset = ($page-1)*$rows;
 	
