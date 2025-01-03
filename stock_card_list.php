@@ -85,7 +85,7 @@ if (!isLoggedIn()) {
         if (row) {
             $.messager.confirm('Onayla', 'Silmek istediğinize emin misiniz?', function (r) {
                 if (r) {
-                    $.post('operations/stock_card_operations.php', {id: row.id, op: 2}, function (result) {
+                    $.post('operations/stock_card_operations.php', { id: row.id, op: 2 }, function (result) {
                         if (result.success) {
                             $('#dg').datagrid('reload');	// reload the list
                         } else {
@@ -120,20 +120,15 @@ if (!isLoggedIn()) {
             return '<image src="assets/images/stock_cards/' + val + '" width="32" height="32"/>';
         }
     }
-
-    $(function () {
-        $('#dg').datagrid('enableFilter');
-    });
 </script>
 <div id="wrapper" style="margin:5px">
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <div class="content-main">
-            <div class ="content-easyui" id="wrapper-grid">
-                <table id="dg" title="Stok Kartı Listesi" class="easyui-datagrid"                                
-                       url="operations/stock_card_operations.php?op=3"
-                       toolbar="#toolbar" pagination="true" paginationSize="10" pageList="[10]"
-                       rownumbers="true" fitColumns="true" singleSelect="true"
-                       data-options="onDblClickRow:function(){viewItem();}">
+            <div class="content-easyui" id="wrapper-grid">
+                <table id="dg" title="Stok Kartı Listesi" class="easyui-datagrid"
+                    url="operations/stock_card_operations.php?op=3" toolbar="#toolbar" pagination="true"
+                    paginationSize="10" pageList="[10]" rownumbers="true" fitColumns="true" singleSelect="true"
+                    data-options="onDblClickRow:function(){viewItem();}">
                     <thead>
                         <tr>
                             <th field="active" data-options="formatter:formatActive">Aktif</th>
@@ -147,7 +142,7 @@ if (!isLoggedIn()) {
             </div>
         </div>
     </div>
-</div> 
+</div>
 <div id="toolbar">
     <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newItem()">Yeni</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-view" plain="true" onclick="viewItem()">Görüntüle</a>
@@ -155,29 +150,28 @@ if (!isLoggedIn()) {
     <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeItem()">Sil</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshList()">Yenile</a>
 </div>
-<div id="dlg" class="easyui-dialog"
-     closed="true" buttons="#dlg-buttons" modal="true"
-     data-options="onResize:function(){$(this).dialog('center');}">
+<div id="dlg" class="easyui-dialog" closed="true" buttons="#dlg-buttons" modal="true"
+    data-options="onResize:function(){$(this).dialog('center');}">
     <form id="fm" method="post" novalidate>
         <div class="fitem">
             <label>Aktif</label>
-            <input name="active" id="active" class="easyui-checkbox" required="true"/>
-            <input name="active_status" id="active_status" type="hidden"/>
-        </div>  
+            <input name="active" id="active" class="easyui-checkbox" required="true" />
+            <input name="active_status" id="active_status" type="hidden" />
+        </div>
         <div class="fitem">
             <label>Stok Kartı Kodu:</label>
-            <input name="code" class="easyui-validatebox" required="true"/>
-        </div>  
+            <input name="code" class="easyui-validatebox" required="true" />
+        </div>
         <div class="fitem">
             <label>Stok Kartı Adı:</label>
-            <input name="name" class="easyui-validatebox" required="true"/>
-        </div>      
+            <input name="name" class="easyui-validatebox" required="true" />
+        </div>
         <div class="fitem">
             <label name="quantity" id="quantity"></label>
-        </div>      
+        </div>
         <div class="fitem" style="display: none">
-            <input name="image_url" type="hidden"/>
-        </div> 
+            <input name="image_url" type="hidden" />
+        </div>
     </form>
 </div>
 <div id="dlg-buttons">
