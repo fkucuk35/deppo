@@ -1,0 +1,52 @@
+<?php include 'settings.php'; ?>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="keywords" content="jquery,ui,easy,easyui,web">
+        <meta name="description" content="easyui help you build your web page easily!">
+    <title>Add search functionality in DataGrid - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="<?php echo $GLOBALS["LOCAL_EASYUI_ROOT"]; ?>/themes/default/easyui.css">
+        <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
+            <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/demo/demo.css">
+                <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+                <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+                <script type="text/javascript">
+                    function doSearch() {
+                        $('#tt').datagrid('load', {
+                            code: $('#code').val(),
+                            name: $('#name').val()
+                        });
+                    }
+                </script>
+                </head>
+                <body>
+                    <h2>Add search functionality in DataGrid</h2>
+                <div class="demo-info" style="margin-bottom:10px">
+                    <div class="demo-tip icon-tip">&nbsp;</div>
+                    <div>Enter search values and press search button.</div>
+                </div>
+
+                <table id="tt" class="easyui-datagrid" style="width:700px;height:250px"
+                       url="datagrid24_getdata.php"
+                       title="Searching" iconCls="icon-search" toolbar="#tb"
+                       rownumbers="true" pagination="true">
+                    <thead>
+                        <tr>
+                            <th field="id" width="80">Id</th>
+                            <th field="code" width="80">Code</th>
+                            <th field="name" width="120">Name</th>
+                            <th field="quantity" width="80" align="right">Quantity</th>
+                            <th field="image_url" width="80" align="right">Image Url</th>
+                            <th field="active" width="200">Active</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div id="tb" style="padding:3px">
+                    <span>Code:</span>
+                    <input id="code" style="line-height:26px;border:1px solid #ccc"/>
+                    <span>Name:</span>
+                    <input id="name" style="line-height:26px;border:1px solid #ccc"/>
+                <!--     <a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a> -->
+                </div>
+                </body>
+                </html>
