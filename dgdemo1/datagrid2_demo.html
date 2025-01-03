@@ -1,0 +1,29 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="jquery,ui,easy,easyui,web">
+	<meta name="description" content="easyui help you build your web page easily!">
+	<title>jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h1>DataGrid</h1>
+	<table id="tt" class="easyui-datagrid" style="width:600px;height:250px"
+			url="datagrid2_getdata.php"
+			title="Stok Kartı Listesi"
+			rownumbers="true" pagination="true">
+		<thead>
+			<tr>
+				<th field="code">Stok Kodu</th>
+				<th field="name">Stok Adı</th>
+				<th field="quantity">Miktar</th>
+				<th field="image_url">Resim</th>
+				<th field="active">Aktif</th>
+			</tr>
+		</thead>
+	</table>
+</body>
+</html>

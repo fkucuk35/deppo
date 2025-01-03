@@ -3,6 +3,7 @@
 //echo "<script type='text/javascript'>alert('setting start');</script>";
 $GLOBALS['ROOT'] = '/deppo/';
 $GLOBALS['FULL_ROOT'] = $_SERVER['DOCUMENT_ROOT'] . '/deppo/';
+$GLOBALS['LOCAL_EASYUI_ROOT'] = $GLOBALS["ROOT"].'libs/jeasyui/';
 $GLOBALS['ORDER_NUMBER_PREFIX'] = 'SIP';
 $GLOBALS['SIGNUTURE'] = '<br>Yapısan Park - Deppo<br>';
 $GLOBALS['MAIL_HOST'] = 'mail.sabahtech.com.tr';

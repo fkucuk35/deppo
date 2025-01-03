@@ -155,9 +155,6 @@ if (!isLoggedIn()) {
         $('#tbl_stock_card_list').datagrid('uncheckAll');
     }
 
-    $(function () {
-        $('#dg').datagrid('enableFilter');
-    });
     var checkedRows = [];
     function getCheckedBeforeAdd(allList) {
         var rows = $(allList).datagrid('getChecked');
@@ -198,7 +195,6 @@ if (!isLoggedIn()) {
     }
 
     $(function () {
-        $('#tbl_stock_card_list').datagrid('enableFilter');
         $('#tbl_details').datagrid({
             singleSelect: true,
             idField: 'id',
@@ -207,11 +203,11 @@ if (!isLoggedIn()) {
                     {field: 'id', hidden: true},
                     {field: 'order_id', hidden: true},
                     {field: 'stock_id', hidden: true},
-                    {field: 'code', title: 'Stok Kartı Kodu', width: 50},
-                    {field: 'name', title: 'Stok Kartı Adı', width: 50},
-                    {field: 'ordered_quantity', title: 'Sipariş Edilen Miktar', width: 50},
-                    {field: 'received_quantity', title: 'Teslim Alınan Miktar', width: 50},
-                    {field: 'description', title: 'Açıklama', width: 50}
+                    {field: 'code', title: 'Stok Kartı Kodu', width: 3},
+                    {field: 'name', title: 'Stok Kartı Adı', width: 3},
+                    {field: 'ordered_quantity', title: 'Sipariş Edilen', width: 1},
+                    {field: 'received_quantity', title: 'Teslim Alınan', width: 2},
+                    {field: 'description', title: 'Açıklama', width: 5}
                 ]]
         });
     }, 'json');
@@ -249,7 +245,7 @@ if (!isLoggedIn()) {
 </div>
 <div id="dlg" class="easyui-dialog"
      closed="true" buttons="#dlg-buttons" modal="true"
-     data-options="onResize:function(){$(this).dialog('center');}" style="width:90%;height:500px">
+     data-options="onResize:function(){$(this).dialog('center');}" style="width:95%;height:500px">
     <form id="fm" method="post" novalidate>
         <div class="fitem inline">
             <label>Sipariş Numarası:</label>
@@ -270,11 +266,13 @@ if (!isLoggedIn()) {
         </div>
 
         <!--datagrid details start-->
-        <div class="fitem" id="div_tbl_details">
-            <table id="tbl_details" class="easyui-datagrid"
-                   toolbar="#toolbarDetail" rownumbers="true" autoRowHeight="false" fitColumns="true" singleSelect="true" 
-                   data-options="header:'#hh', scrollbarSize: 0">
-            </table>  
+        <div class="container-fluid px-1">      
+            <div class="fitem" id="div_tbl_details">
+                <table id="tbl_details" class="easyui-datagrid" style="width: 99%"
+                       toolbar="#toolbarDetail" rownumbers="true" autoRowHeight="false" fitColumns="true" singleSelect="true" 
+                       data-options="header:'#hh', scrollbarSize: 0">
+                </table>  
+            </div>
         </div>
         <div class="fitem">
             <textarea name="rows" id='rows' style='display: none'></textarea>
