@@ -1,26 +1,32 @@
-(function($jqeui){
+/**
+ * DataGrid Filter for jQuery EasyUI
+ * version: 1.0.7
+ */
+
+(function($){
 	function getPluginName(target){
-		if ($jqeui(target).data('treegrid')){
+		if ($(target).data('treegrid')){
 			return 'treegrid';
 		} else {
 			return 'datagrid';
 		}
 	}
 
-	var autoSizeColumn1 = $jqeui.fn.datagrid.methods.autoSizeColumn;
-	var loadDataMethod1 = $jqeui.fn.datagrid.methods.loadData;
-	var appendMethod1 = $jqeui.fn.datagrid.methods.appendRow;
-	var deleteMethod1 = $jqeui.fn.datagrid.methods.deleteRow;
-	$jqeui.extend($jqeui.fn.datagrid.methods, {
+	var autoSizeColumn1 = $.fn.datagrid.methods.autoSizeColumn;
+	var loadDataMethod1 = $.fn.datagrid.methods.loadData;
+	var appendMethod1 = $.fn.datagrid.methods.appendRow;
+	var insertMethod1 = $.fn.datagrid.methods.insertRow;
+	var deleteMethod1 = $.fn.datagrid.methods.deleteRow;
+	$.extend($.fn.datagrid.methods, {
 		autoSizeColumn: function(jq, field){
 			return jq.each(function(){
-				var fc = $jqeui(this).datagrid('getPanel').find('.datagrid-header .datagrid-filter-c');
+				var fc = $(this).datagrid('getPanel').find('.datagrid-header .datagrid-filter-c');
 				// fc.hide();
 				fc.css({
 					width:'1px',
 					height:0
 				});
-				autoSizeColumn1.call($jqeui.fn.datagrid.methods, $jqeui(this), field);
+				autoSizeColumn1.call($.fn.datagrid.methods, $(this), field);
 				// fc.show();
 				fc.css({
 					width:'',
@@ -31,14 +37,14 @@
 		},
 		loadData: function(jq, data){
 			jq.each(function(){
-				$jqeui.data(this, 'datagrid').filterSource = null;
+				$.data(this, 'datagrid').filterSource = null;
 			});
-			return loadDataMethod1.call($jqeui.fn.datagrid.methods, jq, data);
+			return loadDataMethod1.call($.fn.datagrid.methods, jq, data);
 		},
 		appendRow: function(jq, row){
-			var result = appendMethod1.call($jqeui.fn.datagrid.methods, jq, row);
+			var result = appendMethod1.call($.fn.datagrid.methods, jq, row);
 			jq.each(function(){
-				var state = $jqeui(this).data('datagrid');
+				var state = $(this).data('datagrid');
 				if (state.filterSource){
 					state.filterSource.total++;
 					if (state.filterSource.rows != state.data.rows){
@@ -48,9 +54,26 @@
 			});
 			return result;
 		},
+		insertRow: function(jq, param){
+			var result = insertMethod1.call($.fn.datagrid.methods, jq, param);
+			jq.each(function(){
+				var state = $(this).data('datagrid');
+				if (state.filterSource){
+					state.filterSource.total++;
+					if (state.filterSource.rows != state.data.rows){
+						var index = param.index || 0;
+						if (index > state.filterSource.rows.length){
+							index = state.filterSource.rows.length;
+						}
+						state.filterSource.rows.splice(index, 0, param.row);
+					}
+				}
+			});
+			return result;
+		},
 		deleteRow: function(jq, index){
 			jq.each(function(){
-				var state = $jqeui(this).data('datagrid');
+				var state = $(this).data('datagrid');
 				var opts = state.options;
 				if (state.filterSource && opts.idField){
 					if (state.filterSource.rows == state.data.rows){
@@ -67,38 +90,38 @@
 					}
 				}
 			});
-			return deleteMethod1.call($jqeui.fn.datagrid.methods, jq, index);		
+			return deleteMethod1.call($.fn.datagrid.methods, jq, index);		
 		}
 	});
 
-	var loadDataMethod2 = $jqeui.fn.treegrid.methods.loadData;
-	var appendMethod2 = $jqeui.fn.treegrid.methods.append;
-	var insertMethod2 = $jqeui.fn.treegrid.methods.insert;
-	var removeMethod2 = $jqeui.fn.treegrid.methods.remove;
-	$jqeui.extend($jqeui.fn.treegrid.methods, {
+	var loadDataMethod2 = $.fn.treegrid.methods.loadData;
+	var appendMethod2 = $.fn.treegrid.methods.append;
+	var insertMethod2 = $.fn.treegrid.methods.insert;
+	var removeMethod2 = $.fn.treegrid.methods.remove;
+	$.extend($.fn.treegrid.methods, {
 		loadData: function(jq, data){
 			jq.each(function(){
-				$jqeui.data(this, 'treegrid').filterSource = null;
+				$.data(this, 'treegrid').filterSource = null;
 			});
-			return loadDataMethod2.call($jqeui.fn.treegrid.methods, jq, data);
+			return loadDataMethod2.call($.fn.treegrid.methods, jq, data);
 		},
 		append: function(jq, param){
 			return jq.each(function(){
-				var state = $jqeui(this).data('treegrid');
+				var state = $(this).data('treegrid');
 				var opts = state.options;
 				if (opts.oldLoadFilter){
 					var rows = translateTreeData(this, param.data, param.parent);
 					state.filterSource.total += rows.length;
 					state.filterSource.rows = state.filterSource.rows.concat(rows);
-					$jqeui(this).treegrid('loadData', state.filterSource)
+					$(this).treegrid('loadData', state.filterSource)
 				} else {
-					appendMethod2($jqeui(this), param);
+					appendMethod2($(this), param);
 				}
 			});
 		},
 		insert: function(jq, param){
 			return jq.each(function(){
-				var state = $jqeui(this).data('treegrid');
+				var state = $(this).data('treegrid');
 				var opts = state.options;
 				if (opts.oldLoadFilter){
 					var ref = param.before || param.after;
@@ -110,7 +133,7 @@
 					newRows = newRows.concat(state.filterSource.rows);
 					state.filterSource.total += rows.length;
 					state.filterSource.rows = newRows;
-					$jqeui(this).treegrid('loadData', state.filterSource);
+					$(this).treegrid('loadData', state.filterSource);
 
 					function getNodeIndex(id){
 						var rows = state.filterSource.rows;
@@ -122,13 +145,13 @@
 						return -1;
 					}
 				} else {
-					insertMethod2($jqeui(this), param);
+					insertMethod2($(this), param);
 				}
 			});
 		},
 		remove: function(jq, id){
 			jq.each(function(){
-				var state = $jqeui(this).data('treegrid');
+				var state = $(this).data('treegrid');
 				if (state.filterSource){
 					var opts = state.options;
 					var rows = state.filterSource.rows;
@@ -151,28 +174,36 @@
 		filterBtnPosition: 'right',
 		filterPosition: 'bottom',
 		remoteFilter: false,
+		clientPaging: true,
 		showFilterBar: true,
 		filterDelay: 400,
 		filterRules: [],
 		// specify whether the filtered records need to match ALL or ANY of the applied filters
 		filterMatchingType: 'all',	// possible values: 'all','any'
+		filterIncludingChild: false,
 		// filterCache: {},
 		filterMatcher: function(data){
 			var name = getPluginName(this);
-			var dg = $jqeui(this);
-			var state = $jqeui.data(this, name);
+			var dg = $(this);
+			var state = $.data(this, name);
 			var opts = state.options;
 			if (opts.filterRules.length){
 				var rows = [];
 				if (name == 'treegrid'){
 					var rr = {};
-					$jqeui.map(data.rows, function(row){
+					$.map(data.rows, function(row){
 						if (isMatch(row, row[opts.idField])){
 							rr[row[opts.idField]] = row;
-							row = getRow(data.rows, row._parentId);
-							while(row){
-								rr[row[opts.idField]] = row;
-								row = getRow(data.rows, row._parentId);
+							var prow = getRow(data.rows, row._parentId);
+							while(prow){
+								rr[prow[opts.idField]] = prow;
+								prow = getRow(data.rows, prow._parentId);
+							}
+							if (opts.filterIncludingChild){
+								var cc = getAllChildRows(data.rows, row[opts.idField]);
+								$.map(cc, function(row){
+									rr[row[opts.idField]] = row;
+								});
 							}
 						}
 					});
@@ -187,15 +218,17 @@
 						}
 					}
 				}
-				data = {
-					total: data.total - (data.rows.length - rows.length),
-					rows: rows
-				};
+				// data = {
+				// 	total: data.total - (data.rows.length - rows.length),
+				// 	rows: rows
+				// };
+				data.total = data.total - (data.rows.length - rows.length);
+				data.rows = rows;
 			}
 			return data;
 			
 			function isMatch(row, index){
-				if (opts.val == $jqeui.fn.combogrid.defaults.val){
+				if (opts.val == $.fn.combogrid.defaults.val){
 					opts.val = extendedOptions.val;
 				}
 				var rules = opts.filterRules;
@@ -235,47 +268,76 @@
 				}
 				return null;
 			}
+			function getAllChildRows(rows, id){
+				var cc = getChildRows(rows, id);
+				var stack = $.extend(true, [], cc);
+				while(stack.length){
+					var row = stack.shift();
+					var c2 = getChildRows(rows, row[opts.idField]);
+					cc = cc.concat(c2);
+					stack = stack.concat(c2);
+				}
+				return cc;
+			}
+			function getChildRows(rows, id){
+				var cc = [];
+				for(var i=0; i<rows.length; i++){
+					var row = rows[i];
+					if (row._parentId == id){
+						cc.push(row);
+					}
+				}
+				return cc;
+			}
 		},
 		defaultFilterType: 'text',
 		defaultFilterOperator: 'contains',
+		defaultFilterTrigger: 'keydown',
 		defaultFilterOptions: {
 			onInit: function(target){
 				var name = getPluginName(target);
-				var opts = $jqeui(target)[name]('options');
-				var field = $jqeui(this).attr('name');
-				var input = $jqeui(this);
+				var opts = $(target)[name]('options');
+				var filterOpts = this.filterOptions;
+				var field = $(this).attr('name');
+				var input = $(this);
 				if (input.data('textbox')){
 					input = input.textbox('textbox');
 				}
-				input.unbind('.filter').bind('keydown.filter', function(e){
-					var t = $jqeui(this);
+				var trigger = filterOpts.trigger || opts.defaultFilterTrigger;
+				input.off('.filter').on(trigger+'.filter', function(e){
+					var t = $(this);
 					if (this.timer){
 						clearTimeout(this.timer);
 					}
 					if (e.keyCode == 13){
 						_doFilter();
-					} else {
+					} else if (opts.filterDelay){
 						this.timer = setTimeout(function(){
 							_doFilter();
 						}, opts.filterDelay);
 					}
 				});
 				function _doFilter(){
-					var rule = $jqeui(target)[name]('getFilterRule', field);
+					var rule = $(target)[name]('getFilterRule', field);
 					var value = input.val();
+					if (filterOpts.options.prompt && filterOpts.options.prompt==value){
+						value = '';
+					}
 					if (value != ''){
 						if ((rule && rule.value!=value) || !rule){
-							$jqeui(target)[name]('addFilterRule', {
+							var op = rule ? rule.op : (filterOpts ? filterOpts.defaultFilterOperator||opts.defaultFilterOperator : opts.defaultFilterOperator);
+							$(target)[name]('addFilterRule', {
 								field: field,
-								op: opts.defaultFilterOperator,
+								// op: opts.defaultFilterOperator,
+								op: op,
 								value: value
 							});
-							$jqeui(target)[name]('doFilter');
+							$(target)[name]('doFilter');
 						}
 					} else {
 						if (rule){
-							$jqeui(target)[name]('removeFilterRule', field);
-							$jqeui(target)[name]('doFilter');
+							$(target)[name]('removeFilterRule', field);
+							$(target)[name]('doFilter');
 						}
 					}
 				}
@@ -290,30 +352,30 @@
 		},
 		onClickMenu: function(item,button){}
 	};
-	$jqeui.extend($jqeui.fn.datagrid.defaults, extendedOptions);
-	$jqeui.extend($jqeui.fn.treegrid.defaults, extendedOptions);
+	$.extend($.fn.datagrid.defaults, extendedOptions);
+	$.extend($.fn.treegrid.defaults, extendedOptions);
 	
 	// filter types
-	$jqeui.fn.datagrid.defaults.filters = $jqeui.extend({}, $jqeui.fn.datagrid.defaults.editors, {
+	$.fn.datagrid.defaults.filters = $.extend({}, $.fn.datagrid.defaults.editors, {
 		label: {
 			init: function(container, options){
-				return $jqeui('<span></span>').appendTo(container);
+				return $('<span></span>').appendTo(container);
 			},
 			getValue: function(target){
-				return $jqeui(target).html();
+				return $(target).html();
 			},
 			setValue: function(target, value){
-				$jqeui(target).html(value);
+				$(target).html(value);
 			},
 			resize: function(target, width){
-				$jqeui(target)._outerWidth(width)._outerHeight(22);
+				$(target)._outerWidth(width)._outerHeight(22);
 			}
 		}
 	});
-	$jqeui.fn.treegrid.defaults.filters = $jqeui.fn.datagrid.defaults.filters;
+	$.fn.treegrid.defaults.filters = $.fn.datagrid.defaults.filters;
 	
 	// filter operators
-	$jqeui.fn.datagrid.defaults.operators = {
+	$.fn.datagrid.defaults.operators = {
 		nofilter: {
 			text: 'No Filter'
 		},
@@ -378,18 +440,18 @@
 			}
 		}
 	};
-	$jqeui.fn.treegrid.defaults.operators = $jqeui.fn.datagrid.defaults.operators;
+	$.fn.treegrid.defaults.operators = $.fn.datagrid.defaults.operators;
 	
 	function resizeFilter(target, field){
 		var toFixColumnSize = false;
-		var dg = $jqeui(target);
+		var dg = $(target);
 		var header = dg.datagrid('getPanel').find('div.datagrid-header');
 		var tr = header.find('.datagrid-header-row:not(.datagrid-filter-row)');
 		var ff = field ? header.find('.datagrid-filter[name="'+field+'"]') : header.find('.datagrid-filter');
 		ff.each(function(){
-			var name = $jqeui(this).attr('name');
+			var name = $(this).attr('name');
 			var col = dg.datagrid('getColumnOption', name);
-			var cc = $jqeui(this).closest('div.datagrid-filter-c');
+			var cc = $(this).closest('div.datagrid-filter-c');
 			var btn = cc.find('a.datagrid-filter-btn');
 			var cell = tr.find('td[field="'+name+'"] .datagrid-cell');
 			var cellWidth = cell._outerWidth();
@@ -403,20 +465,20 @@
 			}
 		});
 		if (toFixColumnSize){
-			$jqeui(target).datagrid('fixColumnSize');			
+			$(target).datagrid('fixColumnSize');			
 		}
 
 		function _getContentWidth(cc){
 			var w = 0;
-			$jqeui(cc).children(':visible').each(function(){
-				w += $jqeui(this)._outerWidth();
+			$(cc).children(':visible').each(function(){
+				w += $(this)._outerWidth();
 			});
 			return w;
 		}
 	}
 	
 	function getFilterComponent(target, field){
-		var header = $jqeui(target).datagrid('getPanel').find('div.datagrid-header');
+		var header = $(target).datagrid('getPanel').find('div.datagrid-header');
 		return header.find('tr.datagrid-filter-row td[field="'+field+'"] .datagrid-filter');
 	}
 	
@@ -425,7 +487,7 @@
 	 */
 	function getRuleIndex(target, field){
 		var name = getPluginName(target);
-		var rules = $jqeui(target)[name]('options').filterRules;
+		var rules = $(target)[name]('options').filterRules;
 		for(var i=0; i<rules.length; i++){
 			if (rules[i].field == field){
 				return i;
@@ -436,7 +498,7 @@
 
 	function getFilterRule(target, field){
 		var name = getPluginName(target);
-		var rules = $jqeui(target)[name]('options').filterRules;
+		var rules = $(target)[name]('options').filterRules;
 		var index = getRuleIndex(target, field);
 		if (index >= 0){
 			return rules[index];
@@ -447,7 +509,7 @@
 	
 	function addFilterRule(target, param){
 		var name = getPluginName(target);
-		var opts = $jqeui(target)[name]('options');
+		var opts = $(target)[name]('options');
 		var rules = opts.filterRules;
 
 		if (param.op == 'nofilter'){
@@ -455,7 +517,7 @@
 		} else {
 			var index = getRuleIndex(target, param.field);
 			if (index >= 0){
-				$jqeui.extend(rules[index], param);
+				$.extend(rules[index], param);
 			} else {
 				rules.push(param);
 			}
@@ -486,7 +548,7 @@
 	
 	function removeFilterRule(target, field){
 		var name = getPluginName(target);
-		var dg = $jqeui(target);
+		var dg = $(target);
 		var opts = dg[name]('options');
 		if (field){
 			var index = getRuleIndex(target, field);
@@ -516,31 +578,32 @@
 	
 	function doFilter(target){
 		var name = getPluginName(target);
-		var state = $jqeui.data(target, name);
+		var state = $.data(target, name);
 		var opts = state.options;
 		if (opts.remoteFilter){
-			$jqeui(target)[name]('load');
+			$(target)[name]('load');
 		} else {
 			if (opts.view.type == 'scrollview' && state.data.firstRows && state.data.firstRows.length){
 				state.data.rows = state.data.firstRows;
 			}
-			$jqeui(target)[name]('getPager').pagination('refresh', {pageNumber:1});
-			$jqeui(target)[name]('options').pageNumber = 1;
-			$jqeui(target)[name]('loadData', state.filterSource || state.data);
+			$(target)[name]('getPager').pagination('refresh', {pageNumber:1});
+			$(target)[name]('options').pageNumber = 1;
+			$(target)[name]('loadData', state.filterSource || state.data);
 		}
 	}
 	
 	function translateTreeData(target, children, pid){
-		var opts = $jqeui(target).treegrid('options');
+		var opts = $(target).treegrid('options');
 		if (!children || !children.length){return []}
 		var rows = [];
-		$jqeui.map(children, function(item){
+		$.map(children, function(item){
 			item._parentId = pid;
 			rows.push(item);
 			rows = rows.concat(translateTreeData(target, item.children, item[opts.idField]));
 		});
-		$jqeui.map(rows, function(row){
-			row.children = undefined;
+		$.map(rows, function(row){
+			// row.children = undefined;
+			delete row.children;
 		});
 		return rows;
 	}
@@ -548,22 +611,22 @@
 	function myLoadFilter(data, parentId){
 		var target = this;
 		var name = getPluginName(target);
-		var state = $jqeui.data(target, name);
+		var state = $.data(target, name);
 		var opts = state.options;
 
-		if (name == 'datagrid' && $jqeui.isArray(data)){
+		if (name == 'datagrid' && $.isArray(data)){
 			data = {
 				total: data.length,
 				rows: data
 			};
-		} else if (name == 'treegrid' && $jqeui.isArray(data)){
+		} else if (name == 'treegrid' && $.isArray(data)){
 			var rows = translateTreeData(target, data, parentId);
 			data = {
 				total: rows.length,
 				rows: rows
 			}
 		}
-		if (!opts.remoteFilter){
+		if (!opts.remoteFilter || opts.clientPaging){
 			if (!state.filterSource){
 				state.filterSource = data;
 			} else {
@@ -584,7 +647,7 @@
 			if (!opts.remoteSort && opts.sortName){
 				var names = opts.sortName.split(',');
 				var orders = opts.sortOrder.split(',');
-				var dg = $jqeui(target);
+				var dg = $(target);
 				state.filterSource.rows.sort(function(r1,r2){
 					var r = 0;
 					for(var i=0; i<names.length; i++){
@@ -602,50 +665,61 @@
 					return r;
 				});
 			}
-			data = opts.filterMatcher.call(target, {
+			// data = opts.filterMatcher.call(target, {
+			// 	total: state.filterSource.total,
+			// 	rows: state.filterSource.rows,
+			// 	footer: state.filterSource.footer||[]
+			// });
+			data = opts.filterMatcher.call(target, $.extend({},state.filterSource,{
 				total: state.filterSource.total,
-				rows: state.filterSource.rows
-			});
-
-			if (opts.pagination){
-				var dg = $jqeui(target);
-				var pager = dg[name]('getPager');
-				pager.pagination({
-					onSelectPage:function(pageNum, pageSize){
-	                    opts.pageNumber = pageNum;
-	                    opts.pageSize = pageSize;
-	                    pager.pagination('refresh',{
-	                        pageNumber:pageNum,
-	                        pageSize:pageSize
-	                    });
-	                    //dg.datagrid('loadData', state.filterSource);
-	                    dg[name]('loadData', state.filterSource);
-					},
-					onBeforeRefresh:function(){
-						dg[name]('reload');
-						return false;
-					}
-				});
-				if (name == 'datagrid'){
-					var pd = getPageData(data.rows);
-					opts.pageNumber = pd.pageNumber;
-					data.rows = pd.rows;
-				} else {
-			        var topRows = [];
-			        var childRows = [];
-			        $jqeui.map(data.rows, function(row){
-			        	row._parentId ? childRows.push(row) : topRows.push(row);
-			        });
-			        data.total = topRows.length;
-			        var pd = getPageData(topRows);
-			        opts.pageNumber = pd.pageNumber;
-			        data.rows = pd.rows.concat(childRows);
-				}
-			}
-			$jqeui.map(data.rows, function(row){
-				row.children = undefined;
-			});
+				rows: state.filterSource.rows,
+				footer: state.filterSource.footer||[]
+			}));
+			data.filterRows = data.rows;
 		}
+		if (opts.pagination && opts.clientPaging){
+			var dg = $(target);
+			var pager = dg[name]('getPager');
+			pager.pagination({
+				onSelectPage:function(pageNum, pageSize){
+					opts.pageNumber = pageNum;
+					opts.pageSize = pageSize;
+					pager.pagination('refresh',{
+						pageNumber:pageNum,
+						pageSize:pageSize
+					});
+					// dg[name]('loadData', state.filterSource);
+					if (opts.clientPaging){
+						dg[name]('loadData', state.filterSource);
+					} else {
+						dg[name]('reload');
+					}
+				},
+				onBeforeRefresh:function(){
+					dg[name]('reload');
+					return false;
+				}
+			});
+			if (name == 'datagrid'){
+				var pd = getPageData(data.rows);
+				opts.pageNumber = pd.pageNumber;
+				data.rows = pd.rows;
+			} else {
+				var topRows = [];
+				var childRows = [];
+				$.map(data.rows, function(row){
+					row._parentId ? childRows.push(row) : topRows.push(row);
+				});
+				data.total = topRows.length;
+				var pd = getPageData(topRows);
+				opts.pageNumber = pd.pageNumber;
+				data.rows = pd.rows.concat(childRows);
+			}
+		}
+		$.map(data.rows, function(row){
+			// row.children = undefined;
+			delete row.children;
+		});
 		return data;
 
 		function getPageData(dataRows){
@@ -670,13 +744,13 @@
 	function init(target, filters){
 		filters = filters || [];
 		var name = getPluginName(target);
-		var state = $jqeui.data(target, name);
+		var state = $.data(target, name);
 		var opts = state.options;
 		if (!opts.filterRules.length){
 			opts.filterRules = [];
 		}
 		opts.filterCache = opts.filterCache || {};
-		var dgOpts = $jqeui.data(target, 'datagrid').options;
+		var dgOpts = $.data(target, 'datagrid').options;
 		
 		var onResize = dgOpts.onResize;
 		dgOpts.onResize = function(width,height){
@@ -694,16 +768,24 @@
 
 		var onResizeColumn = opts.onResizeColumn;
 		opts.onResizeColumn = function(field,width){
-			var fc = $jqeui(this).datagrid('getPanel').find('.datagrid-header .datagrid-filter-c');
+			var fc = $(this).datagrid('getPanel').find('.datagrid-header .datagrid-filter-c');
 			var focusOne = fc.find('.datagrid-filter:focus');
-			fc.hide();
-			$jqeui(target).datagrid('fitColumns');
+			// fc.hide();
+			fc.css({
+				width:'1px',
+				height:0
+			});
+			$(target).datagrid('fitColumns');
 			if (opts.fitColumns){
 				resizeFilter(target);
 			} else {
 				resizeFilter(target, field);
 			}
-			fc.show();
+			// fc.show();
+			fc.css({
+				width:'',
+				height:''
+			});
 			focusOne.blur().focus();
 			onResizeColumn.call(target, field, width);
 		};
@@ -735,13 +817,54 @@
 			}
 			return result;
 		};
+		if ((opts.view.type == 'detailview' || opts.view.type == 'scrollview') && opts.frozenColumns && opts.frozenColumns.length) {
+			var onBeforeRender = opts.view.onBeforeRender;
+			opts.view.onBeforeRender = function(target){
+				onBeforeRender.call(opts.view, target)
+				if (!opts.detailviewFilterInited){
+					opts.detailviewFilterInited = true;
+					var fields = $(target).datagrid('getColumnFields', true);
+					if (opts.rownumbers){
+						fields.unshift('_');
+					}
+					var tr = $(target).data('datagrid').dc.header1.find('.datagrid-filter-row');
+					if (tr.length < fields.length){
+						var index = $.inArray('_expander', fields);
+						if (index >= 0){
+							var td = tr.children().eq(index);
+							if (td.length){
+								$('<td class="_expander"></td>').insertBefore(td);
+							} else {
+								$('<td class="_expander"></td>').appendTo(tr);
+							}
+						}
+					}
+					
+				}
+			}
+		}
 
 		// opts.loadFilter = myLoadFilter;
 		opts.loadFilter = function(data, parentId){
 			var d = opts.oldLoadFilter.call(this, data, parentId);
 			return myLoadFilter.call(this, d, parentId);
 		};
-		
+		state.dc.view2.children('.datagrid-header').off('.filter').on('focusin.filter', function(e){
+			var header = $(this);
+			setTimeout(function(){
+				state.dc.body2._scrollLeft(header._scrollLeft());
+			},0);
+		}).on('keydown.filter', function(e){
+			e.stopPropagation();
+		}).on('keypress.filter', function(e){
+			e.stopPropagation();
+		});
+		state.dc.view1.children('.datagrid-header').off('.filter').on('keydown.filter', function(e){
+			e.stopPropagation();
+		}).on('keypress.filter', function(e){
+			e.stopPropagation();
+		});
+
 		initCss();
 		createFilter(true);
 		createFilter();
@@ -751,15 +874,15 @@
 			}, 0);
 		}
 
-		$jqeui.map(opts.filterRules, function(rule){
+		$.map(opts.filterRules, function(rule){
 			addFilterRule(target, rule);
 		});
 		
 		function initCss(){
-			if (!$jqeui('#datagrid-filter-style').length){
-				$jqeui('head').append(
+			if (!$('#datagrid-filter-style').length){
+				$('head').append(
 					'<style id="datagrid-filter-style">' +
-					'a.datagrid-filter-btn{display:inline-block;width:22px;height:22px;margin:0;vertical-align:top;cursor:pointer;opacity:0.6;filter:alpha(opacity=60);}' +
+					'a.datagrid-filter-btn{display:inline-block;width:22px;height:100%;margin:0;vertical-align:middle;cursor:pointer;opacity:0.6;filter:alpha(opacity=60);}' +
 					'a:hover.datagrid-filter-btn{opacity:1;filter:alpha(opacity=100);}' +
 					'.datagrid-filter-row .textbox,.datagrid-filter-row .textbox .textbox-text{-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;}' +
 					'.datagrid-filter-row input{margin:0;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;}' +
@@ -775,7 +898,7 @@
 		 */
 		function createFilter(frozen){
 			var dc = state.dc;
-			var fields = $jqeui(target).datagrid('getColumnFields', frozen);
+			var fields = $(target).datagrid('getColumnFields', frozen);
 			if (frozen && opts.rownumbers){
 				fields.unshift('_');
 			}
@@ -787,12 +910,12 @@
 					this.filter.destroy(this);
 				}
 				if (this.menu){
-					$jqeui(this.menu).menu('destroy');
+					$(this.menu).menu('destroy');
 				}
 			});
 			table.find('tr.datagrid-filter-row').remove();
 			
-			var tr = $jqeui('<tr class="datagrid-header-row datagrid-filter-row"></tr>');
+			var tr = $('<tr class="datagrid-header-row datagrid-filter-row"></tr>');
 			if (opts.filterPosition == 'bottom'){
 				tr.appendTo(table.find('tbody'));
 			} else {
@@ -804,8 +927,8 @@
 			
 			for(var i=0; i<fields.length; i++){
 				var field = fields[i];
-				var col = $jqeui(target).datagrid('getColumnOption', field);
-				var td = $jqeui('<td></td>').attr('field', field).appendTo(tr);
+				var col = $(target).datagrid('getColumnOption', field);
+				var td = $('<td></td>').attr('field', field).appendTo(tr);
 				if (col && col.hidden){
 					td.hide();
 				}
@@ -818,9 +941,9 @@
 
 				var fopts = getFilter(field);
 				if (fopts){
-					$jqeui(target)[name]('destroyFilter', field);	// destroy the old filter component
+					$(target)[name]('destroyFilter', field);	// destroy the old filter component
 				} else {
-					fopts = $jqeui.extend({}, {
+					fopts = $.extend({}, {
 						field: field,
 						type: opts.defaultFilterType,
 						options: opts.defaultFilterOptions
@@ -829,19 +952,29 @@
 
 				var div = opts.filterCache[field];
 				if (!div){
-					div = $jqeui('<div class="datagrid-filter-c"></div>').appendTo(td);
+					div = $('<div class="datagrid-filter-c"></div>').appendTo(td);
 					var filter = opts.filters[fopts.type];
-					var input = filter.init(div, $jqeui.extend({height:24},fopts.options||{}));
+					var input = filter.init(div, $.extend({height:opts.editorHeight},fopts.options||{}));
 					input.addClass('datagrid-filter').attr('name', field);
 					input[0].filter = filter;
+					input[0].filterOptions = fopts;
 					input[0].menu = createFilterButton(div, fopts.op);
-					if (fopts.options){
-						if (fopts.options.onInit){
+					if (fopts.op && fopts.op.length){
+						if (fopts.options && fopts.options.onInit){
 							fopts.options.onInit.call(input[0], target);
+						} else if (fopts.defaultFilterOperator){
+							opts.defaultFilterOptions.onInit.call(input[0], target);
 						}
 					} else {
 						opts.defaultFilterOptions.onInit.call(input[0], target);
 					}
+					// if (fopts.options){
+					// 	if (fopts.options.onInit){
+					// 		fopts.options.onInit.call(input[0], target);
+					// 	}
+					// } else {
+					// 	opts.defaultFilterOptions.onInit.call(input[0], target);
+					// }
 					opts.filterCache[field] = div;
 					resizeFilter(target, field);
 				} else {
@@ -853,24 +986,25 @@
 		function createFilterButton(container, operators){
 			if (!operators){return null;}
 			
-			var btn = $jqeui('<a class="datagrid-filter-btn">&nbsp;</a>').addClass(opts.filterBtnIconCls);
+			var btn = $('<a class="datagrid-filter-btn">&nbsp;</a>').addClass(opts.filterBtnIconCls);
+			btn.css('height',opts.editorHeight);
 			if (opts.filterBtnPosition == 'right'){
 				btn.appendTo(container);
 			} else {
 				btn.prependTo(container);
 			}
 
-			var menu = $jqeui('<div></div>').appendTo('body');
-			$jqeui.map(['nofilter'].concat(operators), function(item){
+			var menu = $('<div></div>').appendTo('body');
+			$.map(['nofilter'].concat(operators), function(item){
 				var op = opts.operators[item];
 				if (op){
-					$jqeui('<div></div>').attr('name', item).html(op.text).appendTo(menu);
+					$('<div></div>').attr('name', item).html(op.text).appendTo(menu);
 				}
 			});
 			menu.menu({
 				alignTo:btn,
 				onClick:function(item){
-					var btn = $jqeui(this).menu('options').alignTo;
+					var btn = $(this).menu('options').alignTo;
 					var td = btn.closest('td[field]');
 					var field = td.attr('field');
 					var input = td.find('.datagrid-filter');
@@ -891,8 +1025,8 @@
 			});
 
 			btn[0].menu = menu;
-			btn.bind('click', {menu:menu}, function(e){
-				$jqeui(this.menu).menu('show');
+			btn.on('click', {menu:menu}, function(e){
+				$(this.menu).menu('show');
 				return false;
 			});
 			return menu;
@@ -909,21 +1043,30 @@
 		}
 	}
 	
-	$jqeui.extend($jqeui.fn.datagrid.methods, {
+	$.extend($.fn.datagrid.methods, {
+		isFilterEnabled: function(jq){
+			var name = getPluginName(jq[0]);
+			var opts = $.data(jq[0], name).options;
+			if (opts.oldLoadFilter){
+				return true;
+			} else {
+				return false;
+			}
+		},
 		enableFilter: function(jq, filters){
 			return jq.each(function(){
 				var name = getPluginName(this);
-				var opts = $jqeui.data(this, name).options;
+				var opts = $.data(this, name).options;
 				if (opts.oldLoadFilter){
 					if (filters){
-						$jqeui(this)[name]('disableFilter');
+						$(this)[name]('disableFilter');
 					} else {
 						return;
 					}
 				}
 				opts.oldLoadFilter = opts.loadFilter;
 				init(this, filters);
-				$jqeui(this)[name]('resize');
+				$(this)[name]('resize');
 				if (opts.filterRules.length){
 					if (opts.remoteFilter){
 						doFilter(this);
@@ -936,33 +1079,34 @@
 		disableFilter: function(jq){
 			return jq.each(function(){
 				var name = getPluginName(this);
-				var state = $jqeui.data(this, name);
+				var state = $.data(this, name);
 				var opts = state.options;
 				if (!opts.oldLoadFilter){
 					return;
 				}
-				var dc = $jqeui(this).data('datagrid').dc;
+				var dc = $(this).data('datagrid').dc;
 				var div = dc.view.children('.datagrid-filter-cache');
 				if (!div.length){
-					div = $jqeui('<div class="datagrid-filter-cache"></div>').appendTo(dc.view);
+					div = $('<div class="datagrid-filter-cache"></div>').appendTo(dc.view);
 				}
 				for(var field in opts.filterCache){
-					$jqeui(opts.filterCache[field]).appendTo(div);
+					$(opts.filterCache[field]).appendTo(div);
 				}
 				var data = state.data;
 				if (state.filterSource){
 					data = state.filterSource;
-					$jqeui.map(data.rows, function(row){
-						row.children = undefined;
+					$.map(data.rows, function(row){
+						// row.children = undefined;
+						delete row.children;
 					});
 				}
 				dc.header1.add(dc.header2).find('tr.datagrid-filter-row').remove();
 				opts.loadFilter = opts.oldLoadFilter || undefined;
 				opts.oldLoadFilter = null;
-				$jqeui(this)[name]('resize');
-				$jqeui(this)[name]('loadData', data);
+				$(this)[name]('resize');
+				$(this)[name]('loadData', data);
 
-				// $jqeui(this)[name]({
+				// $(this)[name]({
 				// 	data: data,
 				// 	loadFilter: (opts.oldLoadFilter||undefined),
 				// 	oldLoadFilter: null
@@ -972,7 +1116,7 @@
 		destroyFilter: function(jq, field){
 			return jq.each(function(){
 				var name = getPluginName(this);
-				var state = $jqeui.data(this, name);
+				var state = $.data(this, name);
 				var opts = state.options;
 				if (field){
 					_destroy(field);
@@ -980,15 +1124,15 @@
 					for(var f in opts.filterCache){
 						_destroy(f);
 					}
-					$jqeui(this).datagrid('getPanel').find('.datagrid-header .datagrid-filter-row').remove();
-					$jqeui(this).data('datagrid').dc.view.children('.datagrid-filter-cache').remove();
+					$(this).datagrid('getPanel').find('.datagrid-header .datagrid-filter-row').remove();
+					$(this).data('datagrid').dc.view.children('.datagrid-filter-cache').remove();
 					opts.filterCache = {};
-					$jqeui(this)[name]('resize');
-					$jqeui(this)[name]('disableFilter');
+					$(this)[name]('resize');
+					$(this)[name]('disableFilter');
 				}
 
 				function _destroy(field){
-					var c = $jqeui(opts.filterCache[field]);
+					var c = $(opts.filterCache[field]);
 					var input = c.find('.datagrid-filter');
 					if (input.length){
 						var filter = input[0].filter;
@@ -997,7 +1141,7 @@
 						}
 					}
 					c.find('.datagrid-filter-btn').each(function(){
-						$jqeui(this.menu).menu('destroy');
+						$(this.menu).menu('destroy');
 					});
 					c.remove();
 					opts.filterCache[field] = undefined;
