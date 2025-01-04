@@ -20,5 +20,6 @@
                                 <script type="text/javascript" src="<?php echo $GLOBALS['LOCAL_EASYUI_ROOT']; ?>locale/easyui-lang-tr.js"></script>
                                 <script type="text/javascript" src="<?php echo $GLOBALS['ROOT']; ?>libs/notify.min.js"></script>
                                 <script type="text/javascript" src="<?php echo $GLOBALS['LOCAL_EASYUI_ROOT']; ?>extensions/datagrid-filter.js"></script>
+                                <script type="text/javascript" src="<?php echo $GLOBALS['LOCAL_EASYUI_ROOT']; ?>extensions/datagrid-cellediting.js"></script>
                                 </head>
                                 <body>

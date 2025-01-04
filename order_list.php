@@ -13,11 +13,14 @@ if (!isLoggedIn()) {
         $('#icon-ok').show();
         $('#dlg').dialog('open').dialog('setTitle', 'Yeni');
         $("#fm :input").prop("disabled", false);
+        $('#tbl_details').datagrid('showColumn', 'action');
+        $('#tbl_details').datagrid('enableCellEditing');
         $('#fm').form('clear');
         url = 'operations/order_list_operations.php?op=0';
         generateNumber();
         deleteDetailTable();
         unCheck();
+        $("#hh").show();
     }
 
     function viewItem() {
@@ -26,6 +29,8 @@ if (!isLoggedIn()) {
             $('#dlg').dialog('open').dialog('setTitle', 'Görüntüle');
             $('#fm').form('load', row);
             $("#fm :input").prop("disabled", true);
+            $('#tbl_details').datagrid('hideColumn', 'action');
+            $('#tbl_details').datagrid('disableCellEditing');
             $('#icon-ok').hide();
             getDetail(row.id);
             $("#hh").hide();
@@ -39,6 +44,8 @@ if (!isLoggedIn()) {
             $('#dlg').dialog('open').dialog('setTitle', 'Düzenle');
             $('#fm').form('load', row);
             $("#fm :input").prop("disabled", false);
+            $('#tbl_details').datagrid('showColumn', 'action');
+            $('#tbl_details').datagrid('enableCellEditing');
             $('#icon-ok').show();
             url = 'operations/order_list_operations.php?op=1&id=' + row.id;
             getDetail(row.id);
@@ -90,6 +97,15 @@ if (!isLoggedIn()) {
                 }
             });
         }
+    }
+
+    function removeDetail(index) {
+        $.messager.confirm('Onayla', 'Silmek istediğinize emin misiniz?', function (r) {
+            if (r) {
+                $('#tbl_details').datagrid('deleteRow', index);
+                $('#tbl_details').datagrid('reload');
+            }
+        });
     }
 
     function refreshList() {
@@ -205,9 +221,21 @@ if (!isLoggedIn()) {
                     {field: 'stock_id', hidden: true},
                     {field: 'code', title: 'Stok Kartı Kodu', width: 3},
                     {field: 'name', title: 'Stok Kartı Adı', width: 3},
-                    {field: 'ordered_quantity', title: 'Sipariş Edilen', width: 1},
-                    {field: 'received_quantity', title: 'Teslim Alınan', width: 2},
-                    {field: 'description', title: 'Açıklama', width: 5}
+                    {field: 'ordered_quantity', title: 'Sipariş Edilen', width: 1, editor: 'text'},
+                    {field: 'received_quantity', title: 'Teslim Alınan', width: 1, editor: 'text'},
+                    {field: 'description', title: 'Açıklama', width: 5, editor: 'text'},
+                    {field: 'action', title: '', align: 'center', width: 1, formatter: function (value, row, index) {
+                            /*if (row.editing) {
+                             var s = '<a href="javascript:void(0)" onclick="saverow(this)">Save</a> ';
+                             var c = '<a href="javascript:void(0)" onclick="cancelrow(this)">Cancel</a>';
+                             return s + c;
+                             } else {
+                             var e = '<a href="javascript:void(0)" onclick="editrow(this)">Edit</a> ';
+                             var d = '<a href="javascript:void(0)" onclick="deleterow(this)">Delete</a>';
+                             return e + d;
+                             }*/
+                            return '<a href="javascript:void(0)" style="background-color: red; color: white; padding: 10px; border-radius: 15px; text-decoration: none;" onclick="removeDetail(' + index + ')">Sil</a>';
+                        }}
                 ]]
         });
     }, 'json');
@@ -215,6 +243,7 @@ if (!isLoggedIn()) {
     // Detail Functions End
     $(function () {
         $('#dg').datagrid('enableFilter');
+        $('#tbl_stock_card_list').datagrid('enableFilter');
     });
 </script>
 <div id="wrapper" style="margin:5px">
@@ -287,9 +316,9 @@ if (!isLoggedIn()) {
         <div class="m-title">Stok Kartları Listesi</div>
         <div class="m-right">
             <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="javascript:$('#dlg_detail').dialog('open');"></a>
-            <!--        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit()"></a>
-                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()"></a>
-                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()"></a> -->
+            <!-- <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeDetail()"></a>
+                     <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()"></a>
+                     <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()"></a> -->
         </div>
     </div>
 </div>
