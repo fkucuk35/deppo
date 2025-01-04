@@ -29,6 +29,9 @@ if (!isLoggedIn()) {
             $('#active').checkbox({
                 disabled: true
             });
+            $('#active').checkbox({
+                checked: (row.active == 'ü')
+            });
             $('#icon-ok').hide();
         }
     }

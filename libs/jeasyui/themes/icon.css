@@ -94,3 +94,36 @@
 .icon-large-chart{
 	background:url('icons/large_chart.png') no-repeat center center;
 }
+
+/* new added */
+
+.icon-add{
+	background:url('icons2/add_16.png') no-repeat center center;
+}
+.icon-view{
+	background:url('icons2/view_16.png') no-repeat center center;
+}
+.icon-edit{
+	background:url('icons2/edit_16.png') no-repeat center center;
+}
+.icon-deletefilter{
+	background:url('icons2/deletefilter.png') no-repeat center center;
+}
+.icon-pdf{
+	background:url('icons2/pdf.png') no-repeat center center;
+}
+.icon-remove{
+	background:url('icons2/remove_16.png') no-repeat center center;
+}
+.icon-refresh{
+	background:url('icons2/refresh_16.png') no-repeat center center;
+}
+.icon-excel{
+	background:url('icons2/excel.png') no-repeat center center;
+}
+.icon-send{
+	background:url('icons2/send.png') no-repeat center center;
+}
+.icon-add-empty{
+	background:url('icons2/add_empty_16.png') no-repeat center center;
+}
