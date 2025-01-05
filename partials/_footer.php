@@ -1,9 +1,10 @@
-<div class="container-fluid mb-2" style="width: 100%;position: absolute; bottom: 0;">
-    <div class="card text-center">
-        <div class="card-footer">
-            Copyright © 2024 Tüm Hakları Saklıdır.
-        </div>
+<footer class="footer fixed-bottom text-center text-white">
+    <div class="container-fluid mb-2">
+        <div class="card text-center">
+            <div class="card-footer px-1 py-1">
+                Copyright © 2024 Tüm Hakları Saklıdır.
+            </div>
+        </div>  
     </div>
-</div>
 </body>
 </html>

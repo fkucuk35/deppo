@@ -104,6 +104,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     dataType: "json",
                     success: function (result) {
                         if (result.success) {
+                            $('#password').val('');
+                            $('#repassword').val('');
                             $.notify('Parola başarıyla değiştirildi. Bundan sonraki kullanıcı girişinizden itibaren yeni parolanız geçerli olacaktır.', {position: 'left bottom', className: 'success'});
                         } else {
 
