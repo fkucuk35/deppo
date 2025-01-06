@@ -236,7 +236,12 @@ if (!isLoggedIn()) {
                              }*/
                             return '<a href="javascript:void(0)" style="background-color: red; color: white; padding: 10px; border-radius: 15px; text-decoration: none;" onclick="removeDetail(' + index + ')">Sil</a>';
                         }}
-                ]]
+                ]],
+            rowStyler: function (index, row) {
+                if (parseInt(row.ordered_quantity) > parseInt(row.received_quantity)) {
+                    return 'background-color: #FF6347; color: white;font-weight: bold;';
+                }
+            }
         });
     }, 'json');
 

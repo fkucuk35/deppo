@@ -3,9 +3,19 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 05 Oca 2025, 21:38:09
+-- Üretim Zamanı: 06 Oca 2025, 14:59:22
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Veritabanı: `deppo_db`
@@ -24,6 +34,15 @@ CREATE TABLE `deppo_logs` (
   `operation` varchar(50) NOT NULL,
   `operation_detail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Tablo döküm verisi `deppo_logs`
+--
+
+INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
+(1, 3, '2025-01-06 11:19:54', 'login', 'Kullanıcı girişi yapıldı'),
+(2, 2, '2025-01-06 11:38:15', 'login', 'Kullanıcı girişi yapıldı'),
+(3, 3, '2025-01-06 16:44:33', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -66,19 +85,18 @@ CREATE TABLE `deppo_order_detail` (
 --
 
 INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantity`, `received_quantity`, `description`) VALUES
-(252, 1, 41, 240, 240, ''),
-(253, 1, 46, 4000, 0, '5/16 İnce Pul gönderilmiş yanlışlkla'),
-(254, 1, 39, 20, 0, ''),
-(255, 1, 40, 10, 0, ''),
-(256, 1, 38, 1000, 0, 'Faturada 815 adet gözüküyor. Ama gelen 400 adet.'),
-(257, 1, 44, 20, 0, ''),
-(258, 1, 45, 20, 0, ''),
-(259, 1, 37, 1600, 0, ''),
-(260, 1, 43, 1600, 0, ''),
-(261, 1, 36, 5000, 0, 'Faturada gözüküyor ama gönderilmemiş'),
-(262, 1, 1, 2000, 0, ''),
-(263, 1, 42, 24, 0, ''),
-(264, 1, 42, 24, 0, '');
+(312, 1, 41, 240, 240, ''),
+(313, 1, 46, 4000, 0, '5/16 İnce Pul gönderilmiş yanlışlıkla'),
+(314, 1, 39, 20, 0, ''),
+(315, 1, 40, 10, 10, ''),
+(316, 1, 38, 1000, 400, 'Faturada 815 olarak gözükmesine rağmen 400 adet gelmiş. Eksik gönderilmiş.'),
+(317, 1, 44, 20, 20, ''),
+(318, 1, 45, 20, 20, ''),
+(319, 1, 37, 1600, 1600, ''),
+(320, 1, 43, 1600, 1600, ''),
+(321, 1, 36, 5000, 0, 'Faturada gözüküyor ama gönderilmemiş'),
+(322, 1, 1, 2000, 2000, ''),
+(323, 1, 42, 24, 24, '');
 
 -- --------------------------------------------------------
 
@@ -217,7 +235,8 @@ INSERT INTO `deppo_stock_card_list` (`id`, `code`, `name`, `quantity`, `image_ur
 (43, 'M5X10YHB', 'Metrik 5x10 Yıldız Havşabaşlı Civata', 0, '', 'ü'),
 (44, 'M10TIJ', 'M10 Tij', 0, '', 'ü'),
 (45, 'M12TIJ', 'M12 Tij', 0, '', 'ü'),
-(46, '516KP', '5/16 Kalın Pul', 0, '', 'ü');
+(46, '516KP', '5/16 Kalın Pul', 0, '', 'ü'),
+(47, '150.03.0302.00263', 'H:100CM TEKLI DUZ KAYDIRAK YESIL (ROTAMEGA)', 0, '', 'ü');
 
 -- --------------------------------------------------------
 
@@ -239,7 +258,8 @@ CREATE TABLE `deppo_supplier_list` (
 --
 
 INSERT INTO `deppo_supplier_list` (`id`, `name`, `address`, `tax_office`, `tax_number`, `bill_address`) VALUES
-(1, 'MER TEKNİK', '1082 SOKAK NO: 9/F YENİŞEHİR KONAK/İZMİR', 'EGE', '6180664606', '1082 SOKAK NO: 9/F YENİŞEHİR KONAK/İZMİR');
+(1, 'MER TEKNİK', '1082 SOKAK NO: 9/F YENİŞEHİR KONAK/İZMİR', 'EGE', '6180664606', '1082 SOKAK NO: 9/F YENİŞEHİR KONAK/İZMİR'),
+(2, 'ROTO MEGA', 'ANKARA ORTİM', 'ANKARA', '1111111', 'ANKARA ');
 
 -- --------------------------------------------------------
 
@@ -268,6 +288,21 @@ INSERT INTO `deppo_users` (`id`, `username`, `email`, `password`, `name`, `image
 (1, 'depo', 'depo@yapisanpark.com', 'e10adc3949ba59abbe56e057f20f883e', 'Depo Sorumlusu', '', 'ü', '2024-12-23 14:09:43', '', 'admin'),
 (2, 'satinalma', 'satinalma@yapisanpark.com', 'e10adc3949ba59abbe56e057f20f883e', 'Seren AYDOĞDU', '', 'ü', '2024-12-23 14:24:25', '', 'admin'),
 (3, 'fatih.kucuk', 'fatihkucuk@live.com', '3c308e560d3fb3508b166bca45c3cb93', 'Fatih KÜÇÜK', 'FATIH-KUCUK.jpg', 'ü', '2024-12-23 15:26:25', '', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `excel`
+--
+
+CREATE TABLE `excel` (
+  `id` int(11) NOT NULL,
+  `code` varchar(50) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `quantity` smallint(6) NOT NULL,
+  `image_url` varchar(100) NOT NULL,
+  `active` varchar(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -344,6 +379,13 @@ ALTER TABLE `deppo_users`
   ADD UNIQUE KEY `username` (`username`);
 
 --
+-- Tablo için indeksler `excel`
+--
+ALTER TABLE `excel`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `code` (`code`);
+
+--
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
@@ -351,7 +393,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -363,7 +405,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=324;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_personel_list`
@@ -381,16 +423,27 @@ ALTER TABLE `deppo_receipt_types`
 -- Tablo için AUTO_INCREMENT değeri `deppo_stock_card_list`
 --
 ALTER TABLE `deppo_stock_card_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_supplier_list`
 --
 ALTER TABLE `deppo_supplier_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_users`
 --
 ALTER TABLE `deppo_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `excel`
+--
+ALTER TABLE `excel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
