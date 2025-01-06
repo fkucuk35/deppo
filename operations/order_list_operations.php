@@ -20,16 +20,18 @@ switch ($op) {
         echo json_encode($result);
         exit;
     case 1:  // update
-        $rows = $_REQUEST['rows'];
-        $item = new Order();
+        $rows = json_decode($_REQUEST['rows']);
+        $deleted_details = json_decode($_REQUEST['deleted_details']);
+        /*$item = new Order();
         $item->id = intval($_REQUEST['id']);
         $item->supplier_id = $_REQUEST['supplier_id'];
         $item->number = $_REQUEST['number'];
         $item->description = $_REQUEST['description'];
         $result["success"] = $item->update();
         if ($result["success"]) {
-            $result["editDetail"] = $item->editDetail($rows);
-        }
+            $result["editDetail"] = $item->editDetail($rows, $deleted_details);
+        }*/
+        $result["success"] = true;
         $result["msg"] = $item->error;
         echo json_encode($result);
         exit;
@@ -39,7 +41,7 @@ switch ($op) {
         $item->id = $id;
         $result["success"] = $item->delete();
         if ($result["success"]) {
-            $result["deleteDetail"] = $item->deleteDetail();
+            $result["deleteDetail"] = $item->deleteAllDetail();
         }
         $result["msg"] = $item->error;
         echo json_encode($result);

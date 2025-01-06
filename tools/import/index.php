@@ -16,10 +16,10 @@ if (isset($_POST['submit'])) {
         $tmp_name = $_FILES['input_file']['tmp_name'];
         $type = $_FILES['input_file']['type'];
         $ext = strtolower(pathinfo(
-            $file_name
-            ,
-            PATHINFO_EXTENSION
-        ));
+                        $file_name
+                        ,
+                        PATHINFO_EXTENSION
+                ));
         if (in_array($ext, $valid_exts)) {
             $inProgress = true;
             $startTime = date("h:i:sa");
@@ -53,41 +53,43 @@ if (isset($_POST['submit'])) {
             $err_msg = "Yanlış dosya formatı";
         }
     }
-} ?>
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excelden Stok Kartlarını İçeri Aktarma</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-</head>
+        <link href="css/style.css" rel="stylesheet">
+            </head>
 
-<body>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  -->
-    <div class="container">
-        <h1>Excelden Stok Kartlarını İçeri Aktarma<?php if($inProgress) { echo "<br>Başlanma Zamanı: ".$startTime."<br>Bitiş Zamanı: ".$finishTime; } ?></h1>
-        <?php
-        if (!empty($err_msg)) { ?>
-            <div class="alert alert-danger"><?php echo $err_msg; ?></div>
-            <?php
-        } else if (empty($err_msg) && isset($_POST['submit'])) { ?>
-                <div class="alert alert-success"><?php echo $result_import; ?></div>
-            <?php
-        }
-        ?>
-        <form method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="input_file" class="form-label fw-bold">Yüklenecek dosya</label>
-                <input type="file" name="input_file" id="input_file" class="form-control" aria-describedby="fileHelpId">
-                <div id="fileHelpId" class="form-text">İzin verilen dosya formatı: xls, xlsx</div>
+            <body>
+                <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  -->
+            <div class="container">
+                <h1>Excelden Stok Kartlarını İçeri Aktarma<?php if ($inProgress) {
+    echo "<br>Başlanma Zamanı: " . $startTime . "<br>Bitiş Zamanı: " . $finishTime;
+} ?></h1>
+                <?php if (!empty($err_msg)) { ?>
+                    <div class="alert alert-danger"><?php echo $err_msg; ?></div>
+                    <?php } else if (empty($err_msg) && isset($_POST['submit'])) {
+                    ?>
+                    <div class="alert alert-success"><?php echo $result_import; ?></div>
+                    <?php
+                }
+                ?>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="input_file" class="form-label fw-bold">Yüklenecek dosya</label>
+                        <input type="file" name="input_file" id="input_file" class="form-control" aria-describedby="fileHelpId">
+                            <div id="fileHelpId" class="form-text">İzin verilen dosya formatı: xls, xlsx</div>
+                    </div>
+                    <div class="text-danger"><?php echo $file_err; ?></div>
+                    <button type="submit" class="btn btn-primary" name="submit">İçeri Aktar</button>
+                </form>
             </div>
-            <div class="text-danger"><?php echo $file_err; ?></div>
-            <button type="submit" class="btn btn-primary" name="submit">İçeri Aktar</button>
-        </form>
-    </div>
-</body>
+            </body>
 
-</html>
+            </html>

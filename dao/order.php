@@ -46,22 +46,37 @@ class Order extends DAO {
         $rows = json_decode($detail);
         for ($i = 0; $i < count($rows); $i++) {
             $detail = new OrderDetail();
+
             $detail->order_id = $this->id;
             $detail->stock_id = intval($rows[$i]->stock_id);
             $detail->ordered_quantity = $rows[$i]->ordered_quantity;
             $detail->received_quantity = $rows[$i]->received_quantity;
             $detail->description = $rows[$i]->description;
-            $detail->insert();
+            if (isset($rows[$i]->id)) {
+                $detail->id = intval($rows[$i]->id);
+                $detail->update();
+            } else {
+                $detail->insert();
+            }
         }
     }
 
-    function deleteDetail() {
+    function deleteAllDetail() {
         $where = OrderDetail::col_order_id . "=" . $this->id;
         DAO::deleteMultiRow(OrderDetail::table_name, $where);
     }
 
-    function editDetail($detail) {
-        $this->deleteDetail();
+    function deleteSpecificDetail($deleted_details) {
+        if (count($deleted_details) > 0) {
+            foreach ($deleted_details as $deleted_detail) {
+                $where = OrderDetail::col_order_id . "=" . $this->id . " AND " . OrderDetail::col_id . "=" . $deleted_detail;
+                DAO::deleteMultiRow(OrderDetail::table_name, $where);
+            }
+        }
+    }
+
+    function editDetail($detail, $deleted_details) {
+        $this->deleteSpecificDetail($deleted_details);
         $this->saveDetail($detail);
     }
 }

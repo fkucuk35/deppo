@@ -9,6 +9,7 @@ if (!isLoggedIn()) {
 <script type="text/javascript">
     var url;
     var selected_order_id;
+    var deleted_details = [];
     function newItem() {
         $('#icon-ok').show();
         $('#dlg').dialog('open').dialog('setTitle', 'Yeni');
@@ -41,6 +42,7 @@ if (!isLoggedIn()) {
         var row = $('#dg').datagrid('getSelected');
         if (row) {
             selected_order_id = row.id;
+            deleted_details = [];
             $('#dlg').dialog('open').dialog('setTitle', 'Düzenle');
             $('#fm').form('load', row);
             $("#fm :input").prop("disabled", false);
@@ -55,14 +57,13 @@ if (!isLoggedIn()) {
 
     function saveItem() {
         $('#rows').val(JSON.stringify($('#tbl_details').datagrid('getRows')));
+        $('#deleted_details').val(JSON.stringify(deleted_details));
         $('#fm').form('submit', {
             url: url,
-            data: {rows: rows},
             onSubmit: function () {
                 return $(this).form('validate');
             },
             success: function (result) {
-                var result = eval('(' + result + ')');
                 if (result.success) {
                     $('#dlg').dialog('close'); // close the dialog
                     $('#dg').datagrid('reload'); // reload the list
@@ -72,6 +73,9 @@ if (!isLoggedIn()) {
                         msg: result.msg
                     });
                 }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText);
             }
         });
     }
@@ -100,10 +104,19 @@ if (!isLoggedIn()) {
     }
 
     function removeDetail(index) {
-        $.messager.confirm('Onayla', 'Silmek istediğinize emin misiniz?', function (r) {
+        $.messager.confirm('Onayla', 'Silmek istediğinize emin misiniz?(' + index + ')', function (r) {
             if (r) {
+                var rows = $('#tbl_details').datagrid('getRows');
+                var row = rows[index];
+                if (typeof (row.id) !== 'undefined') {
+                    deleted_details.push(row.id);
+                }
                 $('#tbl_details').datagrid('deleteRow', index);
-                $('#tbl_details').datagrid('reload');
+                for (var i = 0; i < rows.length; i++) {
+                    if (i !== index) {
+                        $('#tbl_details').datagrid('refreshRow', i);
+                    }
+                }
             }
         });
     }
@@ -224,18 +237,7 @@ if (!isLoggedIn()) {
                     {field: 'ordered_quantity', title: 'Sipariş Edilen', width: 1, editor: 'text'},
                     {field: 'received_quantity', title: 'Teslim Alınan', width: 1, editor: 'text'},
                     {field: 'description', title: 'Açıklama', width: 5, editor: 'text'},
-                    {field: 'action', title: '', align: 'center', width: 1, formatter: function (value, row, index) {
-                            /*if (row.editing) {
-                             var s = '<a href="javascript:void(0)" onclick="saverow(this)">Save</a> ';
-                             var c = '<a href="javascript:void(0)" onclick="cancelrow(this)">Cancel</a>';
-                             return s + c;
-                             } else {
-                             var e = '<a href="javascript:void(0)" onclick="editrow(this)">Edit</a> ';
-                             var d = '<a href="javascript:void(0)" onclick="deleterow(this)">Delete</a>';
-                             return e + d;
-                             }*/
-                            return '<a href="javascript:void(0)" style="background-color: red; color: white; padding: 10px; border-radius: 15px; text-decoration: none;" onclick="removeDetail(' + index + ')">Sil</a>';
-                        }}
+                    {field: 'action', title: '', align: 'center', width: 1, formatter: formatAction}
                 ]],
             rowStyler: function (index, row) {
                 if (parseInt(row.ordered_quantity) > parseInt(row.received_quantity)) {
@@ -244,12 +246,24 @@ if (!isLoggedIn()) {
             }
         });
     }, 'json');
-
     // Detail Functions End
     $(function () {
         $('#dg').datagrid('enableFilter');
         $('#tbl_stock_card_list').datagrid('enableFilter');
     });
+
+    function formatAction(value, row, index) {
+        /*if (row.editing) {
+         var s = '<a href="javascript:void(0)" onclick="saverow(this)">Save</a> ';
+         var c = '<a href="javascript:void(0)" onclick="cancelrow(this)">Cancel</a>';
+         return s + c;
+         } else {
+         var e = '<a href="javascript:void(0)" onclick="editrow(this)">Edit</a> ';
+         var d = '<a href="javascript:void(0)" onclick="deleterow(this)">Delete</a>';
+         return e + d;
+         }*/
+        return '<a href="javascript:void(0)" style="background-color: red; color: white; padding: 10px; border-radius: 15px; text-decoration: none;" onclick="removeDetail(' + index + ')">Sil</a>';
+    }
 </script>
 <div id="wrapper" style="margin:5px">
     <div id="page-wrapper" class="gray-bg dashbard-1">
@@ -305,7 +319,7 @@ if (!isLoggedIn()) {
         <div class="container-fluid px-1">      
             <div class="fitem" id="div_tbl_details">
                 <table id="tbl_details" class="easyui-datagrid" style="width: 99%"
-                       toolbar="#toolbarDetail" rownumbers="true" autoRowHeight="false" fitColumns="true" singleSelect="true" 
+                       rownumbers="true" autoRowHeight="false" fitColumns="true" singleSelect="true" 
                        data-options="header:'#hh', scrollbarSize: 0">
                 </table>  
             </div>
@@ -313,12 +327,15 @@ if (!isLoggedIn()) {
         <div class="fitem">
             <textarea name="rows" id='rows' style='display: none'></textarea>
         </div>
+        <div class="fitem">
+            <textarea name="deleted_details" id='deleted_details' style='display: none'></textarea>
+        </div>
         <!--datagrid details end-->
     </form>
 </div>
 <div id="hh">
     <div class="m-toolbar">
-        <div class="m-title">Stok Kartları Listesi</div>
+        <div class="m-title">Sipariş Detay Listesi</div>
         <div class="m-right">
             <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="javascript:$('#dlg_detail').dialog('open');"></a>
             <!-- <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeDetail()"></a>
