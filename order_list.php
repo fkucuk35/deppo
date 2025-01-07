@@ -64,6 +64,7 @@ if (!isLoggedIn()) {
                 return $(this).form('validate');
             },
             success: function (result) {
+                var result = eval('(' + result + ')');
                 if (result.success) {
                     $('#dlg').dialog('close'); // close the dialog
                     $('#dg').datagrid('reload'); // reload the list
@@ -103,20 +104,15 @@ if (!isLoggedIn()) {
         }
     }
 
-    function removeDetail(index) {
-        $.messager.confirm('Onayla', 'Silmek istediğinize emin misiniz?(' + index + ')', function (r) {
+    function removeDetail(index, rowId) {
+        $.messager.confirm('Onayla', 'Silmek istediğinize emin misiniz?', function (r) {
             if (r) {
-                var rows = $('#tbl_details').datagrid('getRows');
-                var row = rows[index];
-                if (typeof (row.id) !== 'undefined') {
-                    deleted_details.push(row.id);
+                if (typeof (rowId) !== 'undefined') {
+                    deleted_details.push(rowId);
                 }
                 $('#tbl_details').datagrid('deleteRow', index);
-                for (var i = 0; i < rows.length; i++) {
-                    if (i !== index) {
-                        $('#tbl_details').datagrid('refreshRow', i);
-                    }
-                }
+                rows = $('#tbl_details').datagrid('getRows');
+                $('#tbl_details').datagrid('loadData', {"total": rows.length, "rows": rows});
             }
         });
     }
@@ -246,6 +242,7 @@ if (!isLoggedIn()) {
             }
         });
     }, 'json');
+
     // Detail Functions End
     $(function () {
         $('#dg').datagrid('enableFilter');
@@ -253,16 +250,7 @@ if (!isLoggedIn()) {
     });
 
     function formatAction(value, row, index) {
-        /*if (row.editing) {
-         var s = '<a href="javascript:void(0)" onclick="saverow(this)">Save</a> ';
-         var c = '<a href="javascript:void(0)" onclick="cancelrow(this)">Cancel</a>';
-         return s + c;
-         } else {
-         var e = '<a href="javascript:void(0)" onclick="editrow(this)">Edit</a> ';
-         var d = '<a href="javascript:void(0)" onclick="deleterow(this)">Delete</a>';
-         return e + d;
-         }*/
-        return '<a href="javascript:void(0)" style="background-color: red; color: white; padding: 10px; border-radius: 15px; text-decoration: none;" onclick="removeDetail(' + index + ')">Sil</a>';
+        return '<a href="javascript:void(0)" style="background-color: red; color: white; padding: 10px; border-radius: 15px; text-decoration: none;" onclick="removeDetail(' + index + ',' + row.id + ')">Sil</a>';
     }
 </script>
 <div id="wrapper" style="margin:5px">
