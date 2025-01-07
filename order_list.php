@@ -6,6 +6,11 @@ if (!isLoggedIn()) {
 ?>
 <?php include "partials/_header.php" ?>
 <?php include "partials/_navbar.php" ?>
+<style type="text/css">
+    .datagrid-cell {
+        height: 30px !important;
+    }
+</style>
 <script type="text/javascript">
     var url;
     var selected_order_id;
@@ -15,7 +20,6 @@ if (!isLoggedIn()) {
         $('#dlg').dialog('open').dialog('setTitle', 'Yeni');
         $("#fm :input").prop("disabled", false);
         $('#tbl_details').datagrid('showColumn', 'action');
-        $('#tbl_details').datagrid('enableCellEditing');
         $('#fm').form('clear');
         url = 'operations/order_list_operations.php?op=0';
         generateNumber();
@@ -31,7 +35,6 @@ if (!isLoggedIn()) {
             $('#fm').form('load', row);
             $("#fm :input").prop("disabled", true);
             $('#tbl_details').datagrid('hideColumn', 'action');
-            $('#tbl_details').datagrid('disableCellEditing');
             $('#icon-ok').hide();
             getDetail(row.id);
             $("#hh").hide();
@@ -47,7 +50,6 @@ if (!isLoggedIn()) {
             $('#fm').form('load', row);
             $("#fm :input").prop("disabled", false);
             $('#tbl_details').datagrid('showColumn', 'action');
-            $('#tbl_details').datagrid('enableCellEditing');
             $('#icon-ok').show();
             url = 'operations/order_list_operations.php?op=1&id=' + row.id;
             getDetail(row.id);
@@ -228,13 +230,28 @@ if (!isLoggedIn()) {
                     {field: 'id', hidden: true},
                     {field: 'order_id', hidden: true},
                     {field: 'stock_id', hidden: true},
-                    {field: 'code', title: 'Stok Kartı Kodu', width: 3},
-                    {field: 'name', title: 'Stok Kartı Adı', width: 3},
+                    {field: 'code', title: 'Stok Kartı Kodu', width: 1},
+                    {field: 'name', title: 'Stok Kartı Adı', width: 2},
                     {field: 'ordered_quantity', title: 'Sipariş Edilen', width: 1, editor: 'text'},
                     {field: 'received_quantity', title: 'Teslim Alınan', width: 1, editor: 'text'},
-                    {field: 'description', title: 'Açıklama', width: 5, editor: 'text'},
+                    {field: 'description', title: 'Açıklama', width: 3, editor: 'text'},
                     {field: 'action', title: '', align: 'center', width: 1, formatter: formatAction}
                 ]],
+            onEndEdit: function (index, row) {
+
+            },
+            onBeforeEdit: function (index, row) {
+                row.editing = true;
+                $(this).datagrid('refreshRow', index);
+            },
+            onAfterEdit: function (index, row) {
+                row.editing = false;
+                $(this).datagrid('refreshRow', index);
+            },
+            onCancelEdit: function (index, row) {
+                row.editing = false;
+                $(this).datagrid('refreshRow', index);
+            },
             rowStyler: function (index, row) {
                 if (parseInt(row.ordered_quantity) > parseInt(row.received_quantity)) {
                     return 'background-color: #FF6347; color: white;font-weight: bold;';
@@ -250,7 +267,52 @@ if (!isLoggedIn()) {
     });
 
     function formatAction(value, row, index) {
-        return '<a href="javascript:void(0)" style="background-color: red; color: white; padding: 10px; border-radius: 15px; text-decoration: none;" onclick="removeDetail(' + index + ',' + row.id + ')">Sil</a>';
+        if (row.editing) {
+            var s = '<button type="button" class="btn btn-success" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="saverow(this)">Kaydet</button> ';
+            var c = '<button type="button" class="btn btn-secondary" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="cancelrow(this)">İptal</button>';
+            return s + c;
+        } else {
+            var e = '<button type="button" class="btn btn-primary" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="editrow(this)">Düzenle</button> ';
+            var d = '<button type="button" class="btn btn-danger" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="deleterow(this)">Sil</button>';
+            return e + d;
+        }
+    }
+
+    function getRowIndex(target) {
+        var tr = $(target).closest('tr.datagrid-row');
+        return parseInt(tr.attr('datagrid-row-index'));
+    }
+    function editrow(target) {
+        $('#tbl_details').datagrid('beginEdit', getRowIndex(target));
+    }
+    function deleterow(target) {
+        $.messager.confirm('Onay', 'Silmek istediğinize emin misiniz?', function (r) {
+            if (r) {
+                $('#tbl_details').datagrid('deleteRow', getRowIndex(target));
+            }
+        });
+    }
+    function saverow(target) {
+        $('#tbl_details').datagrid('endEdit', getRowIndex(target));
+    }
+    function cancelrow(target) {
+        $('#tbl_details').datagrid('cancelEdit', getRowIndex(target));
+    }
+    function insert() {
+        /* var row = $('#table_details').datagrid('getSelected');
+         if (row) {
+         var index = $('#table_details').datagrid('getRowIndex', row);
+         } else {
+         index = 0;
+         }
+         $('#table_details').datagrid('insertRow', {
+         index: index,
+         row: {
+         status: 'P'
+         }
+         });
+         $('#table_details').datagrid('selectRow', index);
+         $('#table_details').datagrid('beginEdit', index);*/
     }
 </script>
 <div id="wrapper" style="margin:5px">
