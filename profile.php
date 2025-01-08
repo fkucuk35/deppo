@@ -178,4 +178,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
 </div>
-<?php include "partials/_footer.php" ?>
+<?php include "partials/_footer.php"; ?>

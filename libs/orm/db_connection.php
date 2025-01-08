@@ -6,16 +6,18 @@ class DBConnection {
     private static $username;
     private static $password;
     private static $dbname;
+    private static $port;
 
-    static function setConnection($host, $username, $password, $dbname) {
+    static function setConnection($host, $username, $password, $dbname, $port) {
         self::$host = $host;
         self::$username = $username;
         self::$password = $password;
         self::$dbname = $dbname;
+        self::$port = $port;
     }
 
     static function createConnection() {
-        $mysqli = new mysqli(self::$host, self::$username, self::$password, self::$dbname);
+        $mysqli = new mysqli(self::$host, self::$username, self::$password, self::$dbname, self::$port);
         $mysqli->query("SET NAMES 'utf8'  ");
         $mysqli->query("SET CHARACTER SET utf8");
         $mysqli->query("SET COLLATION_CONNECTION = 'utf8_turkish_ci' ");

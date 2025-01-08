@@ -15,12 +15,19 @@
                     <li><a class="dropdown-item" href="supplier_list.php">Tedarikçi Firmalar/Kurumlar</a></li>
                 </ul>
             </div>
+            <div class="dropdown">
+                <a href="#" class="nav-link" data-bs-toggle="dropdown" aria-expanded="false">
+                    Araçlar
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="import_stock_card.php">Stok Kartı Aktar</a></li>
+                </ul>
+            </div>
         <?php endif; ?> 
 
     </ul>
 
     <ul class="navbar-nav me-2">
-
         <?php if (isLoggedIn()): ?>
             <li class="nav-item my-1">
                 <span class="navbar-text">

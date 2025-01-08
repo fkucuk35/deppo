@@ -9,18 +9,21 @@ switch($GLOBALS['HOST']){
 		$db_username = "root";
 		$db_password = "";
 		$db = "deppo_db";
+                $port = 3306;
 	break;
 	case 'remote':
-		$host = "sql.freedb.tech";
-		$db_username = "freedb_deppo";
-		$db_password = "u@WB23UJQqA&4hw";
-		$db = "freedb_deppo_db";
+		$host = "zwopi.h.filess.io";
+		$db_username = "deppodb_shoutdoor";
+		$db_password = "71c8c041283df7cda1ebe333843203d7f9bba74e";
+		$db = "deppodb_shoutdoor";
+                $port = 3307;
 	break;
 	default: 
 		$host = "localhost";
 		$db_username = "root";
 		$db_password = "";
 		$db = "deppo_db";
+                $port = 3306;
 	break;
 }
 
@@ -28,5 +31,5 @@ switch($GLOBALS['HOST']){
 
 date_default_timezone_set('Europe/Istanbul');
 
-DBConnection::setConnection($host, $db_username, $db_password, $db);
+DBConnection::setConnection($host, $db_username, $db_password, $db, $port);
 ?>

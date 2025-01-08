@@ -1,5 +1,6 @@
 <?php include 'languages.php'; ?>
 <?php include 'config_db.php'; ?>
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

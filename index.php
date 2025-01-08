@@ -25,4 +25,4 @@ if (!empty($_SESSION) && $_SESSION["logined"]) {
     }
 }
 ?>
-<?php include "partials/_footer.php" ?>
+<?php include "partials/_footer.php"; ?>

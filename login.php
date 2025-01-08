@@ -1,5 +1,4 @@
 <?php
-
 require "libs/functions.php";
 
 include 'config_db.php';
@@ -90,4 +89,4 @@ if (!empty($loginErr)) {
     echo "</script>\n";
 }
 ?>
-<?php include "partials/_footer.php" ?>
+<?php include "partials/_footer.php"; ?>

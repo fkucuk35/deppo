@@ -6,7 +6,7 @@ $file_err = $err_msg = "";
 $result_import = "";
 $startTime = $finishTime = "";
 $valid_exts = array("xls", "xlsx");
-$upload_dir = "uploads/";
+$upload_dir = "tools/import/uploads/";
 $inProgress = false;
 if (isset($_POST['submit'])) {
     if ($_FILES['input_file']['name'] == "") {
@@ -25,6 +25,9 @@ if (isset($_POST['submit'])) {
             $startTime = date("h:i:sa");
             $new_file = time() . "-" . basename($file_name);
             try {
+                if (!file_exists($upload_dir)) {
+                    mkdir($upload_dir, 0777, true);
+                }
                 move_uploaded_file($tmp_name, $upload_dir . $new_file);
                 $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
                 $spreadsheet = $reader->load($upload_dir . $new_file);
@@ -46,6 +49,7 @@ if (isset($_POST['submit'])) {
                 }
                 $finishTime = date("h:i:sa");
                 $result_import = $result_count . " adet kayıt içeri aktarıldı...";
+                unlink($upload_dir . $new_file);
             } catch (Exception $e) {
                 $err_msg = $e->getMessage();
             }
@@ -69,12 +73,14 @@ if (isset($_POST['submit'])) {
             <body>
                 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  -->
             <div class="container">
-                <h1>Excelden Stok Kartlarını İçeri Aktarma<?php if ($inProgress) {
-    echo "<br>Başlanma Zamanı: " . $startTime . "<br>Bitiş Zamanı: " . $finishTime;
-} ?></h1>
+                <h1>Excelden Stok Kartlarını İçeri Aktarma<?php
+                    if ($inProgress) {
+                        echo "<br>Başlanma Zamanı: " . $startTime . "<br>Bitiş Zamanı: " . $finishTime;
+                    }
+                    ?></h1>
                 <?php if (!empty($err_msg)) { ?>
                     <div class="alert alert-danger"><?php echo $err_msg; ?></div>
-                    <?php } else if (empty($err_msg) && isset($_POST['submit'])) {
+                <?php } else if (empty($err_msg) && isset($_POST['submit'])) {
                     ?>
                     <div class="alert alert-success"><?php echo $result_import; ?></div>
                     <?php
