@@ -230,12 +230,12 @@ if (!isLoggedIn()) {
                     {field: 'id', hidden: true},
                     {field: 'order_id', hidden: true},
                     {field: 'stock_id', hidden: true},
-                    {field: 'code', title: 'Stok Kartı Kodu', width: 1},
-                    {field: 'name', title: 'Stok Kartı Adı', width: 2},
-                    {field: 'ordered_quantity', title: 'Sipariş Edilen', width: 1, editor: 'text'},
-                    {field: 'received_quantity', title: 'Teslim Alınan', width: 1, editor: 'text'},
-                    {field: 'description', title: 'Açıklama', width: 3, editor: 'text'},
-                    {field: 'action', title: '', align: 'center', width: 1, formatter: formatAction}
+                    {field: 'code', title: 'Stok Kartı Kodu', width: 10},
+                    {field: 'name', title: 'Stok Kartı Adı', width: 10},
+                    {field: 'ordered_quantity', title: 'Sipariş Edilen', width: 5, editor: 'text'},
+                    {field: 'received_quantity', title: 'Teslim Alınan', width: 5, editor: 'text'},
+                    {field: 'description', title: 'Açıklama', width: 50, editor: 'text'},
+                    {field: 'action', title: '', align: 'center', width: 20, formatter: formatAction}
                 ]],
             onEndEdit: function (index, row) {
 
@@ -254,7 +254,7 @@ if (!isLoggedIn()) {
             },
             rowStyler: function (index, row) {
                 if (parseInt(row.ordered_quantity) > parseInt(row.received_quantity)) {
-                    return 'background-color: #FF6347; color: white;font-weight: bold;';
+                    return 'background-color: #f8d7da; color: #721c24;font-weight: bold;';
                 }
             }
         });
@@ -268,12 +268,12 @@ if (!isLoggedIn()) {
 
     function formatAction(value, row, index) {
         if (row.editing) {
-            var s = '<button type="button" class="btn btn-success" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="saverow(this)">Kaydet</button> ';
-            var c = '<button type="button" class="btn btn-secondary" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="cancelrow(this)">İptal</button>';
+            var s = '<button type="button" class="btn btn-success btn-sm" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="saverow(this)">Kaydet</button> ';
+            var c = '<button type="button" class="btn btn-secondary btn-sm" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="cancelrow(this)">İptal</button>';
             return s + c;
         } else {
-            var e = '<button type="button" class="btn btn-primary" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="editrow(this)">Düzenle</button> ';
-            var d = '<button type="button" class="btn btn-danger" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="deleterow(this)">Sil</button>';
+            var e = '<button type="button" class="btn btn-primary btn-sm" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="editrow(this)">Düzenle</button> ';
+            var d = '<button type="button" class="btn btn-danger btn-sm" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="deleterow(this)">Sil</button>';
             return e + d;
         }
     }

@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo $GLOBALS['ROOT']; ?>libs/font-awesome/css/all.min.css">
         <link rel="stylesheet" href="<?php echo $GLOBALS['ROOT']; ?>libs/bootstrap/css/bootstrap.min.css">
-            <script src="<?php echo $GLOBALS['ROOT']; ?>libs/bootstrap/js/bootstrap.min.js"></script>
+            <script src="<?php echo $GLOBALS['ROOT']; ?>libs/bootstrap/js/bootstrap.bundle.js"></script>
             <title><?php echo $lang['app_title']; ?></title>
             <link rel="stylesheet" type="text/css" href="<?php echo $GLOBALS['LOCAL_EASYUI_ROOT']; ?>themes/bootstrap/easyui.css">
                 <link rel="stylesheet" type="text/css" href="<?php echo $GLOBALS['LOCAL_EASYUI_ROOT']; ?>themes/icon.css">
