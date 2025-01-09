@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 09 Oca 2025, 09:15:39
+-- Üretim Zamanı: 09 Oca 2025, 15:28:32
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,8 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 3, '2025-01-08 21:51:57', 'login', 'Kullanıcı girişi yapıldı'),
-(2, 3, '2025-01-09 10:11:07', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-01-09 16:29:22', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -62,7 +61,7 @@ CREATE TABLE `deppo_order` (
 --
 
 INSERT INTO `deppo_order` (`id`, `supplier_id`, `number`, `date`, `description`) VALUES
-(1, 1, 'SIP-2025-000001', '2025-01-03 22:04:06', '03/01/2025 SİPARİŞ LİSTESİ\r\n\r\nSTOK KARTI OLMAYANLAR\r\nM5 FIBERLI SOMUN (1600)\r\nM5X10 YHB CIVATA (1600)\r\n7016 SPREY RUTUS BOYASI (20)'),
+(1, 1, 'SIP-2025-000001', '2025-01-03 22:04:06', '03/01/2025 SİPARİŞ LİSTESİ'),
 (2, 1, 'SIP-2025-000002', '2025-01-08 09:51:45', '07/01/2025 SİPARİŞ LİSTESİ'),
 (3, 6, 'SIP-2025-000003', '2025-01-09 10:51:58', '07/01/2025 SİPARİŞ LİSTESİ');
 
@@ -152,7 +151,7 @@ CREATE TABLE `deppo_personel_list` (
 
 INSERT INTO `deppo_personel_list` (`id`, `name`, `image_url`, `active`) VALUES
 (1, 'Fatih KÜÇÜK', 'FATIH-KUCUK.jpg', 'ü'),
-(2, 'Seren AYDOĞDU', '', 'ü'),
+(2, 'Seren AYDOĞDU', 'SEREN-AYDOGDU.jpg', 'ü'),
 (3, 'Ercan BOYRAZ', '', 'ü');
 
 -- --------------------------------------------------------
@@ -738,7 +737,7 @@ CREATE TABLE `deppo_users` (
 
 INSERT INTO `deppo_users` (`id`, `username`, `email`, `password`, `name`, `image_url`, `active`, `date_added`, `email_activation_key`, `user_type`) VALUES
 (1, 'depo', 'depo@yapisanpark.com', 'e10adc3949ba59abbe56e057f20f883e', 'Depo Sorumlusu', '', 'ü', '2024-12-23 14:09:43', '', 'admin'),
-(2, 'satinalma', 'satinalma@yapisanpark.com', 'e10adc3949ba59abbe56e057f20f883e', 'Seren AYDOĞDU', '', 'ü', '2024-12-23 14:24:25', '', 'admin'),
+(2, 'satinalma', 'satinalma@yapisanpark.com', 'e10adc3949ba59abbe56e057f20f883e', 'Seren AYDOĞDU', 'SEREN-AYDOGDU.jpg', 'ü', '2024-12-23 14:24:25', '', 'admin'),
 (3, 'fatih.kucuk', 'fatihkucuk@live.com', '3c308e560d3fb3508b166bca45c3cb93', 'Fatih KÜÇÜK', 'FATIH-KUCUK.jpg', 'ü', '2024-12-23 15:26:25', '', 'admin');
 
 -- --------------------------------------------------------
@@ -823,7 +822,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`

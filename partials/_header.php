@@ -21,5 +21,11 @@
                                 <script type="text/javascript" src="<?php echo $GLOBALS['LOCAL_EASYUI_ROOT']; ?>locale/easyui-lang-tr.js"></script>
                                 <script type="text/javascript" src="<?php echo $GLOBALS['ROOT']; ?>libs/notify.min.js"></script>
                                 <script type="text/javascript" src="<?php echo $GLOBALS['LOCAL_EASYUI_ROOT']; ?>extensions/datagrid-filter.js"></script> 
-                                </head>
-                                <body>
+                                <!-- Fav and touch icons -->
+                                <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $GLOBALS['ROOT']; ?>assets/images/app/icon/144.png">
+                                    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $GLOBALS['ROOT']; ?>assets/images/app/icon/114.png">
+                                        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo $GLOBALS['ROOT']; ?>assets/images/app/icon/72.png">
+                                            <link rel="apple-touch-icon-precomposed" href="<?php echo $GLOBALS['ROOT']; ?>assets/images/app/icon/57.png">
+                                                <link rel="shortcut icon" href="<?php echo $GLOBALS['ROOT']; ?>assets/images/app/icon/favicon.png">
+                                                    </head>
+                                                    <body>
