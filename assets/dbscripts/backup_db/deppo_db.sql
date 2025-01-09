@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 08 Oca 2025, 20:56:08
+-- Üretim Zamanı: 09 Oca 2025, 09:15:39
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,12 +40,8 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 3, '2025-01-08 19:24:21', 'login', 'Kullanıcı girişi yapıldı'),
-(2, 3, '2025-01-08 21:51:57', 'login', 'Kullanıcı girişi yapıldı'),
-(3, 3, '2025-01-08 22:33:42', 'profile_update', 'Kullanıcı profili güncellendi'),
-(4, 3, '2025-01-08 22:41:42', 'profile_update', 'Kullanıcı profili güncellendi'),
-(5, 3, '2025-01-08 22:42:11', 'profile_update', 'Kullanıcı profili güncellendi'),
-(6, 3, '2025-01-08 22:42:33', 'profile_update', 'Kullanıcı profili güncellendi');
+(1, 3, '2025-01-08 21:51:57', 'login', 'Kullanıcı girişi yapıldı'),
+(2, 3, '2025-01-09 10:11:07', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -67,7 +63,8 @@ CREATE TABLE `deppo_order` (
 
 INSERT INTO `deppo_order` (`id`, `supplier_id`, `number`, `date`, `description`) VALUES
 (1, 1, 'SIP-2025-000001', '2025-01-03 22:04:06', '03/01/2025 SİPARİŞ LİSTESİ\r\n\r\nSTOK KARTI OLMAYANLAR\r\nM5 FIBERLI SOMUN (1600)\r\nM5X10 YHB CIVATA (1600)\r\n7016 SPREY RUTUS BOYASI (20)'),
-(2, 1, 'SIP-2025-000002', '2025-01-08 09:51:45', '07/01/2025 SİPARİŞ LİSTESİ');
+(2, 1, 'SIP-2025-000002', '2025-01-08 09:51:45', '07/01/2025 SİPARİŞ LİSTESİ'),
+(3, 6, 'SIP-2025-000003', '2025-01-09 10:51:58', '07/01/2025 SİPARİŞ LİSTESİ');
 
 -- --------------------------------------------------------
 
@@ -98,7 +95,11 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (7, 1, 430, 20, 20, ''),
 (8, 1, 243, 2000, 2000, ''),
 (9, 1, 435, 24, 24, ''),
-(10, 2, 384, 2000, 2000, '');
+(10, 2, 384, 2000, 2000, ''),
+(11, 1, 445, 1600, 1600, ''),
+(12, 1, 446, 1600, 1600, ''),
+(13, 1, 447, 20, 0, ''),
+(14, 3, 454, 300, 0, '');
 
 -- --------------------------------------------------------
 
@@ -636,7 +637,54 @@ INSERT INTO `deppo_stock_card_list` (`id`, `code`, `name`, `quantity`, `image_ur
 (441, '150.05.0517.00071', 'KARBOSAN FLAP DISK 115X22 P40 NK', 0, '', 'ü'),
 (442, '150.05.0517.00107', '115X22X40 KUM FLAP NK', 0, '', 'ü'),
 (443, '150.05.0517.00108', 'ASIT ELDIVENI', 0, '', 'ü'),
-(444, '150.05.0517.00287', 'BEYBI KN35 ELDIVEN NO:9', 0, '', 'ü');
+(444, '150.05.0517.00287', 'BEYBI KN35 ELDIVEN NO:9', 0, '', 'ü'),
+(445, '150.05.0506.00010', 'M5 FIBERLI SOMUN', 0, '', 'ü'),
+(446, '150.05.0511.00001', 'M5X10 YILDIZ HAVSA BAS CIVATA', 0, '', 'ü'),
+(447, '150.05.0516.00056', 'SPREY BOYA-7016', 0, '', 'ü'),
+(448, '150.05.0517.00075', 'RAL 9005-D.SIYAH SPREY BOYA 400ML', 0, '', 'ü'),
+(449, '150.05.0517.00245', 'GEKA CAPAK ONLEYICI KAYNAK SPREYI', 0, '', 'ü'),
+(450, '150.05.0514.00001', '6205-2Z RULMAN', 0, '', 'ü'),
+(451, '150.05.0514.00002', '7210  RULMAN', 0, '', 'ü'),
+(452, '150.05.0514.00003', '32018  RULMAN', 0, '', 'ü'),
+(453, '150.05.0514.00004', '6202 2RS LFD RULMAN', 0, '', 'ü'),
+(454, '150.05.0514.00005', '6000-2Z RULMAN', 0, '', 'ü'),
+(455, '150.05.0514.00006', '32012X RULMAN', 0, '', 'ü'),
+(456, '150.05.0514.00007', 'S1218 RULMAN', 0, '', 'ü'),
+(457, '150.05.0514.00008', 'E30212J RULMAN', 0, '', 'ü'),
+(458, '150.05.0514.00009', '30312 RULMAN', 0, '', 'ü'),
+(459, '150.05.0514.00010', '60142RSC3 RULMAN', 0, '', 'ü'),
+(460, '150.05.0514.00011', '6304RSC3 RULMAN', 0, '', 'ü'),
+(461, '150.05.0514.00012', '63042RSC3 RULMAN', 0, '', 'ü'),
+(462, '150.05.0514.00013', '63132RSC3 RULMAN', 0, '', 'ü'),
+(463, '150.05.0514.00014', '6018RS RULMAN', 0, '', 'ü'),
+(464, '150.05.0514.00015', '6212ZE RULMAN', 0, '', 'ü'),
+(465, '150.05.0514.00016', '6207RS RULMAN', 0, '', 'ü'),
+(466, '150.05.0514.00017', '60072RS RULMAN', 0, '', 'ü'),
+(467, '150.05.0514.00018', '620722C3 RULMAN', 0, '', 'ü'),
+(468, '150.05.0514.00019', '6410C3 RULMAN', 0, '', 'ü'),
+(469, '150.05.0514.00020', '33212 RULMAN', 0, '', 'ü'),
+(470, '150.05.0514.00021', '6211 RULMAN', 0, '', 'ü'),
+(471, '150.05.0514.00022', '631022-C3 RULMAN', 0, '', 'ü'),
+(472, '150.05.0514.00023', '33012 RULMAN', 0, '', 'ü'),
+(473, '150.05.0514.00024', '30209 RULMAN', 0, '', 'ü'),
+(474, '150.05.0514.00025', '6209 RULMAN', 0, '', 'ü'),
+(475, '150.05.0514.00026', '6203RSC3 RULMAN', 0, '', 'ü'),
+(476, '150.05.0514.00027', '6006 RULMAN', 0, '', 'ü'),
+(477, '150.05.0514.00028', '6204 RULMAN', 0, '', 'ü'),
+(478, '150.05.0514.00029', '605-22 RULMAN', 0, '', 'ü'),
+(479, '150.05.0514.00030', '608 RULMAN', 0, '', 'ü'),
+(480, '150.05.0514.00031', '6304 RULMAN', 0, '', 'ü'),
+(481, '150.05.0514.00032', '6010 RULMAN', 0, '', 'ü'),
+(482, '150.05.0514.00033', '3026 RULMAN', 0, '', 'ü'),
+(483, '150.05.0514.00034', 'UCFL 204 RULMAN', 0, '', 'ü'),
+(484, '150.05.0514.00035', '51114 HTH RULMAN', 0, '', 'ü'),
+(485, '150.05.0514.00036', '6410 RBE RULMAN', 0, '', 'ü'),
+(486, '150.05.0514.00037', '6205 2RS RBE RULMAN', 0, '', 'ü'),
+(487, '150.05.0514.00038', '6014 2RS RBE RULMAN', 0, '', 'ü'),
+(488, '150.05.0514.00039', '32034 RULMAN', 0, '', 'ü'),
+(489, '150.05.0514.00040', '32028 RULMAN', 0, '', 'ü'),
+(490, '150.05.0514.00041', '6211-2Z RULMAN', 0, '', 'ü'),
+(491, '150.05.0514.00042', '6209-2Z RULMAN', 0, '', 'ü');
 
 -- --------------------------------------------------------
 
@@ -659,7 +707,11 @@ CREATE TABLE `deppo_supplier_list` (
 
 INSERT INTO `deppo_supplier_list` (`id`, `name`, `address`, `tax_office`, `tax_number`, `bill_address`) VALUES
 (1, 'MER TEKNİK', '1082 SOKAK NO: 9/F YENİŞEHİR KONAK/İZMİR', 'EGE', '6180664606', '1082 SOKAK NO: 9/F YENİŞEHİR KONAK/İZMİR'),
-(2, 'ROTO MEGA', 'ANKARA ORTİM', 'ANKARA', '1111111', 'ANKARA ');
+(2, 'ROTO MEGA', 'ANKARA ORTİM', 'ANKARA', '1111111', 'ANKARA '),
+(3, 'KOÇAK PARK', 'KONYA', 'KONYA', '2222222', 'KONYA'),
+(4, 'METE KAUÇUK', 'İZMİR', 'İZMİR', '3333333', 'İZMİR'),
+(5, 'MERİDA', 'SAMSUN', 'SAMSUN', '4444444', 'SAMSUN'),
+(6, 'BRS RULMAN', 'İZMİR', 'İZMİR', '5555555', 'İZMİR');
 
 -- --------------------------------------------------------
 
@@ -771,19 +823,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_personel_list`
@@ -801,13 +853,13 @@ ALTER TABLE `deppo_receipt_types`
 -- Tablo için AUTO_INCREMENT değeri `deppo_stock_card_list`
 --
 ALTER TABLE `deppo_stock_card_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=445;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=492;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_supplier_list`
 --
 ALTER TABLE `deppo_supplier_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_users`

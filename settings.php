@@ -11,6 +11,6 @@ $GLOBALS['MAIL_USERNAME'] = 'info@sabahtech.com.tr';
 $GLOBALS['MAIL_PASSWORD'] = '';
 $GLOBALS['MAIL_SMTPSecure'] = 'tls';
 $GLOBALS['MAIL_PORT'] = '587';
-$GLOBALS['HOST'] = 'remote';
+$GLOBALS['HOST'] = 'local';
 //echo "<script type='text/javascript'>alert('setting end');</script>";
 ?>
