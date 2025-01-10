@@ -3,19 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 09 Oca 2025, 15:28:32
+-- Üretim Zamanı: 10 Oca 2025, 12:10:54
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Veritabanı: `deppo_db`
@@ -33,14 +23,14 @@ CREATE TABLE `deppo_logs` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `operation` varchar(50) NOT NULL,
   `operation_detail` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `deppo_logs`
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-01-09 16:29:22', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-01-10 14:09:33', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -54,7 +44,7 @@ CREATE TABLE `deppo_order` (
   `number` varchar(20) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `deppo_order`
@@ -78,7 +68,7 @@ CREATE TABLE `deppo_order_detail` (
   `ordered_quantity` smallint(5) UNSIGNED NOT NULL,
   `received_quantity` smallint(5) NOT NULL DEFAULT 0,
   `description` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `deppo_order_detail`
@@ -143,7 +133,7 @@ CREATE TABLE `deppo_personel_list` (
   `name` varchar(100) NOT NULL,
   `image_url` varchar(100) NOT NULL,
   `active` varchar(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `deppo_personel_list`
@@ -163,7 +153,7 @@ INSERT INTO `deppo_personel_list` (`id`, `name`, `image_url`, `active`) VALUES
 CREATE TABLE `deppo_receipt_types` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `deppo_receipt_types`
@@ -186,7 +176,7 @@ CREATE TABLE `deppo_stock_card_list` (
   `quantity` smallint(6) NOT NULL,
   `image_url` varchar(100) NOT NULL,
   `active` varchar(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `deppo_stock_card_list`
@@ -698,7 +688,7 @@ CREATE TABLE `deppo_supplier_list` (
   `tax_office` varchar(100) NOT NULL,
   `tax_number` varchar(20) NOT NULL,
   `bill_address` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `deppo_supplier_list`
@@ -729,7 +719,7 @@ CREATE TABLE `deppo_users` (
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `email_activation_key` varchar(150) NOT NULL,
   `user_type` varchar(20) NOT NULL DEFAULT 'user'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `deppo_users`
@@ -865,8 +855,3 @@ ALTER TABLE `deppo_supplier_list`
 --
 ALTER TABLE `deppo_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
