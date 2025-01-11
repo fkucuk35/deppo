@@ -318,11 +318,12 @@ if (!isLoggedIn()) {
         var y = date.getFullYear();
         var m = date.getMonth() + 1;
         var d = date.getDate();
-        return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d);
+        return (d < 10 ? ('0' + d) : d) + '.' + (m < 10 ? ('0' + m) : m) + '.' + y;
     }
     function myparser(s) {
         if (!s)
             return new Date();
+        alert(s);
         var ss = (s.split('-'));
         var y = parseInt(ss[0], 10);
         var m = parseInt(ss[1], 10);
@@ -371,7 +372,7 @@ if (!isLoggedIn()) {
             <input name="number" id="number" class="easyui-validatebox" data-options="editable: false"/>
         </div>
         <div class="fitem inline">
-            <input name="date" id="date" class="easyui-datebox" required="true" label="Tarih" labelPosition="left"/>
+            <input name="date" id="date" class="easyui-datebox" required="true" label="Tarih" labelPosition="left" data-options="formatter: myformatter, parser:myparser"/>
         </div>
         <div class="fitem inline">
             <label>Tedarikçi Firma/Kurum:</label>
