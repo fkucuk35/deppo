@@ -28,12 +28,18 @@ if (!isLoggedIn()) {
         $("#hh").show();
     }
 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     function viewItem() {
         var row = $('#dg').datagrid('getSelected');
         if (row) {
             $('#dlg').dialog('open').dialog('setTitle', 'Görüntüle');
             $('#fm').form('load', row);
             $("#fm :input").prop("disabled", true);
+            $(".combo-arrow").css('pointer-events', 'none');
+            $(".combo-arrow").css('cursor', 'default');
             $('#tbl_details').datagrid('hideColumn', 'action');
             $('#icon-ok').hide();
             getDetail(row.id);
@@ -49,6 +55,8 @@ if (!isLoggedIn()) {
             $('#dlg').dialog('open').dialog('setTitle', 'Düzenle');
             $('#fm').form('load', row);
             $("#fm :input").prop("disabled", false);
+            $(".combo-arrow").css('pointer-events', 'auto');
+            $(".combo-arrow").css('cursor', 'pointer');
             $('#tbl_details').datagrid('showColumn', 'action');
             $('#icon-ok').show();
             url = 'operations/order_list_operations.php?op=1&id=' + row.id;
@@ -278,6 +286,14 @@ if (!isLoggedIn()) {
         }
     }
 
+    function formatDate(value) {
+        var date = new Date(value);
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        var d = date.getDate();
+        return (d < 10 ? ('0' + d) : d) + '.' + (m < 10 ? ('0' + m) : m) + '.' + y;
+    }
+
     function getRowIndex(target) {
         var tr = $(target).closest('tr.datagrid-row');
         return parseInt(tr.attr('datagrid-row-index'));
@@ -323,11 +339,17 @@ if (!isLoggedIn()) {
     function myparser(s) {
         if (!s)
             return new Date();
-        alert(s);
-        var ss = (s.split('-'));
-        var y = parseInt(ss[0], 10);
-        var m = parseInt(ss[1], 10);
-        var d = parseInt(ss[2], 10);
+        if (s.length > 10) {
+            var ss = (s.split('-'));
+            var y = parseInt(ss[0], 10);
+            var m = parseInt(ss[1], 10);
+            var d = parseInt(ss[2], 10);
+        } else {
+            var ss = (s.split('.'));
+            var y = parseInt(ss[2], 10);
+            var m = parseInt(ss[1], 10);
+            var d = parseInt(ss[0], 10);
+        }
         if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
             return new Date(y, m - 1, d);
         } else {
@@ -346,7 +368,7 @@ if (!isLoggedIn()) {
                     <thead>
                         <tr>
                             <th field="number" width="50">Sipariş Numarası</th>
-                            <th field="date" width="50">Tarih</th>
+                            <th field="date" width="50" data-options="formatter: formatDate">Tarih</th>
                             <th field="supplier_name" width="50">Tedarikçi Firma/Kurum</th>
                             <th field="description" width="100">Açıklama</th>
                         </tr>

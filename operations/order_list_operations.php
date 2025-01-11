@@ -26,6 +26,7 @@ switch ($op) {
         $item->id = intval($_REQUEST['id']);
         $item->supplier_id = $_REQUEST['supplier_id'];
         $item->number = $_REQUEST['number'];
+        $item->date = $_REQUEST['date'];
         $item->description = $_REQUEST['description'];
         $result["success"] = $item->update();
         if ($result["success"]) {
