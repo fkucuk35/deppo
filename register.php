@@ -72,11 +72,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $item->email = $email;
         $item->password = md5($password);
         $item->image_url = "";
-        $item->active = "ü";
+        $item->active = "";
         $email_activation_key = generateActivationKey();
         $item->email_activation_key = $email_activation_key;
         $result = $item->insert();
-        //$email_send_result = sendEmail($email, "Email Doğrulama", "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet'><title>Email Doğrulama</title></head><body><script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'></script><a class='btn btn-primary' href='confirm_email.php?activation_key=". $email_activation_key. "' role='button'>E-posta adresinizi doğrulamak için tıklayınız</a></body></html>", "Kullandığınız eposta istemcisi HTML içeriği desteklemiyor. İstemci ayarlarınızı kontrol ediniz...");
+        $email_send_result = sendEmail($email, "Email Doğrulama", "<a style='background: #5ca934;border-color: #478228 #478228 #3c6f22;background-image: -webkit-linear-gradient(top, #69c03b, #5ca934 66%, #54992f);background-image: -moz-linear-gradient(top, #69c03b, #5ca934 66%, #54992f);background-image: -o-linear-gradient(top, #69c03b, #5ca934 66%, #54992f);background-image: linear-gradient(to bottom, #69c03b, #5ca934 66%, #54992f);color:#ffffff;font-size:12pt;font-weight:bold;padding:20px;text-decoration:none;' href='" . $GLOBALS["HOSTING_DOMAIN"] . $GLOBALS["ROOT"] . "confirm_email.php?email_activation_key=" . $email_activation_key . "&email=" . $email . "'>E-posta adresinizi doğrulamak için tıklayınız</a>", "Kullandığınız eposta istemcisi HTML içeriği desteklemiyor. İstemci ayarlarınızı kontrol ediniz...");
         header("Location: login.php");
     }
 }

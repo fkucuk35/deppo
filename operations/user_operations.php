@@ -6,8 +6,6 @@ include '../dao/user.php';
 include '../dao/log.php';
 
 $op = intval($_REQUEST["op"]);
-$id = intval($_REQUEST["id"]);
-$new_password = $_REQUEST["password"];
 session_start();
 
 switch ($op) {
@@ -53,6 +51,8 @@ switch ($op) {
       echo json_encode($result);
       exit; */
     case 5: //change password
+        $id = intval($_REQUEST["id"]);
+        $new_password = $_REQUEST["password"];
         $user = new User();
         $where = User::col_id . " = " . $id;
         $item = $user->readAll(null, $where);
@@ -68,6 +68,26 @@ switch ($op) {
             $log->operation_detail = "Kullanıcı şifresi değiştirildi";
             $log->insert();
         }
+        break;
+    case 6: //confirmation email
+        $result["success"] = false;
+        $result["msg"] = NULL;
+        $user = new User();
+        $email = (isset($_REQUEST['email']) ? $_REQUEST['email'] : "");
+        $email_activation_key = (isset($_REQUEST['email_activation_key']) ? $_REQUEST['email_activation_key'] : "");
+        $where = User::col_email . " = '" . $email . "' AND " . User::col_email_activation_key . "='" . $email_activation_key . "';";
+        $item = $user->readAll(null, $where);
+        if (count($item) != 0) {
+            $user = $item[0];
+            if ($user->email_activation_key === $email_activation_key) {
+                $user->active = "ü";
+                $user->email_activation_key = "";
+                $result["success"] = $user->update();
+                $result["msg"] = $user->error;
+            }
+        }
+        echo json_encode($result);
+        exit;
 }
 
 if ($result) {

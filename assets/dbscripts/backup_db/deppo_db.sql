@@ -3,9 +3,19 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 10 Oca 2025, 12:10:54
+-- Üretim Zamanı: 12 Oca 2025, 01:10:39
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Veritabanı: `deppo_db`
@@ -24,13 +34,6 @@ CREATE TABLE `deppo_logs` (
   `operation` varchar(50) NOT NULL,
   `operation_detail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `deppo_logs`
---
-
-INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-01-10 14:09:33', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -51,7 +54,7 @@ CREATE TABLE `deppo_order` (
 --
 
 INSERT INTO `deppo_order` (`id`, `supplier_id`, `number`, `date`, `description`) VALUES
-(1, 1, 'SIP-2025-000001', '2025-01-03 22:04:06', '03/01/2025 SİPARİŞ LİSTESİ'),
+(1, 1, 'SIP-2025-000001', '2025-01-03 00:00:00', '03/01/2025 SİPARİŞ LİSTESİ'),
 (2, 1, 'SIP-2025-000002', '2025-01-08 09:51:45', '07/01/2025 SİPARİŞ LİSTESİ'),
 (3, 6, 'SIP-2025-000003', '2025-01-09 10:51:58', '07/01/2025 SİPARİŞ LİSTESİ');
 
@@ -812,7 +815,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -855,3 +858,8 @@ ALTER TABLE `deppo_supplier_list`
 --
 ALTER TABLE `deppo_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -37,7 +37,7 @@ function generateActivationKey() {
         $key .= $keys[array_rand($keys)];
     }
 
-    return "#" . implode("-", str_split($key, 5));
+    return implode("-", str_split($key, 5));
 }
 
 function sendEmail($address, $subject, $body, $altBody) {
