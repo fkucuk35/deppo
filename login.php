@@ -58,7 +58,11 @@ if (isset($_POST["login"])) {
 ?>
 <?php include "partials/_header.php" ?>
 <?php include "partials/_navbar.php" ?>
-
+<script type="text/javascript">
+    $(function () {
+        $('#username').focus();
+    });
+</script>
 <div class="container-fluid my-3">
 
     <div class="row">

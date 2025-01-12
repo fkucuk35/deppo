@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 12 Oca 2025, 01:10:39
+-- Üretim Zamanı: 12 Oca 2025, 17:48:17
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -55,8 +55,8 @@ CREATE TABLE `deppo_order` (
 
 INSERT INTO `deppo_order` (`id`, `supplier_id`, `number`, `date`, `description`) VALUES
 (1, 1, 'SIP-2025-000001', '2025-01-03 00:00:00', '03/01/2025 SİPARİŞ LİSTESİ'),
-(2, 1, 'SIP-2025-000002', '2025-01-08 09:51:45', '07/01/2025 SİPARİŞ LİSTESİ'),
-(3, 6, 'SIP-2025-000003', '2025-01-09 10:51:58', '07/01/2025 SİPARİŞ LİSTESİ');
+(2, 1, 'SIP-2025-000002', '2025-01-07 00:00:00', '07/01/2025 SİPARİŞ LİSTESİ'),
+(3, 6, 'SIP-2025-000003', '2025-01-07 00:00:00', '07/01/2025 SİPARİŞ LİSTESİ');
 
 -- --------------------------------------------------------
 

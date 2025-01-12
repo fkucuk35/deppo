@@ -10,6 +10,7 @@
 
 #profile-form .row .col-2 .card .card-body button {
     width: -webkit-fill-available;
+    width: -moz-available;
 }
 
 .panel .window .panel-htop {
@@ -38,12 +39,14 @@
 
 .fitem textarea {
     margin-left: 0px !important;
-    width: -webkit-fill-available !important;
+    width: -moz-available;
+    width: -webkit-fill-available;
     padding: 5px;
 }
 
 .fitem textbox {
     width: -webkit-fill-available;
+    width: -moz-available;
 }
 
 @media screen and (max-width: 700px) {
