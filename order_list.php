@@ -43,7 +43,7 @@ if (!isLoggedIn()) {
             $('#tbl_details').datagrid('hideColumn', 'action');
             $('#icon-ok').hide();
             getDetail(row.id);
-            $("#hh").hide();
+            $('.detail_row_button').hide();
         }
     }
 
@@ -61,7 +61,7 @@ if (!isLoggedIn()) {
             $('#icon-ok').show();
             url = 'operations/order_list_operations.php?op=1&id=' + row.id;
             getDetail(row.id);
-            $("#hh").show();
+            $('.detail_row_button').show();
         }
     }
 
@@ -226,11 +226,11 @@ if (!isLoggedIn()) {
                     {field: 'order_id', hidden: true},
                     {field: 'stock_id', hidden: true},
                     {field: 'code', title: 'Stok Kartı Kodu', width: 10},
-                    {field: 'name', title: 'Stok Kartı Adı', width: 10},
-                    {field: 'ordered_quantity', title: 'Sipariş Edilen', width: 5, editor: 'text'},
-                    {field: 'received_quantity', title: 'Teslim Alınan', width: 5, editor: 'text'},
-                    {field: 'description', title: 'Açıklama', width: 50, editor: 'text'},
-                    {field: 'action', title: '', align: 'center', width: 20, formatter: formatAction}
+                    {field: 'name', title: 'Stok Kartı Adı', width: 20},
+                    {field: 'ordered_quantity', title: 'Sipariş Edilen', width: 10, editor: 'text'},
+                    {field: 'received_quantity', title: 'Teslim Alınan', width: 10, editor: 'text'},
+                    {field: 'description', title: 'Açıklama', width: 40, editor: 'text'},
+                    {field: 'action', title: '', align: 'center', width: 10, formatter: formatAction}
                 ]],
             onEndEdit: function (index, row) {
 
@@ -263,12 +263,13 @@ if (!isLoggedIn()) {
 
     function formatAction(value, row, index) {
         if (row.editing) {
-            var s = '<button type="button" class="btn btn-success btn-sm" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="saverow(this)">Kaydet</button> ';
-            var c = '<button type="button" class="btn btn-secondary btn-sm" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="cancelrow(this)">İptal</button>';
+            var s = '<img class="detail_row_button" src="<?php echo $GLOBALS["LOCAL_EASYUI_ROOT"]; ?>themes/icons/filesave.png" style="margin-top: 5px; margin-bottom: 5px; margin-left: 10px; margin-right: 10px;" width="24" height="24" onclick="saverow(this)"/> ';
+            var c = '<img class="detail_row_button" src="<?php echo $GLOBALS["LOCAL_EASYUI_ROOT"]; ?>themes/icons/cancel.png" style="margin-top: 5px; margin-bottom: 5px; margin-left: 10px; margin-right: 10px;" width="24" height="24" onclick="cancelrow(this)"/> ';
             return s + c;
+
         } else {
-            var e = '<button type="button" class="btn btn-primary btn-sm" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="editrow(this)">Düzenle</button> ';
-            var d = '<button type="button" class="btn btn-danger btn-sm" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="deleterow(this, ' + row.id + ')">Sil</button>';
+            var e = '<img class="detail_row_button" src="<?php echo $GLOBALS["LOCAL_EASYUI_ROOT"]; ?>themes/icons2/edit_16.png" style="margin-top: 5px; margin-bottom: 5px; margin-left: 10px; margin-right: 10px;" width="24" height="24" onclick="editrow(this)"/> ';
+            var d = '<img class="detail_row_button" src="<?php echo $GLOBALS["LOCAL_EASYUI_ROOT"]; ?>themes/icons2/remove_16.png" style="margin-top: 5px; margin-bottom: 5px; margin-left: 10px; margin-right: 10px;" width="24" height="24" onclick="deleterow(this, ' + row.id + ')"/> ';
             return e + d;
         }
     }
