@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 12 Oca 2025, 17:48:17
+-- Üretim Zamanı: 13 Oca 2025, 11:10:24
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -35,6 +35,15 @@ CREATE TABLE `deppo_logs` (
   `operation_detail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
+--
+-- Tablo döküm verisi `deppo_logs`
+--
+
+INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
+(1, 1, '2025-01-10 14:09:33', 'login', 'Kullanıcı girişi yapıldı'),
+(2, 1, '2025-01-13 08:24:08', 'login', 'Kullanıcı girişi yapıldı'),
+(3, 3, '2025-01-13 09:38:36', 'login', 'Kullanıcı girişi yapıldı');
+
 -- --------------------------------------------------------
 
 --
@@ -54,9 +63,10 @@ CREATE TABLE `deppo_order` (
 --
 
 INSERT INTO `deppo_order` (`id`, `supplier_id`, `number`, `date`, `description`) VALUES
-(1, 1, 'SIP-2025-000001', '2025-01-03 00:00:00', '03/01/2025 SİPARİŞ LİSTESİ'),
-(2, 1, 'SIP-2025-000002', '2025-01-07 00:00:00', '07/01/2025 SİPARİŞ LİSTESİ'),
-(3, 6, 'SIP-2025-000003', '2025-01-07 00:00:00', '07/01/2025 SİPARİŞ LİSTESİ');
+(1, 1, 'SIP-2025-000001', '2025-01-03 22:04:06', '03/01/2025 SİPARİŞ LİSTESİ'),
+(2, 1, 'SIP-2025-000002', '2025-01-08 09:51:45', '07/01/2025 SİPARİŞ LİSTESİ'),
+(3, 6, 'SIP-2025-000003', '2025-01-09 10:51:58', '07/01/2025 SİPARİŞ LİSTESİ'),
+(4, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', '13/01/2025 SİPARİŞ LİSTESİ');
 
 -- --------------------------------------------------------
 
@@ -91,7 +101,19 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (11, 1, 445, 1600, 1600, ''),
 (12, 1, 446, 1600, 1600, ''),
 (13, 1, 447, 20, 0, ''),
-(14, 3, 454, 300, 0, '');
+(14, 3, 454, 300, 0, ''),
+(15, 4, 435, 48, 0, ''),
+(16, 4, 429, 20, 0, ''),
+(17, 4, 340, 4, 0, 'KUTU'),
+(18, 4, 493, 100, 0, ''),
+(19, 4, 497, 5, 0, ''),
+(20, 4, 502, 600, 0, ''),
+(21, 4, 513, 18, 0, ''),
+(22, 4, 511, 10, 0, ''),
+(23, 4, 512, 10, 0, ''),
+(25, 4, 509, 20, 0, ''),
+(26, 4, 515, 50, 0, ''),
+(27, 4, 401, 1000, 0, '');
 
 -- --------------------------------------------------------
 
@@ -676,7 +698,33 @@ INSERT INTO `deppo_stock_card_list` (`id`, `code`, `name`, `quantity`, `image_ur
 (488, '150.05.0514.00039', '32034 RULMAN', 0, '', 'ü'),
 (489, '150.05.0514.00040', '32028 RULMAN', 0, '', 'ü'),
 (490, '150.05.0514.00041', '6211-2Z RULMAN', 0, '', 'ü'),
-(491, '150.05.0514.00042', '6209-2Z RULMAN', 0, '', 'ü');
+(491, '150.05.0514.00042', '6209-2Z RULMAN', 0, '', 'ü'),
+(492, '150.04.0403.00041', 'AYBOLT- DISI M6', 0, '', 'ü'),
+(493, '150.04.0403.00044', 'AYBOLT-DISI 8MM', 0, '', 'ü'),
+(494, '150.04.0403.00045', 'AYBOLT-DISI M12(KROM)', 0, '', 'ü'),
+(495, '150.04.0403.00048', 'AYBOLT-DISI M10', 0, '', 'ü'),
+(496, '150.05.0517.00061', '27*0,9-5/8 BI-METAL SERIT TESTERE', 0, '', 'ü'),
+(497, '150.05.0517.00062', '27*0,9-4/6 BI-METAL SERIT TESTERE', 0, '', 'ü'),
+(498, '150.05.0517.00260', '64MM METAL DELIK TESTERESI', 0, '', 'ü'),
+(499, '150.05.0517.00261', '79MM METAL DELIK TESTERESI', 0, '', 'ü'),
+(500, '150.05.0517.00262', '92MM METAL DELIK TESTERESI', 0, '', 'ü'),
+(501, 'HSS BI-METAL', 'DELIK TESTERESI 62', 0, '', 'ü'),
+(502, '150.05.0513.00004', 'M12X110MM CELIK KLIPSLI DUBEL', 0, '', 'ü'),
+(503, '150.05.0513.00005', 'M20X150 KLIPSLI CELIK DUBEL', 0, '', 'ü'),
+(504, '150.05.0513.00006', 'M20X180 KLIPSLI CELIK DUBEL', 0, '', 'ü'),
+(505, '150.05.0513.00007', 'M16X110MM KLIPSLI CELIK DUBEL', 0, '', 'ü'),
+(506, '150.05.0513.00008', 'M10X110MM KLIPSLI CELIK DUBEL', 0, '', 'ü'),
+(507, '150.05.0513.00010', 'M16x145 KLIPSLI DUBEL', 0, '', 'ü'),
+(508, '150.05.0513.00011', 'M10X90 KLIPSLI DUBEL', 0, '', 'ü'),
+(509, '150.05.0517.00028', 'INOX KROM TEMIZLEYICI', 0, '', 'ü'),
+(510, '150.05.0517.00147', 'INOX BAKIM PARLATICI', 0, '', 'ü'),
+(511, '150.05.0517.00073', 'MAKET BICAGI YEDEGI GFB', 0, '', 'ü'),
+(512, '150.05.0517.00074', 'MAKET BICAGI METAL GONEN', 0, '', 'ü'),
+(513, '150.05.0517.00034', '17 MIKRON STREC FILM', 0, '', 'ü'),
+(514, '150.05.0517.00271', '23 MICRON STRECH FILM', 0, '', 'ü'),
+(515, '150.05.0517.00029', 'INOX KESICI TAS KUCUK', 0, '', 'ü'),
+(516, '150.05.0517.00030', 'INOX KESICI TAS BUYUK', 0, '', 'ü'),
+(517, '150.05.0517.00111', 'INOX KESME TASI', 0, '', 'ü');
 
 -- --------------------------------------------------------
 
@@ -815,19 +863,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_personel_list`
@@ -845,7 +893,7 @@ ALTER TABLE `deppo_receipt_types`
 -- Tablo için AUTO_INCREMENT değeri `deppo_stock_card_list`
 --
 ALTER TABLE `deppo_stock_card_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=492;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=518;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_supplier_list`

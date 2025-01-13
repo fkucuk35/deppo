@@ -281,7 +281,7 @@ if (!isLoggedIn()) {
             return s + c;
         } else {
             var e = '<button type="button" class="btn btn-primary btn-sm" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="editrow(this)">Düzenle</button> ';
-            var d = '<button type="button" class="btn btn-danger btn-sm" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="deleterow(this)">Sil</button>';
+            var d = '<button type="button" class="btn btn-danger btn-sm" style="width: 60px; font-size: 10px; border-radius: 15px;" onclick="deleterow(this, ' + row.id + ')">Sil</button>';
             return e + d;
         }
     }
@@ -301,10 +301,16 @@ if (!isLoggedIn()) {
     function editrow(target) {
         $('#tbl_details').datagrid('beginEdit', getRowIndex(target));
     }
-    function deleterow(target) {
+    function deleterow(target, rowId) {
         $.messager.confirm('Onay', 'Silmek istediğinize emin misiniz?', function (r) {
             if (r) {
+                if (typeof rowId !== 'undefined') {
+                    deleted_details.push(rowId);
+                    console.log(deleted_details);
+                }
                 $('#tbl_details').datagrid('deleteRow', getRowIndex(target));
+                rows = $('#tbl_details').datagrid('getRows');
+                $('#tbl_details').datagrid('loadData', {"total": rows.length, "rows": rows});
             }
         });
     }
