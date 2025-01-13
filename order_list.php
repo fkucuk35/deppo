@@ -293,7 +293,6 @@ if (!isLoggedIn()) {
             if (r) {
                 if (typeof rowId !== 'undefined') {
                     deleted_details.push(rowId);
-                    console.log(deleted_details);
                 }
                 $('#tbl_details').datagrid('deleteRow', getRowIndex(target));
                 rows = $('#tbl_details').datagrid('getRows');
