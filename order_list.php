@@ -307,20 +307,8 @@ if (!isLoggedIn()) {
         $('#tbl_details').datagrid('cancelEdit', getRowIndex(target));
     }
     function insert() {
-        /* var row = $('#table_details').datagrid('getSelected');
-         if (row) {
-         var index = $('#table_details').datagrid('getRowIndex', row);
-         } else {
-         index = 0;
-         }
-         $('#table_details').datagrid('insertRow', {
-         index: index,
-         row: {
-         status: 'P'
-         }
-         });
-         $('#table_details').datagrid('selectRow', index);
-         $('#table_details').datagrid('beginEdit', index);*/
+        addOnCheck('#tbl_details', '#tbl_stock_card_list', selected_order_id);
+        $('#dlg_detail').dialog('close');
     }
     function myformatter(date) {
         var y = date.getFullYear();
@@ -359,10 +347,10 @@ if (!isLoggedIn()) {
                        rownumbers="true" fitColumns="true" singleSelect="true" data-options="onDblClickRow:function(){viewItem();}">
                     <thead>
                         <tr>
-                            <th field="number" width="50">Sipariş Numarası</th>
-                            <th field="date" width="50" data-options="formatter: formatDate">Tarih</th>
-                            <th field="supplier_name" width="50">Tedarikçi Firma/Kurum</th>
-                            <th field="description" width="100">Açıklama</th>
+                            <th field="number" width="10">Sipariş Numarası</th>
+                            <th field="date" width="10" data-options="formatter: formatDate">Tarih</th>
+                            <th field="supplier_name" width="10">Tedarikçi Firma/Kurum</th>
+                            <th field="description" width="70">Açıklama</th>
                         </tr>
                     </thead>
                 </table>
@@ -457,8 +445,7 @@ if (!isLoggedIn()) {
 </div>
 
 <div id="dlg-buttons-detail">    
-    <a id="icon-addCheck" href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="addOnCheck('#tbl_details', '#tbl_stock_card_list', selected_order_id);
-            $('#dlg_detail').dialog('close');"><?php echo $lang['add'] ?> </a>
+    <a id="icon-addCheck" href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="insert()"><?php echo $lang['add'] ?> </a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg_detail').dialog('close');"><?php echo $lang['cancel'] ?> </a>
 </div>  
 <!--End new stock card-->
