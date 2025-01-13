@@ -114,19 +114,6 @@ if (!isLoggedIn()) {
         }
     }
 
-    function removeDetail(index, rowId) {
-        $.messager.confirm('Onayla', 'Silmek istediğinize emin misiniz?', function (r) {
-            if (r) {
-                if (typeof (rowId) !== 'undefined') {
-                    deleted_details.push(rowId);
-                }
-                $('#tbl_details').datagrid('deleteRow', index);
-                rows = $('#tbl_details').datagrid('getRows');
-                $('#tbl_details').datagrid('loadData', {"total": rows.length, "rows": rows});
-            }
-        });
-    }
-
     function refreshList() {
         $('#dg').datagrid('reload'); // reload the list
     }
