@@ -9,6 +9,7 @@ switch ($op) {
     case 0: // new insert
         $item = new Order();
         $rows = $_REQUEST['rows'];
+        $item->status_id = $_REQUEST['status_id'];
         $item->supplier_id = $_REQUEST['supplier_id'];
         $item->number = $_REQUEST['number'];
         $item->description = $_REQUEST['description'];
@@ -24,6 +25,7 @@ switch ($op) {
         $deleted_details = json_decode($_REQUEST['deleted_details']);
         $item = new Order();
         $item->id = intval($_REQUEST['id']);
+        $item->status_id = $_REQUEST['status_id'];
         $item->supplier_id = $_REQUEST['supplier_id'];
         $item->number = $_REQUEST['number'];
         $item->date = $_REQUEST['date'];

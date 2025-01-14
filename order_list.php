@@ -345,6 +345,7 @@ if (!isLoggedIn()) {
                        rownumbers="true" fitColumns="true" singleSelect="true" data-options="onDblClickRow:function(){viewItem();}">
                     <thead>
                         <tr>
+                            <th field="status" width="10">Sipariş Durumu</th>
                             <th field="number" width="10">Sipariş Numarası</th>
                             <th field="date" width="10" data-options="formatter: formatDate">Tarih</th>
                             <th field="supplier_name" width="10">Tedarikçi Firma/Kurum</th>
@@ -367,6 +368,15 @@ if (!isLoggedIn()) {
      closed="true" buttons="#dlg-buttons" modal="true"
      data-options="onResize:function(){$(this).dialog('center');}" style="width:95%;height:500px">
     <form id="fm" method="post" novalidate>
+        <div class="fitem inline">
+            <label>Sipariş Durumu:</label>
+            <input name="status_id" class="easyui-combobox" required="true" data-options="  
+                   valueField: 'id',  
+                   textField: 'name',  
+                   url: 'operations/order_status_operations.php?op=4',
+                   editable: false
+                   " />
+        </div>
         <div class="fitem inline">
             <label>Sipariş Numarası:</label>
             <input name="number" id="number" class="easyui-validatebox" data-options="editable: false"/>

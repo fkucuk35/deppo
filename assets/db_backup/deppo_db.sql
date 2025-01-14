@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 14 Oca 2025, 14:47:03
+-- Üretim Zamanı: 14 Oca 2025, 21:38:18
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-01-14 16:07:38', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-01-14 22:35:54', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -50,6 +50,7 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 
 CREATE TABLE `deppo_order` (
   `id` int(11) NOT NULL,
+  `status_id` int(11) NOT NULL,
   `supplier_id` int(11) NOT NULL,
   `number` varchar(20) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
@@ -60,11 +61,11 @@ CREATE TABLE `deppo_order` (
 -- Tablo döküm verisi `deppo_order`
 --
 
-INSERT INTO `deppo_order` (`id`, `supplier_id`, `number`, `date`, `description`) VALUES
-(1, 1, 'SIP-2025-000001', '2025-01-03 00:00:00', ''),
-(2, 1, 'SIP-2025-000002', '2025-01-07 00:00:00', ''),
-(3, 6, 'SIP-2025-000003', '2025-01-07 00:00:00', ''),
-(4, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', '');
+INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `description`) VALUES
+(1, 1, 1, 'SIP-2025-000001', '2025-01-03 00:00:00', ''),
+(2, 2, 1, 'SIP-2025-000002', '2025-01-07 00:00:00', ''),
+(3, 2, 6, 'SIP-2025-000003', '2025-01-07 00:00:00', ''),
+(4, 1, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -138,12 +139,33 @@ CREATE TABLE `deppo_order_detail_list_view` (
 --
 CREATE TABLE `deppo_order_list_view` (
 `id` int(11)
+,`status_id` int(11)
 ,`supplier_id` int(11)
 ,`number` varchar(20)
 ,`date` datetime
 ,`description` text
 ,`supplier_name` varchar(100)
+,`status` varchar(50)
 );
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `deppo_order_status`
+--
+
+CREATE TABLE `deppo_order_status` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `deppo_order_status`
+--
+
+INSERT INTO `deppo_order_status` (`id`, `name`) VALUES
+(1, 'Açık Sipariş'),
+(2, 'Tamamlanmış Sipariş');
 
 -- --------------------------------------------------------
 
@@ -795,7 +817,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `deppo_order_list_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `deppo_order_list_view`  AS SELECT `do`.`id` AS `id`, `do`.`supplier_id` AS `supplier_id`, `do`.`number` AS `number`, `do`.`date` AS `date`, `do`.`description` AS `description`, `dsl`.`name` AS `supplier_name` FROM (`deppo_order` `do` left join `deppo_supplier_list` `dsl` on(`do`.`supplier_id` = `dsl`.`id`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `deppo_order_list_view`  AS SELECT `do`.`id` AS `id`, `do`.`status_id` AS `status_id`, `do`.`supplier_id` AS `supplier_id`, `do`.`number` AS `number`, `do`.`date` AS `date`, `do`.`description` AS `description`, `dsl`.`name` AS `supplier_name`, `dos`.`name` AS `status` FROM ((`deppo_order` `do` left join `deppo_supplier_list` `dsl` on(`do`.`supplier_id` = `dsl`.`id`)) left join `deppo_order_status` `dos` on(`do`.`status_id` = `dos`.`id`)) ;
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -818,6 +840,12 @@ ALTER TABLE `deppo_order`
 -- Tablo için indeksler `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Tablo için indeksler `deppo_order_status`
+--
+ALTER TABLE `deppo_order_status`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -874,6 +902,12 @@ ALTER TABLE `deppo_order`
 --
 ALTER TABLE `deppo_order_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
+--
+ALTER TABLE `deppo_order_status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_personel_list`

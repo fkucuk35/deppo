@@ -9,19 +9,21 @@ class OrderListView extends DAO
 
     const table_name = "deppo_order_list_view";
     const col_id = "id";
+    const col_status_id = "status_id";
     const col_supplier_id = "supplier_id";
     const col_number = "number";
     const col_date = "date";
     const col_description = "description";
     const col_supplier_name = "supplier_name";
 
-    var $id, $supplier_id, $name, $date, $description, $supplier_name;
+    var $id, $status_id, $supplier_id, $name, $date, $description, $supplier_name;
 
     protected function init()
     {
         $this->setTableName(self::table_name);
 
         $this->addColumn("id", self::col_id, DataType::Integer, TRUE, TRUE);
+        $this->addColumn("status_id", self::col_status_id, DataType::Integer, FALSE, FALSE);
         $this->addColumn("supplier_id", self::col_supplier_id, DataType::Integer, FALSE, FALSE);
         $this->addColumn("number", self::col_number, DataType::String, FALSE, FALSE);
         $this->addColumn("date", self::col_date, DataType::Date, FALSE, FALSE);
