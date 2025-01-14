@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 13 Oca 2025, 11:10:24
+-- Üretim Zamanı: 14 Oca 2025, 14:47:03
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,9 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-01-10 14:09:33', 'login', 'Kullanıcı girişi yapıldı'),
-(2, 1, '2025-01-13 08:24:08', 'login', 'Kullanıcı girişi yapıldı'),
-(3, 3, '2025-01-13 09:38:36', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-01-14 16:07:38', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -63,10 +61,10 @@ CREATE TABLE `deppo_order` (
 --
 
 INSERT INTO `deppo_order` (`id`, `supplier_id`, `number`, `date`, `description`) VALUES
-(1, 1, 'SIP-2025-000001', '2025-01-03 22:04:06', '03/01/2025 SİPARİŞ LİSTESİ'),
-(2, 1, 'SIP-2025-000002', '2025-01-08 09:51:45', '07/01/2025 SİPARİŞ LİSTESİ'),
-(3, 6, 'SIP-2025-000003', '2025-01-09 10:51:58', '07/01/2025 SİPARİŞ LİSTESİ'),
-(4, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', '13/01/2025 SİPARİŞ LİSTESİ');
+(1, 1, 'SIP-2025-000001', '2025-01-03 00:00:00', ''),
+(2, 1, 'SIP-2025-000002', '2025-01-07 00:00:00', ''),
+(3, 6, 'SIP-2025-000003', '2025-01-07 00:00:00', ''),
+(4, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -101,19 +99,19 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (11, 1, 445, 1600, 1600, ''),
 (12, 1, 446, 1600, 1600, ''),
 (13, 1, 447, 20, 0, ''),
-(14, 3, 454, 300, 0, ''),
-(15, 4, 435, 48, 0, ''),
-(16, 4, 429, 20, 0, ''),
-(17, 4, 340, 4, 0, 'KUTU'),
-(18, 4, 493, 100, 0, ''),
+(14, 3, 454, 300, 300, ''),
+(15, 4, 435, 48, 48, ''),
+(16, 4, 429, 20, 20, ''),
+(17, 4, 340, 600, 600, ''),
+(18, 4, 493, 100, 100, ''),
 (19, 4, 497, 5, 0, ''),
-(20, 4, 502, 600, 0, ''),
-(21, 4, 513, 18, 0, ''),
-(22, 4, 511, 10, 0, ''),
-(23, 4, 512, 10, 0, ''),
+(20, 4, 502, 600, 270, ''),
+(21, 4, 513, 18, 18, ''),
+(22, 4, 511, 10, 10, ''),
+(23, 4, 512, 10, 10, ''),
 (25, 4, 509, 20, 0, ''),
-(26, 4, 515, 50, 0, ''),
-(27, 4, 401, 1000, 0, '');
+(26, 4, 515, 100, 100, ''),
+(27, 4, 401, 1000, 849, '');
 
 -- --------------------------------------------------------
 
@@ -432,16 +430,16 @@ INSERT INTO `deppo_stock_card_list` (`id`, `code`, `name`, `quantity`, `image_ur
 (222, '150.05.0521.00020', '50*50*2,5CM KARO KAUCUK(YESIL)', 0, '', 'ü'),
 (223, '150.05.0521.00021', '50*50*3CM KARO KAUCUK(BORDO)', 0, '', 'ü'),
 (224, '150.05.0521.00022', '50*50*3CM KARO KAUCUK(YESIL)', 0, '', 'ü'),
-(225, '150.05.0501.00001', 'M8X15 BOMBE BAS CIVATA', 0, '', 'ü'),
-(226, '150.05.0501.00002', 'M8X20 BOMBE BAS CIVATA', 0, '', 'ü'),
-(227, '150.05.0501.00003', 'M8X25 BOMBE BAS CIVATA', 0, '', 'ü'),
-(228, '150.05.0501.00004', 'M8X30 BOMBE BAS CIVATA', 0, '', 'ü'),
-(229, '150.05.0501.00005', 'M8X35 BOMBE BAS CIVATA', 0, '', 'ü'),
-(230, '150.05.0501.00006', 'M8X40 BOMBE BAS CIVATA', 0, '', 'ü'),
-(231, '150.05.0501.00007', 'M8X45 BOMBE BAS CIVATA', 0, '', 'ü'),
-(232, '150.05.0501.00008', 'M8X50 BOMBE BAS CIVATA', 0, '', 'ü'),
-(233, '150.05.0501.00009', 'M8X60 BOMBE BAS CIVATA', 0, '', 'ü'),
-(234, '150.05.0501.00010', 'M8X80 BOMBE BAS CIVATA', 0, '', 'ü'),
+(225, '150.05.0501.00001', 'M8X15 BOMBE BAS CIVATA', 0, 'M8X15BB.jpg', 'ü'),
+(226, '150.05.0501.00002', 'M8X20 BOMBE BAS CIVATA', 0, 'M8X20BB.jpg', 'ü'),
+(227, '150.05.0501.00003', 'M8X25 BOMBE BAS CIVATA', 0, 'M8X25BB.jpg', 'ü'),
+(228, '150.05.0501.00004', 'M8X30 BOMBE BAS CIVATA', 0, 'M8X30BB.jpg', 'ü'),
+(229, '150.05.0501.00005', 'M8X35 BOMBE BAS CIVATA', 0, 'M8X35BB.jpg', 'ü'),
+(230, '150.05.0501.00006', 'M8X40 BOMBE BAS CIVATA', 0, 'M8X40BB.jpg', 'ü'),
+(231, '150.05.0501.00007', 'M8X45 BOMBE BAS CIVATA', 0, 'M8X45BB.jpg', 'ü'),
+(232, '150.05.0501.00008', 'M8X50 BOMBE BAS CIVATA', 0, 'M8X50BB.jpg', 'ü'),
+(233, '150.05.0501.00009', 'M8X60 BOMBE BAS CIVATA', 0, 'M8X60BB.jpg', 'ü'),
+(234, '150.05.0501.00010', 'M8X80 BOMBE BAS CIVATA', 0, 'M8X80BB.jpg', 'ü'),
 (235, '150.05.0501.00011', 'M10X15 BOMBE BAS CIVATA', 0, '', 'ü'),
 (236, '150.05.0501.00012', 'M10X20 BOMBE BAS CIVATA', 0, '', 'ü'),
 (237, '150.05.0501.00013', 'M10X25 BOMBE BAS CIVATA', 0, '', 'ü'),
@@ -452,7 +450,7 @@ INSERT INTO `deppo_stock_card_list` (`id`, `code`, `name`, `quantity`, `image_ur
 (242, '150.05.0501.00018', 'M10X60 BOMBE BAS CIVATA', 0, '', 'ü'),
 (243, '150.05.0501.00019', 'M8X16 BOMBE BAS CIVATA', 0, '', 'ü'),
 (244, '150.05.0501.00023', 'M8X65 BOMBE BAS CIVATA', 0, '', 'ü'),
-(245, '150.05.0501.00024', 'M6X10 BOMBE BAS CIVATA', 0, '', 'ü'),
+(245, '150.05.0501.00024', 'M6X10 BOMBE BAS CIVATA', 0, 'M6X12BB.jpg', 'ü'),
 (246, '150.05.0501.00025', 'M8X55 BOMBE BAS CIVATA', 0, '', 'ü'),
 (247, '150.05.0501.00026', 'M6X20 BOMBE BAS CIVATA', 0, '', 'ü'),
 (248, '150.05.0501.00027', 'M6X25 BOMBE BAS CIVATA', 0, '', 'ü'),
@@ -863,7 +861,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`

@@ -139,8 +139,6 @@ if (!isLoggedIn()) {
         });
     }
 
-// Detail Fucntions Start
-
     function addOnCheck(detail, allList, order_id) {
         getCheckedBeforeAdd(allList);
         let addedRows = [];
@@ -255,7 +253,6 @@ if (!isLoggedIn()) {
         });
     }, 'json');
 
-    // Detail Functions End
     $(function () {
         $('#dg').datagrid('enableFilter');
         $('#tbl_stock_card_list').datagrid('enableFilter');
@@ -375,7 +372,7 @@ if (!isLoggedIn()) {
             <input name="number" id="number" class="easyui-validatebox" data-options="editable: false"/>
         </div>
         <div class="fitem inline">
-            <input name="date" id="date" class="easyui-datebox" required="true" label="Tarih" labelPosition="left" data-options="formatter: myformatter, parser:myparser"/>
+            <input name="date" id="date" class="easyui-datebox" required="true" label="Tarih:" labelPosition="left" data-options="formatter: myformatter, parser:myparser"/>
         </div>
         <div class="fitem inline">
             <label>Tedarikçi Firma/Kurum:</label>
@@ -422,8 +419,7 @@ if (!isLoggedIn()) {
     <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="closeDialog()">İptal</a>
 </div>
 <?php include "partials/_footer.php"; ?>
-
-<!--Add new stock card-->        
+      
 <div id="dlg_detail" class="easyui-dialog" style="width:90%;height:400px"
      closed="true" modal="true" buttons="#dlg-buttons-detail" title="Stok Kartları Listesi">
     <table id="tbl_stock_card_list" class="easyui-datagrid" style="width:100%;height:310px"  
@@ -448,5 +444,4 @@ if (!isLoggedIn()) {
 <div id="dlg-buttons-detail">    
     <a id="icon-addCheck" href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="insert()"><?php echo $lang['add'] ?> </a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg_detail').dialog('close');"><?php echo $lang['cancel'] ?> </a>
-</div>  
-<!--End new stock card-->
+</div>
