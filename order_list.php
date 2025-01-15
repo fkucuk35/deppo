@@ -252,18 +252,15 @@ if (!isLoggedIn()) {
             }
         });
     }, 'json');
-
     $(function () {
         $('#dg').datagrid('enableFilter');
         $('#tbl_stock_card_list').datagrid('enableFilter');
     });
-
     function formatAction(value, row, index) {
         if (row.editing) {
             var s = '<img class="detail_row_button" src="<?php echo $GLOBALS["LOCAL_EASYUI_ROOT"]; ?>themes/icons/filesave.png" style="margin-top: 5px; margin-bottom: 5px; margin-left: 10px; margin-right: 10px;" width="24" height="24" onclick="saverow(this)"/> ';
             var c = '<img class="detail_row_button" src="<?php echo $GLOBALS["LOCAL_EASYUI_ROOT"]; ?>themes/icons/cancel.png" style="margin-top: 5px; margin-bottom: 5px; margin-left: 10px; margin-right: 10px;" width="24" height="24" onclick="cancelrow(this)"/> ';
             return s + c;
-
         } else {
             var e = '<img class="detail_row_button" src="<?php echo $GLOBALS["LOCAL_EASYUI_ROOT"]; ?>themes/icons2/edit_16.png" style="margin-top: 5px; margin-bottom: 5px; margin-left: 10px; margin-right: 10px;" width="24" height="24" onclick="editrow(this)"/> ';
             var d = '<img class="detail_row_button" src="<?php echo $GLOBALS["LOCAL_EASYUI_ROOT"]; ?>themes/icons2/remove_16.png" style="margin-top: 5px; margin-bottom: 5px; margin-left: 10px; margin-right: 10px;" width="24" height="24" onclick="deleterow(this, ' + row.id + ')"/> ';
@@ -429,7 +426,7 @@ if (!isLoggedIn()) {
     <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="closeDialog()">İptal</a>
 </div>
 <?php include "partials/_footer.php"; ?>
-      
+
 <div id="dlg_detail" class="easyui-dialog" style="width:90%;height:400px"
      closed="true" modal="true" buttons="#dlg-buttons-detail" title="Stok Kartları Listesi">
     <table id="tbl_stock_card_list" class="easyui-datagrid" style="width:100%;height:310px"  

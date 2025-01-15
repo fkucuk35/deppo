@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 14 Oca 2025, 21:38:18
+-- Üretim Zamanı: 15 Oca 2025, 15:16:05
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-01-14 22:35:54', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-01-15 17:14:39', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -105,14 +105,15 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (16, 4, 429, 20, 20, ''),
 (17, 4, 340, 600, 600, ''),
 (18, 4, 493, 100, 100, ''),
-(19, 4, 497, 5, 0, ''),
+(19, 4, 497, 4, 4, ''),
 (20, 4, 502, 600, 270, ''),
 (21, 4, 513, 18, 18, ''),
 (22, 4, 511, 10, 10, ''),
 (23, 4, 512, 10, 10, ''),
 (25, 4, 509, 20, 0, ''),
 (26, 4, 515, 100, 100, ''),
-(27, 4, 401, 1000, 849, '');
+(27, 4, 401, 1000, 849, ''),
+(28, 4, 496, 1, 1, '27*0,9-5/7 Gelmiş ama stok kodu yok');
 
 -- --------------------------------------------------------
 
@@ -901,7 +902,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
