@@ -15,6 +15,17 @@ if (!isLoggedIn()) {
     var url;
     var selected_order_id;
     var deleted_details = [];
+
+    function disableComboboxSelection() {
+        $(".combo-arrow").css('pointer-events', 'none');
+        $(".combo-arrow").css('cursor', 'default');
+    }
+
+    function enableComboboxSelection() {
+        $(".combo-arrow").css('pointer-events', 'auto');
+        $(".combo-arrow").css('cursor', 'pointer');
+    }
+
     function newItem() {
         $('#icon-ok').show();
         $('#dlg').dialog('open').dialog('setTitle', 'Yeni');
@@ -38,8 +49,7 @@ if (!isLoggedIn()) {
             $('#dlg').dialog('open').dialog('setTitle', 'Görüntüle');
             $('#fm').form('load', row);
             $("#fm :input").prop("disabled", true);
-            $(".combo-arrow").css('pointer-events', 'none');
-            $(".combo-arrow").css('cursor', 'default');
+            disableComboboxSelection();
             $('#tbl_details').datagrid('hideColumn', 'action');
             $('#icon-ok').hide();
             getDetail(row.id);
@@ -55,8 +65,7 @@ if (!isLoggedIn()) {
             $('#dlg').dialog('open').dialog('setTitle', 'Düzenle');
             $('#fm').form('load', row);
             $("#fm :input").prop("disabled", false);
-            $(".combo-arrow").css('pointer-events', 'auto');
-            $(".combo-arrow").css('cursor', 'pointer');
+            enableComboboxSelection();
             $('#tbl_details').datagrid('showColumn', 'action');
             $('#icon-ok').show();
             url = 'operations/order_list_operations.php?op=1&id=' + row.id;
@@ -77,6 +86,7 @@ if (!isLoggedIn()) {
                 var result = eval('(' + result + ')');
                 if (result.success) {
                     $('#dlg').dialog('close'); // close the dialog
+                    enableComboboxSelection();
                     $('#dg').datagrid('reload'); // reload the list
                 } else {
                     $.messager.show({
@@ -212,6 +222,7 @@ if (!isLoggedIn()) {
 
     function closeDialog() {
         $('#dlg').dialog('close');
+        enableComboboxSelection();
     }
 
     $(function () {
@@ -250,13 +261,17 @@ if (!isLoggedIn()) {
                     return 'background-color: #f8d7da; color: #721c24;font-weight: bold;';
                 }
             }
-        });
-    }, 'json');
-    $(function () {
+        }, 'json');
         $('#dg').datagrid('enableFilter');
         $('#tbl_stock_card_list').datagrid('enableFilter');
-        //$('#status_id').combobox('select', 2);
+        setStatusFilter(2);
     });
+    function setStatusFilter(status_id) {
+        $('#cmbbxStatus').combobox('setValue', status_id);
+        $('#dg').datagrid({
+            url: 'operations/order_list_view_operations.php?op=3&status=' + $('#cmbbxStatus').combobox('getValue')
+        });
+    }
     function formatAction(value, row, index) {
         if (row.editing) {
             var s = '<img class="detail_row_button" src="<?php echo $GLOBALS["LOCAL_EASYUI_ROOT"]; ?>themes/icons/filesave.png" style="margin-top: 5px; margin-bottom: 5px; margin-left: 10px; margin-right: 10px;" width="24" height="24" onclick="saverow(this)"/> ';
@@ -338,12 +353,10 @@ if (!isLoggedIn()) {
         <div class="content-main">
             <div class="content-easyui" id="wrapper-grid">
                 <table id="dg" title="Sipariş Listesi" class="easyui-datagrid"
-                       url="operations/order_list_view_operations.php?op=3"
                        toolbar="#toolbar" pagination="true" pageSize="10" pageList="[10]"
                        rownumbers="true" fitColumns="true" singleSelect="true" data-options="onDblClickRow:function(){viewItem();}">
                     <thead>
                         <tr>
-                            <th field="status" width="10">Sipariş Durumu</th>
                             <th field="number" width="10">Sipariş Numarası</th>
                             <th field="date" width="10" data-options="formatter: formatDate">Tarih</th>
                             <th field="supplier_name" width="10">Tedarikçi Firma/Kurum</th>
@@ -361,13 +374,17 @@ if (!isLoggedIn()) {
     <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editItem()">Düzenle</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeItem()">Sil</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshList()">Yenile</a>
-    <!-- <label for="status_id">Sipariş Durumu:</label>
-    <input name="status_id" id="status_id" class="easyui-combobox" width="150" data-options="  
+    <label for="cmbbxStatus">Sipariş Durumu:</label>
+    <input name="cmbbxStatus" id="cmbbxStatus" class="easyui-combobox" width="150" data-options="  
            valueField: 'id',  
            textField: 'name',  
            url: 'operations/order_status_operations.php?op=4',
-           editable: false
-           " /> -->
+           editable: false,
+           onSelect: function(status){
+           $('#dg').datagrid({
+           url: 'operations/order_list_view_operations.php?op=3&status='+status.id
+           });
+           }" />
 </div>
 <div id="dlg" class="easyui-dialog"
      closed="true" buttons="#dlg-buttons" modal="true"
@@ -387,7 +404,7 @@ if (!isLoggedIn()) {
             <input name="number" id="number" class="easyui-validatebox" data-options="editable: false"/>
         </div>
         <div class="fitem inline">
-            <input name="date" id="date" class="easyui-datebox" required="true" label="Tarih:" labelPosition="left" data-options="formatter: myformatter, parser:myparser"/>
+            <input name="date" id="date" class="easyui-datebox" required="true" label="Tarih:" labelPosition="left" data-options="formatter: myformatter, parser:myparser, editable: false"/>
         </div>
         <div class="fitem inline">
             <label>Tedarikçi Firma/Kurum:</label>
