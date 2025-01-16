@@ -264,7 +264,7 @@ if (!isLoggedIn()) {
         }, 'json');
         $('#dg').datagrid('enableFilter');
         $('#tbl_stock_card_list').datagrid('enableFilter');
-        setStatusFilter(2);
+        setStatusFilter(3);
     });
     function setStatusFilter(status_id) {
         $('#cmbbxStatus').combobox('setValue', status_id);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 16 Oca 2025, 10:53:25
+-- Üretim Zamanı: 16 Oca 2025, 21:29:09
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-01-16 09:48:46', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-01-16 20:35:57', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -62,11 +62,11 @@ CREATE TABLE `deppo_order` (
 --
 
 INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `description`) VALUES
-(1, 2, 1, 'SIP-2025-000001', '2025-01-03 00:00:00', 'SPREY BOYA-1003 (3 ADET GELDİ) - STOK KARTI YOK'),
-(2, 3, 1, 'SIP-2025-000002', '2025-01-07 00:00:00', ''),
-(3, 3, 6, 'SIP-2025-000003', '2025-01-07 00:00:00', ''),
-(4, 2, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', ''),
-(5, 1, 1, 'SIP-2025-000005', '2025-01-16 00:00:00', 'EKSİK GELEN KADAR SİPARİŞ EDİLECEK\r\n\r\n4CMX4CM MENTEŞE\r\nM5X10 YILDIZ BASLI CIVATA\r\nM5 FİBERLİ SOMUN\r\n3,5X12 SUNTA VİDASI\r\n6X15 BOMBEBAŞ CİVATA');
+(1, 3, 1, 'SIP-2025-000001', '2025-01-03 00:00:00', 'SPREY BOYA-1003 (3 ADET GELDİ) - STOK KARTI YOK'),
+(2, 4, 1, 'SIP-2025-000002', '2025-01-07 00:00:00', ''),
+(3, 4, 6, 'SIP-2025-000003', '2025-01-07 00:00:00', ''),
+(4, 3, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', ''),
+(5, 2, 1, 'SIP-2025-000005', '2025-01-16 00:00:00', 'EKSİK GELEN KADAR SİPARİŞ EDİLECEK\r\n\r\n4CMX4CM MENTEŞE\r\nM5X10 YILDIZ BASLI CIVATA\r\nM5 FİBERLİ SOMUN\r\n3,5X12 SUNTA VİDASI\r\n6X15 BOMBEBAŞ CİVATA');
 
 -- --------------------------------------------------------
 
@@ -173,9 +173,10 @@ CREATE TABLE `deppo_order_status` (
 --
 
 INSERT INTO `deppo_order_status` (`id`, `name`) VALUES
-(1, 'Gönderilecek Sipariş'),
-(2, 'Açık Sipariş'),
-(3, 'Tamamlanmış Sipariş');
+(1, 'Tüm Siparişler'),
+(2, 'Taslak Sipariş'),
+(3, 'Açık Sipariş'),
+(4, 'Tamamlanmış Sipariş');
 
 -- --------------------------------------------------------
 
@@ -935,7 +936,7 @@ ALTER TABLE `deppo_order_detail`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
 --
 ALTER TABLE `deppo_order_status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_personel_list`
