@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 15 Oca 2025, 15:16:05
+-- Üretim Zamanı: 16 Oca 2025, 10:53:25
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-01-15 17:14:39', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-01-16 09:48:46', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -62,10 +62,11 @@ CREATE TABLE `deppo_order` (
 --
 
 INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `description`) VALUES
-(1, 1, 1, 'SIP-2025-000001', '2025-01-03 00:00:00', ''),
-(2, 2, 1, 'SIP-2025-000002', '2025-01-07 00:00:00', ''),
-(3, 2, 6, 'SIP-2025-000003', '2025-01-07 00:00:00', ''),
-(4, 1, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', '');
+(1, 2, 1, 'SIP-2025-000001', '2025-01-03 00:00:00', 'SPREY BOYA-1003 (3 ADET GELDİ) - STOK KARTI YOK'),
+(2, 3, 1, 'SIP-2025-000002', '2025-01-07 00:00:00', ''),
+(3, 3, 6, 'SIP-2025-000003', '2025-01-07 00:00:00', ''),
+(4, 2, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', ''),
+(5, 1, 1, 'SIP-2025-000005', '2025-01-16 00:00:00', 'EKSİK GELEN KADAR SİPARİŞ EDİLECEK\r\n\r\n4CMX4CM MENTEŞE\r\nM5X10 YILDIZ BASLI CIVATA\r\nM5 FİBERLİ SOMUN\r\n3,5X12 SUNTA VİDASI\r\n6X15 BOMBEBAŞ CİVATA');
 
 -- --------------------------------------------------------
 
@@ -99,21 +100,28 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (10, 2, 384, 2000, 2000, ''),
 (11, 1, 445, 1600, 1600, ''),
 (12, 1, 446, 1600, 1600, ''),
-(13, 1, 447, 20, 0, ''),
+(13, 1, 447, 20, 3, ''),
 (14, 3, 454, 300, 300, ''),
 (15, 4, 435, 48, 48, ''),
 (16, 4, 429, 20, 20, ''),
 (17, 4, 340, 600, 600, ''),
 (18, 4, 493, 100, 100, ''),
 (19, 4, 497, 4, 4, ''),
-(20, 4, 502, 600, 270, ''),
+(20, 4, 502, 600, 600, ''),
 (21, 4, 513, 18, 18, ''),
 (22, 4, 511, 10, 10, ''),
 (23, 4, 512, 10, 10, ''),
 (25, 4, 509, 20, 0, ''),
 (26, 4, 515, 100, 100, ''),
 (27, 4, 401, 1000, 849, ''),
-(28, 4, 496, 1, 1, '27*0,9-5/7 Gelmiş ama stok kodu yok');
+(28, 4, 496, 1, 1, '27*0,9-5/7 Gelmiş ama stok kodu yok'),
+(29, 5, 429, 20, 0, ''),
+(30, 5, 430, 20, 0, ''),
+(31, 5, 441, 240, 0, ''),
+(32, 5, 517, 125, 0, 'KARBOSAN 115X1,0X22,23 KESİCİ TAŞ'),
+(33, 5, 518, 3, 0, ''),
+(34, 5, 520, 200, 0, ''),
+(35, 5, 243, 1500, 0, '');
 
 -- --------------------------------------------------------
 
@@ -165,8 +173,9 @@ CREATE TABLE `deppo_order_status` (
 --
 
 INSERT INTO `deppo_order_status` (`id`, `name`) VALUES
-(1, 'Açık Sipariş'),
-(2, 'Tamamlanmış Sipariş');
+(1, 'Gönderilecek Sipariş'),
+(2, 'Açık Sipariş'),
+(3, 'Tamamlanmış Sipariş');
 
 -- --------------------------------------------------------
 
@@ -745,7 +754,25 @@ INSERT INTO `deppo_stock_card_list` (`id`, `code`, `name`, `quantity`, `image_ur
 (514, '150.05.0517.00271', '23 MICRON STRECH FILM', 0, '', 'ü'),
 (515, '150.05.0517.00029', 'INOX KESICI TAS KUCUK', 0, '', 'ü'),
 (516, '150.05.0517.00030', 'INOX KESICI TAS BUYUK', 0, '', 'ü'),
-(517, '150.05.0517.00111', 'INOX KESME TASI', 0, '', 'ü');
+(517, '150.05.0517.00111', 'INOX KESME TASI', 0, '', 'ü'),
+(518, '150.05.0517.00131', 'WD-40 400ML PAS SOKUCU', 0, '', 'ü'),
+(519, '150.05.0511.00011', '8X60 TRIFON VIDA', 0, '', 'ü'),
+(520, '150.05.0511.00025', '8X50 TRIFON VIDA', 0, '', 'ü'),
+(521, '150.05.0511.00005', '5X25 VIDA SUNTA', 0, '', 'ü'),
+(522, '150.05.0511.00006', '4X40 VIDA SUNTA', 0, '', 'ü'),
+(523, '150.05.0511.00012', '5X70 SUNTA VIDASI', 0, '', 'ü'),
+(524, '150.05.0511.00013', '5X50 SUNTA VIDASI', 0, '', 'ü'),
+(525, '150.05.0511.00014', '5X40 SUNTA VIDASI', 0, '', 'ü'),
+(526, '150.05.0511.00015', '4X30 SUNTA VIDASI', 0, '', 'ü'),
+(527, '150.05.0511.00016', '6X40 SUNTA VIDASI', 0, '', 'ü'),
+(528, '150.05.0511.00017', '4X60 SUNTA VIDASI', 0, '', 'ü'),
+(529, '150.05.0511.00019', '4X25 SUNTA VIDASI', 0, '', 'ü'),
+(530, '150.05.0511.00020', '4X50 SUNTA VIDASI', 0, '', 'ü'),
+(531, '150.05.0511.00021', '5X100 SUNTA VIDASI', 0, '', 'ü'),
+(532, '150.05.0511.00022', '5X60 SUNTA VIDASI', 0, '', 'ü'),
+(533, '150.05.0511.00024', '6X80 MM SUNTA VIDASI', 0, '', 'ü'),
+(534, '150.05.0511.00029', '5X25 SUNTA VIDASI', 0, '', 'ü'),
+(535, '150.05.0511.00030', '4X40 SUNTA VIDASI', 0, '', 'ü');
 
 -- --------------------------------------------------------
 
@@ -896,19 +923,19 @@ ALTER TABLE `deppo_logs`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
 --
 ALTER TABLE `deppo_order_status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_personel_list`
@@ -926,7 +953,7 @@ ALTER TABLE `deppo_receipt_types`
 -- Tablo için AUTO_INCREMENT değeri `deppo_stock_card_list`
 --
 ALTER TABLE `deppo_stock_card_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=518;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=536;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_supplier_list`

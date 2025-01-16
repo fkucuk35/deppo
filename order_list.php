@@ -255,6 +255,7 @@ if (!isLoggedIn()) {
     $(function () {
         $('#dg').datagrid('enableFilter');
         $('#tbl_stock_card_list').datagrid('enableFilter');
+        //$('#status_id').combobox('select', 2);
     });
     function formatAction(value, row, index) {
         if (row.editing) {
@@ -360,6 +361,13 @@ if (!isLoggedIn()) {
     <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editItem()">Düzenle</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeItem()">Sil</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshList()">Yenile</a>
+    <!-- <label for="status_id">Sipariş Durumu:</label>
+    <input name="status_id" id="status_id" class="easyui-combobox" width="150" data-options="  
+           valueField: 'id',  
+           textField: 'name',  
+           url: 'operations/order_status_operations.php?op=4',
+           editable: false
+           " /> -->
 </div>
 <div id="dlg" class="easyui-dialog"
      closed="true" buttons="#dlg-buttons" modal="true"
