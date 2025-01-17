@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 16 Oca 2025, 21:29:09
+-- Üretim Zamanı: 17 Oca 2025, 12:11:09
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-01-16 20:35:57', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-01-17 12:03:19', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
