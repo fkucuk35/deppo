@@ -228,8 +228,6 @@ if (!isLoggedIn()) {
     $(function () {
         $('#tbl_details').datagrid({
             singleSelect: true,
-            idField: 'id',
-            url: '',
             columns: [[
                     {field: 'id', hidden: true},
                     {field: 'order_id', hidden: true},
@@ -264,14 +262,8 @@ if (!isLoggedIn()) {
         }, 'json');
         $('#dg').datagrid('enableFilter');
         $('#tbl_stock_card_list').datagrid('enableFilter');
-        setStatusFilter(3);
+        $('#cmbbxStatus').combobox('setValue', 3);
     });
-    function setStatusFilter(status_id) {
-        $('#cmbbxStatus').combobox('setValue', status_id);
-        $('#dg').datagrid({
-            url: 'operations/order_list_view_operations.php?op=3&status=' + $('#cmbbxStatus').combobox('getValue')
-        });
-    }
     function formatAction(value, row, index) {
         if (row.editing) {
             var s = '<img class="detail_row_button" src="<?php echo $GLOBALS["LOCAL_EASYUI_ROOT"]; ?>themes/icons/filesave.png" style="margin-top: 5px; margin-bottom: 5px; margin-left: 10px; margin-right: 10px;" width="24" height="24" onclick="saverow(this)"/> ';
@@ -353,6 +345,7 @@ if (!isLoggedIn()) {
         <div class="content-main">
             <div class="content-easyui" id="wrapper-grid">
                 <table id="dg" title="Sipariş Listesi" class="easyui-datagrid"
+                       url="operations/order_list_view_operations.php?op=3"
                        toolbar="#toolbar" pagination="true" pageSize="10" pageList="[10]"
                        rownumbers="true" fitColumns="true" singleSelect="true" data-options="onDblClickRow:function(){viewItem();}">
                     <thead>
@@ -381,9 +374,17 @@ if (!isLoggedIn()) {
            url: 'operations/order_status_operations.php?op=4',
            editable: false,
            onSelect: function(status){
-           $('#dg').datagrid({
-           url: 'operations/order_list_view_operations.php?op=3&status='+status.id
+           if(status.id>1){
+           $('#dg').datagrid('addFilterRule', {
+           field: 'status_id',
+           op: 'contains',
+           value: status.id
            });
+           }
+           else {
+           $('#dg').datagrid('removeFilterRule');
+           }
+           $('#dg').datagrid('doFilter');
            }" />
 </div>
 <div id="dlg" class="easyui-dialog"
