@@ -32,9 +32,8 @@ switch ($op) {
     case 3: //get list
         $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
         $rows = isset($_POST['rows']) ? intval($_POST['rows']) : 10;
-        $status = isset($_REQUEST['status']) ? intval($_REQUEST['status']) : 1;
         $offset = ($page - 1) * $rows;
-        $where = ($status > 1) ? 'status_id=' . $status : NULL;
+        $where = NULL;
         $result = OrderListView::getPaging(OrderListView::table_name, $offset, $rows, $where, FALSE, ' ORDER BY number ASC');
         echo json_encode($result);
         exit;
