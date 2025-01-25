@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 24 Oca 2025, 16:09:05
+-- Üretim Zamanı: 25 Oca 2025, 08:24:18
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -43,7 +43,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (1, 1, '2025-01-20 09:26:24', 'login', 'Kullanıcı girişi yapıldı'),
 (2, 1, '2025-01-21 12:01:07', 'login', 'Kullanıcı girişi yapıldı'),
 (3, 1, '2025-01-22 08:40:04', 'login', 'Kullanıcı girişi yapıldı'),
-(4, 1, '2025-01-24 09:16:18', 'login', 'Kullanıcı girişi yapıldı');
+(4, 1, '2025-01-24 09:16:18', 'login', 'Kullanıcı girişi yapıldı'),
+(5, 1, '2025-01-25 09:52:16', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -71,8 +72,9 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (4, 3, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', ''),
 (5, 4, 1, 'SIP-2025-000005', '2025-01-16 00:00:00', 'EKSİK GELEN KADAR SİPARİŞ EDİLECEK\r\n\r\n4CMX4CM MENTEŞE\r\nM5X12 HAVŞA BASLI CIVATA (600)+\r\nM5 FİBERLİ SOMUN (600)+\r\n3,5X13 SUNTA VİDASI (6000)+\r\n6X15 BOMBEBAŞ CİVATA (200)\r\n8X80 TRİFON CİVATA  (203)+'),
 (6, 4, 1, 'SIP-2025-000006', '2025-01-20 00:00:00', ''),
-(7, 3, 1, 'SIP-2025-000007', '2025-01-21 00:00:00', '4X10 STANDART PERÇİN (1000 ADET)'),
-(8, 3, 6, 'SIP-2025-000008', '2025-01-23 00:00:00', '');
+(7, 4, 1, 'SIP-2025-000007', '2025-01-21 00:00:00', '4X10 STANDART PERÇİN (1000 ADET)+'),
+(8, 3, 6, 'SIP-2025-000008', '2025-01-23 00:00:00', ''),
+(9, 2, 1, 'SIP-2025-000009', '2025-01-25 00:00:00', '8X80 TRİFON VİDA (1400)');
 
 -- --------------------------------------------------------
 
@@ -134,32 +136,41 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (39, 6, 352, 100, 100, ''),
 (40, 6, 328, 200, 200, ''),
 (41, 6, 329, 257, 257, ''),
-(42, 7, 435, 48, 0, ''),
-(43, 7, 536, 3, 0, 'KUTU'),
-(44, 7, 518, 3, 0, ''),
-(45, 7, 434, 24, 0, ''),
-(46, 7, 537, 10, 0, ''),
-(47, 7, 538, 20, 0, ''),
-(48, 7, 539, 20, 0, ''),
-(49, 7, 540, 20, 0, ''),
-(50, 7, 542, 20, 0, ''),
-(51, 7, 543, 20, 0, ''),
-(52, 7, 544, 10, 0, ''),
-(53, 7, 545, 10, 0, ''),
-(54, 7, 513, 18, 0, ''),
-(55, 7, 438, 1, 0, 'KOLİ'),
+(42, 7, 435, 48, 48, ''),
+(43, 7, 536, 75, 75, ''),
+(44, 7, 518, 3, 3, ''),
+(45, 7, 434, 24, 24, ''),
+(46, 7, 537, 10, 10, ''),
+(47, 7, 538, 20, 20, ''),
+(48, 7, 539, 20, 20, ''),
+(49, 7, 540, 20, 20, ''),
+(50, 7, 542, 20, 20, ''),
+(51, 7, 543, 20, 20, ''),
+(52, 7, 544, 10, 20, ''),
+(53, 7, 545, 10, 20, ''),
+(54, 7, 513, 18, 18, ''),
+(55, 7, 438, 72, 72, ''),
 (56, 5, 519, 258, 258, ''),
-(57, 7, 502, 600, 0, ''),
-(58, 7, 508, 300, 0, ''),
-(59, 7, 507, 400, 0, ''),
-(60, 7, 383, 4000, 0, ''),
-(61, 7, 384, 4000, 0, ''),
-(62, 7, 400, 4000, 0, ''),
-(63, 7, 252, 3, 0, 'KUTU'),
+(57, 7, 502, 600, 600, ''),
+(58, 7, 508, 300, 300, ''),
+(59, 7, 507, 400, 400, ''),
+(60, 7, 383, 4000, 4000, ''),
+(61, 7, 384, 4000, 4000, ''),
+(62, 7, 400, 5000, 5000, ''),
+(63, 7, 252, 600, 600, ''),
 (64, 8, 450, 1, 0, 'KOLİ'),
 (65, 8, 466, 1, 0, 'KOLİ'),
 (66, 8, 479, 100, 0, ''),
-(67, 7, 548, 2000, 0, '');
+(67, 7, 548, 3000, 3000, ''),
+(68, 9, 354, 600, 0, ''),
+(69, 9, 349, 570, 0, ''),
+(70, 9, 396, 2310, 0, ''),
+(71, 9, 401, 2200, 0, ''),
+(72, 9, 525, 1200, 0, ''),
+(73, 9, 507, 500, 0, ''),
+(74, 9, 430, 110, 0, ''),
+(75, 9, 429, 60, 0, ''),
+(76, 9, 551, 80, 0, '');
 
 -- --------------------------------------------------------
 
@@ -824,7 +835,32 @@ INSERT INTO `deppo_stock_card_list` (`id`, `code`, `name`, `quantity`, `image_ur
 (545, '150.05.0517.00020', '12MM MATKAP UCU', 0, '', 'ü'),
 (546, '150.05.0517.00021', '14MM MATKAP UCU', 0, '', 'ü'),
 (547, '150.05.0517.00022', '16MM MATKAP UCU', 0, '', 'ü'),
-(548, '150.05.0511.00010', '7,5X80 BULDEKS VIDA', 0, '', 'ü');
+(548, '150.05.0511.00010', '7,5X80 BULDEKS VIDA', 0, '', 'ü'),
+(549, '150.05.0512.00001', 'M6 GALVANIZ MAPA', 0, '', 'ü'),
+(550, '150.05.0512.00002', 'M8 GALVANIZ MAPA', 0, '', 'ü'),
+(551, '150.05.0512.00003', 'M10 GALVANIZ MAPA', 0, '', 'ü'),
+(552, '150.05.0512.00004', 'M12 GALVANIZ MAPA', 0, '', 'ü'),
+(553, '150.05.0512.00005', 'M14 GALVANIZ MAPA', 0, '', 'ü'),
+(554, '150.05.0512.00006', 'M16 GALVANIZ MAPA', 0, '', 'ü'),
+(555, '150.05.0512.00007', 'M6 GALVANIZ OMEGA MAPA', 0, '', 'ü'),
+(556, '150.05.0512.00008', 'M8 GALVANIZ OMEGA MAPA', 0, '', 'ü'),
+(557, '150.05.0512.00009', 'M10 GALVANIZ OMEGA MAPA', 0, '', 'ü'),
+(558, '150.05.0512.00010', 'M12 GALVANIZ OMEGA MAPA', 0, '', 'ü'),
+(559, '150.05.0512.00011', 'M14 GALVANIZ OMEGA MAPA', 0, '', 'ü'),
+(560, '150.05.0512.00012', 'M16 GALVANIZ OMEGA MAPA', 0, '', 'ü'),
+(561, '150.05.0512.00013', 'M6 KROM MAPA', 0, '', 'ü'),
+(562, '150.05.0512.00014', 'M8 KROM MAPA', 0, '', 'ü'),
+(563, '150.05.0512.00015', 'M10 KROM MAPA', 0, '', 'ü'),
+(564, '150.05.0512.00016', 'M12 KROM MAPA', 0, '', 'ü'),
+(565, '150.05.0512.00017', 'M14 KROM MAPA', 0, '', 'ü'),
+(566, '150.05.0512.00018', 'M16 KROM MAPA', 0, '', 'ü'),
+(567, '150.05.0512.00019', 'M6 KROM OMEGA MAPA', 0, '', 'ü'),
+(568, '150.05.0512.00020', 'M8 KROM OMEGA MAPA', 0, '', 'ü'),
+(569, '150.05.0512.00021', 'M10 KROM OMEGA MAPA', 0, '', 'ü'),
+(570, '150.05.0512.00022', 'M12 KROM OMEGA MAPA', 0, '', 'ü'),
+(571, '150.05.0512.00023', 'M14 KROM OMEGA MAPA', 0, '', 'ü'),
+(572, '150.05.0512.00024', 'M16 KROM OMEGA MAPA', 0, '', 'ü'),
+(573, '150.05.0512.00025', 'M6 U MAPA', 0, '', 'ü');
 
 -- --------------------------------------------------------
 
@@ -969,19 +1005,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
@@ -1005,7 +1041,7 @@ ALTER TABLE `deppo_receipt_types`
 -- Tablo için AUTO_INCREMENT değeri `deppo_stock_card_list`
 --
 ALTER TABLE `deppo_stock_card_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=549;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=574;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_supplier_list`
