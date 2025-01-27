@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 25 Oca 2025, 08:24:18
+-- Üretim Zamanı: 27 Oca 2025, 15:58:52
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -44,7 +44,9 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (2, 1, '2025-01-21 12:01:07', 'login', 'Kullanıcı girişi yapıldı'),
 (3, 1, '2025-01-22 08:40:04', 'login', 'Kullanıcı girişi yapıldı'),
 (4, 1, '2025-01-24 09:16:18', 'login', 'Kullanıcı girişi yapıldı'),
-(5, 1, '2025-01-25 09:52:16', 'login', 'Kullanıcı girişi yapıldı');
+(5, 1, '2025-01-25 09:52:16', 'login', 'Kullanıcı girişi yapıldı'),
+(6, 1, '2025-01-26 13:07:28', 'login', 'Kullanıcı girişi yapıldı'),
+(7, 1, '2025-01-27 10:17:12', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -74,7 +76,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (6, 4, 1, 'SIP-2025-000006', '2025-01-20 00:00:00', ''),
 (7, 4, 1, 'SIP-2025-000007', '2025-01-21 00:00:00', '4X10 STANDART PERÇİN (1000 ADET)+'),
 (8, 3, 6, 'SIP-2025-000008', '2025-01-23 00:00:00', ''),
-(9, 2, 1, 'SIP-2025-000009', '2025-01-25 00:00:00', '8X80 TRİFON VİDA (1400)');
+(9, 3, 1, 'SIP-2025-000009', '2025-01-25 00:00:00', '8X80 TRİFON VİDA (1400)'),
+(10, 3, 1, 'SIP-2025-000010', '2025-01-27 00:00:00', '8X80 TRİFON VİDA (250)\r\n4X10 POPUP PERÇİN (1000)');
 
 -- --------------------------------------------------------
 
@@ -165,12 +168,19 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (68, 9, 354, 600, 0, ''),
 (69, 9, 349, 570, 0, ''),
 (70, 9, 396, 2310, 0, ''),
-(71, 9, 401, 2200, 0, ''),
+(71, 9, 401, 1200, 0, ''),
 (72, 9, 525, 1200, 0, ''),
 (73, 9, 507, 500, 0, ''),
-(74, 9, 430, 110, 0, ''),
-(75, 9, 429, 60, 0, ''),
-(76, 9, 551, 80, 0, '');
+(74, 9, 430, 75, 0, ''),
+(76, 9, 551, 80, 0, ''),
+(77, 10, 429, 50, 0, ''),
+(78, 10, 430, 50, 0, ''),
+(79, 10, 401, 1000, 0, ''),
+(80, 10, 227, 4, 0, 'KUTU'),
+(81, 10, 231, 2, 0, 'KUTU'),
+(82, 10, 441, 360, 0, ''),
+(83, 10, 438, 72, 0, ''),
+(84, 10, 513, 12, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1005,19 +1015,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
