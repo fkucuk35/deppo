@@ -262,7 +262,7 @@ if (!isLoggedIn()) {
         }, 'json');
         $('#dg').datagrid('enableFilter');
         $('#tbl_stock_card_list').datagrid('enableFilter');
-        $('#cmbbxStatus').combobox('setValue', 3);
+        $('#cmbbxStatus').combobox('setValue', 2);
     });
     function formatAction(value, row, index) {
         if (row.editing) {
@@ -371,10 +371,10 @@ if (!isLoggedIn()) {
     <input name="cmbbxStatus" id="cmbbxStatus" class="easyui-combobox" width="150" data-options="  
            valueField: 'id',  
            textField: 'name',  
-           url: 'operations/order_status_operations.php?op=4',
+           url: 'operations/order_status_operations.php?op=5',
            editable: false,
            onSelect: function(status){
-           if(status.id>1){
+           if(status.id>0){
            $('#dg').datagrid('addFilterRule', {
            field: 'status_id',
            op: 'contains',

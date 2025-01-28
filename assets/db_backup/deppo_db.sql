@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 28 Oca 2025, 21:01:28
+-- Üretim Zamanı: 28 Oca 2025, 21:44:00
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -69,16 +69,16 @@ CREATE TABLE `deppo_order` (
 --
 
 INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `description`) VALUES
-(1, 3, 1, 'SIP-2025-000001', '2025-01-03 00:00:00', 'SPREY BOYA-1003 (3 ADET GELDİ) - STOK KARTI YOK'),
-(2, 4, 1, 'SIP-2025-000002', '2025-01-07 00:00:00', ''),
-(3, 4, 6, 'SIP-2025-000003', '2025-01-07 00:00:00', ''),
-(4, 3, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', ''),
-(5, 4, 1, 'SIP-2025-000005', '2025-01-16 00:00:00', 'EKSİK GELEN KADAR SİPARİŞ EDİLECEK\r\n\r\n4CMX4CM MENTEŞE\r\nM5X12 HAVŞA BASLI CIVATA (600)+\r\nM5 FİBERLİ SOMUN (600)+\r\n3,5X13 SUNTA VİDASI (6000)+\r\n6X15 BOMBEBAŞ CİVATA (200)\r\n8X80 TRİFON CİVATA  (203)+'),
-(6, 4, 1, 'SIP-2025-000006', '2025-01-20 00:00:00', ''),
-(7, 4, 1, 'SIP-2025-000007', '2025-01-21 00:00:00', '4X10 STANDART PERÇİN (1000 ADET)+'),
-(8, 4, 6, 'SIP-2025-000008', '2025-01-23 00:00:00', ''),
-(9, 3, 1, 'SIP-2025-000009', '2025-01-25 00:00:00', '8X80 TRİFON VİDA (2100)+'),
-(10, 3, 1, 'SIP-2025-000010', '2025-01-27 00:00:00', '8X80 TRİFON VİDA (250)\r\n4X10 POPUP PERÇİN (1000)+');
+(1, 2, 1, 'SIP-2025-000001', '2025-01-03 00:00:00', 'SPREY BOYA-1003 (3 ADET GELDİ) - STOK KARTI YOK'),
+(2, 3, 1, 'SIP-2025-000002', '2025-01-07 00:00:00', ''),
+(3, 3, 6, 'SIP-2025-000003', '2025-01-07 00:00:00', ''),
+(4, 2, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', ''),
+(5, 3, 1, 'SIP-2025-000005', '2025-01-16 00:00:00', 'EKSİK GELEN KADAR SİPARİŞ EDİLECEK\r\n\r\n4CMX4CM MENTEŞE\r\nM5X12 HAVŞA BASLI CIVATA (600)+\r\nM5 FİBERLİ SOMUN (600)+\r\n3,5X13 SUNTA VİDASI (6000)+\r\n6X15 BOMBEBAŞ CİVATA (200)\r\n8X80 TRİFON CİVATA  (203)+'),
+(6, 3, 1, 'SIP-2025-000006', '2025-01-20 00:00:00', ''),
+(7, 3, 1, 'SIP-2025-000007', '2025-01-21 00:00:00', '4X10 STANDART PERÇİN (1000 ADET)+'),
+(8, 3, 6, 'SIP-2025-000008', '2025-01-23 00:00:00', ''),
+(9, 2, 1, 'SIP-2025-000009', '2025-01-25 00:00:00', '8X80 TRİFON VİDA (2100)+'),
+(10, 2, 1, 'SIP-2025-000010', '2025-01-27 00:00:00', '8X80 TRİFON VİDA (250)\r\n4X10 POPUP PERÇİN (1000)+');
 
 -- --------------------------------------------------------
 
@@ -233,10 +233,9 @@ CREATE TABLE `deppo_order_status` (
 --
 
 INSERT INTO `deppo_order_status` (`id`, `name`) VALUES
-(1, 'Tüm Siparişler'),
-(2, 'Taslak Sipariş'),
-(3, 'Açık Sipariş'),
-(4, 'Tamamlanmış Sipariş');
+(1, 'Taslak Sipariş'),
+(2, 'Açık Sipariş'),
+(3, 'Tamamlanmış Sipariş');
 
 -- --------------------------------------------------------
 
@@ -1034,7 +1033,7 @@ ALTER TABLE `deppo_order_detail`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
 --
 ALTER TABLE `deppo_order_status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_personel_list`

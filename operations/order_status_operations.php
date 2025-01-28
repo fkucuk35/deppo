@@ -39,6 +39,17 @@ switch ($op) {
 
         echo json_encode($result);
         exit;
+    case 5:// get all list for combobox
+        $columns = array("id", "name");
+        $where = null;
+        $inst = new OrderStatus();
+        $res = $inst->readAll($columns, $where);
+        $result = array(array("error" => null, "id" => "0", "name" => "Tüm Siparişler"));
+        foreach($res as $r){
+            array_push($result, array("error" => $r->error, "id" => $r->id, "name" =>  $r->name));
+        }
+        echo json_encode($result);
+        exit;
 }
 
 if ($result) {
