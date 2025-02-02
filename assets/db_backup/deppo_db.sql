@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 29 Oca 2025, 15:30:15
+-- Üretim Zamanı: 02 Şub 2025, 16:33:43
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,11 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-01-29 08:28:40', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-01-29 08:28:40', 'login', 'Kullanıcı girişi yapıldı'),
+(2, 1, '2025-01-29 22:11:11', 'login', 'Kullanıcı girişi yapıldı'),
+(3, 1, '2025-01-30 21:45:39', 'login', 'Kullanıcı girişi yapıldı'),
+(4, 1, '2025-01-31 19:54:43', 'login', 'Kullanıcı girişi yapıldı'),
+(5, 1, '2025-02-02 18:31:49', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -66,12 +70,13 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (2, 3, 1, 'SIP-2025-000002', '2025-01-07 00:00:00', ''),
 (3, 3, 6, 'SIP-2025-000003', '2025-01-07 00:00:00', ''),
 (4, 2, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', ''),
-(5, 3, 1, 'SIP-2025-000005', '2025-01-16 00:00:00', 'EKSİK GELEN KADAR SİPARİŞ EDİLECEK\r\n\r\n4CMX4CM MENTEŞE\r\nM5X12 HAVŞA BASLI CIVATA (600)+\r\nM5 FİBERLİ SOMUN (600)+\r\n3,5X13 SUNTA VİDASI (6000)+\r\n6X15 BOMBEBAŞ CİVATA (200)\r\n8X80 TRİFON CİVATA  (203)+'),
+(5, 3, 1, 'SIP-2025-000005', '2025-01-16 00:00:00', 'EKSİK GELEN KADAR SİPARİŞ EDİLECEK\r\n\r\n4CMX4CM MENTEŞE (250)\r\nM5X12 HAVŞA BASLI CIVATA (600)+\r\nM5 FİBERLİ SOMUN (600)+\r\n3,5X13 SUNTA VİDASI (6000)+\r\n6X15 BOMBEBAŞ CİVATA (200)\r\n8X80 TRİFON CİVATA  (203)+'),
 (6, 3, 1, 'SIP-2025-000006', '2025-01-20 00:00:00', ''),
 (7, 3, 1, 'SIP-2025-000007', '2025-01-21 00:00:00', '4X10 STANDART PERÇİN (1000 ADET)+'),
 (8, 3, 6, 'SIP-2025-000008', '2025-01-23 00:00:00', ''),
-(9, 2, 1, 'SIP-2025-000009', '2025-01-25 00:00:00', '8X80 TRİFON VİDA (2100)+'),
-(10, 2, 1, 'SIP-2025-000010', '2025-01-27 00:00:00', '8X80 TRİFON VİDA (250)\r\n4X10 POPUP PERÇİN (1000)+');
+(9, 3, 1, 'SIP-2025-000009', '2025-01-25 00:00:00', '8X80 TRİFON VİDA (2100)+'),
+(10, 2, 1, 'SIP-2025-000010', '2025-01-27 00:00:00', '8X80 TRİFON VİDA (250)\r\n4X10 POPUP PERÇİN (1000)+'),
+(13, 1, 1, 'SIP-2025-000011', '2025-02-02 00:00:00', '3,5X13 SUNTA VİDASI (1000)');
 
 -- --------------------------------------------------------
 
@@ -159,7 +164,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (65, 8, 466, 150, 150, ''),
 (66, 8, 479, 100, 100, ''),
 (67, 7, 548, 3000, 3000, ''),
-(68, 9, 354, 600, 300, ''),
+(68, 9, 354, 600, 600, ''),
 (69, 9, 349, 570, 600, ''),
 (70, 9, 396, 2310, 2310, ''),
 (71, 9, 401, 2200, 2200, ''),
@@ -174,7 +179,8 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (81, 10, 231, 2, 0, 'KUTU'),
 (82, 10, 441, 240, 240, ''),
 (83, 10, 438, 120, 120, ''),
-(84, 10, 513, 18, 18, '');
+(84, 10, 513, 18, 18, ''),
+(85, 13, 441, 240, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1008,19 +1014,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
