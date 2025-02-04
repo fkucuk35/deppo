@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 03 Şub 2025, 15:52:23
+-- Üretim Zamanı: 04 Şub 2025, 15:02:25
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -45,7 +45,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (3, 1, '2025-01-30 21:45:39', 'login', 'Kullanıcı girişi yapıldı'),
 (4, 1, '2025-01-31 19:54:43', 'login', 'Kullanıcı girişi yapıldı'),
 (5, 1, '2025-02-02 18:31:49', 'login', 'Kullanıcı girişi yapıldı'),
-(6, 1, '2025-02-03 08:17:31', 'login', 'Kullanıcı girişi yapıldı');
+(6, 1, '2025-02-03 08:17:31', 'login', 'Kullanıcı girişi yapıldı'),
+(7, 1, '2025-02-04 10:24:13', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -77,7 +78,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (8, 3, 6, 'SIP-2025-000008', '2025-01-23 00:00:00', ''),
 (9, 3, 1, 'SIP-2025-000009', '2025-01-25 00:00:00', '8X80 TRİFON VİDA (2100)+'),
 (10, 2, 1, 'SIP-2025-000010', '2025-01-27 00:00:00', '4X10 POPUP PERÇİN (1000)+'),
-(13, 2, 1, 'SIP-2025-000011', '2025-02-02 00:00:00', '8X80 TRİFON VİDA (250)+');
+(13, 3, 1, 'SIP-2025-000011', '2025-02-02 00:00:00', '8X80 TRİFON VİDA (250)+'),
+(14, 1, 1, 'SIP-2025-000012', '2025-02-04 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -182,9 +184,11 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (83, 10, 438, 120, 120, ''),
 (84, 10, 513, 18, 18, ''),
 (85, 13, 441, 240, 240, ''),
-(86, 13, 513, 18, 0, ''),
+(86, 13, 513, 30, 30, ''),
 (87, 13, 435, 36, 36, ''),
-(88, 13, 511, 100, 100, '');
+(88, 13, 511, 100, 100, ''),
+(89, 14, 536, 75, 0, ''),
+(90, 14, 574, 10, 0, '');
 
 -- --------------------------------------------------------
 
@@ -873,7 +877,8 @@ INSERT INTO `deppo_stock_card_list` (`id`, `code`, `name`, `quantity`, `image_ur
 (570, '150.05.0512.00022', 'M12 KROM OMEGA MAPA', 0, '', 'ü'),
 (571, '150.05.0512.00023', 'M14 KROM OMEGA MAPA', 0, '', 'ü'),
 (572, '150.05.0512.00024', 'M16 KROM OMEGA MAPA', 0, '', 'ü'),
-(573, '150.05.0512.00025', 'M6 U MAPA', 0, '', 'ü');
+(573, '150.05.0512.00025', 'M6 U MAPA', 0, '', 'ü'),
+(574, '150.05.0517.00027', 'HIZLI YAPISTIRICI', 0, '', 'ü');
 
 -- --------------------------------------------------------
 
@@ -1018,19 +1023,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
@@ -1054,7 +1059,7 @@ ALTER TABLE `deppo_receipt_types`
 -- Tablo için AUTO_INCREMENT değeri `deppo_stock_card_list`
 --
 ALTER TABLE `deppo_stock_card_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=574;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=575;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_supplier_list`
