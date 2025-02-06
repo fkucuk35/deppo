@@ -26,6 +26,10 @@ if (!isLoggedIn()) {
         $(".combo-arrow").css('cursor', 'pointer');
     }
 
+    function showHideDetailToolbar(status) {
+        $('.m-right').css('display', (status) ? 'block' : 'none');
+    }
+
     function newItem() {
         $('#icon-ok').show();
         $('#dlg').dialog('open').dialog('setTitle', 'Yeni');
@@ -36,7 +40,7 @@ if (!isLoggedIn()) {
         generateNumber();
         deleteDetailTable();
         unCheck();
-        $("#hh").show();
+        showHideDetailToolbar(true);
     }
 
     function sleep(ms) {
@@ -54,6 +58,7 @@ if (!isLoggedIn()) {
             $('#icon-ok').hide();
             getDetail(row.id);
             $('.detail_row_button').hide();
+            showHideDetailToolbar(false);
         }
     }
 
@@ -71,6 +76,7 @@ if (!isLoggedIn()) {
             url = 'operations/order_list_operations.php?op=1&id=' + row.id;
             getDetail(row.id);
             $('.detail_row_button').show();
+            showHideDetailToolbar(true);
         }
     }
 
