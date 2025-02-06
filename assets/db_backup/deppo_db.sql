@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 06 Şub 2025, 07:18:32
+-- Üretim Zamanı: 06 Şub 2025, 15:39:38
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,14 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-01-29 08:28:40', 'login', 'Kullanıcı girişi yapıldı'),
-(2, 1, '2025-01-29 22:11:11', 'login', 'Kullanıcı girişi yapıldı'),
-(3, 1, '2025-01-30 21:45:39', 'login', 'Kullanıcı girişi yapıldı'),
-(4, 1, '2025-01-31 19:54:43', 'login', 'Kullanıcı girişi yapıldı'),
-(5, 1, '2025-02-02 18:31:49', 'login', 'Kullanıcı girişi yapıldı'),
-(6, 1, '2025-02-03 08:17:31', 'login', 'Kullanıcı girişi yapıldı'),
-(7, 1, '2025-02-04 10:24:13', 'login', 'Kullanıcı girişi yapıldı'),
-(8, 1, '2025-02-05 08:21:14', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-02-06 13:41:45', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -78,9 +71,10 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (7, 3, 1, 'SIP-2025-000007', '2025-01-21 00:00:00', '4X10 STANDART PERÇİN (1000 ADET)+'),
 (8, 3, 6, 'SIP-2025-000008', '2025-01-23 00:00:00', ''),
 (9, 3, 1, 'SIP-2025-000009', '2025-01-25 00:00:00', '8X80 TRİFON VİDA (2100)+'),
-(10, 2, 1, 'SIP-2025-000010', '2025-01-27 00:00:00', '4X10 POPUP PERÇİN (1000)+'),
-(13, 3, 1, 'SIP-2025-000011', '2025-02-02 00:00:00', '8X80 TRİFON VİDA (250)+'),
-(14, 2, 1, 'SIP-2025-000012', '2025-02-04 00:00:00', '');
+(10, 3, 1, 'SIP-2025-000010', '2025-01-27 00:00:00', '4X10 POPUP PERÇİN (1000)+'),
+(11, 3, 1, 'SIP-2025-000011', '2025-02-02 00:00:00', '8X80 TRİFON VİDA (250)+'),
+(12, 3, 1, 'SIP-2025-000012', '2025-02-04 00:00:00', ''),
+(13, 1, 1, 'SIP-2025-000013', '2025-02-06 00:00:00', 'M18X100 ANAHTAR BAŞ CİVATA - 20 ADET\r\nKİMYASAL DÜBEL (EPOKSİ) - 12 TÜP\r\nKİMYASAL DÜBEL SIKMA TABANCASI - 1 ADET');
 
 -- --------------------------------------------------------
 
@@ -180,18 +174,22 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (78, 10, 430, 30, 30, ''),
 (79, 10, 401, 2200, 2200, ''),
 (80, 10, 227, 2000, 2000, ''),
-(81, 10, 231, 2, 0, 'KUTU'),
 (82, 10, 441, 240, 240, ''),
 (83, 10, 438, 120, 120, ''),
 (84, 10, 513, 18, 18, ''),
-(85, 13, 441, 240, 240, ''),
-(86, 13, 513, 30, 30, ''),
-(87, 13, 435, 36, 36, ''),
-(88, 13, 511, 100, 100, ''),
-(89, 14, 536, 50, 50, ''),
-(90, 14, 574, 8, 8, ''),
-(91, 14, 518, 3, 3, ''),
-(92, 14, 577, 3, 0, '');
+(85, 11, 441, 240, 240, ''),
+(86, 11, 513, 30, 30, ''),
+(87, 11, 435, 36, 36, ''),
+(88, 11, 511, 100, 100, ''),
+(89, 12, 536, 50, 50, ''),
+(90, 12, 574, 8, 8, ''),
+(91, 12, 518, 3, 3, ''),
+(93, 13, 577, 3, 0, ''),
+(94, 13, 231, 2, 0, 'KUTU'),
+(95, 13, 579, 1000, 0, ''),
+(96, 13, 260, 2, 0, 'KUTU'),
+(97, 13, 404, 300, 0, ''),
+(98, 13, 432, 80, 0, '');
 
 -- --------------------------------------------------------
 
@@ -884,7 +882,12 @@ INSERT INTO `deppo_stock_card_list` (`id`, `code`, `name`, `quantity`, `image_ur
 (574, '150.05.0517.00027', 'HIZLI YAPISTIRICI', 0, '', 'ü'),
 (575, '150.05.0517.00112', 'YKS ALCON STEEL LOCK 50ML', 0, '', 'ü'),
 (576, '150.05.0517.00049', 'CIVATA SABITLEYICI', 0, '', 'ü'),
-(577, '150.05.0517.00202', 'YAPISTIRICI-LOCTITE', 0, '', 'ü');
+(577, '150.05.0517.00202', 'YAPISTIRICI-LOCTITE', 0, '', 'ü'),
+(578, '150.05.0511.00009', '3,9X25 YILDIZ AKILLI VIDA', 0, '', 'ü'),
+(579, '150.05.0511.00027', 'AKILLI VIDA-3.9X16', 0, '', 'ü'),
+(580, '150.05.0511.00007', '5,5X60 TRAPEZ VIDA', 0, '', 'ü'),
+(581, '150.05.0511.00018', '5,5X25 TRAPEZ VIDA', 0, '', 'ü'),
+(582, '150.05.0511.00026', '5,5X90 MM PANEL VIDASI', 0, '', 'ü');
 
 -- --------------------------------------------------------
 
@@ -1029,19 +1032,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
@@ -1065,7 +1068,7 @@ ALTER TABLE `deppo_receipt_types`
 -- Tablo için AUTO_INCREMENT değeri `deppo_stock_card_list`
 --
 ALTER TABLE `deppo_stock_card_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=578;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=583;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_supplier_list`

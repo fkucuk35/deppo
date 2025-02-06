@@ -13,6 +13,7 @@ switch ($op) {
         $item->supplier_id = $_REQUEST['supplier_id'];
         $item->number = $_REQUEST['number'];
         $item->description = $_REQUEST['description'];
+        $item->date = $_REQUEST['date'];
         $result["success"] = $item->insert();
         if ($result["success"]) {
             $result["saveDetail"] = $item->saveDetail($rows);

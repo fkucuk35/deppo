@@ -12,6 +12,7 @@ $GLOBALS['MAIL_PASSWORD'] = '';
 $GLOBALS['MAIL_SMTPSecure'] = 'tls';
 $GLOBALS['MAIL_PORT'] = '587';
 $GLOBALS['HOST'] = 'local';
+$GLOBALS['ALIVEORTEST'] = true;
 //$GLOBALS['HOSTING_DOMAIN'] = 'http://192.168.12.104/';
 $GLOBALS['HOSTING_DOMAIN'] = 'http://localhost';
 //echo "<script type='text/javascript'>alert('setting end');</script>";
