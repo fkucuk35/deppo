@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 07 Şub 2025, 15:29:40
+-- Üretim Zamanı: 07 Şub 2025, 21:23:15
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,8 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-02-07 08:20:23', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-02-07 08:20:23', 'login', 'Kullanıcı girişi yapıldı'),
+(2, 1, '2025-02-07 22:36:48', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (11, 3, 1, 'SIP-2025-000011', '2025-02-02 00:00:00', '8X80 TRİFON VİDA (250)+'),
 (12, 3, 1, 'SIP-2025-000012', '2025-02-04 00:00:00', ''),
 (13, 2, 1, 'SIP-2025-000013', '2025-02-05 00:00:00', 'EXIM YASA-37 INOX CİVATA SİPARİŞİ\r\n\r\n10X110 IMBUS BAŞ CİVATA (INOX) - 2 ADET => \r\n10x140 İMBUS BAŞ CİVATA (INOX) - 10 ADET => \r\n10X25 BOMBEBAŞ CİVATA (INOX) - 6 ADET => \r\n10X35 BOMBEBAŞ CİVATA (INOX) - 12 ADET => \r\n10X60 BOMBEBAŞ CİVATA (INOX) - 14 ADET => \r\n3/8 KALIN PUL (INOX) - 76 ADET => 76 ADET\r\n32 PUL (INOX) - 0 ADET => \r\n5/16 İNCE PUL (INOX) - 100 ADET => \r\n5/16 KALIN PUL (INOX) - 700 ADET => 800 ADET\r\n6X30 HAVŞA BAŞ CİVATA (INOX) - 20 ADET => 20 ADET\r\n6x35 HAVŞA BAŞ CİVATA (INOX) - 40 ADET => 40 ADET\r\n8X100 BOMBE BAŞ CİVATA (INOX) - 4 ADET => \r\n8X25 BOMBEBAŞ CİVATA (INOX) - 100 ADET => \r\n8X30 BOMBEBAŞ CİVATA (INOX) - 50 ADET => 50 ADET\r\n8X35 HAVŞABAŞ CİVATA (INOX) - 350 ADET => 400 ADET\r\n8X45 BOMBEBAŞ CİVATA (INOX) - 70 ADET => \r\n8X50 BOMBEBAŞ CİVATA (INOX) - 0 ADET => \r\n8X60 BOMBEBAŞ CİVATA (INOX) - 0 ADET => \r\n8X80 BOMBEBAŞ CİVATA (INOX) - 0 ADET => \r\nM10 AYBOLT (INOX) - 4 ADET => \r\nM10 FİBERLİ SOMUN (INOX) - 50 ADET => 50 ADET\r\nM10 TİJ (INOX) - 2 BOY => 2 BOY\r\nM6 FİBERLİ SOMUN (INOX) - 60 ADET => 60 ADET\r\nM8 FİBERLİ SOMUN (INOX) - 160 ADET => 440 ADET\r\nM8 KÖR SOMUN (INOX) - 80 ADET => 500 ADET\r\n6X50 BOMBEBAŞ CİVATA (INOX) - 300 ADET =>  ADET\r\nM6 KÖR SOMUN (INOX) - 300 ADET => 500 ADET\r\nM6 PUL (INOX) - 600 ADET => 600 ADET'),
-(14, 2, 1, 'SIP-2025-000014', '2025-02-06 00:00:00', 'M18X100 ANAHTAR BAŞ CİVATA - 20 ADET\r\nKİMYASAL DÜBEL (EPOKSİ) - 20 TÜP+\r\nKİMYASAL DÜBEL SIKMA TABANCASI - 1 ADET');
+(14, 2, 1, 'SIP-2025-000014', '2025-02-06 00:00:00', 'M18X100 ANAHTAR BAŞ CİVATA - 20 ADET\r\nKİMYASAL DÜBEL (EPOKSİ) - 20 TÜP+\r\nKİMYASAL DÜBEL SIKMA TABANCASI - 1 ADET+');
 
 -- --------------------------------------------------------
 
@@ -1033,7 +1034,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
