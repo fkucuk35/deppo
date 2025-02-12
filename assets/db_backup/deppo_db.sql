@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 12 Şub 2025, 14:43:18
+-- Üretim Zamanı: 12 Şub 2025, 15:32:03
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -43,7 +43,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (1, 1, '2025-02-07 08:20:23', 'login', 'Kullanıcı girişi yapıldı'),
 (2, 1, '2025-02-10 09:32:54', 'login', 'Kullanıcı girişi yapıldı'),
 (3, 1, '2025-02-11 11:11:26', 'login', 'Kullanıcı girişi yapıldı'),
-(4, 1, '2025-02-12 16:36:29', 'login', 'Kullanıcı girişi yapıldı');
+(4, 1, '2025-02-12 16:36:29', 'login', 'Kullanıcı girişi yapıldı'),
+(5, 1, '2025-02-12 17:31:11', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -898,7 +899,12 @@ INSERT INTO `deppo_stock_card_list` (`id`, `code`, `name`, `quantity`, `image_ur
 (581, '150.05.0511.00018', '5,5X25 TRAPEZ VIDA', 0, '', 'ü'),
 (582, '150.05.0511.00026', '5,5X90 MM PANEL VIDASI', 0, '', 'ü'),
 (583, '150.05.0517.00041', 'BALONLU NAYLON', 0, '', 'ü'),
-(584, '150.05.0517.00040', 'BATTANIYE', 0, '', 'ü');
+(584, '150.05.0517.00040', 'BATTANIYE', 0, '', 'ü'),
+(585, '150.05.0517.00007', 'KAYNAK MEMESI', 0, '', 'ü'),
+(586, '150.05.0517.00008', 'NOZUL', 0, '', 'ü'),
+(587, '150.05.0517.00216', 'SERAMIK GAZ DAGITICI PASOLU', 0, '', 'ü'),
+(588, '150.05.0517.00217', 'MEME TUTUCU', 0, '', 'ü'),
+(589, '150.05.0517.00281', 'M8X1MM MEME', 0, '', 'ü');
 
 -- --------------------------------------------------------
 
@@ -1043,7 +1049,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -1079,7 +1085,7 @@ ALTER TABLE `deppo_receipt_types`
 -- Tablo için AUTO_INCREMENT değeri `deppo_stock_card_list`
 --
 ALTER TABLE `deppo_stock_card_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=585;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=590;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_supplier_list`
