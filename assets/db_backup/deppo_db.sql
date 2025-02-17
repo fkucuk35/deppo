@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 17 Şub 2025, 14:50:36
+-- Üretim Zamanı: 17 Şub 2025, 15:04:41
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -79,7 +79,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (14, 3, 1, 'SIP-2025-000014', '2025-02-07 00:00:00', 'M18X100 ANAHTAR BAŞ CİVATA - 25 ADET+\r\nKİMYASAL DÜBEL (EPOKSİ) - 20 TÜP+\r\nKİMYASAL DÜBEL SIKMA TABANCASI - 1 ADET+'),
 (15, 2, 1, 'SIP-2025-000015', '2025-02-11 00:00:00', 'BAKKALİYE TORBASI (17CMX25 CM) - 3 PAKET'),
 (16, 3, 1, 'SIP-2025-000016', '2025-02-12 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+'),
-(17, 2, 1, 'SIP-2025-000017', '2025-02-14 00:00:00', '9 MM MATKAP UCU - 8 ADET+\r\nPH3 YILDIZ UÇ - 20 ADET\r\nT30 UÇ - 10 ADET\r\n');
+(17, 2, 1, 'SIP-2025-000017', '2025-02-14 00:00:00', '9 MM MATKAP UCU - 8 ADET+\r\nPH3 YILDIZ UÇ - 20 ADET\r\nT30 UÇ - 10 ADET\r\n'),
+(18, 1, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1000 ADET');
 
 -- --------------------------------------------------------
 
@@ -204,7 +205,12 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (104, 17, 511, 200, 200, ''),
 (105, 17, 512, 10, 10, ''),
 (106, 17, 593, 20, 0, ''),
-(107, 17, 592, 100, 0, '');
+(107, 17, 592, 100, 0, ''),
+(108, 18, 396, 4000, 0, ''),
+(109, 18, 385, 2000, 0, ''),
+(110, 18, 395, 1000, 0, ''),
+(111, 18, 580, 1500, 0, ''),
+(112, 18, 581, 1200, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1064,13 +1070,13 @@ ALTER TABLE `deppo_logs`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
