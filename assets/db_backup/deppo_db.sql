@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 14 Şub 2025, 14:40:14
+-- Üretim Zamanı: 17 Şub 2025, 14:50:36
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,8 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-02-14 13:37:08', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-02-14 13:37:08', 'login', 'Kullanıcı girişi yapıldı'),
+(2, 1, '2025-02-17 16:37:58', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (11, 3, 1, 'SIP-2025-000011', '2025-02-02 00:00:00', '8X80 TRİFON VİDA (250)+'),
 (12, 3, 1, 'SIP-2025-000012', '2025-02-04 00:00:00', ''),
 (13, 3, 1, 'SIP-2025-000013', '2025-02-05 00:00:00', 'EXIM YASA-37 INOX CİVATA SİPARİŞİ\r\n\r\n3/8 KALIN PUL (INOX) - 76 ADET => 76 ADET\r\n5/16 PUL (INOX) - 800 ADET => 800 ADET\r\n6X30 HAVŞA BAŞ CİVATA (INOX) - 20 ADET => 20 ADET\r\n6x35 HAVŞA BAŞ CİVATA (INOX) - 40 ADET => 40 ADET\r\n8X25 BOMBEBAŞ CİVATA (INOX) - 100 ADET => 100 ADET\r\n8X30 BOMBEBAŞ CİVATA (INOX) - 50 ADET => 50 ADET\r\n8X35 HAVŞABAŞ CİVATA (INOX) - 350 ADET => 400 ADET\r\n8X45 BOMBEBAŞ CİVATA (INOX) - 70 ADET => 70 ADET\r\n8X60 BOMBEBAŞ CİVATA (INOX) - 10 ADET => 10 ADET\r\nM10 AYBOLT (INOX) - 3 ADET => 3 ADET\r\nM10 FİBERLİ SOMUN (INOX) - 50 ADET => 50 ADET\r\nM10 TİJ (INOX) - 2 BOY => 2 BOY => 2 BOY\r\nM6 FİBERLİ SOMUN (INOX) - 60 ADET => 60 ADET\r\nM8 FİBERLİ SOMUN (INOX) - 160 ADET => 440 ADET\r\nM8 KÖR SOMUN (INOX) - 80 ADET => 100 ADET\r\n6X50 BOMBEBAŞ CİVATA (INOX) - 300 ADET =>  300 ADET\r\nM6 KÖR SOMUN (INOX) - 300 ADET => 500 ADET\r\nM6 PUL (INOX) - 600 ADET => 600 ADET'),
-(14, 2, 1, 'SIP-2025-000014', '2025-02-07 00:00:00', 'M18X100 ANAHTAR BAŞ CİVATA - 25 ADET+\r\nKİMYASAL DÜBEL (EPOKSİ) - 20 TÜP+\r\nKİMYASAL DÜBEL SIKMA TABANCASI - 1 ADET'),
+(14, 3, 1, 'SIP-2025-000014', '2025-02-07 00:00:00', 'M18X100 ANAHTAR BAŞ CİVATA - 25 ADET+\r\nKİMYASAL DÜBEL (EPOKSİ) - 20 TÜP+\r\nKİMYASAL DÜBEL SIKMA TABANCASI - 1 ADET+'),
 (15, 2, 1, 'SIP-2025-000015', '2025-02-11 00:00:00', 'BAKKALİYE TORBASI (17CMX25 CM) - 3 PAKET'),
 (16, 3, 1, 'SIP-2025-000016', '2025-02-12 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+'),
 (17, 2, 1, 'SIP-2025-000017', '2025-02-14 00:00:00', '9 MM MATKAP UCU - 8 ADET+\r\nPH3 YILDIZ UÇ - 20 ADET\r\nT30 UÇ - 10 ADET\r\n');
@@ -189,7 +190,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (90, 12, 574, 8, 8, ''),
 (91, 12, 518, 3, 3, ''),
 (92, 14, 577, 3, 3, ''),
-(93, 14, 231, 2, 0, 'KUTU'),
+(93, 14, 231, 500, 500, ''),
 (94, 14, 579, 1000, 1000, ''),
 (95, 14, 260, 180, 180, ''),
 (96, 14, 404, 300, 300, ''),
@@ -1057,7 +1058,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
