@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 17 Şub 2025, 15:04:41
+-- Üretim Zamanı: 18 Şub 2025, 15:35:44
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,8 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-02-14 13:37:08', 'login', 'Kullanıcı girişi yapıldı'),
-(2, 1, '2025-02-17 16:37:58', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-02-18 09:56:54', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -80,7 +79,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (15, 2, 1, 'SIP-2025-000015', '2025-02-11 00:00:00', 'BAKKALİYE TORBASI (17CMX25 CM) - 3 PAKET'),
 (16, 3, 1, 'SIP-2025-000016', '2025-02-12 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+'),
 (17, 2, 1, 'SIP-2025-000017', '2025-02-14 00:00:00', '9 MM MATKAP UCU - 8 ADET+\r\nPH3 YILDIZ UÇ - 20 ADET\r\nT30 UÇ - 10 ADET\r\n'),
-(18, 1, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1000 ADET');
+(18, 2, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1000 ADET\r\n\r\nASMA KİLİT - 2 ADET\r\nJ SERİSİ 40 LIK TEL ÇİVİ - 5 PAKET\r\nKALIN KEÇELİ KALEM - 3 KUTU\r\nHAVA HORTUM JAKI (ERKEK) - 3 ADET\r\nÇUVAL - 100 ADET');
 
 -- --------------------------------------------------------
 
@@ -208,9 +207,16 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (107, 17, 592, 100, 0, ''),
 (108, 18, 396, 4000, 0, ''),
 (109, 18, 385, 2000, 0, ''),
-(110, 18, 395, 1000, 0, ''),
 (111, 18, 580, 1500, 0, ''),
-(112, 18, 581, 1200, 0, '');
+(112, 18, 581, 1200, 0, ''),
+(113, 18, 289, 400, 0, 'SİYAH'),
+(114, 18, 513, 18, 0, ''),
+(115, 18, 434, 24, 0, ''),
+(116, 18, 435, 96, 0, ''),
+(117, 18, 592, 30, 0, ''),
+(118, 18, 523, 2, 0, 'KOLİ'),
+(119, 18, 538, 10, 0, ''),
+(120, 18, 539, 10, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1064,7 +1070,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -1076,7 +1082,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
