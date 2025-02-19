@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 18 Şub 2025, 15:35:44
+-- Üretim Zamanı: 19 Şub 2025, 15:21:41
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -79,7 +79,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (15, 2, 1, 'SIP-2025-000015', '2025-02-11 00:00:00', 'BAKKALİYE TORBASI (17CMX25 CM) - 3 PAKET'),
 (16, 3, 1, 'SIP-2025-000016', '2025-02-12 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+'),
 (17, 2, 1, 'SIP-2025-000017', '2025-02-14 00:00:00', '9 MM MATKAP UCU - 8 ADET+\r\nPH3 YILDIZ UÇ - 20 ADET\r\nT30 UÇ - 10 ADET\r\n'),
-(18, 2, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1000 ADET\r\n\r\nASMA KİLİT - 2 ADET\r\nJ SERİSİ 40 LIK TEL ÇİVİ - 5 PAKET\r\nKALIN KEÇELİ KALEM - 3 KUTU\r\nHAVA HORTUM JAKI (ERKEK) - 3 ADET\r\nÇUVAL - 100 ADET');
+(18, 2, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1000 ADET\r\nHORTUM KELEPÇESİ - 10 ADET\r\nTEFLON BANT - 10 ADET\r\nASMA KİLİT - 2 ADET\r\nJ SERİSİ 40 LIK TEL ÇİVİ - 5 PAKET\r\nKALIN KEÇELİ KALEM - 3 KUTU\r\nHAVA HORTUM JAKI (ERKEK) - 3 ADET\r\nÇUVAL - 100 ADET');
 
 -- --------------------------------------------------------
 
@@ -216,7 +216,14 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (117, 18, 592, 30, 0, ''),
 (118, 18, 523, 2, 0, 'KOLİ'),
 (119, 18, 538, 10, 0, ''),
-(120, 18, 539, 10, 0, '');
+(120, 18, 539, 10, 0, ''),
+(121, 18, 395, 1000, 0, ''),
+(122, 18, 441, 240, 0, ''),
+(123, 18, 517, 250, 0, 'KARBOSAN 115X1,0X22,23 KESİCİ TAŞ'),
+(124, 18, 321, 2, 0, 'KUTU'),
+(125, 18, 409, 2400, 0, ''),
+(126, 18, 429, 50, 0, ''),
+(127, 18, 430, 50, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1082,7 +1089,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
