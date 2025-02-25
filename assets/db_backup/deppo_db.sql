@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 25 Şub 2025, 15:35:20
+-- Üretim Zamanı: 25 Şub 2025, 22:46:03
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -83,7 +83,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (17, 2, 1, 'SIP-2025-000017', '2025-02-14 00:00:00', '9 MM MATKAP UCU - 8 ADET+\r\nPH3 YILDIZ UÇ - 20 ADET\r\nT30 UÇ - 10 ADET\r\n'),
 (18, 2, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1800 ADET+\r\nHORTUM KELEPÇESİ - 10 ADET+\r\nTEFLON BANT - 10 ADET+\r\nASMA KİLİT - 10 ADET+\r\nJ SERİSİ 40 LIK TEL ÇİVİ - 5 PAKET\r\nKALIN KEÇELİ KALEM - 3 KUTU\r\nHAVA HORTUM JAKI (ERKEK) - 3 ADET\r\nÇUVAL - 100 ADET'),
 (19, 3, 1, 'SIP-2025-000019', '2025-02-25 00:00:00', '7040 SPREY - 5 ADET+'),
-(20, 1, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 500 ADET\r\nÜçlü Grup Priz Kauçuk Kapaklı Monofaze 220V - 20 Adet\r\nKauçuk Erkek Monofaze Fiş 220V - 20 Adet');
+(20, 1, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET\r\nÜçlü Grup Priz Kauçuk Kapaklı Monofaze 220V - 20 Adet\r\nKauçuk Erkek Monofaze Fiş 220V - 20 Adet');
 
 -- --------------------------------------------------------
 
@@ -1085,7 +1085,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
