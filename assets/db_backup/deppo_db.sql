@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 26 Şub 2025, 14:52:55
+-- Üretim Zamanı: 27 Şub 2025, 15:14:47
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,9 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-02-18 09:56:54', 'login', 'Kullanıcı girişi yapıldı'),
-(2, 1, '2025-02-20 11:02:34', 'login', 'Kullanıcı girişi yapıldı'),
-(3, 1, '2025-02-25 08:58:59', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-02-27 08:22:28', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -67,7 +65,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (1, 3, 1, 'SIP-2025-000001', '2025-01-03 00:00:00', 'SPREY BOYA-1003 - 3 ADET'),
 (2, 3, 1, 'SIP-2025-000002', '2025-01-07 00:00:00', ''),
 (3, 3, 6, 'SIP-2025-000003', '2025-01-07 00:00:00', ''),
-(4, 2, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', ''),
+(4, 3, 1, 'SIP-2025-000004', '2025-01-13 00:00:00', ''),
 (5, 3, 1, 'SIP-2025-000005', '2025-01-16 00:00:00', 'EKSİK GELEN KADAR SİPARİŞ EDİLECEK\r\n\r\n4CMX4CM MENTEŞE (250)\r\nM5X12 HAVŞA BASLI CIVATA (600)+\r\nM5 FİBERLİ SOMUN (600)+\r\n3,5X13 SUNTA VİDASI (6000)+\r\n6X15 BOMBEBAŞ CİVATA (200)\r\n8X80 TRİFON CİVATA  (203)+'),
 (6, 3, 1, 'SIP-2025-000006', '2025-01-20 00:00:00', ''),
 (7, 3, 1, 'SIP-2025-000007', '2025-01-21 00:00:00', '4X10 STANDART PERÇİN (1000 ADET)+'),
@@ -83,7 +81,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (17, 2, 1, 'SIP-2025-000017', '2025-02-14 00:00:00', '9 MM MATKAP UCU - 8 ADET+\r\nPH3 YILDIZ UÇ - 20 ADET\r\nT30 UÇ - 10 ADET\r\n'),
 (18, 2, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1800 ADET+\r\nHORTUM KELEPÇESİ - 10 ADET+\r\nTEFLON BANT - 10 ADET+\r\nASMA KİLİT - 10 ADET+\r\nJ SERİSİ 40 LIK TEL ÇİVİ - 5 PAKET\r\nKALIN KEÇELİ KALEM - 3 KUTU\r\nHAVA HORTUM JAKI (ERKEK) - 3 ADET\r\nÇUVAL - 100 ADET'),
 (19, 3, 1, 'SIP-2025-000019', '2025-02-25 00:00:00', '7040 SPREY - 5 ADET+'),
-(20, 1, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET\r\nÜçlü Grup Priz Kauçuk Kapaklı Monofaze 220V - 20 Adet\r\nKauçuk Erkek Monofaze Fiş 220V - 20 Adet');
+(20, 2, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET\r\nÜçlü Grup Priz Kauçuk Kapaklı Monofaze 220V - 20 Adet\r\nKauçuk Erkek Monofaze Fiş 220V - 20 Adet\r\nBETA BT5 KAYNAK SPREYİ - 20 ADET\r\n4,5 MM MATKAP UCU - 30 ADET\r\nHAVA JAKI (ERKEK) - 5 ADET');
 
 -- --------------------------------------------------------
 
@@ -128,7 +126,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (21, 4, 513, 18, 18, ''),
 (22, 4, 511, 10, 10, ''),
 (23, 4, 512, 10, 10, ''),
-(25, 4, 509, 20, 0, ''),
+(25, 4, 509, 24, 24, ''),
 (26, 4, 515, 100, 100, ''),
 (27, 4, 401, 860, 860, ''),
 (28, 4, 496, 1, 1, '27*0,9-5/7 Gelmiş ama stok kodu yok'),
@@ -231,7 +229,11 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (128, 19, 447, 15, 15, ''),
 (129, 19, 448, 5, 5, ''),
 (130, 20, 513, 60, 0, ''),
-(131, 20, 349, 100, 0, '');
+(131, 20, 349, 100, 0, ''),
+(132, 20, 536, 50, 0, ''),
+(133, 20, 434, 36, 0, ''),
+(134, 20, 435, 60, 0, ''),
+(135, 20, 502, 600, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1085,7 +1087,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -1097,7 +1099,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
