@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 27 Şub 2025, 15:14:47
+-- Üretim Zamanı: 28 Şub 2025, 15:16:59
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,8 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-02-27 08:22:28', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-02-27 08:22:28', 'login', 'Kullanıcı girişi yapıldı'),
+(2, 1, '2025-02-28 09:28:28', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (17, 2, 1, 'SIP-2025-000017', '2025-02-14 00:00:00', '9 MM MATKAP UCU - 8 ADET+\r\nPH3 YILDIZ UÇ - 20 ADET\r\nT30 UÇ - 10 ADET\r\n'),
 (18, 2, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1800 ADET+\r\nHORTUM KELEPÇESİ - 10 ADET+\r\nTEFLON BANT - 10 ADET+\r\nASMA KİLİT - 10 ADET+\r\nJ SERİSİ 40 LIK TEL ÇİVİ - 5 PAKET\r\nKALIN KEÇELİ KALEM - 3 KUTU\r\nHAVA HORTUM JAKI (ERKEK) - 3 ADET\r\nÇUVAL - 100 ADET'),
 (19, 3, 1, 'SIP-2025-000019', '2025-02-25 00:00:00', '7040 SPREY - 5 ADET+'),
-(20, 2, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET\r\nÜçlü Grup Priz Kauçuk Kapaklı Monofaze 220V - 20 Adet\r\nKauçuk Erkek Monofaze Fiş 220V - 20 Adet\r\nBETA BT5 KAYNAK SPREYİ - 20 ADET\r\n4,5 MM MATKAP UCU - 30 ADET\r\nHAVA JAKI (ERKEK) - 5 ADET');
+(20, 2, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET\r\nÜçlü Grup Priz Kauçuk Kapaklı Monofaze 220V - 20 Adet\r\nKauçuk Erkek Monofaze Fiş 220V - 20 Adet\r\nBETA BT5 KAYNAK SPREYİ - 20 ADET\r\n4,5 MM MATKAP UCU - 30 ADET\r\nHAVA JAKI (ERKEK) - 5 ADET'),
+(21, 1, 1, 'SIP-2025-000021', '2025-02-28 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -233,7 +235,22 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (132, 20, 536, 50, 0, ''),
 (133, 20, 434, 36, 0, ''),
 (134, 20, 435, 60, 0, ''),
-(135, 20, 502, 600, 0, '');
+(135, 20, 502, 600, 0, ''),
+(136, 21, 328, 400, 0, ''),
+(137, 21, 329, 200, 0, ''),
+(138, 21, 293, 100, 0, ''),
+(139, 21, 294, 100, 0, ''),
+(140, 21, 296, 100, 0, ''),
+(141, 21, 297, 100, 0, ''),
+(142, 21, 298, 100, 0, ''),
+(143, 21, 227, 1000, 0, ''),
+(144, 21, 228, 1000, 0, ''),
+(145, 21, 376, 2000, 0, ''),
+(146, 21, 377, 2000, 0, ''),
+(147, 21, 384, 4000, 0, ''),
+(148, 21, 400, 5000, 0, ''),
+(149, 21, 418, 2000, 0, ''),
+(150, 21, 441, 240, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1087,19 +1104,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
