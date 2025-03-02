@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 28 Şub 2025, 15:16:59
+-- Üretim Zamanı: 02 Mar 2025, 16:14:48
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -41,7 +41,8 @@ CREATE TABLE `deppo_logs` (
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
 (1, 1, '2025-02-27 08:22:28', 'login', 'Kullanıcı girişi yapıldı'),
-(2, 1, '2025-02-28 09:28:28', 'login', 'Kullanıcı girişi yapıldı');
+(2, 1, '2025-02-28 09:28:28', 'login', 'Kullanıcı girişi yapıldı'),
+(3, 1, '2025-03-02 18:12:08', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (18, 2, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1800 ADET+\r\nHORTUM KELEPÇESİ - 10 ADET+\r\nTEFLON BANT - 10 ADET+\r\nASMA KİLİT - 10 ADET+\r\nJ SERİSİ 40 LIK TEL ÇİVİ - 5 PAKET\r\nKALIN KEÇELİ KALEM - 3 KUTU\r\nHAVA HORTUM JAKI (ERKEK) - 3 ADET\r\nÇUVAL - 100 ADET'),
 (19, 3, 1, 'SIP-2025-000019', '2025-02-25 00:00:00', '7040 SPREY - 5 ADET+'),
 (20, 2, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET\r\nÜçlü Grup Priz Kauçuk Kapaklı Monofaze 220V - 20 Adet\r\nKauçuk Erkek Monofaze Fiş 220V - 20 Adet\r\nBETA BT5 KAYNAK SPREYİ - 20 ADET\r\n4,5 MM MATKAP UCU - 30 ADET\r\nHAVA JAKI (ERKEK) - 5 ADET'),
-(21, 1, 1, 'SIP-2025-000021', '2025-02-28 00:00:00', '');
+(21, 1, 1, 'SIP-2025-000021', '2025-02-28 00:00:00', '14x80 ANAHTAR BAŞ CİVATA - 4 ADET');
 
 -- --------------------------------------------------------
 
@@ -1104,7 +1105,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
