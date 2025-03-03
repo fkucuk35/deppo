@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 02 Mar 2025, 16:14:48
+-- Üretim Zamanı: 03 Mar 2025, 15:17:46
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,9 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-02-27 08:22:28', 'login', 'Kullanıcı girişi yapıldı'),
-(2, 1, '2025-02-28 09:28:28', 'login', 'Kullanıcı girişi yapıldı'),
-(3, 1, '2025-03-02 18:12:08', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-03-03 08:16:43', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -81,10 +79,10 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (15, 2, 1, 'SIP-2025-000015', '2025-02-11 00:00:00', 'BAKKALİYE TORBASI (17CMX25 CM) - 3 PAKET'),
 (16, 3, 1, 'SIP-2025-000016', '2025-02-12 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+'),
 (17, 2, 1, 'SIP-2025-000017', '2025-02-14 00:00:00', '9 MM MATKAP UCU - 8 ADET+\r\nPH3 YILDIZ UÇ - 20 ADET\r\nT30 UÇ - 10 ADET\r\n'),
-(18, 2, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1800 ADET+\r\nHORTUM KELEPÇESİ - 10 ADET+\r\nTEFLON BANT - 10 ADET+\r\nASMA KİLİT - 10 ADET+\r\nJ SERİSİ 40 LIK TEL ÇİVİ - 5 PAKET\r\nKALIN KEÇELİ KALEM - 3 KUTU\r\nHAVA HORTUM JAKI (ERKEK) - 3 ADET\r\nÇUVAL - 100 ADET'),
+(18, 2, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1800 ADET+\r\nHORTUM KELEPÇESİ - 10 ADET+\r\nTEFLON BANT - 10 ADET+\r\nASMA KİLİT - 10 ADET+\r\nJ SERİSİ 40 LIK TEL ÇİVİ - 5 PAKET\r\nKALIN KEÇELİ KALEM - 3 KUTU\r\nÇUVAL - 100 ADET'),
 (19, 3, 1, 'SIP-2025-000019', '2025-02-25 00:00:00', '7040 SPREY - 5 ADET+'),
-(20, 2, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET\r\nÜçlü Grup Priz Kauçuk Kapaklı Monofaze 220V - 20 Adet\r\nKauçuk Erkek Monofaze Fiş 220V - 20 Adet\r\nBETA BT5 KAYNAK SPREYİ - 20 ADET\r\n4,5 MM MATKAP UCU - 30 ADET\r\nHAVA JAKI (ERKEK) - 5 ADET'),
-(21, 1, 1, 'SIP-2025-000021', '2025-02-28 00:00:00', '14x80 ANAHTAR BAŞ CİVATA - 4 ADET');
+(20, 2, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+\r\nÜçlü Grup Priz Kauçuk Kapaklı Monofaze 220V - 20 Adet\r\nKauçuk Erkek Monofaze Fiş 220V - 20 Adet\r\nBETA BT5 KAYNAK SPREYİ - 20 ADET\r\n4,5 MM MATKAP UCU - 30 ADET+\r\nHAVA JAKI (ERKEK) - 5 ADET+'),
+(21, 2, 1, 'SIP-2025-000021', '2025-02-28 00:00:00', '14x80 ANAHTAR BAŞ CİVATA - 4 ADET');
 
 -- --------------------------------------------------------
 
@@ -231,12 +229,12 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (127, 18, 430, 50, 50, ''),
 (128, 19, 447, 15, 15, ''),
 (129, 19, 448, 5, 5, ''),
-(130, 20, 513, 60, 0, ''),
-(131, 20, 349, 100, 0, ''),
-(132, 20, 536, 50, 0, ''),
-(133, 20, 434, 36, 0, ''),
-(134, 20, 435, 60, 0, ''),
-(135, 20, 502, 600, 0, ''),
+(130, 20, 513, 60, 60, ''),
+(131, 20, 349, 100, 100, ''),
+(132, 20, 536, 50, 50, ''),
+(133, 20, 434, 36, 36, ''),
+(134, 20, 435, 60, 60, ''),
+(135, 20, 502, 600, 600, ''),
 (136, 21, 328, 400, 0, ''),
 (137, 21, 329, 200, 0, ''),
 (138, 21, 293, 100, 0, ''),
@@ -1105,7 +1103,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
