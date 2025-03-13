@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 13 Mar 2025, 15:32:17
+-- Üretim Zamanı: 13 Mar 2025, 21:58:09
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -41,7 +41,8 @@ CREATE TABLE `deppo_logs` (
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
 (1, 1, '2025-03-13 09:45:43', 'login', 'Kullanıcı girişi yapıldı'),
-(2, 1, '2025-03-13 13:50:30', 'login', 'Kullanıcı girişi yapıldı');
+(2, 1, '2025-03-13 13:50:30', 'login', 'Kullanıcı girişi yapıldı'),
+(3, 1, '2025-03-13 23:25:54', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -257,16 +258,16 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (153, 22, 538, 20, 20, ''),
 (154, 22, 539, 10, 10, ''),
 (155, 22, 542, 10, 10, ''),
-(156, 22, 543, 10, 0, ''),
+(156, 22, 543, 10, 10, ''),
 (157, 22, 544, 10, 10, ''),
 (158, 22, 447, 10, 0, ''),
 (159, 22, 536, 75, 75, ''),
 (160, 22, 513, 36, 36, ''),
 (161, 22, 517, 100, 100, 'KARBOSAN 115X1,0X22,23 KESİCİ TAŞ'),
 (162, 22, 441, 360, 360, ''),
-(163, 22, 434, 36, 0, ''),
+(163, 22, 434, 36, 36, ''),
 (164, 22, 435, 60, 60, ''),
-(165, 22, 548, 600, 600, ''),
+(165, 22, 548, 2100, 2100, ''),
 (166, 22, 384, 4000, 4000, ''),
 (168, 23, 324, 2, 0, 'KUTU'),
 (169, 23, 519, 500, 0, ''),
@@ -1124,7 +1125,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
