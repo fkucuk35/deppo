@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 12 Mar 2025, 20:41:33
+-- Üretim Zamanı: 13 Mar 2025, 10:15:19
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-03-12 21:42:39', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-03-13 09:45:43', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -79,11 +79,11 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (15, 2, 1, 'SIP-2025-000015', '2025-02-11 00:00:00', 'BAKKALİYE TORBASI (17CMX25 CM) - 3 PAKET'),
 (16, 3, 1, 'SIP-2025-000016', '2025-02-12 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+'),
 (17, 2, 1, 'SIP-2025-000017', '2025-02-14 00:00:00', '9 MM MATKAP UCU - 8 ADET+\r\nPH3 YILDIZ UÇ - 20 ADET\r\nT30 UÇ - 30 ADET+\r\n'),
-(18, 2, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1800 ADET+\r\nHORTUM KELEPÇESİ - 10 ADET+\r\nTEFLON BANT - 10 ADET+\r\nASMA KİLİT - 10 ADET+\r\nJ SERİSİ 40 LIK TEL ÇİVİ - 5 PAKET\r\nKALIN KEÇELİ KALEM - 3 KUTU\r\nÇUVAL - 100 ADET'),
+(18, 3, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1800 ADET+\r\nHORTUM KELEPÇESİ - 10 ADET+\r\nTEFLON BANT - 10 ADET+\r\nASMA KİLİT - 10 ADET+'),
 (19, 3, 1, 'SIP-2025-000019', '2025-02-25 00:00:00', '7040 SPREY - 5 ADET+'),
-(20, 2, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+\r\nÜçlü Grup Priz Kauçuk Kapaklı Monofaze 220V - 20 Adet\r\nKauçuk Erkek Monofaze Fiş 220V - 20 Adet\r\nBETA BT5 KAYNAK SPREYİ - 20 ADET+\r\n4,5 MM MATKAP UCU - 30 ADET+\r\nHAVA JAKI (ERKEK) - 5 ADET+'),
+(20, 3, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+\r\nBETA BT5 KAYNAK SPREYİ - 20 ADET+\r\n4,5 MM MATKAP UCU - 30 ADET+\r\nHAVA JAKI (ERKEK) - 5 ADET+'),
 (21, 3, 1, 'SIP-2025-000021', '2025-02-28 00:00:00', '14x80 ANAHTAR BAŞ CİVATA - 4 ADET+'),
-(22, 2, 1, 'SIP-2025-000022', '2025-03-09 00:00:00', 'M6X110 KIRICI DELİCİ UÇ - 6 ADET\r\nM10X160 KIRICI DELİCİ UÇ - 6 ADET\r\nM12X210 KIRICI DELİCİ UÇ - 6 ADET\r\nM16X210 KIRICI DELİCİ UÇ - 6 ADET\r\n9MM MATKAP UCU - 2 ADET+\r\nRAA2427 AÇIK AĞIZ ANAHTAR 24X27 - 1 ADET\r\n1/2 LOKMA TAKIMI 25 PARÇA RICO - 1 ADET\r\nRAA5722 AÇIK AĞIZ ANAHTAR TAKIMI 8 PARÇA - 1 ADET\r\nSU TERAZİSİ - 50 CM - 1 ADET\r\nHAVA TABANCASI - 1 ADET');
+(22, 2, 1, 'SIP-2025-000022', '2025-03-09 00:00:00', 'M6X110 KIRICI DELİCİ UÇ - 6 ADET\r\nM10X160 KIRICI DELİCİ UÇ - 6 ADET\r\nM12X210 KIRICI DELİCİ UÇ - 6 ADET\r\nM16X210 KIRICI DELİCİ UÇ - 6 ADET\r\n9MM MATKAP UCU - 2 ADET+\r\nRAA2427 AÇIK AĞIZ ANAHTAR 24X27 - 1 ADET+\r\n1/2 LOKMA TAKIMI 25 PARÇA RICO - 1 ADET+\r\nRAA5722 AÇIK AĞIZ ANAHTAR TAKIMI 8 PARÇA - 1 ADET+\r\nSU TERAZİSİ - 50 CM - 1 ADET+\r\nHAVA TABANCASI - 1 ADET+');
 
 -- --------------------------------------------------------
 
@@ -200,9 +200,8 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (96, 14, 404, 300, 300, ''),
 (97, 14, 432, 80, 80, ''),
 (98, 15, 513, 60, 60, ''),
-(99, 15, 583, 5, 2, 'TOP'),
+(99, 15, 583, 2, 2, 'TOP'),
 (100, 15, 439, 36, 36, ''),
-(101, 15, 584, 50, 0, ''),
 (102, 17, 538, 10, 10, ''),
 (103, 17, 544, 10, 10, ''),
 (104, 17, 511, 200, 200, ''),
