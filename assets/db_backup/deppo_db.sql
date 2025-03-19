@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 17 Mar 2025, 15:22:33
+-- Üretim Zamanı: 19 Mar 2025, 15:49:38
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -43,7 +43,9 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (1, 1, '2025-03-13 09:45:43', 'login', 'Kullanıcı girişi yapıldı'),
 (2, 1, '2025-03-13 13:50:30', 'login', 'Kullanıcı girişi yapıldı'),
 (3, 1, '2025-03-13 23:25:54', 'login', 'Kullanıcı girişi yapıldı'),
-(4, 1, '2025-03-17 08:51:43', 'login', 'Kullanıcı girişi yapıldı');
+(4, 1, '2025-03-17 08:51:43', 'login', 'Kullanıcı girişi yapıldı'),
+(5, 1, '2025-03-18 13:46:04', 'login', 'Kullanıcı girişi yapıldı'),
+(6, 1, '2025-03-19 10:11:48', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -79,15 +81,15 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (12, 3, 1, 'SIP-2025-000012', '2025-02-04 00:00:00', ''),
 (13, 3, 1, 'SIP-2025-000013', '2025-02-05 00:00:00', 'EXIM YASA-37 INOX CİVATA SİPARİŞİ\r\n\r\n3/8 KALIN PUL (INOX) - 76 ADET => 76 ADET\r\n5/16 PUL (INOX) - 800 ADET => 800 ADET\r\n6X30 HAVŞA BAŞ CİVATA (INOX) - 20 ADET => 20 ADET\r\n6x35 HAVŞA BAŞ CİVATA (INOX) - 40 ADET => 40 ADET\r\n8X25 BOMBEBAŞ CİVATA (INOX) - 100 ADET => 100 ADET\r\n8X30 BOMBEBAŞ CİVATA (INOX) - 50 ADET => 50 ADET\r\n8X35 HAVŞABAŞ CİVATA (INOX) - 350 ADET => 400 ADET\r\n8X45 BOMBEBAŞ CİVATA (INOX) - 70 ADET => 70 ADET\r\n8X60 BOMBEBAŞ CİVATA (INOX) - 10 ADET => 10 ADET\r\nM10 AYBOLT (INOX) - 3 ADET => 3 ADET\r\nM10 FİBERLİ SOMUN (INOX) - 50 ADET => 50 ADET\r\nM10 TİJ (INOX) - 2 BOY => 2 BOY => 2 BOY\r\nM6 FİBERLİ SOMUN (INOX) - 60 ADET => 60 ADET\r\nM8 FİBERLİ SOMUN (INOX) - 160 ADET => 440 ADET\r\nM8 KÖR SOMUN (INOX) - 80 ADET => 100 ADET\r\n6X50 BOMBEBAŞ CİVATA (INOX) - 300 ADET =>  300 ADET\r\nM6 KÖR SOMUN (INOX) - 300 ADET => 500 ADET\r\nM6 PUL (INOX) - 600 ADET => 600 ADET'),
 (14, 3, 1, 'SIP-2025-000014', '2025-02-07 00:00:00', 'M18X100 ANAHTAR BAŞ CİVATA - 25 ADET+\r\nKİMYASAL DÜBEL (EPOKSİ) - 20 TÜP+\r\nKİMYASAL DÜBEL SIKMA TABANCASI - 1 ADET+'),
-(15, 2, 1, 'SIP-2025-000015', '2025-02-11 00:00:00', 'BAKKALİYE TORBASI (17CMX25 CM) - 3 PAKET'),
+(15, 3, 1, 'SIP-2025-000015', '2025-02-11 00:00:00', ''),
 (16, 3, 1, 'SIP-2025-000016', '2025-02-12 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+'),
 (17, 2, 1, 'SIP-2025-000017', '2025-02-14 00:00:00', '9 MM MATKAP UCU - 8 ADET+\r\nPH3 YILDIZ UÇ - 20 ADET\r\nT30 UÇ - 30 ADET+\r\n'),
 (18, 3, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1800 ADET+\r\nHORTUM KELEPÇESİ - 10 ADET+\r\nTEFLON BANT - 10 ADET+\r\nASMA KİLİT - 10 ADET+'),
 (19, 3, 1, 'SIP-2025-000019', '2025-02-25 00:00:00', '7040 SPREY - 5 ADET+'),
 (20, 3, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+\r\nBETA BT5 KAYNAK SPREYİ - 20 ADET+\r\n4,5 MM MATKAP UCU - 30 ADET+\r\nHAVA JAKI (ERKEK) - 5 ADET+'),
 (21, 3, 1, 'SIP-2025-000021', '2025-02-28 00:00:00', '14x80 ANAHTAR BAŞ CİVATA - 4 ADET+'),
-(22, 2, 1, 'SIP-2025-000022', '2025-03-09 00:00:00', 'M6X110 KIRICI DELİCİ UÇ - 6 ADET\r\nM10X160 KIRICI DELİCİ UÇ - 6 ADET\r\nM12X210 KIRICI DELİCİ UÇ - 6 ADET\r\nM16X210 KIRICI DELİCİ UÇ - 6 ADET\r\n9MM MATKAP UCU - 2 ADET+\r\nRAA2427 AÇIK AĞIZ ANAHTAR 24X27 - 1 ADET+\r\n1/2 LOKMA TAKIMI 25 PARÇA RICO - 1 ADET+\r\nRAA5722 AÇIK AĞIZ ANAHTAR TAKIMI 8 PARÇA - 1 ADET+\r\nSU TERAZİSİ - 50 CM - 1 ADET+\r\nHAVA TABANCASI - 1 ADET+'),
-(23, 1, 1, 'SIP-2025-000023', '2025-03-16 00:00:00', '');
+(22, 2, 1, 'SIP-2025-000022', '2025-03-12 00:00:00', 'M6X110 KIRICI DELİCİ UÇ - 6 ADET\r\nM10X160 KIRICI DELİCİ UÇ - 6 ADET\r\nM12X210 KIRICI DELİCİ UÇ - 6 ADET\r\nM16X210 KIRICI DELİCİ UÇ - 6 ADET\r\n9MM MATKAP UCU - 2 ADET+\r\nRAA2427 AÇIK AĞIZ ANAHTAR 24X27 - 1 ADET+\r\n1/2 LOKMA TAKIMI 25 PARÇA RICO - 1 ADET+\r\nRAA5722 AÇIK AĞIZ ANAHTAR TAKIMI 8 PARÇA - 1 ADET+\r\nSU TERAZİSİ - 50 CM - 1 ADET+\r\nHAVA TABANCASI - 1 ADET+'),
+(23, 2, 1, 'SIP-2025-000023', '2025-03-16 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -1133,7 +1135,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
