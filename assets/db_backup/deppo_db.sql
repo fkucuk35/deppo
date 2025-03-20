@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 19 Mar 2025, 15:49:38
+-- Üretim Zamanı: 20 Mar 2025, 15:34:05
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -45,7 +45,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (3, 1, '2025-03-13 23:25:54', 'login', 'Kullanıcı girişi yapıldı'),
 (4, 1, '2025-03-17 08:51:43', 'login', 'Kullanıcı girişi yapıldı'),
 (5, 1, '2025-03-18 13:46:04', 'login', 'Kullanıcı girişi yapıldı'),
-(6, 1, '2025-03-19 10:11:48', 'login', 'Kullanıcı girişi yapıldı');
+(6, 1, '2025-03-19 10:11:48', 'login', 'Kullanıcı girişi yapıldı'),
+(7, 1, '2025-03-20 16:44:04', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -83,13 +84,14 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (14, 3, 1, 'SIP-2025-000014', '2025-02-07 00:00:00', 'M18X100 ANAHTAR BAŞ CİVATA - 25 ADET+\r\nKİMYASAL DÜBEL (EPOKSİ) - 20 TÜP+\r\nKİMYASAL DÜBEL SIKMA TABANCASI - 1 ADET+'),
 (15, 3, 1, 'SIP-2025-000015', '2025-02-11 00:00:00', ''),
 (16, 3, 1, 'SIP-2025-000016', '2025-02-12 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+'),
-(17, 2, 1, 'SIP-2025-000017', '2025-02-14 00:00:00', '9 MM MATKAP UCU - 8 ADET+\r\nPH3 YILDIZ UÇ - 20 ADET\r\nT30 UÇ - 30 ADET+\r\n'),
+(17, 3, 1, 'SIP-2025-000017', '2025-02-14 00:00:00', '9 MM MATKAP UCU - 8 ADET+\r\nT30 UÇ - 30 ADET+\r\n'),
 (18, 3, 1, 'SIP-2025-000018', '2025-02-18 00:00:00', '5,5x90 TRAPEZ AKILLI - 1800 ADET+\r\nHORTUM KELEPÇESİ - 10 ADET+\r\nTEFLON BANT - 10 ADET+\r\nASMA KİLİT - 10 ADET+'),
 (19, 3, 1, 'SIP-2025-000019', '2025-02-25 00:00:00', '7040 SPREY - 5 ADET+'),
 (20, 3, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+\r\nBETA BT5 KAYNAK SPREYİ - 20 ADET+\r\n4,5 MM MATKAP UCU - 30 ADET+\r\nHAVA JAKI (ERKEK) - 5 ADET+'),
 (21, 3, 1, 'SIP-2025-000021', '2025-02-28 00:00:00', '14x80 ANAHTAR BAŞ CİVATA - 4 ADET+'),
-(22, 2, 1, 'SIP-2025-000022', '2025-03-12 00:00:00', 'M6X110 KIRICI DELİCİ UÇ - 6 ADET\r\nM10X160 KIRICI DELİCİ UÇ - 6 ADET\r\nM12X210 KIRICI DELİCİ UÇ - 6 ADET\r\nM16X210 KIRICI DELİCİ UÇ - 6 ADET\r\n9MM MATKAP UCU - 2 ADET+\r\nRAA2427 AÇIK AĞIZ ANAHTAR 24X27 - 1 ADET+\r\n1/2 LOKMA TAKIMI 25 PARÇA RICO - 1 ADET+\r\nRAA5722 AÇIK AĞIZ ANAHTAR TAKIMI 8 PARÇA - 1 ADET+\r\nSU TERAZİSİ - 50 CM - 1 ADET+\r\nHAVA TABANCASI - 1 ADET+'),
-(23, 2, 1, 'SIP-2025-000023', '2025-03-16 00:00:00', '');
+(22, 3, 1, 'SIP-2025-000022', '2025-03-12 00:00:00', 'M6X110 KIRICI DELİCİ UÇ - 6 ADET+\r\nM10X160 KIRICI DELİCİ UÇ - 6 ADET+\r\nM12X210 KIRICI DELİCİ UÇ - 6 ADET+\r\nM16X210 KIRICI DELİCİ UÇ - 6 ADET+\r\n9MM MATKAP UCU - 2 ADET+\r\nRAA2427 AÇIK AĞIZ ANAHTAR 24X27 - 1 ADET+\r\n1/2 LOKMA TAKIMI 25 PARÇA RICO - 1 ADET+\r\nRAA5722 AÇIK AĞIZ ANAHTAR TAKIMI 8 PARÇA - 1 ADET+\r\nSU TERAZİSİ - 50 CM - 1 ADET+\r\nHAVA TABANCASI - 1 ADET+'),
+(23, 2, 1, 'SIP-2025-000023', '2025-03-16 00:00:00', 'SELSİL HIZLI YAPIŞTIRICI - 5 ADET'),
+(24, 1, 1, 'SIP-2025-000024', '2025-03-25 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -212,7 +214,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (103, 17, 544, 10, 10, ''),
 (104, 17, 511, 200, 200, ''),
 (105, 17, 512, 10, 10, ''),
-(106, 17, 593, 20, 0, ''),
+(106, 17, 593, 20, 20, ''),
 (107, 17, 592, 105, 105, ''),
 (108, 18, 396, 4000, 4000, ''),
 (109, 18, 385, 2000, 2000, ''),
@@ -263,7 +265,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (155, 22, 542, 10, 10, ''),
 (156, 22, 543, 10, 10, ''),
 (157, 22, 544, 10, 10, ''),
-(158, 22, 447, 10, 0, ''),
+(158, 22, 447, 10, 10, ''),
 (159, 22, 536, 75, 75, ''),
 (160, 22, 513, 36, 36, ''),
 (161, 22, 517, 100, 100, 'KARBOSAN 115X1,0X22,23 KESİCİ TAŞ'),
@@ -272,16 +274,18 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (164, 22, 435, 60, 60, ''),
 (165, 22, 548, 2100, 2100, ''),
 (166, 22, 384, 4000, 4000, ''),
-(168, 23, 324, 500, 0, ''),
+(168, 23, 324, 500, 500, ''),
 (169, 23, 519, 500, 0, ''),
-(170, 23, 502, 600, 0, ''),
-(171, 23, 230, 500, 0, ''),
-(172, 23, 231, 500, 0, ''),
-(173, 23, 513, 60, 0, ''),
-(174, 23, 227, 1000, 0, ''),
-(175, 23, 384, 4000, 0, ''),
-(176, 23, 429, 50, 0, ''),
-(177, 23, 592, 60, 0, '');
+(170, 23, 502, 600, 600, ''),
+(171, 23, 230, 600, 600, ''),
+(172, 23, 231, 500, 500, ''),
+(173, 23, 513, 42, 42, ''),
+(174, 23, 227, 1000, 1000, ''),
+(175, 23, 384, 4000, 4000, ''),
+(176, 23, 429, 53, 53, ''),
+(178, 24, 441, 240, 0, ''),
+(179, 24, 513, 60, 0, ''),
+(180, 24, 439, 72, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1135,19 +1139,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
