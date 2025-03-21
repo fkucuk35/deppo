@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 20 Mar 2025, 15:34:05
+-- Üretim Zamanı: 21 Mar 2025, 15:45:36
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -46,7 +46,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (4, 1, '2025-03-17 08:51:43', 'login', 'Kullanıcı girişi yapıldı'),
 (5, 1, '2025-03-18 13:46:04', 'login', 'Kullanıcı girişi yapıldı'),
 (6, 1, '2025-03-19 10:11:48', 'login', 'Kullanıcı girişi yapıldı'),
-(7, 1, '2025-03-20 16:44:04', 'login', 'Kullanıcı girişi yapıldı');
+(7, 1, '2025-03-20 16:44:04', 'login', 'Kullanıcı girişi yapıldı'),
+(8, 1, '2025-03-21 11:57:06', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -90,8 +91,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (20, 3, 1, 'SIP-2025-000020', '2025-02-28 00:00:00', '4,8x60 YHB AKILLI VİDA - 1000 ADET+\r\nBETA BT5 KAYNAK SPREYİ - 20 ADET+\r\n4,5 MM MATKAP UCU - 30 ADET+\r\nHAVA JAKI (ERKEK) - 5 ADET+'),
 (21, 3, 1, 'SIP-2025-000021', '2025-02-28 00:00:00', '14x80 ANAHTAR BAŞ CİVATA - 4 ADET+'),
 (22, 3, 1, 'SIP-2025-000022', '2025-03-12 00:00:00', 'M6X110 KIRICI DELİCİ UÇ - 6 ADET+\r\nM10X160 KIRICI DELİCİ UÇ - 6 ADET+\r\nM12X210 KIRICI DELİCİ UÇ - 6 ADET+\r\nM16X210 KIRICI DELİCİ UÇ - 6 ADET+\r\n9MM MATKAP UCU - 2 ADET+\r\nRAA2427 AÇIK AĞIZ ANAHTAR 24X27 - 1 ADET+\r\n1/2 LOKMA TAKIMI 25 PARÇA RICO - 1 ADET+\r\nRAA5722 AÇIK AĞIZ ANAHTAR TAKIMI 8 PARÇA - 1 ADET+\r\nSU TERAZİSİ - 50 CM - 1 ADET+\r\nHAVA TABANCASI - 1 ADET+'),
-(23, 2, 1, 'SIP-2025-000023', '2025-03-16 00:00:00', 'SELSİL HIZLI YAPIŞTIRICI - 5 ADET'),
-(24, 1, 1, 'SIP-2025-000024', '2025-03-25 00:00:00', '');
+(23, 2, 1, 'SIP-2025-000023', '2025-03-16 00:00:00', 'SELSİL HIZLI YAPIŞTIRICI - 5 ADET+'),
+(24, 1, 1, 'SIP-2025-000024', '2025-03-25 00:00:00', 'ÇIRPI İPİ - 5 ADET\r\n4X10 POPUP PERÇİN - 1000 ADET');
 
 -- --------------------------------------------------------
 
@@ -1139,7 +1140,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
