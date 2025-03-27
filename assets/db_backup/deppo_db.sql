@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 26 Mar 2025, 15:25:38
+-- Üretim Zamanı: 27 Mar 2025, 14:49:35
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-03-26 08:18:55', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-03-27 08:18:55', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -85,7 +85,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (21, 3, 1, 'SIP-2025-000021', '2025-02-28 00:00:00', '14x80 ANAHTAR BAŞ CİVATA - 4 ADET+'),
 (22, 3, 1, 'SIP-2025-000022', '2025-03-12 00:00:00', 'M6X110 KIRICI DELİCİ UÇ - 6 ADET+\r\nM10X160 KIRICI DELİCİ UÇ - 6 ADET+\r\nM12X210 KIRICI DELİCİ UÇ - 6 ADET+\r\nM16X210 KIRICI DELİCİ UÇ - 6 ADET+\r\n9MM MATKAP UCU - 2 ADET+\r\nRAA2427 AÇIK AĞIZ ANAHTAR 24X27 - 1 ADET+\r\n1/2 LOKMA TAKIMI 25 PARÇA RICO - 1 ADET+\r\nRAA5722 AÇIK AĞIZ ANAHTAR TAKIMI 8 PARÇA - 1 ADET+\r\nSU TERAZİSİ - 50 CM - 1 ADET+\r\nHAVA TABANCASI - 1 ADET+'),
 (23, 3, 1, 'SIP-2025-000023', '2025-03-16 00:00:00', 'SELSİL HIZLI YAPIŞTIRICI - 5 ADET+'),
-(24, 1, 1, 'SIP-2025-000024', '2025-04-02 00:00:00', 'ÇIRPI İPİ - 5 ADET\r\n4X10 POPUP PERÇİN - 1000 ADET\r\n5x15 YHB CİVATA - 1400 ADET\r\nM5 FİBERLİ SOMUN - 1000 ADET\r\n3,5X15 SUNTA VİDASI - 6000 ADET\r\n4X15 SUNTA VİDASI - 1000 ADET\r\n3,9x16 RONDELA BAŞLI AKILLI VİDA - 2000 ADET'),
+(24, 1, 1, 'SIP-2025-000024', '2025-04-02 00:00:00', 'ÇIRPI İPİ - 5 ADET\r\n4X10 POPUP PERÇİN - 1000 ADET\r\n5x12 YHB CİVATA - 1400 ADET\r\nM5 FİBERLİ SOMUN - 1000 ADET\r\n3,5X15 SUNTA VİDASI - 6000 ADET\r\n4X15 SUNTA VİDASI - 1000 ADET\r\n3,9x16 RONDELA BAŞLI AKILLI VİDA - 2000 ADET'),
 (25, 1, 6, 'SIP-2025-000025', '2025-04-02 00:00:00', '');
 
 -- --------------------------------------------------------
