@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 27 Mar 2025, 14:49:35
+-- Üretim Zamanı: 02 Nis 2025, 07:16:41
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-03-27 08:18:55', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-04-02 08:07:18', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -278,7 +278,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (174, 23, 227, 1000, 1000, ''),
 (175, 23, 384, 4000, 4000, ''),
 (176, 23, 429, 53, 53, ''),
-(178, 24, 441, 240, 0, ''),
+(178, 24, 441, 360, 0, ''),
 (179, 24, 513, 60, 0, ''),
 (180, 24, 439, 72, 0, ''),
 (181, 24, 497, 5, 0, ''),
@@ -1153,7 +1153,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
