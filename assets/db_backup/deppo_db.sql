@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 03 Nis 2025, 21:04:32
+-- Üretim Zamanı: 11 Nis 2025, 14:54:18
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -43,7 +43,10 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (1, 1, '2025-04-02 08:07:18', 'login', 'Kullanıcı girişi yapıldı'),
 (3, 1, '2025-04-02 20:06:11', 'login', 'Kullanıcı girişi yapıldı'),
 (4, 1, '2025-04-03 21:55:59', 'login', 'Kullanıcı girişi yapıldı'),
-(5, 1, '2025-04-03 22:00:08', 'login', 'Kullanıcı girişi yapıldı');
+(5, 1, '2025-04-03 22:00:08', 'login', 'Kullanıcı girişi yapıldı'),
+(6, 1, '2025-04-07 08:48:34', 'login', 'Kullanıcı girişi yapıldı'),
+(7, 1, '2025-04-10 13:12:51', 'login', 'Kullanıcı girişi yapıldı'),
+(8, 1, '2025-04-11 09:45:35', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -88,7 +91,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (21, 3, 1, 'SIP-2025-000021', '2025-02-28 00:00:00', '14x80 ANAHTAR BAŞ CİVATA - 4 ADET+'),
 (22, 3, 1, 'SIP-2025-000022', '2025-03-12 00:00:00', 'M6X110 KIRICI DELİCİ UÇ - 6 ADET+\r\nM10X160 KIRICI DELİCİ UÇ - 6 ADET+\r\nM12X210 KIRICI DELİCİ UÇ - 6 ADET+\r\nM16X210 KIRICI DELİCİ UÇ - 6 ADET+\r\n9MM MATKAP UCU - 2 ADET+\r\nRAA2427 AÇIK AĞIZ ANAHTAR 24X27 - 1 ADET+\r\n1/2 LOKMA TAKIMI 25 PARÇA RICO - 1 ADET+\r\nRAA5722 AÇIK AĞIZ ANAHTAR TAKIMI 8 PARÇA - 1 ADET+\r\nSU TERAZİSİ - 50 CM - 1 ADET+\r\nHAVA TABANCASI - 1 ADET+'),
 (23, 3, 1, 'SIP-2025-000023', '2025-03-16 00:00:00', 'SELSİL HIZLI YAPIŞTIRICI - 5 ADET+'),
-(24, 1, 1, 'SIP-2025-000024', '2025-04-02 00:00:00', 'ÇIRPI İPİ - 5 ADET\r\n4X10 POPUP PERÇİN - 1000 ADET\r\n5x12 YHB CİVATA - 1400 ADET\r\nM5 FİBERLİ SOMUN - 1000 ADET\r\n3,5X15 SUNTA VİDASI - 6000 ADET\r\n4X15 SUNTA VİDASI - 1000 ADET\r\n3,9x16 RONDELA BAŞLI AKILLI VİDA - 2000 ADET'),
+(24, 1, 1, 'SIP-2025-000024', '2025-04-02 00:00:00', 'ÇIRPI İPİ - 5 ADET\r\n4X10 POPUP PERÇİN - 1000 ADET\r\n5x12 YHB CİVATA - 1400 ADET\r\nM5 FİBERLİ SOMUN - 1000 ADET\r\n3,5X15 SUNTA VİDASI - 6000 ADET\r\n4X15 SUNTA VİDASI - 1000 ADET\r\n3,9x16 RONDELA BAŞLI AKILLI VİDA - 2000 ADET\r\nBETA BT5 KAYNAK SPREYİ - 40 ADET'),
 (25, 1, 6, 'SIP-2025-000025', '2025-04-02 00:00:00', '');
 
 -- --------------------------------------------------------
@@ -1158,7 +1161,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
