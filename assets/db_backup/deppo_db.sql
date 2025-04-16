@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 15 Nis 2025, 16:46:48
+-- Üretim Zamanı: 16 Nis 2025, 16:41:20
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -46,7 +46,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (5, 1, '2025-04-03 22:00:08', 'login', 'Kullanıcı girişi yapıldı'),
 (6, 1, '2025-04-07 08:48:34', 'login', 'Kullanıcı girişi yapıldı'),
 (7, 1, '2025-04-10 13:12:51', 'login', 'Kullanıcı girişi yapıldı'),
-(8, 1, '2025-04-11 09:45:35', 'login', 'Kullanıcı girişi yapıldı');
+(8, 1, '2025-04-11 09:45:35', 'login', 'Kullanıcı girişi yapıldı'),
+(9, 1, '2025-04-16 14:28:48', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -92,7 +93,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (22, 3, 1, 'SIP-2025-000022', '2025-03-12 00:00:00', 'M6X110 KIRICI DELİCİ UÇ - 6 ADET+\r\nM10X160 KIRICI DELİCİ UÇ - 6 ADET+\r\nM12X210 KIRICI DELİCİ UÇ - 6 ADET+\r\nM16X210 KIRICI DELİCİ UÇ - 6 ADET+\r\n9MM MATKAP UCU - 2 ADET+\r\nRAA2427 AÇIK AĞIZ ANAHTAR 24X27 - 1 ADET+\r\n1/2 LOKMA TAKIMI 25 PARÇA RICO - 1 ADET+\r\nRAA5722 AÇIK AĞIZ ANAHTAR TAKIMI 8 PARÇA - 1 ADET+\r\nSU TERAZİSİ - 50 CM - 1 ADET+\r\nHAVA TABANCASI - 1 ADET+'),
 (23, 3, 1, 'SIP-2025-000023', '2025-03-16 00:00:00', 'SELSİL HIZLI YAPIŞTIRICI - 5 ADET+'),
 (24, 1, 1, 'SIP-2025-000024', '2025-04-02 00:00:00', 'ÇIRPI İPİ - 5 ADET\r\n4X10 POPUP PERÇİN - 1000 ADET\r\n5x12 YHB CİVATA - 1400 ADET\r\nM5 FİBERLİ SOMUN - 1000 ADET\r\n3,5X15 SUNTA VİDASI - 6000 ADET\r\n4X15 SUNTA VİDASI - 1000 ADET\r\n3,9x16 RONDELA BAŞLI AKILLI VİDA - 2000 ADET\r\nBETA BT5 KAYNAK SPREYİ - 40 ADET'),
-(25, 1, 6, 'SIP-2025-000025', '2025-04-02 00:00:00', '');
+(25, 1, 6, 'SIP-2025-000025', '2025-04-02 00:00:00', ''),
+(26, 1, 1, 'SIP-2025-000026', '2025-04-17 00:00:00', '5x70 SUNTA VİDASI - 1 KOLİ\r\n5X100 SUNTA VİSADI - 1 KOLİ\r\n8X60 TRİFON VİDA - 1 KOLİ\r\nM12X110 DÜBEL - 1200 ADET\r\n5/16 2 MM PUL - 4000 ADET');
 
 -- --------------------------------------------------------
 
@@ -1161,13 +1163,13 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
