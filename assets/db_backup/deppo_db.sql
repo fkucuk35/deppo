@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 16 Nis 2025, 20:48:04
+-- Üretim Zamanı: 17 Nis 2025, 19:04:18
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -80,7 +80,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (23, 3, 1, 'SIP-2025-000023', '2025-03-16 00:00:00', 'SELSİL HIZLI YAPIŞTIRICI - 5 ADET+'),
 (24, 3, 1, 'SIP-2025-000024', '2025-04-15 00:00:00', '4X10 POPUP PERÇİN - 1000 ADET+\r\n5x16 YHB CİVATA - 1400 ADET+\r\nM5 FİBERLİ SOMUN - 1500 ADET+\r\n3,5X13 SUNTA VİDASI - 5000 ADET+\r\n4X16 SUNTA VİDASI - 1000 ADET+\r\n3,9x16 RONDELA BAŞLI AKILLI VİDA - 2000 ADET+\r\nBETA BT5 KAYNAK SPREYİ - 40 ADET+\r\nMONTAJ ELDIVENI SIYAH NO: 9 - 60 ÇİFT+'),
 (25, 2, 6, 'SIP-2025-000025', '2025-04-15 00:00:00', ''),
-(26, 1, 1, 'SIP-2025-000026', '2025-04-17 00:00:00', '8X80 TRİFON VİDA - 1 KOLİ');
+(26, 2, 1, 'SIP-2025-000026', '2025-04-17 00:00:00', '8X80 TRİFON VİDA - 750');
 
 -- --------------------------------------------------------
 
@@ -286,11 +286,12 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (190, 25, 602, 100, 0, ''),
 (191, 24, 434, 48, 48, ''),
 (192, 24, 536, 60, 60, ''),
-(193, 26, 523, 1, 0, 'KOLI'),
+(193, 26, 523, 2100, 2100, ''),
 (194, 26, 531, 1, 0, 'KOLI'),
-(195, 26, 519, 1, 0, 'KOLI'),
-(196, 26, 502, 1200, 0, ''),
-(197, 26, 384, 4000, 0, '');
+(195, 26, 519, 1000, 1000, ''),
+(196, 26, 502, 1200, 1200, ''),
+(197, 26, 384, 4400, 4400, ''),
+(198, 26, 508, 300, 300, '');
 
 -- --------------------------------------------------------
 
@@ -1165,7 +1166,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
