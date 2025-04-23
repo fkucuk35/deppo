@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 23 Nis 2025, 14:59:01
+-- Üretim Zamanı: 23 Nis 2025, 22:27:53
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -43,7 +43,9 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (1, 1, '2025-04-18 08:15:40', 'login', 'Kullanıcı girişi yapıldı'),
 (2, 1, '2025-04-21 08:55:27', 'login', 'Kullanıcı girişi yapıldı'),
 (3, 1, '2025-04-22 09:12:04', 'login', 'Kullanıcı girişi yapıldı'),
-(4, 1, '2025-04-22 19:20:57', 'login', 'Kullanıcı girişi yapıldı');
+(4, 1, '2025-04-22 19:20:57', 'login', 'Kullanıcı girişi yapıldı'),
+(5, 1, '2025-04-23 21:30:01', 'login', 'Kullanıcı girişi yapıldı'),
+(6, 1, '2025-04-23 23:21:47', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (22, 3, 1, 'SIP-2025-000022', '2025-03-12 00:00:00', 'M6X110 KIRICI DELİCİ UÇ - 6 ADET+\r\nM10X160 KIRICI DELİCİ UÇ - 6 ADET+\r\nM12X210 KIRICI DELİCİ UÇ - 6 ADET+\r\nM16X210 KIRICI DELİCİ UÇ - 6 ADET+\r\n9MM MATKAP UCU - 2 ADET+\r\nRAA2427 AÇIK AĞIZ ANAHTAR 24X27 - 1 ADET+\r\n1/2 LOKMA TAKIMI 25 PARÇA RICO - 1 ADET+\r\nRAA5722 AÇIK AĞIZ ANAHTAR TAKIMI 8 PARÇA - 1 ADET+\r\nSU TERAZİSİ - 50 CM - 1 ADET+\r\nHAVA TABANCASI - 1 ADET+'),
 (23, 3, 1, 'SIP-2025-000023', '2025-03-16 00:00:00', 'SELSİL HIZLI YAPIŞTIRICI - 5 ADET+'),
 (24, 3, 1, 'SIP-2025-000024', '2025-04-15 00:00:00', '4X10 POPUP PERÇİN - 1000 ADET+\r\n5x16 YHB CİVATA - 1400 ADET+\r\nM5 FİBERLİ SOMUN - 1500 ADET+\r\n3,5X13 SUNTA VİDASI - 5000 ADET+\r\n4X16 SUNTA VİDASI - 1000 ADET+\r\n3,9x16 RONDELA BAŞLI AKILLI VİDA - 2000 ADET+\r\nBETA BT5 KAYNAK SPREYİ - 40 ADET+\r\nMONTAJ ELDIVENI SIYAH NO: 9 - 60 ÇİFT+'),
-(25, 2, 6, 'SIP-2025-000025', '2025-04-15 00:00:00', ''),
+(25, 3, 6, 'SIP-2025-000025', '2025-04-15 00:00:00', ''),
 (26, 2, 1, 'SIP-2025-000026', '2025-04-17 00:00:00', '8X80 TRİFON VİDA - 750+'),
 (27, 1, 1, 'SIP-2025-000027', '2025-04-20 00:00:00', 'BEST DC 1881 INOX TEMİZLEYİCİ SPREY - 24');
 
@@ -288,13 +290,13 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (180, 24, 439, 96, 96, ''),
 (181, 24, 497, 10, 10, ''),
 (182, 24, 409, 2400, 2400, ''),
-(183, 25, 486, 300, 0, ''),
-(184, 25, 466, 300, 0, ''),
-(185, 25, 594, 500, 0, ''),
+(183, 25, 486, 300, 300, ''),
+(184, 25, 466, 300, 300, ''),
+(185, 25, 594, 500, 500, ''),
 (187, 24, 435, 60, 60, ''),
-(188, 25, 595, 300, 0, ''),
-(189, 25, 597, 300, 0, ''),
-(190, 25, 602, 100, 0, ''),
+(188, 25, 595, 300, 300, ''),
+(189, 25, 597, 300, 300, ''),
+(190, 25, 602, 100, 100, ''),
 (191, 24, 434, 48, 48, ''),
 (192, 24, 536, 60, 60, ''),
 (193, 26, 523, 2100, 2100, ''),
@@ -311,10 +313,12 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (204, 27, 231, 1000, 0, ''),
 (205, 27, 441, 240, 0, ''),
 (206, 27, 400, 5000, 0, ''),
-(207, 27, 228, 2, 0, 'KUTU'),
+(207, 27, 228, 4, 0, 'KUTU'),
 (208, 27, 512, 10, 0, ''),
 (209, 27, 401, 2000, 0, ''),
-(210, 27, 311, 1, 0, 'KUTU');
+(210, 27, 311, 1, 0, 'KUTU'),
+(211, 25, 458, 6, 6, ''),
+(212, 25, 468, 3, 3, '');
 
 -- --------------------------------------------------------
 
@@ -1177,7 +1181,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -1189,7 +1193,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`

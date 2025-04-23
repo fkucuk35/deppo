@@ -36,6 +36,7 @@ if (!isLoggedIn()) {
         $("#fm :input").prop("disabled", false);
         $('#tbl_details').datagrid('showColumn', 'action');
         $('#fm').form('clear');
+        enableComboboxSelection();
         url = 'operations/order_list_operations.php?op=0';
         generateNumber();
         deleteDetailTable();
