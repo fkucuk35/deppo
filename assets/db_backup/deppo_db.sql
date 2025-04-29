@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 23 Nis 2025, 22:27:53
+-- Üretim Zamanı: 29 Nis 2025, 16:36:17
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -45,7 +45,10 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (3, 1, '2025-04-22 09:12:04', 'login', 'Kullanıcı girişi yapıldı'),
 (4, 1, '2025-04-22 19:20:57', 'login', 'Kullanıcı girişi yapıldı'),
 (5, 1, '2025-04-23 21:30:01', 'login', 'Kullanıcı girişi yapıldı'),
-(6, 1, '2025-04-23 23:21:47', 'login', 'Kullanıcı girişi yapıldı');
+(6, 1, '2025-04-23 23:21:47', 'login', 'Kullanıcı girişi yapıldı'),
+(7, 1, '2025-04-24 08:10:31', 'login', 'Kullanıcı girişi yapıldı'),
+(8, 1, '2025-04-28 08:08:09', 'login', 'Kullanıcı girişi yapıldı'),
+(9, 1, '2025-04-29 08:17:45', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -93,7 +96,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (24, 3, 1, 'SIP-2025-000024', '2025-04-15 00:00:00', '4X10 POPUP PERÇİN - 1000 ADET+\r\n5x16 YHB CİVATA - 1400 ADET+\r\nM5 FİBERLİ SOMUN - 1500 ADET+\r\n3,5X13 SUNTA VİDASI - 5000 ADET+\r\n4X16 SUNTA VİDASI - 1000 ADET+\r\n3,9x16 RONDELA BAŞLI AKILLI VİDA - 2000 ADET+\r\nBETA BT5 KAYNAK SPREYİ - 40 ADET+\r\nMONTAJ ELDIVENI SIYAH NO: 9 - 60 ÇİFT+'),
 (25, 3, 6, 'SIP-2025-000025', '2025-04-15 00:00:00', ''),
 (26, 2, 1, 'SIP-2025-000026', '2025-04-17 00:00:00', '8X80 TRİFON VİDA - 750+'),
-(27, 1, 1, 'SIP-2025-000027', '2025-04-20 00:00:00', 'BEST DC 1881 INOX TEMİZLEYİCİ SPREY - 24');
+(27, 2, 1, 'SIP-2025-000027', '2025-04-20 00:00:00', 'BEST DC 1881 INOX TEMİZLEYİCİ SPREY - 24'),
+(28, 1, 1, 'SIP-2025-000028', '2025-04-28 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -318,7 +322,12 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (209, 27, 401, 2000, 0, ''),
 (210, 27, 311, 1, 0, 'KUTU'),
 (211, 25, 458, 6, 6, ''),
-(212, 25, 468, 3, 3, '');
+(212, 25, 468, 3, 3, ''),
+(213, 28, 429, 50, 0, ''),
+(214, 28, 430, 50, 0, ''),
+(215, 28, 536, 100, 0, ''),
+(216, 28, 513, 60, 0, ''),
+(217, 28, 502, 1200, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1181,19 +1190,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
