@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 29 Nis 2025, 18:08:59
+-- Üretim Zamanı: 30 Nis 2025, 16:25:58
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -34,6 +34,15 @@ CREATE TABLE `deppo_logs` (
   `operation` varchar(50) NOT NULL,
   `operation_detail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `deppo_logs`
+--
+
+INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
+(1, 1, '2025-04-30 08:08:12', 'login', 'Kullanıcı girişi yapıldı'),
+(2, 1, '2025-04-30 14:08:37', 'login', 'Kullanıcı girişi yapıldı'),
+(3, 1, '2025-04-30 15:06:31', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -83,7 +92,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (26, 3, 1, 'SIP-2025-000026', '2025-04-17 00:00:00', '8X80 TRİFON VİDA - 750+'),
 (27, 2, 1, 'SIP-2025-000027', '2025-04-20 00:00:00', 'BEST DC 1881 INOX TEMİZLEYİCİ SPREY - 24+'),
 (28, 1, 1, 'SIP-2025-000028', '2025-04-28 00:00:00', ''),
-(29, 2, 1, 'SIP-2025-000029', '2025-04-29 00:00:00', 'M16x65 AKB CİVATA - 35+\r\nTOZ MASKESİ KATLANIR - 105+\r\nM10X70 BB INOX CİVATA - 100');
+(29, 3, 1, 'SIP-2025-000029', '2025-04-29 00:00:00', 'M16x65 AKB CİVATA - 35+\r\nTOZ MASKESİ KATLANIR - 105+'),
+(30, 1, 1, 'SIP-2025-000030', '2025-05-02 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -316,13 +326,16 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (217, 28, 502, 1200, 0, ''),
 (218, 27, 386, 2000, 2000, ''),
 (219, 29, 237, 300, 300, ''),
-(220, 29, 242, 100, 0, ''),
 (221, 29, 430, 50, 50, ''),
 (222, 29, 429, 60, 60, ''),
 (223, 29, 513, 60, 60, ''),
 (224, 29, 380, 410, 410, ''),
 (225, 29, 404, 205, 205, ''),
-(226, 29, 502, 1200, 1200, '');
+(226, 29, 502, 1200, 1200, ''),
+(227, 30, 351, 1, 0, 'KUTU'),
+(228, 30, 352, 2, 0, 'KUTU'),
+(229, 30, 441, 360, 0, ''),
+(230, 30, 438, 60, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1185,19 +1198,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=227;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
