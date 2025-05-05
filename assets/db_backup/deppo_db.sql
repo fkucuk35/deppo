@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 02 May 2025, 16:31:40
+-- Üretim Zamanı: 05 May 2025, 16:06:35
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,9 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-05-02 08:51:00', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-05-02 08:51:00', 'login', 'Kullanıcı girişi yapıldı'),
+(2, 1, '2025-05-05 08:48:45', 'login', 'Kullanıcı girişi yapıldı'),
+(3, 1, '2025-05-05 09:03:27', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -88,10 +90,10 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (24, 3, 1, 'SIP-2025-000024', '2025-04-15 00:00:00', '4X10 POPUP PERÇİN - 1000 ADET+\r\n5x16 YHB CİVATA - 1400 ADET+\r\nM5 FİBERLİ SOMUN - 1500 ADET+\r\n3,5X13 SUNTA VİDASI - 5000 ADET+\r\n4X16 SUNTA VİDASI - 1000 ADET+\r\n3,9x16 RONDELA BAŞLI AKILLI VİDA - 2000 ADET+\r\nBETA BT5 KAYNAK SPREYİ - 40 ADET+\r\nMONTAJ ELDIVENI SIYAH NO: 9 - 60 ÇİFT+'),
 (25, 3, 6, 'SIP-2025-000025', '2025-04-15 00:00:00', ''),
 (26, 3, 1, 'SIP-2025-000026', '2025-04-17 00:00:00', '8X80 TRİFON VİDA - 750+'),
-(27, 2, 1, 'SIP-2025-000027', '2025-04-20 00:00:00', 'BEST DC 1881 INOX TEMİZLEYİCİ SPREY - 24+'),
+(27, 3, 1, 'SIP-2025-000027', '2025-04-20 00:00:00', 'BEST DC 1881 INOX TEMİZLEYİCİ SPREY - 24+'),
 (28, 3, 1, 'SIP-2025-000028', '2025-04-29 00:00:00', 'M16x65 AKB CİVATA - 35+\r\nTOZ MASKESİ KATLANIR - 105+'),
 (29, 2, 1, 'SIP-2025-000029', '2025-05-02 00:00:00', ''),
-(31, 1, 1, 'SIP-2025-000030', '2025-05-05 00:00:00', '');
+(31, 1, 1, 'SIP-2025-000030', '2025-05-06 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -307,7 +309,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (200, 27, 238, 500, 500, ''),
 (201, 27, 434, 36, 36, ''),
 (202, 27, 511, 200, 200, ''),
-(203, 27, 378, 2000, 0, ''),
+(203, 27, 378, 2000, 2000, ''),
 (204, 27, 231, 1000, 1000, ''),
 (205, 27, 441, 300, 300, ''),
 (206, 27, 400, 5000, 5000, ''),
@@ -325,11 +327,18 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (224, 28, 380, 410, 410, ''),
 (225, 28, 404, 205, 205, ''),
 (226, 28, 502, 1200, 1200, ''),
-(227, 29, 441, 360, 0, ''),
-(228, 29, 438, 120, 0, ''),
-(229, 29, 513, 60, 0, ''),
+(227, 29, 441, 360, 240, ''),
+(228, 29, 438, 144, 144, ''),
+(229, 29, 513, 60, 60, ''),
 (230, 31, 434, 36, 0, ''),
-(231, 31, 435, 60, 0, '');
+(231, 31, 435, 60, 0, ''),
+(232, 31, 352, 200, 0, ''),
+(233, 31, 537, 10, 0, ''),
+(234, 31, 540, 10, 0, ''),
+(235, 31, 543, 20, 0, ''),
+(236, 31, 544, 10, 0, ''),
+(237, 31, 545, 5, 0, ''),
+(238, 31, 317, 600, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1192,7 +1201,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -1204,7 +1213,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=232;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
