@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 08 May 2025, 16:30:38
+-- Üretim Zamanı: 09 May 2025, 16:26:01
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -44,7 +44,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (2, 1, '2025-05-05 08:48:45', 'login', 'Kullanıcı girişi yapıldı'),
 (3, 1, '2025-05-05 09:03:27', 'login', 'Kullanıcı girişi yapıldı'),
 (4, 1, '2025-05-06 08:11:37', 'login', 'Kullanıcı girişi yapıldı'),
-(5, 1, '2025-05-08 11:22:58', 'login', 'Kullanıcı girişi yapıldı');
+(5, 1, '2025-05-08 11:22:58', 'login', 'Kullanıcı girişi yapıldı'),
+(6, 1, '2025-05-09 10:30:44', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -94,9 +95,9 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (26, 3, 1, 'SIP-2025-000026', '2025-04-17 00:00:00', '8X80 TRİFON VİDA - 750+'),
 (27, 3, 1, 'SIP-2025-000027', '2025-04-20 00:00:00', 'BEST DC 1881 INOX TEMİZLEYİCİ SPREY - 24+'),
 (28, 3, 1, 'SIP-2025-000028', '2025-04-29 00:00:00', 'M16x65 AKB CİVATA - 35+\r\nTOZ MASKESİ KATLANIR - 105+'),
-(29, 2, 1, 'SIP-2025-000029', '2025-05-02 00:00:00', ''),
-(31, 2, 1, 'SIP-2025-000030', '2025-05-06 00:00:00', ''),
-(32, 1, 1, 'SIP-2025-000031', '2025-05-12 00:00:00', 'M8x90 HAVSA BAS CIVATA - 1 KUTU\r\nM8X55 HAVSA BAS CIVATA - 1 KUTU');
+(29, 3, 1, 'SIP-2025-000029', '2025-05-02 00:00:00', ''),
+(31, 2, 1, 'SIP-2025-000030', '2025-05-09 00:00:00', ''),
+(32, 1, 1, 'SIP-2025-000031', '2025-05-16 00:00:00', 'M8x90 HAVSA BAS CIVATA - 1 KUTU\r\nM8X55 HAVSA BAS CIVATA - 1 KUTU');
 
 -- --------------------------------------------------------
 
@@ -330,7 +331,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (224, 28, 380, 410, 410, ''),
 (225, 28, 404, 205, 205, ''),
 (226, 28, 502, 1200, 1200, ''),
-(227, 29, 441, 360, 240, ''),
+(227, 29, 441, 360, 360, ''),
 (228, 29, 438, 144, 144, ''),
 (229, 29, 513, 60, 60, ''),
 (230, 31, 434, 36, 0, ''),
@@ -345,8 +346,8 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (239, 31, 227, 500, 0, ''),
 (240, 31, 384, 4000, 0, ''),
 (241, 32, 517, 300, 0, 'KARBOSAN 115X1.0X22 INOX KESICI TAS'),
-(242, 32, 226, 1200, 0, ''),
-(243, 32, 299, 1050, 0, ''),
+(242, 31, 226, 600, 0, ''),
+(243, 31, 299, 1050, 0, ''),
 (244, 32, 301, 500, 0, ''),
 (245, 32, 357, 4, 0, 'KUTU');
 
@@ -1211,7 +1212,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
