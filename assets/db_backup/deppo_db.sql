@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 21 May 2025, 16:35:08
+-- Üretim Zamanı: 22 May 2025, 16:34:31
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -50,7 +50,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (8, 1, '2025-05-14 16:46:15', 'login', 'Kullanıcı girişi yapıldı'),
 (9, 1, '2025-05-15 10:29:00', 'login', 'Kullanıcı girişi yapıldı'),
 (10, 1, '2025-05-16 15:36:17', 'login', 'Kullanıcı girişi yapıldı'),
-(11, 1, '2025-05-20 08:27:01', 'login', 'Kullanıcı girişi yapıldı');
+(11, 1, '2025-05-20 08:27:01', 'login', 'Kullanıcı girişi yapıldı'),
+(12, 1, '2025-05-22 08:03:27', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (29, 3, 1, 'SIP-2025-000029', '2025-05-02 00:00:00', ''),
 (31, 2, 1, 'SIP-2025-000030', '2025-05-12 00:00:00', ''),
 (32, 2, 1, 'SIP-2025-000031', '2025-05-12 00:00:00', 'M8x90 HAVSA BAS CIVATA - 1 KUTU\r\nM8X55 HAVSA BAS CIVATA - 1 KUTU\r\nM8X100 HAVSA BAS CİVATA - 200'),
-(33, 3, 1, 'SIP-2025-000032', '2025-05-18 00:00:00', 'M6x12 BOMBE BAS CIVATA - 1350+');
+(33, 3, 1, 'SIP-2025-000032', '2025-05-18 00:00:00', 'M6x12 BOMBE BAS CIVATA - 1350+'),
+(34, 1, 1, 'SIP-2025-000033', '2025-05-26 00:00:00', 'BETA BT5 KAYNAK SPREYI - 40');
 
 -- --------------------------------------------------------
 
@@ -362,7 +364,11 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (249, 33, 441, 360, 360, ''),
 (250, 33, 383, 4000, 4000, ''),
 (251, 33, 435, 60, 60, ''),
-(252, 33, 434, 48, 48, '');
+(252, 33, 434, 48, 48, ''),
+(253, 34, 536, 100, 0, ''),
+(254, 34, 231, 1000, 0, ''),
+(255, 34, 513, 60, 0, ''),
+(256, 34, 511, 200, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1225,19 +1231,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=253;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
