@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 31 May 2025, 16:45:57
+-- Üretim Zamanı: 02 Haz 2025, 16:40:16
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -59,7 +59,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (17, 1, '2025-05-28 09:13:11', 'login', 'Kullanıcı girişi yapıldı'),
 (18, 1, '2025-05-29 10:44:11', 'login', 'Kullanıcı girişi yapıldı'),
 (19, 1, '2025-05-30 11:06:11', 'login', 'Kullanıcı girişi yapıldı'),
-(20, 1, '2025-05-31 13:31:43', 'login', 'Kullanıcı girişi yapıldı');
+(20, 1, '2025-05-31 13:31:43', 'login', 'Kullanıcı girişi yapıldı'),
+(21, 1, '2025-06-02 08:05:49', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -400,7 +401,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (277, 34, 507, 500, 0, ''),
 (278, 34, 434, 48, 0, ''),
 (279, 34, 435, 60, 0, ''),
-(280, 34, 321, 500, 0, ''),
+(280, 34, 321, 200, 0, ''),
 (281, 34, 226, 600, 0, ''),
 (282, 34, 227, 1000, 0, ''),
 (283, 34, 230, 1000, 0, ''),
@@ -1270,7 +1271,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
