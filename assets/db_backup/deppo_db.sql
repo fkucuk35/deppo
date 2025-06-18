@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 17 Haz 2025, 17:00:52
+-- Üretim Zamanı: 18 Haz 2025, 19:01:04
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -43,7 +43,9 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (1, 1, '2025-06-15 17:49:28', 'login', 'Kullanıcı girişi yapıldı'),
 (2, 1, '2025-06-16 09:08:45', 'login', 'Kullanıcı girişi yapıldı'),
 (3, 1, '2025-06-17 08:04:44', 'login', 'Kullanıcı girişi yapıldı'),
-(4, 1, '2025-06-17 16:18:13', 'login', 'Kullanıcı girişi yapıldı');
+(4, 1, '2025-06-17 16:18:13', 'login', 'Kullanıcı girişi yapıldı'),
+(5, 1, '2025-06-18 08:10:29', 'login', 'Kullanıcı girişi yapıldı'),
+(6, 1, '2025-06-18 09:27:04', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -98,7 +100,9 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (32, 2, 1, 'SIP-2025-000031', '2025-05-12 00:00:00', 'M8X55 HAVSA BAS CİVATA - 200\r\nM8X90 HAVSA BAS CİVATA - 200\r\nM8X100 HAVSA BAS CİVATA - 500'),
 (33, 3, 1, 'SIP-2025-000032', '2025-05-18 00:00:00', 'M6x12 BOMBE BAS CIVATA - 1350+'),
 (34, 2, 1, 'SIP-2025-000033', '2025-05-26 00:00:00', 'BETA BT5 KAYNAK SPREYI - 20+\r\n4X10 POPUP PERCIN - 1000\r\n6x45 HAVSA BAS CIVATA - 450+'),
-(35, 1, 1, 'SIP-2025-000034', '2025-06-16 00:00:00', '');
+(35, 2, 1, 'SIP-2025-000034', '2025-06-16 00:00:00', '3,9x16 RONDELA BAŞLI YILDIZ AKILLI VİDA - 2000'),
+(36, 3, 6, 'SIP-2025-000035', '2025-06-17 00:00:00', ''),
+(37, 1, 1, 'SIP-2025-000036', '2025-06-23 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -369,7 +373,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (261, 34, 351, 200, 0, ''),
 (262, 34, 354, 200, 0, ''),
 (263, 34, 441, 360, 360, ''),
-(264, 34, 535, 5000, 0, ''),
+(264, 34, 535, 6000, 6000, ''),
 (265, 34, 502, 1200, 1200, ''),
 (266, 34, 583, 10, 10, '180 CM (61,3 KG) (3 TOP), 160 CM (16,95 KG) (1 TOP), 145 CM (82,05 KG) (5 TOP), 120 CM (13,6 KG) (1 TOP)'),
 (267, 34, 428, 30, 30, ''),
@@ -392,8 +396,8 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (284, 31, 538, 10, 10, ''),
 (285, 31, 539, 10, 10, ''),
 (286, 31, 542, 10, 10, ''),
-(287, 34, 529, 1000, 0, ''),
-(288, 34, 534, 1000, 0, ''),
+(287, 34, 529, 1000, 1000, ''),
+(288, 34, 534, 1000, 1000, ''),
 (289, 35, 310, 500, 0, ''),
 (290, 35, 313, 500, 0, ''),
 (291, 35, 311, 500, 0, ''),
@@ -404,7 +408,9 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (296, 35, 401, 2200, 0, ''),
 (297, 35, 324, 200, 0, ''),
 (298, 35, 325, 400, 0, ''),
-(299, 35, 441, 360, 0, '');
+(299, 35, 441, 360, 0, ''),
+(300, 36, 454, 300, 300, ''),
+(301, 37, 513, 60, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1268,19 +1274,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
