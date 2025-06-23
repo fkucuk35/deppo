@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 20 Haz 2025, 17:25:35
+-- Üretim Zamanı: 23 Haz 2025, 16:59:41
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -48,7 +48,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (6, 1, '2025-06-18 09:27:04', 'login', 'Kullanıcı girişi yapıldı'),
 (7, 1, '2025-06-19 20:03:45', 'login', 'Kullanıcı girişi yapıldı'),
 (8, 1, '2025-06-19 23:09:06', 'login', 'Kullanıcı girişi yapıldı'),
-(9, 1, '2025-06-20 08:28:46', 'login', 'Kullanıcı girişi yapıldı');
+(9, 1, '2025-06-20 08:28:46', 'login', 'Kullanıcı girişi yapıldı'),
+(10, 1, '2025-06-23 09:04:29', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -1282,7 +1283,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
