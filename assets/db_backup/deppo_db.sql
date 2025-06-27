@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 26 Haz 2025, 16:49:29
+-- Üretim Zamanı: 27 Haz 2025, 16:59:41
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -54,7 +54,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (12, 1, '2025-06-24 14:26:40', 'login', 'Kullanıcı girişi yapıldı'),
 (13, 1, '2025-06-25 08:05:56', 'login', 'Kullanıcı girişi yapıldı'),
 (14, 1, '2025-06-26 08:07:34', 'login', 'Kullanıcı girişi yapıldı'),
-(15, 1, '2025-06-26 17:48:33', 'login', 'Kullanıcı girişi yapıldı');
+(15, 1, '2025-06-26 17:48:33', 'login', 'Kullanıcı girişi yapıldı'),
+(16, 1, '2025-06-27 17:58:07', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (35, 2, 1, 'SIP-2025-000034', '2025-06-16 00:00:00', '3,9x16 RONDELA BAŞLI YILDIZ AKILLI VİDA - 3000+\r\nRAL 1003 SPREY BOYA - 24 '),
 (36, 3, 6, 'SIP-2025-000035', '2025-06-17 00:00:00', ''),
 (37, 2, 1, 'SIP-2025-000036', '2025-06-23 00:00:00', ''),
-(38, 1, 1, 'SIP-2025-000037', '2025-07-01 00:00:00', '115 LİK CIRT ZIMPARA TABANI - 20');
+(38, 1, 1, 'SIP-2025-000037', '2025-07-01 00:00:00', '115 LİK CIRT ZIMPARA TABANI - 20\r\n4,8x60 YHB AKILLI VİDA - 500');
 
 -- --------------------------------------------------------
 
@@ -1297,7 +1298,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
