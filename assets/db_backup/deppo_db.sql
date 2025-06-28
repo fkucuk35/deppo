@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 27 Haz 2025, 16:59:41
+-- Üretim Zamanı: 28 Haz 2025, 12:43:07
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -55,7 +55,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (13, 1, '2025-06-25 08:05:56', 'login', 'Kullanıcı girişi yapıldı'),
 (14, 1, '2025-06-26 08:07:34', 'login', 'Kullanıcı girişi yapıldı'),
 (15, 1, '2025-06-26 17:48:33', 'login', 'Kullanıcı girişi yapıldı'),
-(16, 1, '2025-06-27 17:58:07', 'login', 'Kullanıcı girişi yapıldı');
+(16, 1, '2025-06-27 17:58:07', 'login', 'Kullanıcı girişi yapıldı'),
+(17, 1, '2025-06-28 13:40:11', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -422,18 +423,18 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (299, 35, 441, 360, 360, ''),
 (300, 36, 454, 300, 300, ''),
 (301, 37, 513, 60, 60, ''),
-(302, 34, 228, 1500, 0, ''),
+(302, 34, 228, 1600, 1600, ''),
 (303, 35, 447, 24, 24, ''),
 (304, 37, 536, 200, 0, ''),
 (305, 37, 434, 48, 48, ''),
 (306, 37, 435, 60, 60, ''),
 (307, 37, 438, 144, 144, ''),
-(308, 37, 439, 72, 0, '5CM LİK'),
-(309, 37, 242, 500, 0, ''),
+(308, 37, 439, 72, 72, '5CM LİK'),
+(309, 37, 242, 500, 100, ''),
 (310, 37, 343, 500, 0, ''),
 (311, 37, 431, 30, 30, ''),
-(312, 37, 319, 400, 0, ''),
-(313, 37, 441, 360, 0, ''),
+(312, 37, 319, 400, 400, ''),
+(313, 37, 441, 360, 360, ''),
 (314, 38, 512, 10, 0, '');
 
 -- --------------------------------------------------------
@@ -1298,7 +1299,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
