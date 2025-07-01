@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 30 Haz 2025, 17:00:40
+-- Üretim Zamanı: 01 Tem 2025, 16:50:13
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -57,7 +57,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (15, 1, '2025-06-26 17:48:33', 'login', 'Kullanıcı girişi yapıldı'),
 (16, 1, '2025-06-27 17:58:07', 'login', 'Kullanıcı girişi yapıldı'),
 (17, 1, '2025-06-28 13:40:11', 'login', 'Kullanıcı girişi yapıldı'),
-(18, 1, '2025-06-30 08:56:08', 'login', 'Kullanıcı girişi yapıldı');
+(18, 1, '2025-06-30 08:56:08', 'login', 'Kullanıcı girişi yapıldı'),
+(19, 1, '2025-07-01 08:53:13', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (35, 2, 1, 'SIP-2025-000034', '2025-06-16 00:00:00', '3,9x16 RONDELA BAŞLI YILDIZ AKILLI VİDA - 3000+\r\nRAL 1003 SPREY BOYA - 24 '),
 (36, 3, 6, 'SIP-2025-000035', '2025-06-17 00:00:00', ''),
 (37, 2, 1, 'SIP-2025-000036', '2025-06-23 00:00:00', ''),
-(38, 1, 1, 'SIP-2025-000037', '2025-07-01 00:00:00', '115 LİK CIRT ZIMPARA TABANI - 20\r\n4,8x60 YHB AKILLI VİDA - 500');
+(38, 1, 1, 'SIP-2025-000037', '2025-07-01 00:00:00', '115 LİK CIRT ZIMPARA TABANI - 20+\r\n4,8x60 YHB AKILLI VİDA - 500');
 
 -- --------------------------------------------------------
 
@@ -437,7 +438,11 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (312, 37, 319, 400, 400, ''),
 (313, 37, 441, 360, 360, ''),
 (314, 38, 512, 10, 0, ''),
-(315, 38, 418, 2000, 0, '');
+(315, 38, 418, 2000, 0, ''),
+(316, 38, 513, 60, 0, ''),
+(317, 38, 502, 1200, 0, ''),
+(318, 38, 507, 1000, 0, ''),
+(319, 38, 429, 60, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1301,7 +1306,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -1313,7 +1318,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=316;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=320;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
