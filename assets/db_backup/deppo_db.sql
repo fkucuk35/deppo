@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 01 Tem 2025, 16:50:13
+-- Üretim Zamanı: 02 Tem 2025, 16:32:48
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -58,7 +58,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (16, 1, '2025-06-27 17:58:07', 'login', 'Kullanıcı girişi yapıldı'),
 (17, 1, '2025-06-28 13:40:11', 'login', 'Kullanıcı girişi yapıldı'),
 (18, 1, '2025-06-30 08:56:08', 'login', 'Kullanıcı girişi yapıldı'),
-(19, 1, '2025-07-01 08:53:13', 'login', 'Kullanıcı girişi yapıldı');
+(19, 1, '2025-07-01 08:53:13', 'login', 'Kullanıcı girişi yapıldı'),
+(20, 1, '2025-07-02 08:39:48', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -413,8 +414,8 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (287, 34, 529, 1000, 1000, ''),
 (288, 34, 534, 1000, 1000, ''),
 (289, 35, 310, 600, 0, ''),
-(290, 35, 313, 600, 0, ''),
-(291, 35, 311, 600, 0, ''),
+(290, 35, 313, 750, 750, ''),
+(291, 35, 311, 1000, 1000, ''),
 (292, 34, 432, 50, 50, ''),
 (293, 35, 418, 1500, 1500, ''),
 (294, 35, 239, 1000, 1000, ''),
@@ -442,7 +443,12 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (316, 38, 513, 60, 0, ''),
 (317, 38, 502, 1200, 0, ''),
 (318, 38, 507, 1000, 0, ''),
-(319, 38, 429, 60, 0, '');
+(319, 38, 429, 60, 0, ''),
+(320, 38, 441, 360, 0, ''),
+(321, 38, 384, 4000, 0, ''),
+(322, 38, 400, 5000, 0, ''),
+(323, 38, 231, 2000, 0, ''),
+(324, 38, 229, 1000, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1306,7 +1312,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -1318,7 +1324,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=320;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=325;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
