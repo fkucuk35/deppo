@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 02 Tem 2025, 16:32:48
+-- Üretim Zamanı: 03 Tem 2025, 16:44:12
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -59,7 +59,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (17, 1, '2025-06-28 13:40:11', 'login', 'Kullanıcı girişi yapıldı'),
 (18, 1, '2025-06-30 08:56:08', 'login', 'Kullanıcı girişi yapıldı'),
 (19, 1, '2025-07-01 08:53:13', 'login', 'Kullanıcı girişi yapıldı'),
-(20, 1, '2025-07-02 08:39:48', 'login', 'Kullanıcı girişi yapıldı');
+(20, 1, '2025-07-02 08:39:48', 'login', 'Kullanıcı girişi yapıldı'),
+(21, 1, '2025-07-03 08:25:28', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -117,7 +118,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (35, 2, 1, 'SIP-2025-000034', '2025-06-16 00:00:00', '3,9x16 RONDELA BAŞLI YILDIZ AKILLI VİDA - 3000+\r\nRAL 1003 SPREY BOYA - 24 '),
 (36, 3, 6, 'SIP-2025-000035', '2025-06-17 00:00:00', ''),
 (37, 2, 1, 'SIP-2025-000036', '2025-06-23 00:00:00', ''),
-(38, 1, 1, 'SIP-2025-000037', '2025-07-01 00:00:00', '115 LİK CIRT ZIMPARA TABANI - 20+\r\n4,8x60 YHB AKILLI VİDA - 500');
+(38, 2, 1, 'SIP-2025-000037', '2025-07-01 00:00:00', '115 LİK CIRT ZIMPARA TABANI - 20+\r\n4,8x60 YHB AKILLI VİDA - 500');
 
 -- --------------------------------------------------------
 
@@ -413,7 +414,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (286, 31, 542, 10, 10, ''),
 (287, 34, 529, 1000, 1000, ''),
 (288, 34, 534, 1000, 1000, ''),
-(289, 35, 310, 600, 0, ''),
+(289, 35, 310, 1000, 0, ''),
 (290, 35, 313, 750, 750, ''),
 (291, 35, 311, 1000, 1000, ''),
 (292, 34, 432, 50, 50, ''),
@@ -1312,7 +1313,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
