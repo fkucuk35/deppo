@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 07 Tem 2025, 16:56:53
+-- Üretim Zamanı: 08 Tem 2025, 17:56:53
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -34,35 +34,6 @@ CREATE TABLE `deppo_logs` (
   `operation` varchar(50) NOT NULL,
   `operation_detail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `deppo_logs`
---
-
-INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-06-15 17:49:28', 'login', 'Kullanıcı girişi yapıldı'),
-(2, 1, '2025-06-16 09:08:45', 'login', 'Kullanıcı girişi yapıldı'),
-(3, 1, '2025-06-17 08:04:44', 'login', 'Kullanıcı girişi yapıldı'),
-(4, 1, '2025-06-17 16:18:13', 'login', 'Kullanıcı girişi yapıldı'),
-(5, 1, '2025-06-18 08:10:29', 'login', 'Kullanıcı girişi yapıldı'),
-(6, 1, '2025-06-18 09:27:04', 'login', 'Kullanıcı girişi yapıldı'),
-(7, 1, '2025-06-19 20:03:45', 'login', 'Kullanıcı girişi yapıldı'),
-(8, 1, '2025-06-19 23:09:06', 'login', 'Kullanıcı girişi yapıldı'),
-(9, 1, '2025-06-20 08:28:46', 'login', 'Kullanıcı girişi yapıldı'),
-(10, 1, '2025-06-23 09:04:29', 'login', 'Kullanıcı girişi yapıldı'),
-(11, 1, '2025-06-24 12:51:53', 'login', 'Kullanıcı girişi yapıldı'),
-(12, 1, '2025-06-24 14:26:40', 'login', 'Kullanıcı girişi yapıldı'),
-(13, 1, '2025-06-25 08:05:56', 'login', 'Kullanıcı girişi yapıldı'),
-(14, 1, '2025-06-26 08:07:34', 'login', 'Kullanıcı girişi yapıldı'),
-(15, 1, '2025-06-26 17:48:33', 'login', 'Kullanıcı girişi yapıldı'),
-(16, 1, '2025-06-27 17:58:07', 'login', 'Kullanıcı girişi yapıldı'),
-(17, 1, '2025-06-28 13:40:11', 'login', 'Kullanıcı girişi yapıldı'),
-(18, 1, '2025-06-30 08:56:08', 'login', 'Kullanıcı girişi yapıldı'),
-(19, 1, '2025-07-01 08:53:13', 'login', 'Kullanıcı girişi yapıldı'),
-(20, 1, '2025-07-02 08:39:48', 'login', 'Kullanıcı girişi yapıldı'),
-(21, 1, '2025-07-03 08:25:28', 'login', 'Kullanıcı girişi yapıldı'),
-(22, 1, '2025-07-04 11:30:38', 'login', 'Kullanıcı girişi yapıldı'),
-(23, 1, '2025-07-07 09:04:25', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -437,7 +408,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (306, 37, 435, 60, 60, ''),
 (307, 37, 438, 144, 144, ''),
 (308, 37, 439, 72, 72, '5CM LİK'),
-(309, 37, 242, 500, 100, ''),
+(309, 37, 242, 500, 500, ''),
 (310, 37, 343, 500, 500, ''),
 (311, 37, 431, 30, 30, ''),
 (312, 37, 319, 400, 400, ''),
@@ -455,7 +426,9 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (324, 38, 229, 1000, 0, ''),
 (325, 39, 295, 500, 0, ''),
 (326, 38, 529, 3000, 0, ''),
-(327, 38, 517, 300, 0, 'KARBOSAN 115X1.0X22 INOX KESICI TAS');
+(327, 38, 517, 300, 300, 'KARBOSAN 115X1.0X22 INOX KESICI TAS'),
+(328, 39, 317, 1400, 0, ''),
+(329, 39, 319, 200, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1319,7 +1292,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -1331,7 +1304,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=328;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=330;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
