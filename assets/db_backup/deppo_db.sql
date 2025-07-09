@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 08 Tem 2025, 17:56:53
+-- Üretim Zamanı: 09 Tem 2025, 18:41:11
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -34,6 +34,14 @@ CREATE TABLE `deppo_logs` (
   `operation` varchar(50) NOT NULL,
   `operation_detail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `deppo_logs`
+--
+
+INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
+(1, 1, '2025-07-09 09:32:45', 'login', 'Kullanıcı girişi yapıldı'),
+(2, 1, '2025-07-09 19:35:46', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -355,7 +363,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (253, 34, 536, 100, 100, ''),
 (254, 34, 231, 1200, 1200, ''),
 (255, 34, 513, 60, 60, ''),
-(256, 34, 511, 400, 0, ''),
+(256, 34, 511, 400, 100, ''),
 (257, 34, 347, 225, 225, ''),
 (258, 34, 348, 200, 200, ''),
 (259, 34, 349, 200, 200, ''),
@@ -414,11 +422,11 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (312, 37, 319, 400, 400, ''),
 (313, 37, 441, 360, 360, ''),
 (314, 38, 512, 10, 0, ''),
-(315, 38, 418, 2000, 0, ''),
+(315, 38, 418, 2000, 200, ''),
 (316, 38, 513, 60, 0, ''),
 (317, 38, 502, 1200, 0, ''),
 (318, 38, 507, 1000, 0, ''),
-(319, 38, 429, 60, 0, ''),
+(319, 38, 429, 50, 50, ''),
 (320, 38, 441, 360, 360, ''),
 (321, 38, 384, 4000, 0, ''),
 (322, 38, 400, 5000, 0, ''),
@@ -428,7 +436,8 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (326, 38, 529, 3000, 0, ''),
 (327, 38, 517, 300, 300, 'KARBOSAN 115X1.0X22 INOX KESICI TAS'),
 (328, 39, 317, 1400, 0, ''),
-(329, 39, 319, 200, 0, '');
+(329, 39, 319, 200, 0, ''),
+(330, 39, 430, 60, 60, '');
 
 -- --------------------------------------------------------
 
@@ -1292,7 +1301,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -1304,7 +1313,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=330;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=331;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
