@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 14 Tem 2025, 18:59:26
+-- Üretim Zamanı: 15 Tem 2025, 19:23:55
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -45,7 +45,8 @@ INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation
 (3, 1, '2025-07-11 09:05:46', 'login', 'Kullanıcı girişi yapıldı'),
 (4, 1, '2025-07-11 19:27:00', 'login', 'Kullanıcı girişi yapıldı'),
 (5, 1, '2025-07-12 15:42:03', 'login', 'Kullanıcı girişi yapıldı'),
-(6, 1, '2025-07-14 19:46:38', 'login', 'Kullanıcı girişi yapıldı');
+(6, 1, '2025-07-14 19:46:38', 'login', 'Kullanıcı girişi yapıldı'),
+(7, 1, '2025-07-15 08:20:47', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -104,7 +105,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (36, 3, 6, 'SIP-2025-000035', '2025-06-17 00:00:00', ''),
 (37, 3, 1, 'SIP-2025-000036', '2025-06-23 00:00:00', ''),
 (38, 2, 1, 'SIP-2025-000037', '2025-07-01 00:00:00', '115 LİK CIRT ZIMPARA TABANI - 20+\r\n4,8x60 YHB AKILLI VİDA - 500'),
-(39, 2, 1, 'SIP-2025-000038', '2025-07-16 00:00:00', '');
+(39, 2, 1, 'SIP-2025-000038', '2025-07-16 00:00:00', ''),
+(40, 1, 1, 'SIP-2025-000039', '2025-07-17 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -436,13 +438,14 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (322, 38, 400, 5000, 5000, ''),
 (323, 38, 231, 2000, 0, ''),
 (324, 38, 229, 1000, 0, ''),
-(325, 39, 295, 500, 0, ''),
+(325, 39, 295, 600, 600, ''),
 (326, 38, 529, 3000, 0, ''),
 (327, 38, 517, 300, 300, 'KARBOSAN 115X1.0X22 INOX KESICI TAS'),
 (328, 39, 317, 1400, 0, ''),
 (329, 39, 319, 200, 0, ''),
 (330, 39, 430, 60, 60, ''),
-(331, 39, 580, 2000, 0, '');
+(331, 39, 580, 2000, 0, ''),
+(332, 40, 418, 1500, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1306,19 +1309,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=332;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=333;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
