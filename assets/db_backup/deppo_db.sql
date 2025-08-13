@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 12 Ağu 2025, 18:20:59
+-- Üretim Zamanı: 13 Ağu 2025, 18:45:29
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -470,7 +470,8 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (365, 43, 544, 10, 10, ''),
 (366, 43, 545, 10, 10, ''),
 (367, 43, 441, 360, 360, ''),
-(368, 43, 349, 200, 50, '');
+(368, 43, 349, 200, 50, ''),
+(369, 44, 502, 1200, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1346,7 +1347,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=369;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=370;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
