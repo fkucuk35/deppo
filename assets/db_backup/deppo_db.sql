@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 14 Ağu 2025, 19:50:54
+-- Üretim Zamanı: 15 Ağu 2025, 20:14:52
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -40,7 +40,9 @@ CREATE TABLE `deppo_logs` (
 --
 
 INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-08-14 12:45:36', 'login', 'Kullanıcı girişi yapıldı');
+(1, 1, '2025-08-14 12:45:36', 'login', 'Kullanıcı girişi yapıldı'),
+(2, 1, '2025-08-15 09:02:24', 'login', 'Kullanıcı girişi yapıldı'),
+(3, 1, '2025-08-15 11:28:03', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -104,7 +106,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (41, 3, 1, 'SIP-2025-000040', '2025-07-28 00:00:00', '3/8 2MM PUL - 2770+'),
 (42, 3, 1, 'SIP-2025-000041', '2025-07-31 00:00:00', 'MONTAJ ELDIVENI SIYAH NO:8 - 48+'),
 (43, 2, 1, 'SIP-2025-000042', '2025-08-11 00:00:00', '9MM MATKAP UCU - 10+\r\n11 MM MATKAP UCU - 10+'),
-(44, 1, 1, 'SIP-2025-000043', '2025-08-15 00:00:00', '3/8 1 MM PUL - 2000\r\n3/8 2 MM PUL - 4000');
+(44, 2, 1, 'SIP-2025-000043', '2025-08-15 00:00:00', '3/8 1 MM PUL - 2000\r\n3/8 2 MM PUL - 4000\r\n5/16 1 MM PUL - 2000'),
+(45, 1, 1, 'SIP-2025-000044', '2025-08-18 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -373,7 +376,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (259, 34, 349, 200, 200, ''),
 (260, 34, 350, 140, 140, ''),
 (261, 34, 351, 200, 200, ''),
-(262, 44, 354, 200, 0, ''),
+(262, 45, 354, 200, 0, ''),
 (263, 34, 441, 360, 360, ''),
 (264, 34, 535, 6000, 6000, ''),
 (265, 34, 502, 1200, 1200, ''),
@@ -464,7 +467,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (351, 43, 390, 2000, 2000, ''),
 (352, 43, 377, 2000, 2000, ''),
 (353, 43, 513, 60, 60, ''),
-(354, 44, 511, 200, 0, ''),
+(354, 44, 511, 400, 0, ''),
 (355, 43, 438, 72, 0, ''),
 (356, 43, 434, 48, 48, ''),
 (357, 43, 435, 60, 60, ''),
@@ -479,7 +482,8 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (367, 43, 441, 360, 360, ''),
 (368, 43, 349, 200, 50, ''),
 (369, 44, 502, 1200, 0, ''),
-(370, 44, 513, 60, 0, '');
+(370, 44, 513, 60, 0, ''),
+(371, 45, 401, 2000, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1343,19 +1347,19 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=371;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=372;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
