@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 19 Ağu 2025, 19:52:23
+-- Üretim Zamanı: 20 Ağu 2025, 21:26:10
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -96,7 +96,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (40, 3, 1, 'SIP-2025-000039', '2025-07-23 00:00:00', 'MONTAJ ELDIVENI SIYAH NO:9 - 96+'),
 (41, 3, 1, 'SIP-2025-000040', '2025-07-28 00:00:00', '3/8 2MM PUL - 2770+'),
 (42, 3, 1, 'SIP-2025-000041', '2025-07-31 00:00:00', 'MONTAJ ELDIVENI SIYAH NO:8 - 48+'),
-(43, 2, 1, 'SIP-2025-000042', '2025-08-11 00:00:00', '9MM MATKAP UCU - 10+\r\n11 MM MATKAP UCU - 10+'),
+(43, 3, 1, 'SIP-2025-000042', '2025-08-11 00:00:00', '9MM MATKAP UCU - 10+\r\n11 MM MATKAP UCU - 10+'),
 (44, 3, 1, 'SIP-2025-000043', '2025-08-15 00:00:00', '3/8 2 MM PUL - 2000+\r\n5/16 1 MM PUL - 200+\r\n3/8 3MM - 4000+'),
 (45, 1, 1, 'SIP-2025-000044', '2025-08-18 00:00:00', '3,9x16 RONDELA BAŞLI AKILLI VİDA (AKDENİZ MARKA) - 2000');
 
@@ -462,7 +462,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (355, 43, 438, 60, 60, ''),
 (356, 43, 434, 48, 48, ''),
 (357, 43, 435, 60, 60, ''),
-(358, 43, 234, 2, 0, 'KUTU'),
+(358, 43, 234, 250, 250, ''),
 (359, 43, 537, 10, 10, ''),
 (360, 43, 538, 10, 10, ''),
 (361, 43, 539, 10, 10, ''),
