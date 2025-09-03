@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 30 Ağu 2025, 21:28:57
+-- Üretim Zamanı: 03 Eyl 2025, 18:14:57
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -101,7 +101,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (45, 3, 1, 'SIP-2025-000044', '2025-08-21 00:00:00', '3,9x16 RONDELA BAŞLI AKILLI VİDA (AKDENİZ MARKA) - 2000+'),
 (46, 2, 1, 'SIP-2025-000045', '2025-08-25 00:00:00', ''),
 (47, 2, 1, 'SIP-2025-000046', '2025-08-29 00:00:00', ''),
-(48, 1, 1, 'SIP-2025-000047', '2025-09-01 00:00:00', '3/8 1 MM PUL - 2000');
+(48, 2, 1, 'SIP-2025-000047', '2025-09-01 00:00:00', ''),
+(49, 1, 1, 'SIP-2025-000048', '2025-09-08 00:00:00', '3/8 1 MM PUL - 2000\r\nM10X210 DELİCİ HİLTİ UCU - 10\r\nM12X210 DELİCİ HİLTİ UCU - 10\r\nM6X210 DELİCİ HİLTİ UCU - 10');
 
 -- --------------------------------------------------------
 
@@ -370,7 +371,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (259, 34, 349, 200, 200, ''),
 (260, 34, 350, 140, 140, ''),
 (261, 34, 351, 200, 200, ''),
-(262, 48, 354, 200, 0, ''),
+(262, 49, 354, 200, 0, ''),
 (263, 34, 441, 360, 360, ''),
 (264, 34, 535, 6000, 6000, ''),
 (265, 34, 502, 1200, 1200, ''),
@@ -488,7 +489,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (379, 45, 383, 2000, 2000, ''),
 (380, 46, 409, 2400, 0, ''),
 (381, 46, 502, 1200, 1200, ''),
-(382, 46, 441, 480, 260, '50 ADEDİ 60 KUM'),
+(382, 46, 441, 480, 480, ''),
 (383, 46, 508, 1500, 1500, ''),
 (384, 46, 447, 24, 24, 'BEST ELITE AKRİLİK'),
 (385, 46, 400, 2400, 2400, ''),
@@ -500,7 +501,18 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (392, 47, 434, 48, 48, ''),
 (393, 47, 435, 60, 60, ''),
 (394, 47, 441, 480, 480, ''),
-(395, 48, 353, 700, 0, '');
+(395, 48, 353, 700, 0, ''),
+(396, 48, 349, 400, 0, ''),
+(397, 48, 519, 1050, 1050, ''),
+(398, 49, 401, 2000, 0, ''),
+(399, 49, 399, 2000, 0, ''),
+(400, 48, 441, 260, 260, '50 ADEDİ 60 KUM OLARAK GELDİ'),
+(401, 49, 348, 110, 0, ''),
+(402, 49, 544, 20, 0, ''),
+(403, 49, 539, 20, 0, ''),
+(404, 49, 543, 20, 0, ''),
+(405, 49, 377, 4000, 0, ''),
+(406, 49, 502, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1370,13 +1382,13 @@ ALTER TABLE `deppo_logs`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=396;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=407;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
