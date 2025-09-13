@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 05 Eyl 2025, 22:11:15
+-- Üretim Zamanı: 13 Eyl 2025, 20:58:16
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -34,17 +34,6 @@ CREATE TABLE `deppo_logs` (
   `operation` varchar(50) NOT NULL,
   `operation_detail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `deppo_logs`
---
-
-INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-09-04 08:07:15', 'login', 'Kullanıcı girişi yapıldı'),
-(2, 1, '2025-09-04 14:13:30', 'login', 'Kullanıcı girişi yapıldı'),
-(3, 1, '2025-09-05 09:30:10', 'login', 'Kullanıcı girişi yapıldı'),
-(4, 1, '2025-09-05 10:57:06', 'login', 'Kullanıcı girişi yapıldı'),
-(5, 1, '2025-09-05 23:05:12', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -110,12 +99,12 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (43, 3, 1, 'SIP-2025-000042', '2025-08-11 00:00:00', '9MM MATKAP UCU - 10+\r\n11 MM MATKAP UCU - 10+'),
 (44, 3, 1, 'SIP-2025-000043', '2025-08-15 00:00:00', '3/8 2 MM PUL - 2000+\r\n5/16 1 MM PUL - 200+\r\n3/8 3MM - 4000+'),
 (45, 3, 1, 'SIP-2025-000044', '2025-08-21 00:00:00', '3,9x16 RONDELA BAŞLI AKILLI VİDA (AKDENİZ MARKA) - 2000+'),
-(46, 2, 1, 'SIP-2025-000045', '2025-08-25 00:00:00', ''),
-(47, 2, 1, 'SIP-2025-000046', '2025-08-29 00:00:00', ''),
-(48, 2, 1, 'SIP-2025-000047', '2025-09-01 00:00:00', ''),
-(49, 2, 1, 'SIP-2025-000048', '2025-09-04 00:00:00', '9MM MATKAP UCU - 20'),
-(50, 2, 1, 'SIP-2025-000049', '2025-09-05 00:00:00', 'M6X210 DELİCİ HİLTİ UCU - 10\r\nM10X210 DELİCİ HİLTİ UCU - 10\r\nM12X210 DELİCİ HİLTİ UCU - 10'),
-(51, 1, 1, 'SIP-2025-000050', '2025-09-08 00:00:00', '3/8 1 MM PUL - 2000');
+(46, 3, 1, 'SIP-2025-000045', '2025-08-25 00:00:00', ''),
+(47, 3, 1, 'SIP-2025-000046', '2025-08-29 00:00:00', ''),
+(48, 3, 1, 'SIP-2025-000047', '2025-09-01 00:00:00', ''),
+(49, 3, 1, 'SIP-2025-000048', '2025-09-04 00:00:00', '9MM MATKAP UCU - 20+'),
+(50, 3, 1, 'SIP-2025-000049', '2025-09-05 00:00:00', 'M6X210 DELİCİ HİLTİ UCU - 10+\r\nM10X210 DELİCİ HİLTİ UCU - 10+\r\nM12X210 DELİCİ HİLTİ UCU - 10+'),
+(51, 1, 1, 'SIP-2025-000050', '2025-09-08 00:00:00', '3/8 1 MM PUL - 2000\r\nKARBOSAN 115X3.0X22 KESİCİ TAŞ - 50\r\nMONTAJ ELDIVENI SIYAH NO:9 - 48\r\nMONTAJ ELDIVENI SIYAH NO:8 - 48\r\n8X100 HAVSA BAS CIVATA - 500');
 
 -- --------------------------------------------------------
 
@@ -500,14 +489,14 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (377, 45, 236, 1250, 1250, ''),
 (378, 45, 349, 210, 210, ''),
 (379, 45, 383, 2000, 2000, ''),
-(380, 46, 409, 2400, 0, ''),
+(380, 46, 409, 2400, 2400, ''),
 (381, 46, 502, 1200, 1200, ''),
 (382, 46, 441, 480, 480, ''),
 (383, 46, 508, 1500, 1500, ''),
 (384, 46, 447, 24, 24, 'BEST ELITE AKRİLİK'),
 (385, 46, 400, 2400, 2400, ''),
 (386, 47, 536, 200, 200, ''),
-(387, 47, 513, 60, 0, ''),
+(387, 47, 513, 60, 60, ''),
 (388, 47, 341, 300, 300, ''),
 (389, 47, 603, 24, 24, ''),
 (390, 47, 327, 200, 200, ''),
@@ -515,25 +504,29 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (393, 47, 435, 60, 60, ''),
 (394, 47, 441, 480, 480, ''),
 (395, 48, 353, 700, 700, ''),
-(396, 48, 349, 400, 0, ''),
+(396, 48, 349, 410, 410, ''),
 (397, 48, 519, 1050, 1050, ''),
 (398, 49, 401, 2000, 2000, ''),
 (399, 49, 399, 2000, 2000, ''),
 (400, 48, 441, 260, 260, '50 ADEDİ 60 KUM OLARAK GELDİ'),
 (401, 49, 348, 300, 300, ''),
-(402, 49, 544, 20, 0, ''),
-(403, 49, 539, 20, 0, ''),
-(404, 49, 543, 20, 0, ''),
+(402, 49, 544, 20, 20, ''),
+(403, 49, 539, 20, 20, ''),
+(404, 49, 543, 20, 20, ''),
 (405, 49, 377, 4000, 4000, ''),
 (406, 49, 502, 1200, 1200, ''),
 (407, 49, 430, 50, 50, ''),
 (408, 49, 429, 50, 50, ''),
-(409, 49, 542, 20, 0, ''),
-(410, 49, 545, 20, 0, ''),
+(409, 49, 542, 20, 20, ''),
+(410, 49, 545, 20, 20, ''),
 (411, 50, 441, 480, 480, ''),
-(412, 50, 352, 200, 0, ''),
+(412, 50, 352, 225, 225, ''),
 (413, 50, 340, 300, 300, ''),
-(414, 50, 439, 72, 0, '');
+(414, 50, 439, 96, 96, ''),
+(415, 51, 539, 20, 0, ''),
+(416, 51, 441, 480, 0, ''),
+(417, 51, 435, 60, 0, ''),
+(418, 51, 502, 1200, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1397,7 +1390,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -1409,7 +1402,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=415;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=419;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
