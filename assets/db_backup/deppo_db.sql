@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 09 Eki 2025, 19:30:36
+-- Üretim Zamanı: 10 Eki 2025, 21:42:30
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -34,24 +34,6 @@ CREATE TABLE `deppo_logs` (
   `operation` varchar(50) NOT NULL,
   `operation_detail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `deppo_logs`
---
-
-INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-09-18 21:52:45', 'login', 'Kullanıcı girişi yapıldı'),
-(2, 1, '2025-09-29 08:55:09', 'login', 'Kullanıcı girişi yapıldı'),
-(3, 1, '2025-09-29 09:32:37', 'login', 'Kullanıcı girişi yapıldı'),
-(4, 1, '2025-09-30 08:18:50', 'login', 'Kullanıcı girişi yapıldı'),
-(5, 1, '2025-10-02 20:37:27', 'login', 'Kullanıcı girişi yapıldı'),
-(6, 1, '2025-10-03 07:32:10', 'login', 'Kullanıcı girişi yapıldı'),
-(7, 1, '2025-10-06 14:30:27', 'login', 'Kullanıcı girişi yapıldı'),
-(8, 1, '2025-10-07 09:43:02', 'login', 'Kullanıcı girişi yapıldı'),
-(9, 1, '2025-10-08 09:08:28', 'login', 'Kullanıcı girişi yapıldı'),
-(10, 1, '2025-10-08 19:50:13', 'login', 'Kullanıcı girişi yapıldı'),
-(11, 1, '2025-10-09 13:23:20', 'login', 'Kullanıcı girişi yapıldı'),
-(12, 1, '2025-10-09 20:23:32', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -125,8 +107,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (51, 3, 1, 'SIP-2025-000050', '2025-09-08 00:00:00', '3/8 1 MM PUL - 1000+\r\nKARBOSAN 115X3.0X22 KESİCİ TAŞ - 100+\r\nMONTAJ ELDIVENI SIYAH NO:9 - 48+\r\nMONTAJ ELDIVENI SIYAH NO:8 - 48+'),
 (52, 3, 1, 'SIP-2025-000051', '2025-09-29 00:00:00', ''),
 (53, 2, 1, 'SIP-2025-000052', '2025-10-06 00:00:00', '3/8 1 MM PUL - 2000 ADET'),
-(54, 2, 1, 'SIP-2025-000053', '2025-10-06 00:00:00', '8X100 HAVSA BAS CIVATA - 500+\r\nMONTAJ ELDIVENI SIYAH NO:9 - 60\r\n4,8×60 YHSB AKILLI - 1000+'),
-(55, 2, 1, 'SIP-2025-000054', '2025-10-09 00:00:00', '5/16 3 MM PUL - 500\r\n3/8 3 MM PUL - 200\r\nBEST LU500 SIVI GRES - 5'),
+(54, 2, 1, 'SIP-2025-000053', '2025-10-06 00:00:00', '8X100 HAVSA BAS CIVATA - 500+\r\n4,8×60 YHSB AKILLI - 1000+'),
+(55, 2, 1, 'SIP-2025-000054', '2025-10-09 00:00:00', '5/16 3 MM PUL - 500+\r\n3/8 3 MM PUL - 200+\r\nBEST LU500 SIVI GRES - 5+\r\nM8 KLAVUZ - 10+\r\n14X50 ANAHTAR BAŞ CİVATA (TAM PASOLU) - 600+'),
 (56, 1, 1, 'SIP-2025-000055', '2025-10-13 00:00:00', '');
 
 -- --------------------------------------------------------
@@ -565,7 +547,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (431, 52, 383, 2000, 2000, ''),
 (432, 53, 603, 24, 24, ''),
 (433, 52, 441, 480, 480, ''),
-(434, 53, 227, 2000, 0, ''),
+(434, 53, 227, 2000, 2000, ''),
 (435, 53, 340, 450, 450, ''),
 (436, 53, 350, 300, 300, ''),
 (437, 53, 390, 4000, 4000, ''),
@@ -587,10 +569,14 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (453, 54, 513, 60, 60, ''),
 (454, 53, 349, 420, 420, ''),
 (455, 55, 324, 500, 0, ''),
-(456, 55, 225, 1500, 0, ''),
-(457, 55, 227, 2000, 0, ''),
-(458, 55, 384, 4000, 0, ''),
-(459, 55, 315, 600, 0, '');
+(456, 55, 225, 1500, 550, ''),
+(457, 56, 227, 2000, 0, ''),
+(458, 55, 384, 4000, 4000, ''),
+(459, 55, 315, 800, 800, ''),
+(460, 56, 502, 1200, 0, ''),
+(461, 56, 299, 1050, 0, ''),
+(462, 56, 513, 60, 0, ''),
+(463, 56, 441, 480, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1309,7 +1295,23 @@ INSERT INTO `deppo_stock_card_list` (`id`, `code`, `name`, `quantity`, `image_ur
 (600, '150.05.0515.00007', '50 LIK SEGMAN', 0, '', 'ü'),
 (601, '150.05.0515.00008', '55 LIK SEGMAN', 0, '', 'ü'),
 (602, '150.05.0515.00009', '72 LIK SEGMAN', 0, '', 'ü'),
-(603, '150.05.0517.00122', 'KORUYUCU GOZLUK SEFFAF', 0, '', 'ü');
+(603, '150.05.0517.00122', 'KORUYUCU GOZLUK SEFFAF', 0, '', 'ü'),
+(604, '150.01.0122.00011', 'M1 MILI', 0, '', 'ü'),
+(605, '150.01.0122.00012', 'M2 MILI (MIL 102)', 0, '', 'ü'),
+(606, '150.01.0122.00013', 'M3 MILI', 0, '', 'ü'),
+(607, '150.01.0122.00014', 'M4 MILI', 0, '', 'ü'),
+(608, '150.01.0122.00015', 'M5 MILI (103 MIL)', 0, '', 'ü'),
+(609, '150.01.0122.00035', 'M6 MILI', 0, '', 'ü'),
+(610, '150.01.0122.00016', '1 NUMARALI MIL', 0, '', 'ü'),
+(611, '150.01.0122.00001', 'K1 KOVAN', 0, '', 'ü'),
+(612, '150.01.0122.00002', 'K2 KOVAN', 0, '', 'ü'),
+(613, '150.01.0122.00003', 'K3 KOVAN (PEDAL KOVANI)', 0, '', 'ü'),
+(614, '150.01.0122.00004', 'K4 KOVAN', 0, '', 'ü'),
+(615, '150.01.0122.00005', 'K5 KOVAN', 0, '', 'ü'),
+(616, '150.01.0122.00006', 'YNF BUYUK KOVAN', 0, '', 'ü'),
+(617, '150.01.0122.00007', 'YNF KUCUK KOVAN', 0, '', 'ü'),
+(618, '150.01.0122.00008', '1 NUMARALI KOVAN(DONENCE)', 0, '', 'ü'),
+(619, '150.01.0122.00037', '1 NUMARALI KOVAN KAPAGI', 0, '', 'ü');
 
 -- --------------------------------------------------------
 
@@ -1454,7 +1456,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -1466,7 +1468,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=460;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=464;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
@@ -1490,7 +1492,7 @@ ALTER TABLE `deppo_receipt_types`
 -- Tablo için AUTO_INCREMENT değeri `deppo_stock_card_list`
 --
 ALTER TABLE `deppo_stock_card_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=604;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=620;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_supplier_list`
