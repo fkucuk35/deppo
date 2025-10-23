@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 20 Eki 2025, 22:09:42
+-- Üretim Zamanı: 23 Eki 2025, 16:54:05
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -34,21 +34,6 @@ CREATE TABLE `deppo_logs` (
   `operation` varchar(50) NOT NULL,
   `operation_detail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `deppo_logs`
---
-
-INSERT INTO `deppo_logs` (`id`, `user_id`, `created_at`, `operation`, `operation_detail`) VALUES
-(1, 1, '2025-10-13 08:10:39', 'login', 'Kullanıcı girişi yapıldı'),
-(2, 1, '2025-10-14 08:14:37', 'login', 'Kullanıcı girişi yapıldı'),
-(3, 1, '2025-10-16 10:30:02', 'login', 'Kullanıcı girişi yapıldı'),
-(4, 1, '2025-10-16 22:16:09', 'login', 'Kullanıcı girişi yapıldı'),
-(5, 1, '2025-10-17 08:06:56', 'login', 'Kullanıcı girişi yapıldı'),
-(6, 1, '2025-10-17 23:28:52', 'login', 'Kullanıcı girişi yapıldı'),
-(7, 1, '2025-10-18 08:52:24', 'login', 'Kullanıcı girişi yapıldı'),
-(8, 1, '2025-10-20 08:48:13', 'login', 'Kullanıcı girişi yapıldı'),
-(9, 1, '2025-10-20 14:19:44', 'login', 'Kullanıcı girişi yapıldı');
 
 -- --------------------------------------------------------
 
@@ -124,10 +109,10 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (53, 2, 1, 'SIP-2025-000052', '2025-09-30 00:00:00', '3/8 1 MM PUL - 2000 ADET'),
 (54, 3, 1, 'SIP-2025-000053', '2025-10-06 00:00:00', '8X100 HAVSA BAS CIVATA - 500+\r\n4,8×60 YHSB AKILLI - 1000+'),
 (55, 3, 1, 'SIP-2025-000054', '2025-10-09 00:00:00', '5/16 3 MM PUL - 500+\r\n3/8 3 MM PUL - 200+\r\nBEST LU500 SIVI GRES - 5+\r\nM8 KLAVUZ - 10+\r\n14X50 ANAHTAR BAŞ CİVATA (TAM PASOLU) - 600+'),
-(56, 2, 1, 'SIP-2025-000055', '2025-10-14 00:00:00', '3,5x13 SUNTA VİDASI - 2000+'),
+(56, 3, 1, 'SIP-2025-000055', '2025-10-14 00:00:00', '3,5x13 SUNTA VİDASI - 2000+'),
 (57, 2, 6, 'SIP-2025-000056', '2025-10-20 00:00:00', ''),
 (58, 3, 6, 'SIP-2025-000057', '2025-10-02 00:00:00', ''),
-(59, 2, 1, 'SIP-2025-000058', '2025-10-20 00:00:00', '8x80 TRIFON VIDA - 2000'),
+(59, 2, 1, 'SIP-2025-000058', '2025-10-20 00:00:00', '8x80 TRIFON VIDA - 2000+'),
 (60, 1, 1, 'SIP-2025-000059', '2025-10-27 00:00:00', '');
 
 -- --------------------------------------------------------
@@ -571,7 +556,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (436, 53, 350, 300, 300, ''),
 (437, 53, 390, 4000, 4000, ''),
 (438, 53, 377, 4000, 4000, ''),
-(439, 53, 310, 1000, 470, ''),
+(439, 53, 310, 1470, 1470, ''),
 (440, 53, 311, 1000, 520, ''),
 (441, 53, 399, 2000, 2000, ''),
 (442, 54, 294, 350, 350, ''),
@@ -589,13 +574,13 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (454, 53, 349, 420, 420, ''),
 (455, 55, 324, 600, 600, ''),
 (456, 55, 225, 2200, 2200, ''),
-(457, 60, 227, 2000, 0, ''),
+(457, 60, 227, 3200, 3200, ''),
 (458, 55, 384, 4000, 4000, ''),
 (459, 55, 315, 800, 800, ''),
 (460, 56, 502, 1200, 1200, ''),
 (461, 56, 299, 1050, 1050, ''),
 (462, 56, 513, 60, 60, ''),
-(463, 56, 441, 480, 240, ''),
+(463, 56, 441, 480, 480, ''),
 (464, 56, 507, 500, 500, ''),
 (465, 56, 418, 2250, 2250, ''),
 (466, 57, 479, 100, 0, ''),
@@ -603,23 +588,27 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (468, 58, 597, 250, 250, ''),
 (469, 58, 450, 500, 500, ''),
 (470, 58, 466, 400, 400, ''),
-(471, 59, 519, 2000, 0, ''),
-(472, 59, 400, 5000, 0, ''),
-(473, 59, 438, 120, 0, ''),
-(474, 59, 316, 500, 0, ''),
+(471, 59, 519, 2100, 2100, ''),
+(472, 59, 400, 5000, 5000, ''),
+(473, 59, 438, 120, 120, ''),
+(474, 59, 316, 500, 500, ''),
 (475, 59, 234, 500, 0, ''),
-(476, 59, 315, 500, 0, ''),
-(477, 59, 513, 60, 0, ''),
-(478, 59, 384, 4000, 0, ''),
-(479, 59, 512, 10, 0, ''),
-(480, 59, 518, 5, 0, ''),
+(476, 59, 315, 800, 800, ''),
+(477, 59, 513, 60, 60, ''),
+(478, 59, 384, 4000, 4000, ''),
+(479, 59, 512, 10, 10, ''),
+(480, 59, 518, 5, 5, ''),
 (481, 57, 450, 500, 0, ''),
 (482, 57, 466, 300, 0, ''),
 (483, 57, 595, 200, 0, ''),
 (484, 57, 597, 300, 0, ''),
 (485, 57, 594, 300, 0, ''),
 (486, 60, 235, 500, 0, ''),
-(487, 60, 447, 24, 0, '');
+(487, 60, 447, 24, 0, ''),
+(488, 60, 409, 2400, 0, ''),
+(489, 60, 430, 50, 0, ''),
+(490, 60, 502, 1200, 0, ''),
+(491, 60, 429, 50, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1499,7 +1488,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_logs`
 --
 ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
@@ -1511,7 +1500,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=488;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=492;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
