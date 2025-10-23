@@ -4,7 +4,6 @@ require "libs/functions.php";
 include 'config_db.php';
 include 'libs/orm/dao.php';
 include 'dao/user.php';
-include 'dao/log.php';
 
 if (isLoggedIn()) {
     header("Location: index.php");
@@ -44,11 +43,6 @@ if (isset($_POST["login"])) {
             $_SESSION["user_type"] = $r['user_type'];
             $_SESSION["image_url"] = $r['image_url'];
             $_SESSION["newLogined"] = true;
-            $log = new Log();
-            $log->user_id = $_SESSION['id'];
-            $log->operation = "login";
-            $log->operation_detail = "Kullanıcı girişi yapıldı";
-            $log->insert();
             header("Location: index.php");
         } else {
             $loginErr = "Kullanıcı adı ve/veya Parola yanlış";

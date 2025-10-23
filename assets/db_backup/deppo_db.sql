@@ -24,20 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `deppo_logs`
---
-
-CREATE TABLE `deppo_logs` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `operation` varchar(50) NOT NULL,
-  `operation_detail` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
--- --------------------------------------------------------
-
---
 -- Tablo için tablo yapısı `deppo_order`
 --
 
@@ -1423,12 +1409,6 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 
 --
--- Tablo için indeksler `deppo_logs`
---
-ALTER TABLE `deppo_logs`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Tablo için indeksler `deppo_order`
 --
 ALTER TABLE `deppo_order`
@@ -1483,12 +1463,6 @@ ALTER TABLE `deppo_users`
 --
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
-
---
--- Tablo için AUTO_INCREMENT değeri `deppo_logs`
---
-ALTER TABLE `deppo_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
