@@ -7,7 +7,7 @@ switch($GLOBALS['HOST']){
 	case 'local':
 		$host = "localhost";
 		$db_username = "root";
-		$db_password = "";
+		$db_password = "admin.1234";
 		$db = ($GLOBALS['ALIVEORTEST']) ? "deppo_db" : "deppo_test_db";
                 $port = 3306;
 	break;

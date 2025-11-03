@@ -6,7 +6,6 @@ if (!isLoggedIn()) {
 include 'config_db.php';
 include 'libs/orm/dao.php';
 require_once 'dao/user.php';
-require_once 'dao/log.php';
 ?>
 
 <?php include "partials/_header.php" ?>
@@ -70,11 +69,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["name"] = $name;
         $_SESSION["email"] = $email;
         $_SESSION["profileUpdated"] = true;
-        $log = new Log();
-        $log->user_id = $_SESSION['id'];
-        $log->operation = "profile_update";
-        $log->operation_detail = "Kullanıcı profili güncellendi";
-        $log->insert();
         header("Location: index.php");
     }
 } else {
