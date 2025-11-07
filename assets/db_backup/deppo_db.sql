@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: localhost
--- Üretim Zamanı: 06 Kas 2025, 08:54:00
+-- Anamakine: 127.0.0.1
+-- Üretim Zamanı: 07 Kas 2025, 22:27:54
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -92,7 +92,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (50, 3, 1, 'SIP-2025-000049', '2025-09-05 00:00:00', 'M6X210 DELİCİ HİLTİ UCU - 10+\r\nM10X210 DELİCİ HİLTİ UCU - 10+\r\nM12X210 DELİCİ HİLTİ UCU - 10+'),
 (51, 3, 1, 'SIP-2025-000050', '2025-09-08 00:00:00', '3/8 1 MM PUL - 1000+\r\nKARBOSAN 115X3.0X22 KESİCİ TAŞ - 100+\r\nMONTAJ ELDIVENI SIYAH NO:9 - 48+\r\nMONTAJ ELDIVENI SIYAH NO:8 - 48+'),
 (52, 3, 1, 'SIP-2025-000051', '2025-09-29 00:00:00', ''),
-(53, 2, 1, 'SIP-2025-000052', '2025-09-30 00:00:00', ''),
+(53, 3, 1, 'SIP-2025-000052', '2025-09-30 00:00:00', ''),
 (54, 3, 1, 'SIP-2025-000053', '2025-10-06 00:00:00', '8X100 HAVSA BAS CIVATA - 500+\r\n4,8×60 YHSB AKILLI - 1000+'),
 (55, 3, 1, 'SIP-2025-000054', '2025-10-09 00:00:00', '5/16 3 MM PUL - 500+\r\n3/8 3 MM PUL - 200+\r\nBEST LU500 SIVI GRES - 5+\r\nM8 KLAVUZ - 10+\r\n14X50 ANAHTAR BAŞ CİVATA (TAM PASOLU) - 600+'),
 (56, 3, 1, 'SIP-2025-000055', '2025-10-14 00:00:00', '3,5x13 SUNTA VİDASI - 2000+'),
@@ -101,8 +101,9 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (59, 3, 1, 'SIP-2025-000058', '2025-10-20 00:00:00', '8x80 TRIFON VIDA - 2000+'),
 (60, 2, 1, 'SIP-2025-000059', '2025-10-28 00:00:00', '5/16 3 MM PUL - 500'),
 (61, 2, 1, 'SIP-2025-000060', '2025-10-31 00:00:00', ''),
-(62, 2, 1, 'SIP-2025-000061', '2025-11-05 00:00:00', '6x12 BOMBE BAS CIVATA - 3500\r\n3,5X13 SUNTA VIDASI - 6000\r\n3/8 1 MM PUL - 4000 ADET'),
-(63, 1, 1, 'SIP-2025-000062', '2025-11-10 00:00:00', '');
+(62, 2, 1, 'SIP-2025-000061', '2025-11-05 00:00:00', '6x12 BOMBE BAS CIVATA - 3500\r\n3,5X13 SUNTA VIDASI - 6000+\r\n3/8 1 MM PUL - 4000 ADET'),
+(63, 3, 1, 'SIP-2025-000062', '2025-11-07 00:00:00', ''),
+(64, 1, 1, 'SIP-2025-000063', '2025-11-10 00:00:00', 'KAGIT BANT KALIN (48x35) - 72\r\n36X35 MASKELEME BANDI DAYSON - 96\r\n3/8 2 MM PUL - 4000');
 
 -- --------------------------------------------------------
 
@@ -371,7 +372,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (259, 34, 349, 200, 200, ''),
 (260, 34, 350, 140, 140, ''),
 (261, 34, 351, 200, 200, ''),
-(262, 63, 354, 200, 0, ''),
+(262, 64, 354, 200, 0, ''),
 (263, 34, 441, 360, 360, ''),
 (264, 34, 535, 6000, 6000, ''),
 (265, 34, 502, 1200, 1200, ''),
@@ -533,7 +534,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (424, 51, 319, 400, 400, ''),
 (425, 52, 513, 60, 60, ''),
 (426, 52, 438, 120, 120, ''),
-(427, 63, 349, 350, 0, ''),
+(427, 64, 349, 350, 0, ''),
 (428, 52, 434, 48, 48, ''),
 (429, 52, 384, 4000, 4000, ''),
 (430, 52, 400, 5000, 5000, ''),
@@ -546,7 +547,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (437, 53, 390, 4000, 4000, ''),
 (438, 53, 377, 4000, 4000, ''),
 (439, 53, 310, 1470, 1470, ''),
-(440, 53, 311, 1000, 520, ''),
+(440, 53, 311, 1120, 1120, ''),
 (441, 53, 399, 2000, 2000, ''),
 (442, 54, 294, 350, 350, ''),
 (443, 54, 295, 300, 300, ''),
@@ -608,26 +609,28 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (499, 61, 430, 50, 50, ''),
 (500, 61, 384, 4000, 1725, ''),
 (501, 57, 454, 300, 0, ''),
-(502, 61, 299, 1050, 0, ''),
+(502, 61, 299, 1050, 1050, ''),
 (503, 61, 300, 1050, 0, ''),
-(504, 63, 400, 5000, 0, ''),
-(505, 62, 399, 2000, 0, ''),
-(506, 62, 339, 500, 0, ''),
-(507, 62, 331, 200, 0, ''),
+(504, 64, 400, 5000, 0, ''),
+(505, 62, 399, 2500, 2500, ''),
+(506, 62, 339, 525, 525, ''),
+(507, 62, 331, 125, 125, ''),
 (508, 62, 332, 200, 0, ''),
-(509, 62, 431, 40, 0, ''),
-(510, 62, 379, 200, 0, ''),
-(511, 62, 403, 200, 0, ''),
-(512, 62, 290, 60, 0, ''),
-(513, 62, 380, 200, 0, ''),
-(514, 62, 404, 200, 0, ''),
-(515, 62, 502, 1200, 0, ''),
-(516, 62, 507, 500, 0, ''),
-(517, 62, 536, 300, 0, ''),
-(518, 62, 317, 1200, 0, ''),
-(519, 63, 379, 1000, 0, ''),
-(523, 63, 252, 2000, 0, ''),
-(524, 63, 383, 4000, 0, '');
+(509, 62, 431, 40, 40, ''),
+(510, 62, 379, 200, 200, ''),
+(511, 62, 403, 200, 200, ''),
+(512, 62, 290, 70, 70, ''),
+(513, 62, 380, 200, 200, ''),
+(514, 62, 404, 300, 300, ''),
+(515, 62, 502, 1200, 1200, ''),
+(516, 62, 507, 500, 500, ''),
+(517, 62, 536, 450, 450, ''),
+(518, 62, 317, 1500, 1500, ''),
+(523, 63, 252, 2000, 2000, ''),
+(524, 63, 383, 4000, 4000, ''),
+(525, 63, 517, 300, 300, 'KARBOSAN 115X1.0X22 INOX KESICI TAS'),
+(526, 63, 294, 700, 700, ''),
+(527, 64, 401, 2000, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1419,6 +1422,24 @@ INSERT INTO `deppo_users` (`id`, `username`, `email`, `password`, `name`, `image
 (2, 'satinalma', 'satinalma@yapisanpark.com', 'e10adc3949ba59abbe56e057f20f883e', 'Seren AYDOĞDU', 'SEREN-AYDOGDU.jpg', 'ü', '2024-12-23 14:24:25', '', 'user'),
 (3, 'fatih.kucuk', 'fatihkucuk@live.com', '3c308e560d3fb3508b166bca45c3cb93', 'Fatih KÜÇÜK', 'FATIH-KUCUK.jpg', 'ü', '2024-12-23 15:26:25', '', 'admin');
 
+-- --------------------------------------------------------
+
+--
+-- Görünüm yapısı `deppo_order_detail_list_view`
+--
+DROP TABLE IF EXISTS `deppo_order_detail_list_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `deppo_order_detail_list_view`  AS SELECT `od`.`id` AS `id`, `od`.`order_id` AS `order_id`, `od`.`stock_id` AS `stock_id`, `od`.`ordered_quantity` AS `ordered_quantity`, `od`.`received_quantity` AS `received_quantity`, `od`.`description` AS `description`, `scl`.`code` AS `code`, `scl`.`name` AS `name` FROM (`deppo_order_detail` `od` left join `deppo_stock_card_list` `scl` on(`od`.`stock_id` = `scl`.`id`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Görünüm yapısı `deppo_order_list_view`
+--
+DROP TABLE IF EXISTS `deppo_order_list_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `deppo_order_list_view`  AS SELECT `do`.`id` AS `id`, `do`.`status_id` AS `status_id`, `do`.`supplier_id` AS `supplier_id`, `do`.`number` AS `number`, `do`.`date` AS `date`, `do`.`description` AS `description`, `dsl`.`name` AS `supplier_name`, `dos`.`name` AS `status` FROM ((`deppo_order` `do` left join `deppo_supplier_list` `dsl` on(`do`.`supplier_id` = `dsl`.`id`)) left join `deppo_order_status` `dos` on(`do`.`status_id` = `dos`.`id`)) ;
+
 --
 -- Dökümü yapılmış tablolar için indeksler
 --
@@ -1483,13 +1504,13 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=525;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
@@ -1526,24 +1547,6 @@ ALTER TABLE `deppo_supplier_list`
 --
 ALTER TABLE `deppo_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
--- --------------------------------------------------------
-
---
--- Görünüm yapısı `deppo_order_detail_list_view`
---
-DROP TABLE IF EXISTS `deppo_order_detail_list_view`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `deppo_order_detail_list_view`  AS SELECT `od`.`id` AS `id`, `od`.`order_id` AS `order_id`, `od`.`stock_id` AS `stock_id`, `od`.`ordered_quantity` AS `ordered_quantity`, `od`.`received_quantity` AS `received_quantity`, `od`.`description` AS `description`, `scl`.`code` AS `code`, `scl`.`name` AS `name` FROM (`deppo_order_detail` `od` left join `deppo_stock_card_list` `scl` on(`od`.`stock_id` = `scl`.`id`)) ;
-
--- --------------------------------------------------------
-
---
--- Görünüm yapısı `deppo_order_list_view`
---
-DROP TABLE IF EXISTS `deppo_order_list_view`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `deppo_order_list_view`  AS SELECT `do`.`id` AS `id`, `do`.`status_id` AS `status_id`, `do`.`supplier_id` AS `supplier_id`, `do`.`number` AS `number`, `do`.`date` AS `date`, `do`.`description` AS `description`, `dsl`.`name` AS `supplier_name`, `dos`.`name` AS `status` FROM ((`deppo_order` `do` left join `deppo_supplier_list` `dsl` on(`do`.`supplier_id` = `dsl`.`id`)) left join `deppo_order_status` `dos` on(`do`.`status_id` = `dos`.`id`)) ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
