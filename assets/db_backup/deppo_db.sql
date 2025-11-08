@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 07 Kas 2025, 22:42:52
+-- Üretim Zamanı: 08 Kas 2025, 13:32:24
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -631,7 +631,8 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (524, 63, 383, 4000, 4000, ''),
 (525, 63, 517, 300, 300, 'KARBOSAN 115X1.0X22 INOX KESICI TAS'),
 (526, 63, 294, 700, 700, ''),
-(527, 64, 401, 2000, 0, '');
+(527, 64, 401, 2000, 0, ''),
+(528, 64, 513, 60, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1511,7 +1512,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=528;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=529;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
