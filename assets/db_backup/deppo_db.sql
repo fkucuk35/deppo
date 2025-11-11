@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 11 Kas 2025, 20:08:32
+-- Üretim Zamanı: 11 Kas 2025, 20:33:39
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -104,7 +104,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (62, 2, 1, 'SIP-2025-000061', '2025-11-05 00:00:00', '6x12 BOMBE BAS CIVATA - 3500\r\n3,5X13 SUNTA VIDASI - 6000+'),
 (63, 2, 1, 'SIP-2025-000062', '2025-11-07 00:00:00', ''),
 (64, 2, 1, 'SIP-2025-000063', '2025-11-10 00:00:00', 'KAGIT BANT KALIN (48x35) - 72\r\n36X35 MASKELEME BANDI DAYSON - 96\r\n3/8 1 MM PUL - 4000'),
-(65, 1, 1, 'SIP-2025-000064', '2025-11-17 00:00:00', '3/8 2 MM PUL - 4000');
+(65, 1, 1, 'SIP-2025-000064', '2025-11-17 00:00:00', '3/8 2 MM PUL - 4000'),
+(66, 1, 1, 'SIP-2025-000065', '2025-11-24 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -373,7 +374,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (259, 34, 349, 200, 200, ''),
 (260, 34, 350, 140, 140, ''),
 (261, 34, 351, 200, 200, ''),
-(262, 65, 354, 200, 0, ''),
+(262, 66, 354, 200, 0, ''),
 (263, 34, 441, 360, 360, ''),
 (264, 34, 535, 6000, 6000, ''),
 (265, 34, 502, 1200, 1200, ''),
@@ -535,7 +536,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (424, 51, 319, 400, 400, ''),
 (425, 52, 513, 60, 60, ''),
 (426, 52, 438, 120, 120, ''),
-(427, 65, 349, 350, 0, ''),
+(427, 66, 349, 350, 0, ''),
 (428, 52, 434, 48, 48, ''),
 (429, 52, 384, 4000, 4000, ''),
 (430, 52, 400, 5000, 5000, ''),
@@ -1513,7 +1514,7 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
