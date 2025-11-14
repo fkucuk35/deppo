@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 11 Kas 2025, 20:33:39
+-- Üretim Zamanı: 14 Kas 2025, 21:14:00
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -64,7 +64,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (21, 3, 1, 'SIP-2025-000021', '2025-02-28 00:00:00', '14x80 ANAHTAR BAŞ CİVATA - 4 ADET+'),
 (22, 3, 1, 'SIP-2025-000022', '2025-03-12 00:00:00', 'M6X110 KIRICI DELİCİ UÇ - 6 ADET+\r\nM10X160 KIRICI DELİCİ UÇ - 6 ADET+\r\nM12X210 KIRICI DELİCİ UÇ - 6 ADET+\r\nM16X210 KIRICI DELİCİ UÇ - 6 ADET+\r\n9MM MATKAP UCU - 2 ADET+\r\nRAA2427 AÇIK AĞIZ ANAHTAR 24X27 - 1 ADET+\r\n1/2 LOKMA TAKIMI 25 PARÇA RICO - 1 ADET+\r\nRAA5722 AÇIK AĞIZ ANAHTAR TAKIMI 8 PARÇA - 1 ADET+\r\nSU TERAZİSİ - 50 CM - 1 ADET+\r\nHAVA TABANCASI - 1 ADET+'),
 (23, 3, 1, 'SIP-2025-000023', '2025-03-16 00:00:00', 'SELSİL HIZLI YAPIŞTIRICI - 5 ADET+'),
-(24, 3, 1, 'SIP-2025-000024', '2025-04-15 00:00:00', '4X10 POPUP PERÇİN - 1000 ADET+\r\n5x16 YHB CİVATA - 1400 ADET+\r\nM5 FİBERLİ SOMUN - 1500 ADET+\r\n3,5X13 SUNTA VİDASI - 5000 ADET+\r\n4X16 SUNTA VİDASI - 1000 ADET+\r\n3,9x16 RONDELA BAŞLI AKILLI VİDA - 2000 ADET+\r\nBETA BT5 KAYNAK SPREYİ - 40 ADET+\r\nMONTAJ ELDIVENI SIYAH NO: 9 - 60 ÇİFT+'),
+(24, 3, 1, 'SIP-2025-000024', '2025-04-15 00:00:00', '4X10 POPUP PERÇİN - 1000 ADET+\n5x16 YHB CİVATA - 1400 ADET+\nM5 FİBERLİ SOMUN - 1500 ADET+\n3,5X13 SUNTA VİDASI - 5000 ADET+\n4X16 SUNTA VİDASI - 1000 ADET+\n3,9x16 RONDELA BAŞLI AKILLI VİDA - 2000 ADET+\nBETA BT5 KAYNAK SPREYİ - 40 ADET+\nMONTAJ ELDIVENI SIYAH NO: 9 - 60 ÇİFT+'),
 (25, 3, 6, 'SIP-2025-000025', '2025-04-15 00:00:00', ''),
 (26, 3, 1, 'SIP-2025-000026', '2025-04-17 00:00:00', '8X80 TRİFON VİDA - 750+'),
 (27, 3, 1, 'SIP-2025-000027', '2025-04-20 00:00:00', 'BEST DC 1881 INOX TEMİZLEYİCİ SPREY - 24+'),
@@ -96,16 +96,18 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (54, 3, 1, 'SIP-2025-000053', '2025-10-06 00:00:00', '8X100 HAVSA BAS CIVATA - 500+\r\n4,8×60 YHSB AKILLI - 1000+'),
 (55, 3, 1, 'SIP-2025-000054', '2025-10-09 00:00:00', '5/16 3 MM PUL - 500+\r\n3/8 3 MM PUL - 200+\r\nBEST LU500 SIVI GRES - 5+\r\nM8 KLAVUZ - 10+\r\n14X50 ANAHTAR BAŞ CİVATA (TAM PASOLU) - 600+'),
 (56, 3, 1, 'SIP-2025-000055', '2025-10-14 00:00:00', '3,5x13 SUNTA VİDASI - 2000+'),
-(57, 2, 6, 'SIP-2025-000056', '2025-10-20 00:00:00', ''),
+(57, 3, 6, 'SIP-2025-000056', '2025-10-20 00:00:00', ''),
 (58, 3, 6, 'SIP-2025-000057', '2025-10-02 00:00:00', ''),
 (59, 3, 1, 'SIP-2025-000058', '2025-10-20 00:00:00', '8x80 TRIFON VIDA - 2000+'),
-(60, 2, 1, 'SIP-2025-000059', '2025-10-28 00:00:00', '5/16 3 MM PUL - 500'),
+(60, 3, 1, 'SIP-2025-000059', '2025-10-28 00:00:00', '5/16 3 MM PUL - 2000+'),
 (61, 2, 1, 'SIP-2025-000060', '2025-10-31 00:00:00', ''),
 (62, 2, 1, 'SIP-2025-000061', '2025-11-05 00:00:00', '6x12 BOMBE BAS CIVATA - 3500\r\n3,5X13 SUNTA VIDASI - 6000+'),
-(63, 2, 1, 'SIP-2025-000062', '2025-11-07 00:00:00', ''),
-(64, 2, 1, 'SIP-2025-000063', '2025-11-10 00:00:00', 'KAGIT BANT KALIN (48x35) - 72\r\n36X35 MASKELEME BANDI DAYSON - 96\r\n3/8 1 MM PUL - 4000'),
-(65, 1, 1, 'SIP-2025-000064', '2025-11-17 00:00:00', '3/8 2 MM PUL - 4000'),
-(66, 1, 1, 'SIP-2025-000065', '2025-11-24 00:00:00', '');
+(63, 3, 1, 'SIP-2025-000062', '2025-11-07 00:00:00', ''),
+(64, 3, 1, 'SIP-2025-000063', '2025-11-10 00:00:00', 'KAGIT BANT KALIN (48x35) - 72+\r\n36X35 MASKELEME BANDI DAYSON - 96+'),
+(65, 2, 1, 'SIP-2025-000064', '2025-11-13 00:00:00', '3/8 1 MM PUL - 4000'),
+(66, 3, 1, 'SIP-2025-000065', '2025-11-13 00:00:00', 'TEFLON BANT - 10+\r\nELEKTRIKCI BANTI - 10+\r\n3,5x25 ARKALIK VİDA - 2000'),
+(67, 1, 1, 'SIP-2025-000066', '2025-11-17 00:00:00', '5X16 YHB CIVATA - 1600\r\nM5 FIBERLI SOMUN - 1600\r\nKARBOSAN 115X6.4X22 TASLAMA TASI - 25'),
+(68, 1, 1, 'SIP-2025-000067', '2025-11-24 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -374,7 +376,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (259, 34, 349, 200, 200, ''),
 (260, 34, 350, 140, 140, ''),
 (261, 34, 351, 200, 200, ''),
-(262, 66, 354, 200, 0, ''),
+(262, 68, 354, 200, 0, ''),
 (263, 34, 441, 360, 360, ''),
 (264, 34, 535, 6000, 6000, ''),
 (265, 34, 502, 1200, 1200, ''),
@@ -536,7 +538,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (424, 51, 319, 400, 400, ''),
 (425, 52, 513, 60, 60, ''),
 (426, 52, 438, 120, 120, ''),
-(427, 66, 349, 350, 0, ''),
+(427, 68, 349, 350, 0, ''),
 (428, 52, 434, 48, 48, ''),
 (429, 52, 384, 4000, 4000, ''),
 (430, 52, 400, 5000, 5000, ''),
@@ -595,7 +597,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (483, 57, 595, 200, 200, ''),
 (484, 57, 597, 300, 300, ''),
 (485, 57, 594, 300, 300, ''),
-(486, 60, 235, 500, 0, ''),
+(486, 60, 235, 700, 700, ''),
 (487, 60, 447, 24, 24, ''),
 (488, 60, 409, 2400, 2400, ''),
 (489, 60, 430, 50, 50, ''),
@@ -609,15 +611,15 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (497, 61, 512, 10, 10, ''),
 (498, 61, 429, 50, 50, ''),
 (499, 61, 430, 50, 50, ''),
-(500, 61, 384, 4000, 1725, ''),
-(501, 57, 454, 300, 0, ''),
+(500, 61, 384, 6900, 6900, ''),
+(501, 57, 454, 300, 300, ''),
 (502, 61, 299, 1050, 1050, ''),
 (503, 61, 300, 1050, 0, ''),
-(504, 64, 400, 5000, 0, ''),
+(504, 64, 400, 6000, 6000, ''),
 (505, 62, 399, 2500, 2500, ''),
 (506, 62, 339, 525, 525, ''),
-(507, 62, 331, 125, 125, ''),
-(508, 62, 332, 200, 0, ''),
+(507, 62, 331, 250, 250, ''),
+(508, 62, 332, 250, 250, ''),
 (509, 62, 431, 40, 40, ''),
 (510, 62, 379, 200, 200, ''),
 (511, 62, 403, 200, 200, ''),
@@ -632,15 +634,17 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (524, 63, 383, 4000, 4000, ''),
 (525, 63, 517, 300, 300, 'KARBOSAN 115X1.0X22 INOX KESICI TAS'),
 (526, 63, 294, 700, 700, ''),
-(527, 64, 401, 2000, 0, ''),
-(528, 64, 513, 60, 0, ''),
-(529, 64, 434, 60, 0, ''),
-(530, 63, 299, 1050, 0, ''),
-(531, 65, 323, 300, 0, ''),
-(532, 65, 418, 2250, 0, ''),
-(533, 65, 441, 480, 0, ''),
-(534, 65, 511, 400, 0, ''),
-(535, 65, 512, 10, 0, '');
+(527, 64, 401, 2700, 2700, ''),
+(528, 64, 513, 60, 60, ''),
+(529, 64, 434, 60, 60, ''),
+(530, 63, 299, 1050, 1050, ''),
+(531, 65, 323, 300, 300, ''),
+(532, 65, 418, 2250, 245, ''),
+(533, 65, 441, 480, 480, ''),
+(534, 65, 511, 400, 400, ''),
+(535, 65, 512, 10, 10, ''),
+(536, 66, 269, 50, 50, ''),
+(537, 66, 548, 2400, 2400, '');
 
 -- --------------------------------------------------------
 
@@ -1514,13 +1518,13 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=536;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=538;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
