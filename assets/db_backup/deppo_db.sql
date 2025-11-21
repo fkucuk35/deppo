@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 19 Kas 2025, 18:25:27
+-- Üretim Zamanı: 21 Kas 2025, 20:47:30
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -104,11 +104,12 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (62, 2, 1, 'SIP-2025-000061', '2025-11-05 00:00:00', '6x12 BOMBE BAS CIVATA - 3500\r\n3,5X13 SUNTA VIDASI - 6000+'),
 (63, 3, 1, 'SIP-2025-000062', '2025-11-07 00:00:00', ''),
 (64, 3, 1, 'SIP-2025-000063', '2025-11-10 00:00:00', 'KAGIT BANT KALIN (48x35) - 72+\r\n36X35 MASKELEME BANDI DAYSON - 96+'),
-(65, 2, 1, 'SIP-2025-000064', '2025-11-13 00:00:00', '3/8 1 MM PUL - 4000'),
+(65, 3, 1, 'SIP-2025-000064', '2025-11-13 00:00:00', ''),
 (66, 3, 1, 'SIP-2025-000065', '2025-11-13 00:00:00', 'TEFLON BANT - 10+\r\nELEKTRIKCI BANTI - 10+\r\n3,5x25 ARKALIK VİDA - 2000'),
 (67, 3, 1, 'SIP-2025-000066', '2025-11-17 00:00:00', '5X16 YHB CIVATA - 1917+\r\nM5 FIBERLI SOMUN - 1600+\r\nKARBOSAN 115X6.4X22 TASLAMA TASI - 25+'),
-(68, 2, 1, 'SIP-2025-000067', '2025-11-19 00:00:00', '3,5X13 - 22000'),
-(69, 1, 1, 'SIP-2025-000068', '2025-11-24 00:00:00', '');
+(68, 3, 1, 'SIP-2025-000067', '2025-11-19 00:00:00', '3,5X13 - 22000+'),
+(69, 2, 1, 'SIP-2025-000068', '2025-11-21 00:00:00', ''),
+(70, 1, 1, 'SIP-2025-000069', '2025-11-24 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -513,7 +514,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (398, 49, 401, 2000, 2000, ''),
 (399, 49, 399, 2000, 2000, ''),
 (400, 48, 441, 260, 260, '50 ADEDİ 60 KUM OLARAK GELDİ'),
-(401, 49, 348, 300, 300, ''),
+(401, 49, 348, 348, 348, ''),
 (402, 49, 544, 20, 20, ''),
 (403, 49, 539, 20, 20, ''),
 (404, 49, 543, 20, 20, ''),
@@ -539,7 +540,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (424, 51, 319, 400, 400, ''),
 (425, 52, 513, 60, 60, ''),
 (426, 52, 438, 120, 120, ''),
-(427, 69, 349, 350, 0, ''),
+(427, 70, 349, 350, 50, ''),
 (428, 52, 434, 48, 48, ''),
 (429, 52, 384, 4000, 4000, ''),
 (430, 52, 400, 5000, 5000, ''),
@@ -647,11 +648,16 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (536, 66, 269, 50, 50, ''),
 (537, 66, 548, 2400, 2400, ''),
 (538, 67, 581, 2700, 2700, ''),
-(539, 69, 581, 2000, 0, ''),
-(540, 68, 502, 1200, 0, ''),
-(541, 69, 513, 60, 0, ''),
+(539, 70, 581, 2000, 0, ''),
+(540, 68, 502, 1677, 1677, ''),
+(541, 69, 513, 60, 60, ''),
 (542, 69, 384, 4000, 0, ''),
-(543, 69, 399, 3000, 0, '');
+(543, 69, 399, 3000, 3000, ''),
+(544, 70, 441, 480, 0, ''),
+(545, 70, 352, 300, 0, ''),
+(546, 70, 351, 300, 0, ''),
+(547, 70, 347, 300, 0, ''),
+(548, 70, 322, 350, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1525,13 +1531,13 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=544;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=549;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
