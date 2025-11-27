@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 26 Kas 2025, 17:54:38
+-- Üretim Zamanı: 27 Kas 2025, 17:45:16
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -110,7 +110,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (68, 3, 1, 'SIP-2025-000067', '2025-11-19 00:00:00', '3,5X13 - 22000+'),
 (69, 2, 1, 'SIP-2025-000068', '2025-11-21 00:00:00', ''),
 (70, 2, 1, 'SIP-2025-000069', '2025-11-24 00:00:00', ''),
-(71, 1, 1, 'SIP-2025-000070', '2025-12-01 00:00:00', '');
+(71, 2, 1, 'SIP-2025-000070', '2025-11-27 00:00:00', ''),
+(72, 1, 1, 'SIP-2025-000071', '2025-12-01 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -649,7 +650,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (536, 66, 269, 50, 50, ''),
 (537, 66, 548, 2400, 2400, ''),
 (538, 67, 581, 2700, 2700, ''),
-(539, 71, 581, 2000, 0, ''),
+(539, 72, 581, 2000, 0, ''),
 (540, 68, 502, 1677, 1677, ''),
 (541, 69, 513, 60, 60, ''),
 (542, 69, 384, 15000, 15000, ''),
@@ -667,7 +668,13 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (554, 70, 507, 300, 300, ''),
 (555, 70, 435, 60, 60, ''),
 (556, 71, 502, 1200, 0, ''),
-(557, 71, 513, 60, 0, '');
+(557, 71, 513, 60, 0, ''),
+(558, 71, 538, 20, 0, ''),
+(559, 71, 540, 20, 0, ''),
+(560, 71, 543, 20, 0, ''),
+(561, 71, 544, 20, 0, ''),
+(562, 72, 409, 2400, 0, ''),
+(563, 72, 317, 1200, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1541,13 +1548,13 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=558;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=564;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
