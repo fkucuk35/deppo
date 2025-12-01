@@ -4,13 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "com.fatihkucuk.myqrscanner"
-    compileSdk = 35
+    namespace = "com.fatihkucuk.deppostokkontrol"
+    compileSdk {
+        version = release(36)
+    }
 
     defaultConfig {
-        applicationId = "com.fatihkucuk.myqrscanner"
+        applicationId = "com.fatihkucuk.deppostokkontrol"
         minSdk = 28
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -36,7 +38,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -52,4 +53,8 @@ dependencies {
     implementation(libs.camera.camera2)
     implementation(libs.camera.lifecycle)
     implementation(libs.androidx.camera.view)
+
+    implementation (libs.retrofit)
+    implementation (libs.gson)
+
 }

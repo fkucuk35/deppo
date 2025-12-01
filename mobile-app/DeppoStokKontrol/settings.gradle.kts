@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "DeppoStokKontrol"
 include(":app")
+ 

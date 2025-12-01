@@ -1,10 +1,8 @@
-package com.fatihkucuk.myqrscanner
+package com.fatihkucuk.deppostokkontrol.view
 
 import android.Manifest
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.provider.Telephony.Mms.Intents
 import android.util.Size
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -23,6 +21,7 @@ import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.fatihkucuk.deppostokkontrol.R
 import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.barcode.common.Barcode
@@ -63,7 +62,7 @@ class ScanActivity : AppCompatActivity() {
     }
 
     private fun startCamera() {
-        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
+        val cameraProviderFuture = ProcessCameraProvider.Companion.getInstance(this)
         val screenSize = Size(1280, 720)
         val resolutionSelector = ResolutionSelector.Builder().setResolutionStrategy(
             ResolutionStrategy(screenSize, ResolutionStrategy.FALLBACK_RULE_NONE)
@@ -117,7 +116,7 @@ class ScanActivity : AppCompatActivity() {
     private fun handleBarcode(barcode: Barcode) = if(barcode.rawValue != null) {
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("result", barcode.rawValue)
-        setResult(Activity.RESULT_OK, intent)
+        setResult(RESULT_OK, intent)
         finish()
     }
     else {
