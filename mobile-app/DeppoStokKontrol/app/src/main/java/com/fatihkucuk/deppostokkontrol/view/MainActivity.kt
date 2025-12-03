@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                     val stockCode = "150.05.0501.00001"
                     if(stockCode != null){
                         val api = Retrofit.Builder()
-                            .baseUrl("http://192.168.1.102/deppo/apis/")
+                            .baseUrl("http://192.168.12.110/deppo/apis/")
                             .addConverterFactory(GsonConverterFactory.create())
                             .build()
                             .create(DeppoAPI::class.java)
