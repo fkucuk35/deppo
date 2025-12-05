@@ -1,12 +1,14 @@
 package com.fatihkucuk.deppostokkontrol.service
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
     private val retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("https://jsonplaceholder.typicode.com")
+            .baseUrl("https://deppo.great-site.net/apis/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

@@ -4,11 +4,11 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface SimpleApi {
-    @GET("/posts/1")
-    suspend fun fetchPost(): Response<MyPost>
+    @GET("getstock.php")
+    suspend fun getStock(): Response<MyStock>
 }
 
-data class MyPost(
-    val title: String,
-    val body: String
+data class MyStock(
+    val stock: Int,
+    val code: String
 )

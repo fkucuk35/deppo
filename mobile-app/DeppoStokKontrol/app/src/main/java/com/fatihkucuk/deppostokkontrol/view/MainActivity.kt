@@ -41,9 +41,9 @@ class MainActivity : AppCompatActivity() {
             resultContract.launch(intent)
         }
         resultTextView = findViewById(R.id.resultTextView)
-        mainViewModel.post.observe(this){
-            myPost->
-            findViewById<TextView>(R.id.resultTextView).text = myPost.title
+        mainViewModel.stock.observe(this){
+            myStock->
+            findViewById<TextView>(R.id.resultTextView).text = myStock.code
         }
         mainViewModel.isLoading.observe(this){
             isLoading->

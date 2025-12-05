@@ -4,15 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.fatihkucuk.deppostokkontrol.service.MyPost
+import com.fatihkucuk.deppostokkontrol.service.MyStock
 import com.fatihkucuk.deppostokkontrol.service.RetrofitInstance
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
-    private val _post = MutableLiveData<MyPost>()
-    val post: LiveData<MyPost>
-        get() = _post
+    private val _stock = MutableLiveData<MyStock>()
+    val stock: LiveData<MyStock>
+        get() = _stock
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading : LiveData<Boolean>
@@ -23,16 +23,16 @@ class MainViewModel : ViewModel() {
         get() = _hasError
 
     init{
-        fetchPost()
+        fetchStock()
     }
 
-    fun fetchPost(){
+    fun fetchStock(){
         viewModelScope.launch {
             _isLoading.value = true
-            val response = RetrofitInstance.api.fetchPost()
+            val response = RetrofitInstance.api.getStock()
             if(response.isSuccessful){
-                response.body()?.let{post->
-                    _post.value = post
+                response.body()?.let{stock->
+                    _stock.value = stock
                     _hasError.value = false
                 }?:run {
                     _hasError.value = true
