@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 03 Ara 2025, 15:26:09
+-- Üretim Zamanı: 05 Ara 2025, 15:55:40
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -101,7 +101,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (59, 3, 1, 'SIP-2025-000058', '2025-10-20 00:00:00', '8x80 TRIFON VIDA - 2000+'),
 (60, 3, 1, 'SIP-2025-000059', '2025-10-28 00:00:00', '5/16 3 MM PUL - 2000+'),
 (61, 2, 1, 'SIP-2025-000060', '2025-10-31 00:00:00', ''),
-(62, 2, 1, 'SIP-2025-000061', '2025-11-05 00:00:00', '6x12 BOMBE BAS CIVATA - 3500\r\n3,5X13 SUNTA VIDASI - 6000+'),
+(62, 3, 1, 'SIP-2025-000061', '2025-11-05 00:00:00', '6x12 BOMBE BAS CIVATA - 3000+\r\n3,5X13 SUNTA VIDASI - 6000+'),
 (63, 3, 1, 'SIP-2025-000062', '2025-11-07 00:00:00', ''),
 (64, 3, 1, 'SIP-2025-000063', '2025-11-10 00:00:00', 'KAGIT BANT KALIN (48x35) - 72+\r\n36X35 MASKELEME BANDI DAYSON - 96+'),
 (65, 3, 1, 'SIP-2025-000064', '2025-11-13 00:00:00', ''),
@@ -113,7 +113,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (71, 3, 1, 'SIP-2025-000070', '2025-11-27 00:00:00', ''),
 (72, 2, 1, 'SIP-2025-000071', '2025-12-01 00:00:00', 'MONTAJ ELDIVENI SIYAH NO:9 - 60'),
 (73, 2, 1, 'SIP-2025-000072', '2025-12-03 00:00:00', '36X35 MASKELEME BANDI DAYSON - 96'),
-(74, 1, 1, 'SIP-2025-000073', '2025-12-08 00:00:00', '');
+(74, 1, 1, 'SIP-2025-000073', '2025-12-08 00:00:00', '6x12 BOMBE BAS CIVATA - 3000\r\nM5X16 YILDIZ HAVSA BAS CIVATA - 2000\r\nM5 FIBERLI SOMUN - 2000');
 
 -- --------------------------------------------------------
 
@@ -684,7 +684,8 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (568, 72, 430, 60, 0, ''),
 (569, 73, 438, 120, 0, ''),
 (571, 73, 583, 6, 0, '1,80 MT'),
-(572, 74, 299, 2100, 0, '');
+(572, 74, 299, 4200, 0, ''),
+(573, 74, 399, 3000, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1564,7 +1565,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=573;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=574;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
