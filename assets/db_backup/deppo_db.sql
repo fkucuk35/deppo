@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 05 Ara 2025, 15:55:40
+-- Üretim Zamanı: 08 Ara 2025, 22:49:15
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -113,7 +113,9 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (71, 3, 1, 'SIP-2025-000070', '2025-11-27 00:00:00', ''),
 (72, 2, 1, 'SIP-2025-000071', '2025-12-01 00:00:00', 'MONTAJ ELDIVENI SIYAH NO:9 - 60'),
 (73, 2, 1, 'SIP-2025-000072', '2025-12-03 00:00:00', '36X35 MASKELEME BANDI DAYSON - 96'),
-(74, 1, 1, 'SIP-2025-000073', '2025-12-08 00:00:00', '6x12 BOMBE BAS CIVATA - 3000\r\nM5X16 YILDIZ HAVSA BAS CIVATA - 2000\r\nM5 FIBERLI SOMUN - 2000');
+(74, 2, 1, 'SIP-2025-000073', '2025-12-08 00:00:00', '6x12 BOMBE BAS CIVATA - 3000\r\nM5X16 YILDIZ HAVSA BAS CIVATA - 2000\r\nM5 FIBERLI SOMUN - 2000'),
+(75, 1, 1, 'SIP-2025-000074', '2025-12-15 00:00:00', ''),
+(76, 1, 6, 'SIP-2025-000075', '2025-12-09 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -652,7 +654,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (536, 66, 269, 50, 50, ''),
 (537, 66, 548, 2400, 2400, ''),
 (538, 67, 581, 2700, 2700, ''),
-(539, 74, 581, 2000, 0, ''),
+(539, 75, 581, 2000, 0, ''),
 (540, 68, 502, 1677, 1677, ''),
 (541, 69, 513, 60, 60, ''),
 (542, 69, 384, 15000, 15000, ''),
@@ -683,9 +685,31 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (567, 72, 429, 60, 0, ''),
 (568, 72, 430, 60, 0, ''),
 (569, 73, 438, 120, 0, ''),
-(571, 73, 583, 6, 0, '1,80 MT'),
+(571, 73, 583, 6, 3, '1,80 MT'),
 (572, 74, 299, 4200, 0, ''),
-(573, 74, 399, 3000, 0, '');
+(573, 75, 399, 3000, 0, ''),
+(574, 74, 400, 5000, 0, ''),
+(575, 76, 450, 500, 0, ''),
+(576, 76, 466, 500, 0, ''),
+(577, 76, 597, 250, 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Görünüm yapısı durumu `deppo_order_detail_list_left_view`
+-- (Asıl görünüm için aşağıya bakın)
+--
+CREATE TABLE `deppo_order_detail_list_left_view` (
+`order_id` int(11)
+,`number` varchar(20)
+,`date` datetime
+,`description` text
+,`stock_code` varchar(50)
+,`stock_name` varchar(100)
+,`ordered_quantity` smallint(5) unsigned
+,`received_quantity` smallint(5)
+,`detail_description` varchar(255)
+);
 
 -- --------------------------------------------------------
 
@@ -1480,6 +1504,15 @@ INSERT INTO `deppo_users` (`id`, `username`, `email`, `password`, `name`, `image
 -- --------------------------------------------------------
 
 --
+-- Görünüm yapısı `deppo_order_detail_list_left_view`
+--
+DROP TABLE IF EXISTS `deppo_order_detail_list_left_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `deppo_order_detail_list_left_view`  AS SELECT `o`.`id` AS `order_id`, `o`.`number` AS `number`, `o`.`date` AS `date`, `o`.`description` AS `description`, `scl`.`code` AS `stock_code`, `scl`.`name` AS `stock_name`, `od`.`ordered_quantity` AS `ordered_quantity`, `od`.`received_quantity` AS `received_quantity`, `od`.`description` AS `detail_description` FROM ((`deppo_order` `o` left join `deppo_order_detail` `od` on(`o`.`id` = `od`.`order_id`)) left join `deppo_stock_card_list` `scl` on(`od`.`stock_id` = `scl`.`id`)) WHERE `od`.`ordered_quantity` > `od`.`received_quantity` ;
+
+-- --------------------------------------------------------
+
+--
 -- Görünüm yapısı `deppo_order_detail_list_view`
 --
 DROP TABLE IF EXISTS `deppo_order_detail_list_view`;
@@ -1559,13 +1592,13 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=574;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=578;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
