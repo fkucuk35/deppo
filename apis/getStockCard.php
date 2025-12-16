@@ -6,7 +6,8 @@ header('Content-Type: application/json');
 include_once('core/initialize.php');
 //instantiate stock card
 $stock_card = new Stock_Card($db);
-$stock_card ->code = isset($_GET["code"]) ? $_GET["code"] : die();
+$stock_card->code = "150.05.0501.00001";
+//$stock_card ->code = isset($_GET["code"]) ? $_GET["code"] : die();
 $stock_card ->getStockCard();
 $stock_arr = array(
     'id'    => $stock_card ->id,
