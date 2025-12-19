@@ -1,23 +1,27 @@
 <?php
-//headers
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
-//initialize our api
-include_once('core/initialize.php');
-//instantiate stock card
-$stock_card = new Stock_Card($db);
-$stock_card->code = "150.05.0501.00001";
-//$stock_card ->code = isset($_GET["code"]) ? $_GET["code"] : die();
-$stock_card ->getStockCard();
-$stock_arr = array(
-    'id'    => $stock_card ->id,
-    'code'    => $stock_card ->code,
-    'name'    => $stock_card ->name,
-    'quantity'    => $stock_card ->quantity,
-    'image_url'    => $stock_card ->image_url,
-    'active'    => $stock_card ->active
-);
+include 'dbconfig.php';
 
-//make a json
-print_r(json_encode($stock_arr));
+header("Content-Type: application/json");
+
+$method = $_SERVER['REQUEST_METHOD'];
+$input = json_decode(file_get_contents('php://input'), true);
+
+switch ($method) {
+    case 'GET':
+        if (isset($_GET['code'])) {
+            $code = $_GET['code'];
+            $result = $conn->query("SELECT * FROM deppo_stock_card_list WHERE code='$code'");
+            $data = $result->fetch_assoc();
+            echo json_encode($data);
+        }
+	else {
+		echo json_encode(["message" => "Parameter not found!"]);
+	}
+	break;
+    default:
+        echo json_encode(["message" => "Invalid request method!"]);
+        break;
+}
+
+$conn->close();
 ?>
