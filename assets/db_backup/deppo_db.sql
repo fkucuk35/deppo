@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 19 Ara 2025, 22:00:19
+-- Üretim Zamanı: 25 Ara 2025, 19:41:13
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -117,7 +117,8 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (75, 3, 1, 'SIP-2025-000074', '2025-12-15 00:00:00', 'KARBOSAN 115X1.0X22 INOX KESICI TAS - 300+'),
 (76, 3, 6, 'SIP-2025-000075', '2025-12-09 00:00:00', ''),
 (77, 2, 1, 'SIP-2025-000076', '2025-12-18 00:00:00', ''),
-(78, 1, 1, 'SIP-2025-000077', '2026-01-05 00:00:00', '4x10 POP PERÇİN - 1000\r\n3,5x13 SUNTA VİDASI - 5000');
+(78, 2, 1, 'SIP-2025-000077', '2025-12-22 00:00:00', '4x10 POP PERÇİN - 1000+\r\n3,5x13 SUNTA VİDASI - 5000+\r\nM10 INOX TIJ - 3 BOY+\r\n3/8 INOX PUL - 30'),
+(79, 1, 1, 'SIP-2025-000078', '2026-01-05 00:00:00', '3/8 2 MM PUL - 4000');
 
 -- --------------------------------------------------------
 
@@ -656,7 +657,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (536, 66, 269, 50, 50, ''),
 (537, 66, 548, 2400, 2400, ''),
 (538, 67, 581, 2700, 2700, ''),
-(539, 78, 581, 2000, 0, ''),
+(539, 78, 581, 2700, 2700, ''),
 (540, 68, 502, 1677, 1677, ''),
 (541, 69, 513, 60, 60, ''),
 (542, 69, 384, 15000, 15000, ''),
@@ -689,7 +690,7 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (569, 73, 438, 120, 120, ''),
 (571, 73, 583, 6, 6, '1,80 MT'),
 (572, 74, 299, 4200, 4200, ''),
-(573, 78, 399, 3000, 0, ''),
+(573, 78, 399, 3000, 3000, ''),
 (574, 74, 400, 6000, 6000, ''),
 (575, 76, 450, 500, 500, ''),
 (576, 76, 466, 500, 500, ''),
@@ -699,13 +700,18 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (580, 75, 502, 1200, 1200, ''),
 (581, 75, 441, 480, 480, ''),
 (582, 77, 603, 24, 24, ''),
-(583, 77, 227, 4800, 0, ''),
-(584, 78, 225, 1650, 0, ''),
+(583, 77, 227, 4800, 3129, ''),
+(584, 78, 225, 1650, 950, ''),
 (585, 77, 230, 1200, 0, ''),
 (586, 78, 321, 900, 0, ''),
 (587, 77, 323, 1600, 1600, ''),
-(588, 78, 310, 1000, 0, ''),
-(589, 77, 383, 4000, 4000, '');
+(588, 78, 310, 1000, 800, ''),
+(589, 77, 383, 4000, 4000, ''),
+(590, 78, 502, 1200, 1200, ''),
+(591, 78, 441, 480, 480, ''),
+(592, 79, 384, 15000, 0, ''),
+(593, 79, 405, 200, 0, ''),
+(594, 79, 401, 2000, 0, '');
 
 -- --------------------------------------------------------
 
@@ -714,7 +720,8 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 -- (Asıl görünüm için aşağıya bakın)
 --
 CREATE TABLE `deppo_order_detail_list_left_view` (
-`order_id` int(11)
+`status` varchar(50)
+,`order_id` int(11)
 ,`number` varchar(20)
 ,`date` datetime
 ,`description` text
@@ -1522,7 +1529,7 @@ INSERT INTO `deppo_users` (`id`, `username`, `email`, `password`, `name`, `image
 --
 DROP TABLE IF EXISTS `deppo_order_detail_list_left_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `deppo_order_detail_list_left_view`  AS SELECT `o`.`id` AS `order_id`, `o`.`number` AS `number`, `o`.`date` AS `date`, `o`.`description` AS `description`, `scl`.`code` AS `stock_code`, `scl`.`name` AS `stock_name`, `od`.`ordered_quantity` AS `ordered_quantity`, `od`.`received_quantity` AS `received_quantity`, `od`.`description` AS `detail_description` FROM ((`deppo_order` `o` left join `deppo_order_detail` `od` on(`o`.`id` = `od`.`order_id`)) left join `deppo_stock_card_list` `scl` on(`od`.`stock_id` = `scl`.`id`)) WHERE `od`.`ordered_quantity` > `od`.`received_quantity` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `deppo_order_detail_list_left_view`  AS SELECT `dos`.`name` AS `status`, `o`.`id` AS `order_id`, `o`.`number` AS `number`, `o`.`date` AS `date`, `o`.`description` AS `description`, `scl`.`code` AS `stock_code`, `scl`.`name` AS `stock_name`, `od`.`ordered_quantity` AS `ordered_quantity`, `od`.`received_quantity` AS `received_quantity`, `od`.`description` AS `detail_description` FROM (((`deppo_order` `o` left join `deppo_order_detail` `od` on(`o`.`id` = `od`.`order_id`)) left join `deppo_stock_card_list` `scl` on(`od`.`stock_id` = `scl`.`id`)) left join `deppo_order_status` `dos` on(`o`.`status_id` = `dos`.`id`)) WHERE `od`.`ordered_quantity` > `od`.`received_quantity` AND `o`.`status_id` = 2 ;
 
 -- --------------------------------------------------------
 
@@ -1606,13 +1613,13 @@ ALTER TABLE `deppo_users`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order`
 --
 ALTER TABLE `deppo_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=590;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=595;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
