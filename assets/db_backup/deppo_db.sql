@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 10 Şub 2026, 18:40:47
+-- Üretim Zamanı: 17 Şub 2026, 19:45:58
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -128,7 +128,7 @@ INSERT INTO `deppo_order` (`id`, `status_id`, `supplier_id`, `number`, `date`, `
 (86, 2, 1, 'SIP-2026-000085', '2026-01-29 00:00:00', ''),
 (87, 2, 1, 'SIP-2026-000086', '2026-03-02 00:00:00', 'MONTAJ ELDIVENI SIYAH NO: 9 - 60+\r\n'),
 (88, 2, 1, 'SIP-2026-000087', '2026-02-05 00:00:00', ''),
-(89, 1, 1, 'SIP-2026-000088', '2026-02-09 00:00:00', '');
+(89, 1, 1, 'SIP-2026-000088', '2026-02-09 00:00:00', '5/16 1 MM PUL - 4000 ADET\r\n5/16 3 MM PUL - 4000 ADET\r\nMATKAP UCU 11 MM - 10 ADET');
 
 -- --------------------------------------------------------
 
@@ -765,11 +765,12 @@ INSERT INTO `deppo_order_detail` (`id`, `order_id`, `stock_id`, `ordered_quantit
 (635, 88, 400, 6000, 6000, ''),
 (636, 87, 429, 55, 55, ''),
 (637, 88, 529, 2000, 2000, ''),
-(638, 88, 534, 2000, 270, ''),
+(638, 88, 534, 5670, 5670, ''),
 (639, 88, 431, 90, 33, ''),
 (640, 88, 379, 300, 300, ''),
 (641, 88, 583, 5, 0, ''),
-(642, 88, 513, 60, 60, '');
+(642, 88, 513, 60, 60, ''),
+(643, 89, 434, 60, 0, '');
 
 -- --------------------------------------------------------
 
@@ -1677,7 +1678,7 @@ ALTER TABLE `deppo_order`
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_detail`
 --
 ALTER TABLE `deppo_order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=643;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=644;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `deppo_order_status`
